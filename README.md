@@ -4,7 +4,9 @@
 
 This repository is a **portfolio project**: it contains the full marketing site, nine production-quality landing page templates, an embedded CMS, and the order/delivery pipeline that would run the business end-to-end. All business data is fictional; photography is from Unsplash.
 
-<!-- TODO after deploying: add live demo link + screenshots here -->
+**Live demo:** [web-studio-chi.vercel.app](https://web-studio-chi.vercel.app)
+
+![Homepage — Tiệm Web Nhỏ](docs/screenshots/homepage.webp)
 
 ## What's inside
 
@@ -17,7 +19,7 @@ This repository is a **portfolio project**: it contains the full marketing site,
 
 ## Templates
 
-Each template locks in its own archetype — typography system, color world, signature interactions — so no two read as the same "house style". Browse any of them at `/templates/<slug>`:
+Each template locks in its own archetype — typography system, color world, signature interactions — so no two read as the same "house style". Browse any of them live at [`/templates/<slug>`](https://web-studio-chi.vercel.app/templates):
 
 | Template | Business | Art direction |
 |---|---|---|
@@ -30,6 +32,12 @@ Each template locks in its own archetype — typography system, color world, sig
 | `sweet-corner` | Bakery & café | Playful pastry shop — Pacifico + Nunito |
 | `urban-brew` | City café | Urban coffee house |
 | `tsuki-coffee` | Japanese café | Quiet Japanese coffee bar |
+
+| [Shizen Spa](https://web-studio-chi.vercel.app/templates/shizen-spa) | [Suối Mây](https://web-studio-chi.vercel.app/templates/suoi-may) |
+|---|---|
+| ![Shizen Spa](docs/screenshots/shizen-spa.webp) | ![Suối Mây](docs/screenshots/suoi-may.webp) |
+| [**Zen Wellness**](https://web-studio-chi.vercel.app/templates/zen-wellness) | |
+| ![Zen Wellness](docs/screenshots/zen-wellness.webp) | |
 
 ## Architecture highlights
 
