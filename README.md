@@ -36,8 +36,8 @@ Each template locks in its own archetype — typography system, color world, sig
 | [Shizen Spa](https://web-studio-chi.vercel.app/templates/shizen-spa) | [Suối Mây](https://web-studio-chi.vercel.app/templates/suoi-may) |
 |---|---|
 | ![Shizen Spa](docs/screenshots/shizen-spa.webp) | ![Suối Mây](docs/screenshots/suoi-may.webp) |
-| [**Zen Wellness**](https://web-studio-chi.vercel.app/templates/zen-wellness) | |
-| ![Zen Wellness](docs/screenshots/zen-wellness.webp) | |
+| [**Zen Wellness**](https://web-studio-chi.vercel.app/templates/zen-wellness) | [**Template catalog**](https://web-studio-chi.vercel.app/templates) |
+| ![Zen Wellness](docs/screenshots/zen-wellness.webp) | ![Template catalog](docs/screenshots/catalog.webp) |
 
 ## Architecture highlights
 
