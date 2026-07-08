@@ -156,7 +156,7 @@ export const DEFAULT_CTA = {
   ctaHeadingItal: "một web tử tế.",
   ctaBody:        "không cần biết mình muốn gì — cứ nhắn, mình tư vấn miễn phí.",
   ctaZaloUrl:     STUDIO_ZALO_URL,
-  ctaPhone:       "0903 555 119",
+  ctaPhone:       "0901 234 567",
   ctaHours:       "Thứ 2 – Thứ 7, 9h–18h",
 };
 

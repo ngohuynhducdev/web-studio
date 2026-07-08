@@ -7,7 +7,7 @@ export default async function ZaloBubble() {
     {},
     { next: { revalidate: 60 } }
   );
-  const href = zaloUrl ?? "https://zalo.me/0903555119";
+  const href = zaloUrl ?? "https://zalo.me/0901234567";
 
   return (
     <a

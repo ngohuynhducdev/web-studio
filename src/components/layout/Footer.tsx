@@ -17,8 +17,8 @@ export default async function Footer() {
   const description = cms?.description  ?? "một tiệm — không phải agency, không phải platform.\nlàm từng cái, tử tế từng cái.";
   const shopLinks   = cms?.shopLinks?.length ? cms.shopLinks : DEFAULT_SHOP_LINKS;
   const email       = cms?.email        ?? "hello@tiemwebnho.com";
-  const phone       = cms?.phone        ?? "0903 555 119";
-  const zaloUrl     = cms?.zaloUrl      ?? "https://zalo.me/0903555119";
+  const phone       = cms?.phone        ?? "0901 234 567";
+  const zaloUrl     = cms?.zaloUrl      ?? "https://zalo.me/0901234567";
   const hours       = cms?.hours        ?? "Thứ 2 – Thứ 7, 9h–18h";
   const facebookUrl = cms?.facebookUrl  ?? "https://facebook.com/tiemwebnho";
   const instagramUrl= cms?.instagramUrl ?? "https://instagram.com/tiemwebnho";

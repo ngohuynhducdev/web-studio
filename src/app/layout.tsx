@@ -51,7 +51,7 @@ const jsonLd = {
   "name": "Tiệm Web Nhỏ",
   "url": "https://tiemwebnho.com",
   "description": "Thiết kế website chuyên nghiệp cho tiệm nail, spa, cà phê, gym. Chọn mẫu có sẵn, nhận web trong 5 ngày.",
-  "telephone": "+84903555119",
+  "telephone": "+84901234567",
   "email": "hello@tiemwebnho.com",
   "priceRange": "$$",
   "areaServed": { "@type": "Country", "name": "Vietnam" },

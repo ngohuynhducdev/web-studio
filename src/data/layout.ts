@@ -1,5 +1,5 @@
 // Single source of truth for the studio's own Zalo contact URL.
-export const STUDIO_ZALO_URL = "https://zalo.me/0903555119";
+export const STUDIO_ZALO_URL = "https://zalo.me/0901234567";
 
 // ── Navbar ───────────────────────────────────────────────────────────────────
 
@@ -46,8 +46,8 @@ export const DEFAULT_FOOTER = {
     { _key: "s4", label: "Liên hệ & Đặt mẫu", href: "/lien-he" },
   ],
   email:        "hello@tiemwebnho.com",
-  phone:        "0903 555 119",
-  zaloUrl:      "https://zalo.me/0903555119",
+  phone:        "0901 234 567",
+  zaloUrl:      "https://zalo.me/0901234567",
   hours:        "Thứ 2 – Thứ 7, 9h–18h",
   facebookUrl:  "https://facebook.com/tiemwebnho",
   instagramUrl: "https://instagram.com/tiemwebnho",
