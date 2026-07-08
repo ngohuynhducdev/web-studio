@@ -1,0 +1,291 @@
+/* ─ Keyframe animations (scoped via CSS Modules) ─ */
+@keyframes urbanMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes urbanSpinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes urbanFloatA {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(10deg); }
+}
+@keyframes urbanFloatB {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ─ Page root: CSS custom properties ─ */
+.page {
+  --cf-bg: #0f0e0d;
+  --cf-surface: #1a1917;
+  --cf-elevated: #242220;
+  --cf-border: rgba(255, 255, 255, 0.07);
+  --cf-border-accent: rgba(245, 200, 66, 0.22);
+  --cf-accent: #f5c842;
+  --cf-accent-dim: rgba(245, 200, 66, 0.1);
+  --cf-accent-glow: rgba(245, 200, 66, 0.12);
+  --cf-hot: #ff6240;
+  --cf-text: #f0ece5;
+  --cf-muted: #7a746c;
+  --cf-light-bg: #f5f0e8;
+  --cf-light-text: #0f0e0d;
+  --cf-light-muted: #5a544c;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--cf-bg);
+  color: var(--cf-text);
+  overflow-x: hidden;
+}
+
+/* ─ Eyebrow + H2 typography utilities (used in 4+ components) ─ */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cf-accent);
+  margin: 0;
+}
+.h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--cf-text);
+  margin: 0;
+}
+.h2 em {
+  font-style: italic;
+  font-weight: 300;
+  font-family: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  color: var(--cf-accent);
+}
+
+/* ─ About H2 (light section variant with em) ─ */
+.aboutH2 {
+  font-size: clamp(30px, 3.5vw, 46px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--cf-light-text);
+  margin: 0;
+}
+.aboutH2 em {
+  font-style: italic;
+  font-weight: 300;
+  font-family: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  color: #8b7035;
+}
+
+/* ─ Location H2 ─ */
+.locationH2 {
+  font-size: clamp(30px, 3.5vw, 46px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--cf-text);
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* ─ Hamburger open states (toggle via JS) ─ */
+.hamburgerLineTop { transform: translateY(7px) rotate(45deg); }
+.hamburgerLineMid { opacity: 0; }
+.hamburgerLineBot { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─ Marquee animation ─ */
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: urbanMarquee 22s linear infinite;
+}
+
+/* ─ Hero visual animations ─ */
+.heroRingOuter {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed rgba(245, 200, 66, 0.18);
+  animation: urbanSpinSlow 40s linear infinite;
+}
+.heroRingInner {
+  width: 72%;
+  height: 72%;
+  border: 1px solid rgba(245, 200, 66, 0.12);
+}
+.float1 { animation: urbanFloatA 4s ease-in-out infinite; }
+.float2 { animation: urbanFloatB 5s ease-in-out infinite; }
+.float3 { animation: urbanFloatA 6s ease-in-out infinite 1s; }
+.float4 { animation: urbanFloatB 4.5s ease-in-out infinite 0.5s; }
+
+/* ─ Menu card anchor class ─ */
+.menuCard { /* layout handled by Tailwind */ }
+
+/* ─ Menu card pseudo-element (top gradient line on hover) ─ */
+.menuCard::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cf-accent), var(--cf-hot));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.menuCard:hover::after { transform: scaleX(1); }
+
+/* ─ Event card pseudo-element (radial glow on hover) ─ */
+.eventCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, var(--cf-accent-dim), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.eventCard:hover::before { opacity: 1; }
+
+/* ─ Location map anchor class ─ */
+.locationMap { /* layout handled by Tailwind */ }
+
+/* ─ Location map pseudo-element (radial glow) ─ */
+.locationMap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, var(--cf-accent-dim), transparent 70%);
+}
+
+/* ─ Gallery anchor classes (needed for compound selectors) ─ */
+.galleryCell { /* layout handled by Tailwind */ }
+.galleryEmoji { /* layout handled by Tailwind */ }
+
+/* ─ Gallery compound hover (child scale) ─ */
+.galleryCell:hover .galleryEmoji { transform: scale(1.15); }
+.galleryCell:hover .galleryOverlay { opacity: 1; }
+
+/* ─ Menu anchor classes (needed for compound selectors to work) ─ */
+.menuEmojiWrap { /* layout handled by Tailwind */ }
+.menuOrder { /* layout handled by Tailwind */ }
+
+/* ─ Menu compound hover (child background + scale) ─ */
+.menuCard:hover .menuEmojiWrap {
+  background: var(--cf-accent-dim);
+  transform: scale(1.08);
+}
+.menuCard:hover .menuOrder { color: var(--cf-accent); }
+
+/* ─ Event anchor classes (needed for compound selectors) ─ */
+.eventCard { /* layout handled by Tailwind */ }
+.eventCta { /* layout handled by Tailwind */ }
+
+/* ─ Event compound hover (child color + gap) ─ */
+.eventCard:hover .eventCta { color: var(--cf-accent); gap: 10px; }
+
+/* ─ About quote (large Fraunces quotation mark) ─ */
+.aboutQuoteMark {
+  font-family: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  font-size: 72px;
+  font-weight: 300;
+  line-height: 0.7;
+  color: var(--cf-accent);
+  display: block;
+  user-select: none;
+}
+
+/* ─ About quote text (large italic serif) ─ */
+.aboutQuote {
+  font-family: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--cf-light-text);
+  margin: 0;
+}
+
+/* ─ Hero title lines (clamp font sizes) ─ */
+.heroLineBold {
+  display: block;
+  font-size: clamp(60px, 9vw, 112px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--cf-text);
+}
+.heroLineItalic {
+  display: block;
+  font-family: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(36px, 5.5vw, 68px);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--cf-muted);
+  margin: 6px 0 2px;
+}
+
+/* ─ Hero glow orbs (positioned absolute blobs) ─ */
+.heroGlow1 {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,200,66,0.07), transparent 65%);
+  top: -150px;
+  right: -100px;
+  pointer-events: none;
+}
+.heroGlow2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,98,64,0.05), transparent 65%);
+  bottom: 0;
+  left: 15%;
+  pointer-events: none;
+}
+
+/* ─ Hero cup glow box-shadow ─ */
+.heroCup {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(245,200,66,0.18), rgba(245,200,66,0.04));
+  border: 1px solid rgba(245, 200, 66, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 80px rgba(245,200,66,0.1), 0 0 180px rgba(245,200,66,0.05);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─ Gallery overlay (gradient from bottom, hidden until hover) ─ */
+.galleryOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15,14,13,0.85) 0%, transparent 50%);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* ─ Reviews heading italic em (light section variant) ─ */
+.reviewsLightEm {
+  font-family: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  color: #8b7035;
+}
+
+/* ─ Reduced motion ─ */
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack,
+  .heroRingOuter,
+  .float1, .float2, .float3, .float4 {
+    animation: none;
+  }
+}

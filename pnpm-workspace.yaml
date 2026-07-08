@@ -1,0 +1,12 @@
+overrides:
+  "js-yaml@<3.14.2": 3.14.2
+  "postcss@<8.5.10": ^8.5.10
+allowBuilds:
+  esbuild: true
+  msw: true
+  puppeteer: set this to true or false
+  sharp: true
+  unrs-resolver: true
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver

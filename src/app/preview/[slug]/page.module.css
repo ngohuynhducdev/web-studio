@@ -1,0 +1,26 @@
+/* ─ Preview banner ─ */
+.previewBanner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #18181b;
+  border-bottom: 1px solid #27272a;
+  font-size: 13px;
+  color: #a1a1aa;
+  font-family: system-ui, sans-serif;
+  pointer-events: none;
+}
+.previewBannerChip {
+  background: #27272a;
+  padding: 2px 10px;
+  border-radius: 99px;
+  font-size: 11px;
+  color: #71717a;
+}

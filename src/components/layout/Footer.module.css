@@ -1,0 +1,121 @@
+/* ─ Footer ─ */
+.footer {
+  background: #1a1410;
+  color: var(--color-brand-cream);
+  padding: 88px 0 40px;
+  font-family: var(--font-body);
+}
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(250, 246, 240, 0.1);
+}
+.footerBrand {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  color: var(--color-brand-cream);
+  text-decoration: none;
+  display: inline-block;
+}
+.footerBrand:hover {
+  color: var(--color-brand-cream);
+  text-decoration: none;
+}
+.footerTagline {
+  margin-top: 16px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(250, 246, 240, 0.65);
+  max-width: 32ch;
+}
+.footerColTitle {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.45);
+  margin: 0 0 18px;
+}
+.footerColList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footerColList a {
+  color: rgba(250, 246, 240, 0.86);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-soft);
+}
+.footerColList a:hover {
+  color: var(--color-brand-terracotta-soft);
+  text-decoration: none;
+}
+.footerDesc {
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(250, 246, 240, 0.45);
+  max-width: 28ch;
+}
+.footerContactPlain {
+  color: rgba(250, 246, 240, 0.45);
+  font-size: 14px;
+}
+.footerBottom {
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(250, 246, 240, 0.5);
+}
+.footerSocial {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footerSocial a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(250, 246, 240, 0.06);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(250, 246, 240, 0.7);
+  text-decoration: none;
+  transition: background var(--dur-base) var(--ease-soft),
+              color var(--dur-base) var(--ease-soft);
+}
+.footerSocial a:hover {
+  background: var(--color-brand-terracotta);
+  color: #fffbf4;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .footerGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footerGrid {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 56px;
+  }
+}

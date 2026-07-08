@@ -1,0 +1,106 @@
+/* ─ Testimonials ─ */
+.testiQuoteMark {
+  font-family: var(--font-serif);
+  font-size: 64px;
+  line-height: 0.6;
+  color: var(--color-brand-terracotta);
+  opacity: 0.2;
+  font-style: normal;
+  user-select: none;
+}
+.testiAvatarInitials {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-brand-mocha);
+  flex-shrink: 0;
+}
+.testiGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 16px;
+}
+.testiCard {
+  position: relative;
+  padding: 30px 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  --lift-rot: 0deg;
+}
+.testiPin {
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.testiStars {
+  display: inline-flex;
+  gap: 3px;
+  color: var(--color-brand-terracotta-text);
+}
+.testiQuote {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--color-brand-ink);
+  margin: 0;
+  flex: 1;
+}
+.testiWho {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-brand-line);
+}
+.testiAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-brand-paper);
+  flex-shrink: 0;
+}
+.testiName {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-brand-ink);
+}
+.testiRole {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--fg-3);
+  margin-top: 1px;
+}
+.testiDate {
+  opacity: 0.6;
+}
+
+@media (min-width: 768px) {
+  .testiGrid { grid-template-columns: repeat(2, 1fr); }
+  .testiGrid > * { min-width: 0; }
+}
+
+@media (min-width: 1024px) {
+  .testiGrid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testiGrid > *:nth-child(1) .testiCard { transform: rotate(-1.2deg); --lift-rot: -0.8deg; }
+  .testiGrid > *:nth-child(2) .testiCard { transform: rotate(0.9deg); margin-top: 16px; --lift-rot: 0.6deg; }
+  .testiGrid > *:nth-child(3) .testiCard { transform: rotate(-0.5deg); --lift-rot: -0.4deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testiGrid > * .testiCard { transform: none; }
+}

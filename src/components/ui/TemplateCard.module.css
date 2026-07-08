@@ -1,0 +1,204 @@
+/* ─ TemplateCard ─ */
+.templateCard {
+  background: #ffffff;
+  border: 1px solid var(--color-brand-beige);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--dur-base) var(--ease-soft),
+              box-shadow var(--dur-slow) var(--ease-soft);
+}
+.templateCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+.templateCardImage {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--color-brand-beige);
+  overflow: hidden;
+}
+.templateCardImg {
+  object-fit: cover;
+}
+.templateCardPlaceholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #ede8e0 0%, #f5f1ea 100%);
+  overflow: hidden;
+}
+
+/* nav bar strip */
+.templateCardPlaceholder::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 28px;
+  background: rgba(45, 36, 25, 0.07);
+}
+
+/* hero block */
+.templateCardPlaceholder::after {
+  content: "";
+  position: absolute;
+  top: 28px; left: 0; right: 0;
+  height: 48%;
+  background: rgba(45, 36, 25, 0.06);
+}
+
+/* ── per-template colour schemes ── */
+.templateCardPlaceholder[data-tpl="thai-spa"] {
+  background: linear-gradient(160deg, #1a0a0a 0%, #3d1500 100%);
+}
+.templateCardPlaceholder[data-tpl="thai-spa"]::before {
+  background: rgba(0,0,0,0.35);
+}
+.templateCardPlaceholder[data-tpl="thai-spa"]::after {
+  background: rgba(201, 149, 108, 0.18);
+}
+
+.templateCardPlaceholder[data-tpl="shizen-spa"] {
+  background: linear-gradient(160deg, #f2ede6 0%, #e8e0d5 100%);
+}
+.templateCardPlaceholder[data-tpl="shizen-spa"]::before {
+  background: rgba(107, 124, 94, 0.12);
+}
+.templateCardPlaceholder[data-tpl="shizen-spa"]::after {
+  background: rgba(107, 124, 94, 0.08);
+}
+
+.templateCardPlaceholder[data-tpl="sweet-corner"] {
+  background: linear-gradient(160deg, #fff0f5 0%, #fce4ed 100%);
+}
+.templateCardPlaceholder[data-tpl="sweet-corner"]::before {
+  background: rgba(232, 120, 154, 0.14);
+}
+.templateCardPlaceholder[data-tpl="sweet-corner"]::after {
+  background: rgba(232, 120, 154, 0.10);
+}
+
+.templateCardPlaceholder[data-tpl="urban-brew"] {
+  background: linear-gradient(160deg, #0a0a0a 0%, #1a1208 100%);
+}
+.templateCardPlaceholder[data-tpl="urban-brew"]::before {
+  background: rgba(255,255,255,0.06);
+}
+.templateCardPlaceholder[data-tpl="urban-brew"]::after {
+  background: rgba(201, 161, 74, 0.15);
+}
+
+.templateCardPlaceholder[data-tpl="zen-wellness"] {
+  background: linear-gradient(160deg, #eef2eb 0%, #dde8d8 100%);
+}
+.templateCardPlaceholder[data-tpl="zen-wellness"]::before {
+  background: rgba(107, 143, 94, 0.10);
+}
+.templateCardPlaceholder[data-tpl="zen-wellness"]::after {
+  background: rgba(107, 143, 94, 0.08);
+}
+.templateCardBadgeFeatured {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--color-brand-terracotta-text);
+  color: #fffbf4;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+}
+.templateCardBadgeIndustry {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(6px);
+  color: var(--color-brand-mocha);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-brand-line);
+}
+.templateCardBody {
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+.templateCardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.templateCardTitleLink {
+  text-decoration: none;
+  display: block;
+}
+.templateCardTitleLink:hover .templateCardTitle {
+  color: var(--color-brand-mocha-deep);
+}
+.templateCardTitle {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.1;
+  text-transform: lowercase;
+  color: var(--color-brand-ink);
+  letter-spacing: -0.015em;
+  margin: 0;
+  transition: color var(--dur-base) var(--ease-soft);
+}
+.templateCardDesc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--fg-2);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.templateCardFooter {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.templateCardPrice {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--color-brand-terracotta-text);
+}
+.templateCardPriceUnit {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--fg-3);
+}
+.templateCardActions {
+  display: flex;
+  gap: 10px;
+}
+.templateCardActions .btn {
+  flex: 1;
+  justify-content: center;
+  font-size: 14px;
+  padding: 11px 16px;
+}
+/* "Xem mẫu" secondary — don't stretch as much when alone */
+.templateCardActions .btn-ghost {
+  flex: 0 0 auto;
+  padding: 11px 20px;
+}

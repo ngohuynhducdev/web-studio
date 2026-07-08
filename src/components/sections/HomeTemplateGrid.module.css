@@ -1,0 +1,490 @@
+/* ─ Template grid — pinned to a board ─ */
+.templateGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+}
+/* thumbtack on each pinned card */
+.templateGrid > * {
+  position: relative;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  --card-rot: 0deg;
+}
+.templateGrid > *::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #f0c4ad 0%, var(--color-brand-terracotta) 55%, var(--color-brand-terracotta-deep) 100%);
+  box-shadow: 0 3px 5px -1px rgba(45, 36, 25, 0.4), inset 0 -1px 1px rgba(45, 36, 25, 0.25);
+  z-index: 4;
+}
+.templateGrid > *:hover {
+  transform: translateY(-5px) rotate(var(--card-rot));
+  z-index: 2;
+}
+.templatesFoot {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+
+@media (min-width: 700px) {
+  .templateGrid { grid-template-columns: repeat(2, 1fr); gap: 30px 26px; }
+  .templateGrid > *:nth-child(odd)  { --card-rot: -1.1deg; transform: rotate(-1.1deg); }
+  .templateGrid > *:nth-child(even) { --card-rot: 0.8deg;  transform: rotate(0.8deg); margin-top: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .templateGrid > * { transform: none !important; transition: none; }
+}
+
+/* ─ Templates section head ─ */
+.templatesHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 64px;
+}
+.templatesHeadLeft {
+  max-width: 560px;
+}
+
+/* ─ Homepage featured cards (t-card mockups) ─ */
+.templatesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+.tCard {
+  background: #ffffff;
+  border: 1px solid var(--color-brand-line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-base) var(--ease-soft),
+              box-shadow var(--dur-slow) var(--ease-soft),
+              border-color var(--dur-base) var(--ease-soft);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.tCard:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-brand-mocha-soft);
+  z-index: 2;
+}
+.tScreen {
+  aspect-ratio: 16/10;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-brand-line);
+}
+.tScreenBody {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--dur-ambient) var(--ease-soft);
+}
+.tCard:hover .tScreenBody {
+  transform: scale(1.04);
+}
+.tCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(45, 36, 25, 0.18) 0%, rgba(45, 36, 25, 0.62) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-soft);
+  z-index: 4;
+  pointer-events: none;
+}
+.tCard:hover .tCardOverlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.tCardDemo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-brand-cream);
+  color: var(--color-brand-mocha);
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: 12px 22px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(8px);
+  transition: transform var(--dur-base) var(--ease-soft),
+              background var(--dur-base) var(--ease-soft);
+}
+.tCard:hover .tCardDemo {
+  transform: translateY(0);
+}
+.tCardDemo:hover {
+  background: #ffffff;
+  color: var(--color-brand-mocha);
+  text-decoration: none;
+}
+.tCardBody {
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #ffffff;
+}
+.tCardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+}
+.tCardName {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.1;
+  text-transform: lowercase;
+  color: var(--color-brand-ink);
+  letter-spacing: -0.015em;
+}
+.tCardPrice {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--color-brand-terracotta-text);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.tCardPriceUnit {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--fg-3);
+  margin-left: 2px;
+  letter-spacing: 0;
+}
+.tTagCat {
+  background: var(--color-brand-paper);
+  border: 1px solid var(--color-brand-line);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand-mocha);
+}
+
+/* Template mockup styles */
+.tmplNail {
+  background: radial-gradient(120% 80% at 100% 0%, #f3d1c5 0%, transparent 55%),
+              linear-gradient(180deg, #fbe9e3 0%, #f0d4c8 100%);
+}
+.tmplNailNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 11px;
+  color: #6b3a36;
+}
+.tmplNavLinks {
+  display: flex;
+  gap: 10px;
+  font-style: normal;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  font-family: var(--font-body);
+}
+.tmplNailBody {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 12px;
+  padding: 10px 18px 16px;
+  align-items: center;
+}
+.tmplNailHeadline {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1;
+  color: #5a2d2a;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+}
+.tmplNailHeadline em {
+  font-style: italic;
+  color: #c45773;
+}
+.tmplNailSub {
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 8px;
+  color: rgba(90, 45, 42, 0.7);
+  line-height: 1.4;
+}
+.tmplNailCta {
+  margin-top: 8px;
+  display: inline-flex;
+  background: #c45773;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 600;
+}
+.tmplNailPhoto {
+  aspect-ratio: 1/1;
+  border-radius: 999px;
+  background-image: url("/images/nail-polish-wall.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 3px solid #fff;
+  box-shadow: 0 6px 18px rgba(143, 53, 70, 0.18);
+}
+.tmplSpa {
+  background: linear-gradient(180deg, #eef0e6 0%, #d8dfca 100%);
+}
+.tmplSpaNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  color: #3e4a32;
+}
+.tmplSpaBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 18px 14px;
+  text-align: center;
+  gap: 6px;
+}
+.tmplSpaMark {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #6e7e57;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6e7e57;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+}
+.tmplSpaHeadline {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.05;
+  color: #2e3a25;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+}
+.tmplSpaHeadline em {
+  font-style: italic;
+  color: #6e7e57;
+}
+.tmplSpaRow {
+  margin-top: 4px;
+  display: flex;
+  gap: 14px;
+  font-family: var(--font-body);
+  font-size: 8px;
+  color: rgba(46, 58, 37, 0.65);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tmplSpaCta {
+  margin-top: 6px;
+  display: inline-flex;
+  padding: 4px 12px;
+  border: 1px solid #6e7e57;
+  color: #6e7e57;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 600;
+}
+.tmplCafe {
+  background: linear-gradient(180deg, #f4ebd9 0%, #e9d8b8 100%);
+}
+.tmplCafeNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  border-bottom: 1px dashed rgba(80, 50, 20, 0.18);
+  font-family: var(--font-serif);
+  font-size: 11px;
+  color: #4a2e17;
+}
+.tmplCafeBody {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 10px 18px 16px;
+  align-items: center;
+}
+.tmplCafeHeadline {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 0.98;
+  color: #3a2009;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+}
+.tmplCafeHeadline em {
+  font-style: italic;
+  color: #b56a2a;
+}
+.tmplCafeSub {
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 8px;
+  color: rgba(58, 32, 9, 0.65);
+  line-height: 1.4;
+}
+.tmplCafeCta {
+  margin-top: 8px;
+  display: inline-flex;
+  background: #3a2009;
+  color: #f4ebd9;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 600;
+}
+.tmplCafePhoto {
+  aspect-ratio: 4/5;
+  border-radius: 6px;
+  background-image: url("/images/cafe-cozy.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(80, 50, 20, 0.2);
+  transform: rotate(2deg);
+  box-shadow: 0 8px 18px rgba(80, 50, 20, 0.18);
+}
+.tmplGym {
+  background: linear-gradient(180deg, #1c1a18 0%, #2b1f15 100%);
+  color: #fff;
+}
+.tmplGymNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.tmplGymBrand {
+  color: var(--color-brand-terracotta);
+  font-style: italic;
+  font-family: var(--font-serif);
+  letter-spacing: 0;
+  text-transform: lowercase;
+  font-weight: 400;
+}
+.tmplGymBody {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 12px;
+  padding: 10px 18px 16px;
+  align-items: stretch;
+}
+.tmplGymHeadline {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.tmplGymHeadline em {
+  font-style: normal;
+  color: var(--color-brand-terracotta);
+}
+.tmplGymSub {
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+}
+.tmplGymCta {
+  margin-top: 10px;
+  display: inline-flex;
+  background: var(--color-brand-terracotta-text);
+  color: #fff;
+  padding: 5px 14px;
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tmplGymPhoto {
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%), url("/images/atmosphere-01.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 2px;
+  position: relative;
+}
+.tmplGymStat {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--color-brand-terracotta);
+  letter-spacing: -0.02em;
+}
+.tmplGymStat small {
+  display: block;
+  font-size: 7px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .templateGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

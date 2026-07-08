@@ -1,0 +1,185 @@
+/* ─ Contact form elements ─ */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contactFormRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.contactField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.contactLabel {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-brand-ink);
+  letter-spacing: 0.01em;
+}
+.contactRequired {
+  color: var(--color-brand-terracotta-text);
+}
+.contactInput,
+.contactSelect,
+.contactTextarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-brand-ink);
+  background: var(--bg-page);
+  border: 1px solid var(--color-brand-line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  width: 100%;
+  outline: none;
+  transition: border-color var(--dur-fast) var(--ease-soft),
+              box-shadow var(--dur-fast) var(--ease-soft);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.contactInput:focus,
+.contactSelect:focus,
+.contactTextarea:focus {
+  border-color: var(--color-brand-mocha);
+  box-shadow: var(--shadow-focus);
+}
+.contactInput::placeholder,
+.contactTextarea::placeholder {
+  color: var(--fg-3);
+}
+.contactTextarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.contactSelect {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%239b8975' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+.contactInputError {
+  border-color: #c0392b !important;
+}
+.contactInputError:focus {
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15) !important;
+}
+.contactFieldError {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: #c0392b;
+  margin: 0;
+}
+.contactError {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #c0392b;
+  background: #fdf0ee;
+  border: 1px solid #f5c6c0;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin: 0;
+}
+.contactFormFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+.contactSubmit {
+  width: 100%;
+  justify-content: center;
+}
+.contactPrivacy {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--fg-3);
+  text-align: center;
+  margin: 0;
+}
+.contactSpinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(250, 246, 240, 0.35);
+  border-top-color: rgba(250, 246, 240, 0.9);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Success state */
+.contactSuccess {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 40px 20px;
+}
+.contactSuccessIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #effaf3;
+  border: 2px solid #b7e5c8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #1a5c30;
+}
+.contactSuccessTitle {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 28px;
+  text-transform: lowercase;
+  color: var(--color-brand-ink);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+.contactSuccessBody {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--fg-2);
+  max-width: 40ch;
+  margin: 0;
+}
+.contactSuccessNote {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--fg-2);
+  opacity: 0.7;
+  max-width: 40ch;
+  margin: 0;
+}
+.contactResetBtn {
+  background: none;
+  border: 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--fg-3);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-brand-line);
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--dur-base) var(--ease-soft);
+}
+.contactResetBtn:hover {
+  color: var(--color-brand-mocha);
+  text-decoration-color: currentColor;
+}
+
+@media (min-width: 768px) {
+  .contactFormRow { grid-template-columns: 1fr 1fr; }
+}

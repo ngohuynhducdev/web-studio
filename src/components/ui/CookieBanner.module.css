@@ -1,0 +1,61 @@
+/* ─ Cookie Consent Banner ─ */
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  background: var(--color-brand-ink);
+  border-top: 1px solid rgba(250, 246, 240, 0.08);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: var(--font-body);
+}
+.text {
+  font-size: 13px;
+  color: rgba(250, 246, 240, 0.65);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.btnDeny {
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(250, 246, 240, 0.12);
+  background: transparent;
+  color: rgba(250, 246, 240, 0.5);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.btnDeny:hover {
+  border-color: rgba(250, 246, 240, 0.3);
+  color: rgba(250, 246, 240, 0.8);
+}
+.btnAccept {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: var(--color-brand-mocha);
+  color: var(--color-brand-cream);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.btnAccept:hover {
+  opacity: 0.88;
+}

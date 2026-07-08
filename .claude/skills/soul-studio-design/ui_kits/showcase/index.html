@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>SOUL STUDIO — Responsive Showcase</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../colors_and_type.css" />
+<style>
+  html, body { margin: 0; background: #e8dccd; min-height: 100vh; }
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body { padding: 56px 0 80px; font-family: var(--font-body); color: var(--espresso); }
+
+  .header { text-align: center; max-width: 720px; margin: 0 auto 56px; padding: 0 24px; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--bark); font-weight: 500; }
+  h1.t { font-family: var(--font-display); font-weight: 500; font-size: clamp(36px, 4.6vw, 56px); line-height: 1.05; letter-spacing: -0.01em; margin: 14px 0; color: var(--espresso); }
+  h1.t em { font-style: italic; }
+  .lead { font-size: 15px; line-height: 1.6; color: var(--bark); max-width: 540px; margin: 0 auto; }
+
+  .stage { display: flex; align-items: flex-start; justify-content: center; gap: 32px; padding: 0 32px; flex-wrap: wrap; }
+
+  .panel { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .panel__label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bark); font-weight: 500; }
+  .panel__caption { font-family: var(--font-display); font-style: italic; font-size: 14px; color: var(--clay); max-width: 240px; text-align: center; }
+
+  .vp {
+    background: var(--ivory);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(35,6,11,0.18), 0 6px 18px rgba(35,6,11,0.10), 0 0 0 1px rgba(35,6,11,0.05);
+    position: relative;
+    flex: 0 0 auto;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 260ms cubic-bezier(.22,.61,.36,1);
+  }
+  .vp:hover { transform: translateY(-4px); }
+  .vp iframe { border: 0; display: block; background: var(--ivory); transform-origin: 0 0; pointer-events: none; }
+
+  .vp--desktop { width: 538px; height: 378px; }
+  .vp--desktop iframe { width: 1280px; height: 900px; transform: scale(0.42); }
+
+  .vp--tablet { width: 345px; height: 462px; }
+  .vp--tablet iframe { width: 820px; height: 1100px; transform: scale(0.42); }
+
+  .vp--phone { width: 215px; height: 465px; border-radius: 28px; background: transparent; box-shadow: none; }
+  .vp--phone iframe { width: 390px; height: 844px; transform: scale(0.55); }
+
+  /* Hover indicator on phone */
+  .vp--phone:hover { transform: translateY(-4px); }
+
+  .footnote { text-align: center; margin-top: 64px; font-family: var(--font-display); font-style: italic; font-size: 14px; color: var(--clay); }
+
+  /* Loading state — until iframe paints, show a soft skeleton */
+  .vp::before {
+    content: "";
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(110deg, var(--ivory) 25%, var(--ivory-soft) 50%, var(--ivory) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+    opacity: 1;
+    transition: opacity 260ms ease;
+  }
+  .vp.loaded::before { opacity: 0; pointer-events: none; }
+  @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+  .vp--phone::before { display: none; }
+</style>
+</head>
+<body>
+  <header class="header">
+    <div class="eyebrow">Responsive Showcase</div>
+    <h1 class="t">One Brand, <em>Three</em> Breakpoints</h1>
+    <p class="lead">The SOUL STUDIO kit reflows from a 1280-wide desktop to an 820-wide tablet to a 390-wide phone. Below: the same content at three native widths — click any frame to open it full-size.</p>
+  </header>
+
+  <div class="stage">
+    <div class="panel">
+      <div class="panel__label">Desktop · 1280</div>
+      <a class="vp vp--desktop" href="../website/index.html" target="_blank" rel="noopener" data-watch>
+        <iframe src="../website/index.html" title="Desktop view" loading="eager"></iframe>
+      </a>
+      <div class="panel__caption">3 / 5-column grids · side-by-side hero</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel__label">Tablet · 820</div>
+      <a class="vp vp--tablet" href="../website/index.html" target="_blank" rel="noopener" data-watch>
+        <iframe src="../website/index.html" title="Tablet view" loading="eager"></iframe>
+      </a>
+      <div class="panel__caption">Grids reflow to 2 columns · hero stacks</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel__label">Phone · 390</div>
+      <a class="vp vp--phone" href="../mobile/index.html" target="_blank" rel="noopener" data-watch>
+        <iframe src="../mobile/index.html" title="Phone view" loading="eager"></iframe>
+      </a>
+      <div class="panel__caption">Snap-carousels · sheet menu · single column</div>
+    </div>
+  </div>
+
+  <div class="footnote">— click any frame to open at full size —</div>
+
+  <script>
+    // Mark each viewport "loaded" once its iframe fires load — hides the shimmer.
+    document.querySelectorAll('[data-watch] iframe').forEach(f => {
+      f.addEventListener('load', () => f.parentElement.classList.add('loaded'));
+    });
+  </script>
+</body>
+</html>

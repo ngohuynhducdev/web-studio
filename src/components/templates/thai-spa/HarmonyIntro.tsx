@@ -1,0 +1,25 @@
+import type { AboutSection } from '@/types';
+import styles from './ThaiSpa.module.css';
+
+interface Props { data?: AboutSection }
+
+export default function HarmonyIntro({ data }: Props = {}) {
+  const headingMain   = data?.headingMain   ?? 'Nơi Căng Thẳng Tan Biến\nVà Sự';
+  const headingItalic = data?.headingItalic ?? 'Hài Hòa Bắt Đầu';
+  const body          = data?.paragraphs?.[0] ?? '';
+  const lines = headingMain.split('\n');
+
+  return (
+    <section className="bg-[var(--ts-sand)] pb-24">
+      <div className="max-w-[720px] mx-auto px-[26px]">
+        <h2 className={styles.harmonyTitle}>
+          {lines.map((line, i) => (
+            <span key={i}>{line}{i < lines.length - 1 && <br />}</span>
+          ))}{' '}
+          <em>{headingItalic}</em>
+        </h2>
+        <p className="text-[16px] leading-[1.65] text-[var(--ts-bark)] max-w-[520px] ml-auto m-0">{body}</p>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+# Block direct pushes to the production branch.
+# Promote code to production via a pull request: staging -> main (merge on GitHub).
+#
+# Enable once per clone:  git config core.hooksPath .githooks
+
+protected="main"
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  case "$remote_ref" in
+    refs/heads/"$protected")
+      echo "" >&2
+      echo "  ✖  Push thẳng tới '$protected' bị chặn." >&2
+      echo "     Production chỉ nhận code qua pull request: staging -> main (merge trên GitHub)." >&2
+      echo "" >&2
+      echo "     Đang ở nhánh khác? Đẩy nhánh đó thay vì main, vd:" >&2
+      echo "        git push origin staging" >&2
+      echo "" >&2
+      exit 1
+      ;;
+  esac
+done
+
+exit 0

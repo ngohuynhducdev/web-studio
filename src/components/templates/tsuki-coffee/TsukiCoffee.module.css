@@ -1,0 +1,290 @@
+/* ─ Tsuki Coffee — Dark Luxury Japanese Modern ─
+   Black + walnut + warm gold. Cinematic effects via pure CSS:
+   smoke (gradient + blur), particles (float), parallax (transform on scroll),
+   glassmorphism (backdrop-blur). */
+
+/* ── Keyframes ──────────────────────────────────────────────────────── */
+@keyframes tcSmoke {
+  0%   { transform: translate(0, 0)    scale(0.9); opacity: 0; }
+  20%  {                                              opacity: 0.55; }
+  100% { transform: translate(-16px, -120px) scale(1.6); opacity: 0; }
+}
+@keyframes tcSmokeAlt {
+  0%   { transform: translate(0, 0)   scale(0.8); opacity: 0; }
+  25%  {                                             opacity: 0.45; }
+  100% { transform: translate(18px, -130px) scale(1.5); opacity: 0; }
+}
+@keyframes tcParticle {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: 0.55; }
+  90%  { opacity: 0.4; }
+  100% { transform: translate(40px, -400px); opacity: 0; }
+}
+@keyframes tcGlow {
+  0%, 100% { opacity: 0.7; }
+  50%      { opacity: 1; }
+}
+@keyframes tcBreathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+@keyframes tcDriftSlow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+/* ── Root tokens ────────────────────────────────────────────────────── */
+.page {
+  --tc-bg: #0a0908;
+  --tc-bg-soft: #14110f;
+  --tc-surface: #1a1714;
+  --tc-walnut: #3a2e22;
+  --tc-walnut-deep: #271f17;
+  --tc-gold: #d4a574;
+  --tc-gold-deep: #b88550;
+  --tc-gold-soft: rgba(212, 165, 116, 0.45);
+  --tc-amber: #f0c674;
+  --tc-cream: #e8dcc8;
+  --tc-cream-soft: rgba(232, 220, 200, 0.7);
+  --tc-muted: #8a7f72;
+  --tc-line: rgba(212, 165, 116, 0.14);
+  --tc-line-soft: rgba(232, 220, 200, 0.08);
+  font-family: var(--tc-font-body), "Inter", system-ui, sans-serif;
+  background: var(--tc-bg);
+  color: var(--tc-cream);
+  overflow-x: hidden;
+  letter-spacing: -0.005em;
+}
+
+/* ── Typography ─────────────────────────────────────────────────────── */
+.serif {
+  font-family: var(--tc-font-display), "Cormorant Garamond", "Noto Serif JP", Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+}
+.jp {
+  font-family: var(--tc-font-jp), "Noto Serif JP", "Cormorant Garamond", serif;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+}
+
+.h2 {
+  font-family: var(--tc-font-display), "Cormorant Garamond", Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(36px, 5.2vw, 72px);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--tc-cream);
+  margin: 0;
+  text-wrap: balance;
+}
+.h2 em {
+  font-style: italic;
+  color: var(--tc-gold);
+}
+
+.heroTitle {
+  font-family: var(--tc-font-display), "Cormorant Garamond", Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(64px, 11vw, 168px);
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: var(--tc-cream);
+  margin: 0;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+}
+.heroTitle em {
+  font-style: italic;
+  color: var(--tc-gold);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--tc-gold);
+  margin: 0;
+}
+.eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: var(--tc-gold);
+}
+
+.lede {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--tc-cream-soft);
+  margin: 0;
+  max-width: 52ch;
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────── */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--tc-gold) 0%, var(--tc-gold-deep) 100%);
+  color: var(--tc-bg);
+  border: 1px solid var(--tc-gold);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 8px 28px -8px rgba(212, 165, 116, 0.4);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px -8px rgba(212, 165, 116, 0.6);
+}
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tc-cream);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--tc-line);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.btnGhost:hover {
+  color: var(--tc-gold);
+  border-color: var(--tc-gold);
+}
+
+/* ── Glass card ─────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(26, 23, 20, 0.55);
+  border: 1px solid var(--tc-line);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+/* ── Smoke (over coffee cup) ────────────────────────────────────────── */
+.smokeWisp {
+  position: absolute;
+  width: 26px;
+  height: 80px;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(232, 220, 200, 0.45) 0%,
+    rgba(232, 220, 200, 0.15) 40%,
+    transparent 75%
+  );
+  filter: blur(14px);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: tcSmoke 5s ease-out infinite;
+}
+.smokeWispAlt {
+  animation: tcSmokeAlt 6s ease-out infinite;
+  animation-delay: 1.6s;
+  width: 22px;
+  height: 70px;
+  filter: blur(16px);
+}
+
+/* ── Particles ──────────────────────────────────────────────────────── */
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--tc-gold);
+  pointer-events: none;
+  animation: tcParticle 14s linear infinite;
+  filter: blur(0.5px);
+}
+
+/* ── Glow / breathing ───────────────────────────────────────────────── */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: tcGlow 6s ease-in-out infinite;
+  filter: blur(80px);
+}
+.breathe {
+  animation: tcBreathe 8s ease-in-out infinite;
+}
+.drift {
+  animation: tcDriftSlow 6s ease-in-out infinite;
+}
+
+/* ── Hover anchors (compound selectors) ─────────────────────────────── */
+.signatureCard {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+}
+.signatureCard:hover {
+  transform: translateY(-6px);
+  border-color: var(--tc-gold-soft);
+}
+.signatureCard:hover .signatureGlow { opacity: 0.65; }
+.signatureGlow { transition: opacity 0.6s ease; opacity: 0.3; }
+
+.spaceCell { overflow: hidden; }
+.spaceImg { transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.spaceCell:hover .spaceImg { transform: scale(1.08); }
+
+.menuRow { transition: padding-left 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.menuRow:hover { padding-left: 8px; }
+.menuRow:hover .menuName { color: var(--tc-gold); }
+.menuName { transition: color 0.4s ease; }
+
+/* ── Hamburger ──────────────────────────────────────────────────────── */
+.hamburgerLineTop { transform: translateY(5px) rotate(45deg); }
+.hamburgerLineMid { opacity: 0; }
+.hamburgerLineBot { transform: translateY(-5px) rotate(-45deg); }
+
+/* ── Hairline divider with kanji centerpiece ────────────────────────── */
+.kanjiDivider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--tc-muted);
+  font-size: 18px;
+  font-family: var(--tc-font-jp), "Noto Serif JP", serif;
+  margin: 0 auto;
+  max-width: 280px;
+}
+.kanjiDivider::before,
+.kanjiDivider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--tc-line), transparent);
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .smokeWisp,
+  .smokeWispAlt,
+  .particle,
+  .glow,
+  .breathe,
+  .drift {
+    animation: none;
+  }
+  .signatureCard:hover,
+  .spaceCell:hover .spaceImg,
+  .menuRow:hover {
+    transform: none;
+    padding-left: 0;
+  }
+}

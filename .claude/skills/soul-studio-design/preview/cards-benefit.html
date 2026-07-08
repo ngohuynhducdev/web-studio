@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Benefit Card</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 18px; background: var(--sand-beige); font-family: var(--font-body); color: var(--espresso); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .card { background: var(--ivory); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-1); display: flex; flex-direction: column; }
+  .ph { aspect-ratio: 16 / 10; background-size: cover; background-position: center; }
+  .ph.a { background: linear-gradient(135deg, #6b4b35, #2a1812); }
+  .ph.b { background: linear-gradient(135deg, #9a7456, #4a2f20); }
+  .body { padding: 14px 16px 16px; }
+  .ttl  { font-family: var(--font-display); font-size: 16px; font-weight: 500; line-height: 1.15; }
+  .sub  { font-size: 12px; line-height: 1.5; color: var(--bark); margin-top: 4px; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="card">
+      <div class="ph a" style="background-image: url('../assets/moodboard/phone-massage-can-help.webp'); background-position: center 38%;"></div>
+      <div class="body">
+        <div class="ttl">Feel Lighter &amp; More Flexible</div>
+        <div class="sub">Want a flexible, healthy, and supple body</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ph b" style="background-image: url('../assets/moodboard/tablet-after-massage.webp'); background-position: 60% center;"></div>
+      <div class="body">
+        <div class="ttl">Enjoy Pain-Free Living</div>
+        <div class="sub">Living with physical ailments or chronic conditions</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

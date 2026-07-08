@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>SOUL STUDIO — Mobile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../colors_and_type.css" />
+<style>
+  html, body { margin: 0; background: #efe6da; min-height: 100%; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { padding: 32px 0 56px; }
+  button, input { font-family: inherit; }
+
+  /* scaffold for one or two phones side-by-side at large viewports */
+  .stage {
+    display: flex; justify-content: center; gap: 56px;
+    flex-wrap: wrap;
+  }
+
+  /* hide webkit scrollbars inside the device frame */
+  .ss-scroll::-webkit-scrollbar { width: 0; height: 0; }
+  .ss-scroll { scrollbar-width: none; }
+  /* override the iOS device frame's inner overflow so its single scroll container picks up all our content */
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Shared utilities -->
+  <script type="text/babel" src="../website/Icon.jsx"></script>
+  <script type="text/babel" src="../website/Buttons.jsx"></script>
+
+  <!-- Device frame -->
+  <script type="text/babel" src="ios-frame.jsx"></script>
+
+  <!-- Mobile components -->
+  <script type="text/babel" src="MobileHeader.jsx"></script>
+  <script type="text/babel" src="MobileHero.jsx"></script>
+  <script type="text/babel" src="MobileLovingTouch.jsx"></script>
+  <script type="text/babel" src="MobileBenefits.jsx"></script>
+  <script type="text/babel" src="MobileAfterMassage.jsx"></script>
+  <script type="text/babel" src="MobileFounder.jsx"></script>
+  <script type="text/babel" src="MobileTestimonials.jsx"></script>
+  <script type="text/babel" src="MobilePricing.jsx"></script>
+  <script type="text/babel" src="MobileOffer.jsx"></script>
+  <script type="text/babel" src="MobileFooter.jsx"></script>
+
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+
+    function MobileSite() {
+      return (
+        <div className="ss-scroll" style={{ background: 'var(--ivory)', minHeight: '100%' }}>
+          <div style={{ height: 54 }} />{/* spacer for status bar */}
+          <MobileHeader />
+          <MobileHero />
+          <MobileLovingTouch />
+          <MobileBenefits />
+          <MobileAfterMassage />
+          <MobileFounder />
+          <MobileTestimonials />
+          <MobilePricing />
+          <MobileOffer />
+          <MobileFooter />
+          <div style={{ height: 40 }} />{/* spacer for home indicator */}
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div className="stage">
+          <IOSDevice width={390} height={844}>
+            <MobileSite />
+          </IOSDevice>
+        </div>
+      );
+    }
+
+    root.render(<App />);
+  </script>
+</body>
+</html>

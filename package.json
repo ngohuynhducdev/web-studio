@@ -1,0 +1,45 @@
+{
+  "name": "tiemwebnho",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "seed": "tsx scripts/seed-cms.ts"
+  },
+  "dependencies": {
+    "@sanity/ui": "^3.2.0",
+    "@sanity/vision": "^5.31.1",
+    "@vercel/edge-config": "^1.4.3",
+    "motion": "^12.40.0",
+    "next": "16.2.9",
+    "next-sanity": "^12.4.5",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "resend": "^6.12.4",
+    "sanity": "^5.31.1",
+    "sanity-plugin-media": "^4.3.1",
+    "swiper": "^12.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "playwright": "^1.60.0",
+    "sharp": "^0.35.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.22.4",
+    "typescript": "^5",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^4.1.8"
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 22px; background: var(--ivory); font-family: var(--font-body); color: var(--espresso); }
+  .stack { display: flex; flex-wrap: wrap; gap: 16px 18px; align-items: center; }
+  .lbl   { display: block; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+  svg    { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .ss-btn--ghost svg { color: var(--espresso); }
+  .ss-btn--light { background: var(--ivory); color: var(--espresso); border: 1px solid var(--border-strong); }
+  .ss-btn--light .ss-btn__dot { background: var(--deep-wine); color: var(--ivory); }
+</style>
+</head>
+<body>
+  <div>
+    <span class="lbl">Primary · Ghost · Light reverse</span>
+    <div class="stack">
+      <button class="ss-btn">
+        <span class="ss-btn__dot"><svg viewBox="0 0 24 24"><path d="M7 17l10-10M9 7h8v8"/></svg></span>
+        Begin a New Chapter
+      </button>
+      <button class="ss-btn ss-btn--ghost">
+        Learn More
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <button class="ss-btn ss-btn--light">
+        <span class="ss-btn__dot"><svg viewBox="0 0 24 24"><path d="M7 17l10-10M9 7h8v8"/></svg></span>
+        Book Your Massage
+      </button>
+    </div>
+  </div>
+</body>
+</html>

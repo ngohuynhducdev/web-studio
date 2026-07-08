@@ -1,0 +1,522 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   @theme — single source of truth
+   Generates Tailwind utilities AND CSS custom properties.
+   CSS modules reference via var(--color-brand-*), var(--shadow-*) etc.
+   TSX uses generated classes: bg-brand-mocha, shadow-lg, rounded-pill…
+   ═══════════════════════════════════════════════════════════════ */
+@theme {
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-display: var(--font-fraunces), "Cormorant Garamond", Georgia, serif;
+  --font-sans:    var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+
+  /* ── Brand colors → bg-brand-*, text-brand-*, border-brand-* ─ */
+  --color-brand-mocha:           #6f4e37;
+  --color-brand-mocha-deep:      #563c2a;
+  --color-brand-mocha-soft:      #8c6b52;
+  --color-brand-terracotta:      #d97757;
+  --color-brand-terracotta-deep: #b45d40;
+  --color-brand-terracotta-soft: #e8a488;
+  --color-brand-terracotta-text: #aa5238; /* AA-safe terracotta for text on cream / light-text-on-fill (≥4.5) */
+  --color-brand-sage:            #87976a;
+  --color-brand-cream:           #faf6f0;
+  --color-brand-cream-light:     #fffbf4;
+  --color-brand-beige:           #e8ddd0;
+  --color-brand-paper:           #f2ebe0;
+  --color-brand-ink:             #2d2419;
+  --color-brand-ink-soft:        #5c4a38;
+  --color-brand-ink-faint:       #7d6a52;
+  --color-brand-line:            #d9cdbc;
+  --color-brand-line-soft:       #e6ddcf;
+
+  /* ── Shadcn/Radix semantic tokens (bg-primary, text-muted-foreground…) */
+  --color-background:            var(--color-brand-cream);
+  --color-foreground:            var(--color-brand-ink);
+  --color-primary:               var(--color-brand-mocha);
+  --color-primary-foreground:    var(--color-brand-cream);
+  --color-accent:                var(--color-brand-terracotta);
+  --color-accent-foreground:     var(--color-brand-cream);
+  --color-border:                var(--color-brand-beige);
+  --color-muted:                 var(--color-brand-beige);
+  --color-muted-foreground:      var(--color-brand-ink-faint);
+  --radius: 0.75rem;
+
+  /* ── Border radius scale → rounded-xs … rounded-pill ──────── */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-xl:   24px;
+  --radius-pill: 999px;
+
+  /* ── Shadow scale → shadow-xs … shadow-focus ───────────────── */
+  --shadow-xs:    0 1px 0 rgba(45, 36, 25, 0.04);
+  --shadow-sm:    0 1px 2px rgba(45, 36, 25, 0.05), 0 1px 1px rgba(45, 36, 25, 0.04);
+  --shadow-md:    0 4px 14px -4px rgba(45, 36, 25, 0.08), 0 2px 4px rgba(45, 36, 25, 0.04);
+  --shadow-lg:    0 14px 32px -10px rgba(45, 36, 25, 0.12), 0 4px 10px rgba(45, 36, 25, 0.05);
+  --shadow-xl:    0 28px 56px -18px rgba(45, 36, 25, 0.18);
+  --shadow-press: inset 0 1px 2px rgba(45, 36, 25, 0.10);
+  --shadow-focus: 0 0 0 3px rgba(217, 119, 87, 0.30);
+
+  /* ── Container widths → max-w-container, max-w-container-narrow, max-w-site */
+  --max-width-container:        1200px;
+  --max-width-container-narrow: 1100px;
+  --max-width-site:             1280px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   :root — non-utility tokens
+   Not in @theme because they don't map to Tailwind utility classes.
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  /* Semantic surface/text — used by CSS modules */
+  --bg-page:     var(--color-brand-cream);
+  --bg-surface:  var(--color-brand-cream-light);
+  --bg-elevated: #ffffff;
+
+  --fg-1:        var(--color-brand-ink);
+  --fg-2:        var(--color-brand-ink-soft);
+  --fg-3:        var(--color-brand-ink-faint);
+  --fg-on-dark:  var(--color-brand-cream);
+  --fg-on-accent:var(--color-brand-cream-light);
+
+  /* Font aliases — CSS modules reference these */
+  --font-serif: var(--font-display);
+  --font-body:  var(--font-sans);
+
+  /* Animation — no Tailwind utility equivalent */
+  --ease-soft:   cubic-bezier(0.32, 0.72, 0.34, 1.00);
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast:    140ms;
+  --dur-base:    220ms;
+  --dur-slow:    420ms;
+  --dur-ambient: 800ms;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE RESETS
+   ═══════════════════════════════════════════════════════════════ */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  /* Smooth anchor scrolling, opt-out via OS reduced-motion */
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-page);
+    color: var(--fg-1);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  ::selection {
+    background: var(--color-brand-terracotta-soft);
+    color: var(--color-brand-ink);
+  }
+
+  a {
+    color: var(--color-brand-mocha);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-brand-line);
+    transition: text-decoration-color var(--dur-base) var(--ease-soft),
+                color var(--dur-base) var(--ease-soft);
+  }
+  a:hover {
+    text-decoration-color: currentColor;
+    color: var(--color-brand-mocha-deep);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SITE-WIDE COMPONENTS
+   Mobile-first: base = mobile, min-width 768 = tablet, min-width 1024 = desktop
+   ═══════════════════════════════════════════════════════════════ */
+@layer components {
+
+  /* ─ Layout ─────────────────────────────────────────────────── */
+  .container-site {
+    width: 100%;
+    max-width: var(--max-width-site);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  @media (min-width: 768px)  { .container-site { padding: 0 32px; } }
+  @media (min-width: 1024px) { .container-site { padding: 0 56px; } }
+
+  /* ─ Eyebrow + accent type ───────────────────────────────────── */
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--color-brand-line);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .eyebrow.no-rule::before { display: none; }
+
+  .italic-acc {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-brand-terracotta);
+  }
+  .dot-terracotta { color: var(--color-brand-terracotta); }
+
+  /* ─ Buttons ─────────────────────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 15px;
+    border: 0;
+    border-radius: var(--radius-md);
+    padding: 14px 22px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background var(--dur-base) var(--ease-soft),
+                color var(--dur-base) var(--ease-soft),
+                border-color var(--dur-base) var(--ease-soft),
+                box-shadow var(--dur-base) var(--ease-soft),
+                transform var(--dur-base) var(--ease-soft);
+  }
+  .btn-lg { padding: 16px 26px; font-size: 16px; }
+
+  .btn-primary { background: var(--color-brand-mocha); color: var(--color-brand-cream); }
+  .btn-primary:hover { background: var(--color-brand-mocha-deep); color: var(--color-brand-cream); text-decoration: none; }
+  .btn-primary:active { box-shadow: var(--shadow-press); transform: translateY(1px); }
+
+  .btn-accent { background: var(--color-brand-terracotta-text); color: var(--fg-on-accent); }
+  .btn-accent:hover { background: var(--color-brand-terracotta-deep); color: var(--fg-on-accent); text-decoration: none; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--color-brand-mocha);
+    border: 1px solid var(--color-brand-mocha);
+    font-weight: 500;
+  }
+  .btn-outline:hover { background: var(--color-brand-mocha); color: var(--color-brand-cream); text-decoration: none; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-brand-mocha);
+    border: 1px solid var(--color-brand-line);
+    font-weight: 500;
+  }
+  .btn-ghost:hover { background: var(--color-brand-beige); border-color: var(--color-brand-mocha-soft); color: var(--color-brand-mocha); text-decoration: none; }
+
+  .btn-light { background: var(--color-brand-cream); color: var(--color-brand-mocha); }
+  .btn-light:hover { background: var(--bg-elevated); text-decoration: none; }
+
+  .btn-arrow { transition: transform var(--dur-base) var(--ease-soft); flex-shrink: 0; }
+  .btn:hover .btn-arrow { transform: translateX(3px); }
+
+  .btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--color-brand-mocha);
+    text-decoration: underline;
+    text-decoration-color: var(--color-brand-line);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1px;
+    cursor: pointer;
+    transition: text-decoration-color var(--dur-base) var(--ease-soft),
+                color var(--dur-base) var(--ease-soft);
+  }
+  .btn-link:hover { color: var(--color-brand-mocha-deep); text-decoration-color: currentColor; }
+  .btn-full { width: 100%; justify-content: center; }
+
+  /* ─ Section ──────────────────────────────────────────────────── */
+  .section { position: relative; padding: 80px 0; }
+  @media (min-width: 768px)  { .section { padding: 96px 0; } }
+  @media (min-width: 1024px) { .section { padding: 128px 0; } }
+
+  .section-paper { background: var(--color-brand-paper); }
+
+  .section-head { margin-bottom: 48px; max-width: 760px; }
+  @media (min-width: 768px) { .section-head { margin-bottom: 64px; } }
+
+  .cta-container { position: relative; z-index: 1; }
+
+  /* ─ Typography ───────────────────────────────────────────────── */
+  .display-heading {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: clamp(40px, 7vw, 88px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    text-transform: lowercase;
+    color: var(--color-brand-ink);
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .h2-heading {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: clamp(30px, 4.5vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    text-transform: lowercase;
+    color: var(--color-brand-ink);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .h2-heading br { display: none; }
+  @media (min-width: 768px) { .h2-heading br { display: inline; } }
+
+  .lede {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--fg-2);
+    max-width: 56ch;
+    margin: 0;
+  }
+  @media (min-width: 768px) { .lede { font-size: 18px; } }
+
+  .section-head .h2-heading { margin-top: 20px; }
+
+  /* ─ Grain texture ────────────────────────────────────────────── */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.42;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42  0 0 0 0 0.31  0 0 0 0 0.18  0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* ─ Craft materials (warm-tactile: tape · pin · postmark · paper) ── */
+  /* Masking-tape strip — decorative; position absolute, rotate inline */
+  .tape {
+    position: absolute;
+    width: 84px;
+    height: 26px;
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.10) 0 6px, transparent 6px 12px),
+      linear-gradient(180deg, rgba(232,221,208,0.92), rgba(214,200,182,0.86));
+    box-shadow: 0 2px 5px -2px rgba(45, 36, 25, 0.28);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Thumbtack / pin head */
+  .pin {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 34% 30%, #f0c4ad 0%, var(--color-brand-terracotta) 55%, var(--color-brand-terracotta-deep) 100%);
+    box-shadow: 0 3px 5px -1px rgba(45, 36, 25, 0.4), inset 0 -1px 1px rgba(45, 36, 25, 0.25);
+  }
+
+  /* Paper note / pinned card — slightly lifted, hand-placed */
+  .note {
+    position: relative;
+    background: var(--color-brand-cream-light);
+    box-shadow: var(--shadow-md);
+    border-radius: 2px;
+  }
+  .note-kraft { background: var(--color-brand-paper); }
+
+  /* Kraft label — small tag instead of the tracked eyebrow */
+  .kraft-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    background: var(--color-brand-paper);
+    border: 1px solid var(--color-brand-line);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--color-brand-ink-soft);
+    box-shadow: var(--shadow-xs);
+  }
+  .kraft-label::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--color-brand-terracotta);
+    flex-shrink: 0;
+  }
+
+  /* Postmark stamp — circular text ring around a mark */
+  .postmark {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 92px; height: 92px;
+    color: var(--color-brand-terracotta-text);
+  }
+  .postmark svg { width: 100%; height: 100%; }
+  .postmark-ring {
+    fill: currentColor;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 8.4px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+  .postmark-mark {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-serif);
+    line-height: 0.85;
+    text-align: center;
+    color: inherit;
+  }
+  .postmark-top { font-size: 26px; font-weight: 400; }
+  .postmark-bottom { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: lowercase; }
+
+  /* "Lift off the board" hover for pinned/taped cards */
+  .lift {
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+    will-change: transform;
+  }
+  .lift:hover {
+    transform: translateY(-5px) rotate(var(--lift-rot, -0.6deg));
+    box-shadow: var(--shadow-xl);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lift { transition: none; }
+    .lift:hover { transform: none; }
+  }
+
+  /* ─ Zalo bubble ──────────────────────────────────────────────── */
+  .zalo-bubble {
+    position: fixed;
+    bottom: 76px;
+    right: 20px;
+    z-index: 50;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #0068ff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0, 104, 255, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  @media (min-width: 768px) { .zalo-bubble { bottom: 88px; right: 32px; width: 52px; height: 52px; } }
+  .zalo-bubble:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(0, 104, 255, 0.45); }
+
+  .zalo-bubble-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid #0068ff;
+    animation: zalo-pulse 2.4s ease-out infinite;
+    pointer-events: none;
+  }
+  @keyframes zalo-pulse {
+    0%   { transform: scale(1);    opacity: 0.7; }
+    70%  { transform: scale(1.55); opacity: 0; }
+    100% { transform: scale(1.55); opacity: 0; }
+  }
+
+  .zalo-bubble-tooltip {
+    position: absolute;
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-brand-ink);
+    color: var(--color-brand-cream);
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 5px 10px;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    display: none;
+  }
+  @media (min-width: 768px) { .zalo-bubble-tooltip { display: block; } }
+  .zalo-bubble-tooltip::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-left-color: var(--color-brand-ink);
+  }
+  .zalo-bubble:hover .zalo-bubble-tooltip { opacity: 1; }
+
+  /* ─ Back to top ──────────────────────────────────────────────── */
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 50;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-brand-mocha);
+    color: var(--color-brand-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, background 0.15s ease;
+    box-shadow: 0 2px 12px rgba(111, 78, 55, 0.25);
+  }
+  @media (min-width: 768px) { .back-to-top { bottom: 32px; right: 32px; } }
+  .back-to-top--visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .back-to-top:hover { background: var(--color-brand-mocha-deep); }
+}

@@ -1,0 +1,223 @@
+/* ─ Template Coming Soon ─ */
+.tcsPage {
+  background: var(--bg-page);
+  min-height: 80vh;
+  padding: 40px 0 80px;
+}
+.tcsInner {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.tcsBack {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-3);
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-soft);
+  width: fit-content;
+}
+.tcsBack:hover {
+  color: var(--color-brand-mocha);
+  text-decoration: none;
+}
+.tcsBack svg {
+  transition: transform var(--dur-base) var(--ease-soft);
+  flex-shrink: 0;
+}
+.tcsBack:hover svg {
+  transform: translateX(-3px);
+}
+.tcsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.tcsPreview {
+  position: static;
+}
+.tcsThumbnailWrap {
+  position: relative;
+  aspect-ratio: 16/10;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-brand-beige);
+  box-shadow: var(--shadow-lg);
+}
+.tcsThumbnailImg {
+  object-fit: cover;
+  filter: saturate(0.92);
+}
+.tcsOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 36, 25, 0.38);
+  backdrop-filter: blur(1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tcsOverlayLabel {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 18px;
+  color: rgba(250, 246, 240, 0.88);
+  letter-spacing: 0.01em;
+  background: rgba(45, 36, 25, 0.55);
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(250, 246, 240, 0.18);
+}
+.tcsThumbnailEmpty {
+  aspect-ratio: 16/10;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--color-brand-beige) 0%, var(--color-brand-paper) 100%);
+  border: 1px solid var(--color-brand-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tcsThumbnailEmptyText {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 120px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--color-brand-line);
+  text-transform: lowercase;
+  user-select: none;
+}
+.tcsInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 8px;
+}
+.tcsBadges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tcsBadgeIndustry {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand-mocha);
+  background: var(--color-brand-paper);
+  border: 1px solid var(--color-brand-line);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+.tcsBadgeSoon {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-brand-terracotta);
+  background: rgba(217, 119, 87, 0.08);
+  border: 1px solid rgba(217, 119, 87, 0.22);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+.tcsTitle {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+  color: var(--color-brand-ink);
+  margin: 0;
+}
+.tcsDesc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--fg-2);
+  margin: 0;
+  max-width: 48ch;
+}
+.tcsPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding-top: 8px;
+}
+.tcsPrice {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-brand-terracotta);
+}
+.tcsPriceUnit {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--fg-3);
+}
+.tcsNotice {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--color-brand-paper);
+  border: 1px solid var(--color-brand-line);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+}
+.tcsNoticeIcon {
+  color: var(--color-brand-mocha-soft);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.tcsNotice p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--fg-2);
+  margin: 0;
+}
+.tcsNotice strong {
+  color: var(--color-brand-mocha);
+  font-weight: 600;
+}
+.tcsActions {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.tcsActions .btn {
+  width: 100%;
+  justify-content: center;
+}
+.tcsReassure {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--fg-3);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .tcsActions { flex-direction: row; }
+  .tcsActions .btn { width: auto; justify-content: initial; }
+  .tcsDesc { font-size: 17px; }
+}
+
+@media (min-width: 1024px) {
+  .tcsPage { padding: 56px 0 120px; }
+  .tcsGrid { grid-template-columns: 1fr 1fr; gap: 72px; }
+  .tcsPreview { position: sticky; top: 88px; }
+  .tcsThumbnailWrap { aspect-ratio: 4/5; }
+  .tcsThumbnailEmpty { aspect-ratio: 4/5; }
+  .tcsPrice { font-size: 52px; }
+}

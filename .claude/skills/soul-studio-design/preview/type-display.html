@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Display Type</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 22px 24px; background: var(--ivory); color: var(--espresso); }
+  .display { font-family: var(--font-display); font-weight: 500; font-size: 84px; line-height: 0.95; letter-spacing: -0.01em; }
+  .display em { font-style: italic; font-weight: 500; }
+  .meta { display: flex; gap: 14px; align-items: baseline; margin-top: 14px; color: var(--bark); }
+  .meta .name { font-family: var(--font-display); font-size: 14px; }
+  .meta .info { font-family: var(--font-body); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; opacity: .7; }
+</style>
+</head>
+<body>
+  <div class="display">Immerse <em>Yourself</em></div>
+  <div class="meta">
+    <div class="name">Playfair Display</div>
+    <div class="info">500 · clamp(48 → 96px) · LH 0.95</div>
+  </div>
+</body>
+</html>

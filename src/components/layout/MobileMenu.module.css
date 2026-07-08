@@ -1,0 +1,192 @@
+/* ─ Hamburger button ─ */
+.hamburgerBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  color: var(--color-brand-ink);
+  flex-shrink: 0;
+  transition: background var(--dur-fast) var(--ease-soft);
+}
+.hamburgerBtn:hover {
+  background: var(--color-brand-beige);
+}
+.hamburgerBar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform var(--dur-base) var(--ease-soft),
+              opacity var(--dur-fast) var(--ease-soft);
+}
+.hamburgerBtnOpen .hamburgerBar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburgerBtnOpen .hamburgerBar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburgerBtnOpen .hamburgerBar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─ Mobile menu overlay ─ */
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--color-brand-ink);
+  transform: translateX(100%);
+  transition: transform var(--dur-slow) var(--ease-soft);
+  pointer-events: none;
+}
+.mobileMenuOpen {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.mobileMenuInner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px 40px;
+  overflow-y: auto;
+}
+.mobileMenuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(250, 246, 240, 0.08);
+  flex-shrink: 0;
+}
+.mobileMenuBrand {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  color: var(--color-brand-cream);
+  text-decoration: none;
+}
+.mobileMenuBrand:hover {
+  color: var(--color-brand-cream);
+  text-decoration: none;
+}
+.mobileMenuDot {
+  color: var(--color-brand-terracotta);
+}
+.mobileMenuCloseBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: rgba(250, 246, 240, 0.06);
+  border: 0;
+  border-radius: 50%;
+  color: var(--color-brand-cream);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--dur-fast) var(--ease-soft);
+}
+.mobileMenuCloseBtn:hover {
+  background: rgba(250, 246, 240, 0.14);
+}
+.mobileMenuNav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 0;
+}
+.mobileMenuLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  color: rgba(250, 246, 240, 0.82);
+  text-decoration: none;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(250, 246, 240, 0.06);
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: color var(--dur-base) var(--ease-soft),
+              transform var(--dur-slow) var(--ease-soft),
+              opacity var(--dur-base) var(--ease-soft);
+}
+.mobileMenuOpen .mobileMenuLink {
+  transform: translateX(0);
+  opacity: 1;
+}
+.mobileMenuLink:hover {
+  color: var(--color-brand-terracotta-soft);
+  text-decoration: none;
+}
+.mobileMenuLinkActive {
+  color: var(--color-brand-cream);
+}
+.mobileMenuLinkActive .mobileMenuLinkNum {
+  color: var(--color-brand-terracotta);
+}
+.mobileMenuLinkNum {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: rgba(250, 246, 240, 0.28);
+  flex-shrink: 0;
+}
+.mobileMenuFoot {
+  flex-shrink: 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(250, 246, 240, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+.mobileMenuCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-brand-terracotta);
+  color: #fffbf4;
+  border-radius: var(--radius-pill);
+  padding: 14px 24px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background var(--dur-base) var(--ease-soft);
+}
+.mobileMenuCtaBtn:hover {
+  background: var(--color-brand-terracotta-deep);
+  color: #fffbf4;
+  text-decoration: none;
+}
+.mobileMenuFootNote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(250, 246, 240, 0.32);
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .hamburgerBtn { display: none; }
+}

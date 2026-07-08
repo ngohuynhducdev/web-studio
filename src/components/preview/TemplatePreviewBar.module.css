@@ -1,0 +1,129 @@
+/* ─ Template Preview Bar ─ */
+.previewBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--color-brand-ink);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.previewBarLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.previewBarNav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.previewBarNavBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+.previewBarNavBtn:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+}
+.previewBarNavLabel {
+  display: none;
+}
+.previewBarEyebrow {
+  display: none;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.previewBarTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.previewBarSep {
+  display: none;
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+.previewBarActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.previewBarZalo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-brand-ink);
+  background: #06c755;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background 0.18s, transform 0.15s;
+}
+.previewBarZalo:hover {
+  background: #05b34c;
+  transform: translateY(-1px);
+}
+.previewBarCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-brand-ink);
+  background: var(--color-brand-terracotta);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background 0.18s, transform 0.15s;
+}
+.previewBarCta:hover {
+  background: var(--color-brand-terracotta-deep);
+  transform: translateY(-1px);
+}
+.previewBarCta svg,
+.previewBarZalo svg {
+  flex-shrink: 0;
+}
+
+@media (min-width: 480px) {
+  .previewBar { padding: 12px 24px; gap: 16px; }
+  .previewBarEyebrow { display: block; }
+  .previewBarSep { display: block; }
+  .previewBarTitle { font-size: 14px; }
+  .previewBarZalo,
+  .previewBarCta { font-size: 13px; padding: 8px 18px; }
+}
+@media (min-width: 768px) {
+  .previewBarNavLabel { display: inline; }
+}
