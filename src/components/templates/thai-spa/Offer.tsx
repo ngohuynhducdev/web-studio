@@ -11,11 +11,11 @@ const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1577117633143-a2437fb9b
 interface Props { data?: CalloutSection }
 
 export default function Offer({ data }: Props = {}) {
-  const headingMain   = data?.headingMain   ?? 'Ưu Đãi 10% Cho';
-  const headingItalic = data?.headingItalic ?? 'Lần Đầu Trải Nghiệm';
-  const body          = data?.body          ?? 'Điền thông tin và chúng tôi sẽ liên hệ bạn trong vòng 30 phút.';
-  const ctaLabel      = data?.ctaLabel      ?? 'Nhận Ưu Đãi Ngay';
-  const successMsg    = data?.successMessage ?? 'Cảm ơn bạn — chúng tôi sẽ liên hệ sớm.';
+  const headingMain   = data?.headingMain   ?? '10% Off Your';
+  const headingItalic = data?.headingItalic ?? 'First Visit';
+  const body          = data?.body          ?? "Fill in your details and we'll contact you within 30 minutes.";
+  const ctaLabel      = data?.ctaLabel      ?? 'Claim Your Offer';
+  const successMsg    = data?.successMessage ?? "Thank you — we'll be in touch soon.";
   const image         = data?.imageUrl ?? DEFAULT_IMAGE;
   const showForm      = data?.showLeadForm !== false;
   const web3formsKey  = data?.web3formsKey;
@@ -57,17 +57,17 @@ export default function Offer({ data }: Props = {}) {
               <p className={styles.offerSuccess}>{successMsg}</p>
             ) : (
               <form onSubmit={handleSubmit} className="grid gap-3 max-w-[420px]">
-                <input type="text" name="name" placeholder="Họ và tên*" required className={styles.offerInput} />
-                <input type="tel" name="phone" placeholder="Số điện thoại*" required className={styles.offerInput} />
+                <input type="text" name="name" placeholder="Full name*" required className={styles.offerInput} />
+                <input type="tel" name="phone" placeholder="Phone number*" required className={styles.offerInput} />
                 <div>
                   <button type="submit" className={styles.btn} disabled={status === 'submitting'}>
                     <span className={styles.btnDot}><ArrowIcon /></span>
-                    {status === 'submitting' ? 'Đang gửi...' : ctaLabel}
+                    {status === 'submitting' ? 'Sending...' : ctaLabel}
                   </button>
                 </div>
                 {status === 'error' && (
                   <p className="text-[14px] text-[var(--ts-bark)] m-0" role="alert">
-                    Gửi chưa được. Vui lòng nhắn Zalo để được hỗ trợ nhanh nhất.
+                    Something went wrong. Please message us on Zalo for the fastest help.
                   </p>
                 )}
               </form>

@@ -5,7 +5,7 @@ import styles from './ThaiSpa.module.css';
 interface Props { data?: StepsSection }
 
 export default function AfterMassage({ data }: Props = {}) {
-  const heading = data?.headingMain ?? 'Sau Buổi Trị Liệu';
+  const heading = data?.headingMain ?? 'After Your Treatment';
   const steps   = data?.steps ?? [];
 
   return (

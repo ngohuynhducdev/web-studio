@@ -7,8 +7,8 @@ const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1570174006382-148305ce4
 interface Props { data?: AboutSection }
 
 export default function LovingTouch({ data }: Props = {}) {
-  const heading   = data?.headingMain   ?? 'Trị Liệu Qua';
-  const headingEm = data?.headingItalic ?? 'Từng Chạm Nhẹ';
+  const heading   = data?.headingMain   ?? 'Healing Through';
+  const headingEm = data?.headingItalic ?? 'Every Gentle Touch';
   const body      = data?.paragraphs?.[0] ?? '';
   const image     = data?.imageUrl ?? DEFAULT_IMAGE;
 

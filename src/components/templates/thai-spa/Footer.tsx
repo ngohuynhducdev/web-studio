@@ -6,7 +6,7 @@ import { NAV_LINKS } from './navLinks';
 interface Props { data?: BookingSection; businessName?: string }
 
 export default function Footer({ data, businessName = 'LOTUS THAI' }: Props = {}) {
-  const address  = data?.address ?? '88 Lê Lợi, Quận 1\nTP. Hồ Chí Minh';
+  const address  = data?.address ?? '88 Le Loi, District 1\nHo Chi Minh City';
   const phone    = data?.phone   ?? '0901 234 567';
   const email    = data?.email   ?? 'hello@lotusthai.vn';
 
@@ -23,13 +23,13 @@ export default function Footer({ data, businessName = 'LOTUS THAI' }: Props = {}
       </div>
       <div className="max-w-container mx-auto px-[26px] grid grid-cols-1 md:grid-cols-3 items-start gap-12 relative z-[1]">
         <div>
-          <div className="text-[11px] tracking-[0.18em] uppercase text-[rgba(255,248,241,0.55)] mb-2">Địa chỉ</div>
+          <div className="text-[11px] tracking-[0.18em] uppercase text-[rgba(255,248,241,0.55)] mb-2">Address</div>
           <p className="text-[14px] text-[rgba(255,248,241,0.95)] m-0 leading-[1.6]">
             {address.split('\n').map((line, i, arr) => (
               <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
             ))}
           </p>
-          <div className="text-[11px] tracking-[0.18em] uppercase text-[rgba(255,248,241,0.55)] mt-5 mb-2">Liên hệ</div>
+          <div className="text-[11px] tracking-[0.18em] uppercase text-[rgba(255,248,241,0.55)] mt-5 mb-2">Contact</div>
           <p className="text-[14px] text-[rgba(255,248,241,0.95)] m-0">{phone}</p>
           <p className="text-[14px] text-[rgba(255,248,241,0.95)] m-0">{email}</p>
         </div>

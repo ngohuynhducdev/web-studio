@@ -13,7 +13,7 @@ const VISUALS = [
 interface Props { data?: FeaturesSection }
 
 export default function Benefits({ data }: Props = {}) {
-  const heading = data?.headingMain ?? 'Massage Thái Giúp Bạn Nếu Bạn:';
+  const heading = data?.headingMain ?? 'Thai Massage Helps If You:';
   const items   = data?.items ?? [];
 
   return (

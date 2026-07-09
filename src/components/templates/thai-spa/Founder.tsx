@@ -32,7 +32,7 @@ function SocialIcon({ platform }: { platform: string }) {
 interface Props { data?: FounderSection }
 
 export default function Founder({ data }: Props = {}) {
-  const eyebrow     = data?.eyebrow ?? 'Chuyên Viên Trị Liệu';
+  const eyebrow     = data?.eyebrow ?? 'Lead Therapist';
   const name        = data?.name ?? '';
   const image       = data?.imageUrl ?? DEFAULT_IMAGE;
   const credentials = data?.credentials ?? [];

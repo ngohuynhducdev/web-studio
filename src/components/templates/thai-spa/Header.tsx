@@ -15,7 +15,7 @@ export default function Header({ businessName = 'LOTUS THAI' }: Props = {}) {
       <header className="sticky top-0 z-50 bg-[var(--ts-ivory)] border-b border-[var(--ts-border)]">
         <div className="max-w-container mx-auto px-[26px] py-[18px] flex items-center justify-between gap-6">
           <a href="#" className={styles.headerLogo}>{businessName}</a>
-          <nav className="hidden min-[900px]:flex items-center gap-7" aria-label="Menu chính">
+          <nav className="hidden min-[900px]:flex items-center gap-7" aria-label="Main menu">
             {NAV_LINKS.map((l) => (
               <a
                 key={l._key}
@@ -29,7 +29,7 @@ export default function Header({ businessName = 'LOTUS THAI' }: Props = {}) {
           <button
             className="flex min-[900px]:hidden w-10 h-10 rounded-full bg-[var(--ts-espresso)] text-[var(--ts-ivory)] border-0 cursor-pointer items-center justify-center shrink-0 hover:bg-[var(--ts-bark)] transition-colors duration-150"
             onClick={() => setMenuOpen(true)}
-            aria-label="Mở menu"
+            aria-label="Open menu"
           >
             <MenuIcon />
           </button>
@@ -50,7 +50,7 @@ export default function Header({ businessName = 'LOTUS THAI' }: Props = {}) {
             <button
               className="w-9 h-9 rounded-full bg-[var(--ts-espresso)] text-[var(--ts-ivory)] border-0 cursor-pointer grid place-items-center"
               onClick={() => setMenuOpen(false)}
-              aria-label="Đóng menu"
+              aria-label="Close menu"
             >
               <CloseIcon />
             </button>

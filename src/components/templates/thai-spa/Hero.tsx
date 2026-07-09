@@ -6,10 +6,10 @@ import styles from './ThaiSpa.module.css';
 interface Props { data?: HeroSection }
 
 export default function Hero({ data }: Props = {}) {
-  const headingMain   = data?.headingMain   ?? 'Đắm Mình Trong Không Gian';
-  const headingItalic = data?.headingItalic ?? 'Thư Giãn Theo Phong Cách Thái';
-  const subtitle      = data?.subtitle      ?? 'Những liệu trình độc đáo — hành trình thực sự vào thế giới văn hóa và nghệ thuật trị liệu Thái Lan.';
-  const ctaLabel      = data?.ctaPrimary    ?? 'Bắt Đầu Hành Trình';
+  const headingMain   = data?.headingMain   ?? 'Immerse Yourself In';
+  const headingItalic = data?.headingItalic ?? 'Thai-Style Relaxation';
+  const subtitle      = data?.subtitle      ?? 'Distinctive treatments — a genuine journey into the culture and art of Thai therapy.';
+  const ctaLabel      = data?.ctaPrimary    ?? 'Begin Your Journey';
 
   return (
     <section className="bg-[var(--ts-ivory)] pt-10 pb-16 md:pt-16 md:pb-24" id="experience">
@@ -27,7 +27,7 @@ export default function Hero({ data }: Props = {}) {
         <div className="aspect-[1.1/1] rounded-[32px] overflow-hidden shadow-[var(--ts-shadow-2)] relative bg-[var(--ts-espresso)]">
           <Image
             src="https://images.unsplash.com/photo-1737352777897-e22953991a32?w=1400&q=85&fit=crop&auto=format"
-            alt="Không gian thư giãn"
+            alt="Relaxation space"
             fill
             className="object-cover object-[60%_center]"
             priority
