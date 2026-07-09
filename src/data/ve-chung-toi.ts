@@ -4,7 +4,7 @@ export const DEFAULT_ABOUT_HERO = {
   heroEyebrow:   "VỀ CHÚNG MÌNH",
   heroTitle:     "một tiệm nhỏ —",
   heroTitleItal: "không phải agency.",
-  heroSub:       "Tiệm Web Nhỏ làm website cho tiệm nail, spa, cà phê, gym — những nơi mà một trang web tử tế có thể thay đổi cả tháng doanh thu, nhưng thuê agency thì quá đắt mà tự làm thì không biết bắt đầu từ đâu.",
+  heroSub:       "Web Studio làm website cho tiệm nail, spa, cà phê, gym — những nơi mà một trang web tử tế có thể thay đổi cả tháng doanh thu, nhưng thuê agency thì quá đắt mà tự làm thì không biết bắt đầu từ đâu.",
 };
 
 export const DEFAULT_STORY = {
@@ -16,7 +16,7 @@ export const DEFAULT_STORY = {
 export const DEFAULT_STORY_PARAGRAPHS = [
   "Mình có người thân làm nail. Tiệm nhỏ, khách quen nhiều, nhưng mỗi lần khách mới tìm thì chỉ thấy một trang Facebook nhạt nhẽo — không có giờ mở cửa, không có bảng giá, không có cách nào đặt lịch online.",
   "Thuê agency làm web thì báo giá 15–30 triệu, kèm theo 3 buổi họp và một bản hợp đồng dày. Với tiệm nhỏ, đó là tiền thuê mặt bằng cả tháng.",
-  "Tiệm Web Nhỏ ra đời để giải bài toán đó. Thiết kế sẵn, làm nhanh, giá vừa phải — nhưng vẫn được làm kỹ, không qua loa.",
+  "Web Studio ra đời để giải bài toán đó. Thiết kế sẵn, làm nhanh, giá vừa phải — nhưng vẫn được làm kỹ, không qua loa.",
 ];
 
 export const DEFAULT_VALUES = [

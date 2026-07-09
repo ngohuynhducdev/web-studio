@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { ogElement, OG_SIZE, OG_CONTENT_TYPE } from "@/lib/og";
 
 export const runtime = "edge";
-export const alt = "Mẫu website — Tiệm Web Nhỏ";
+export const alt = "Mẫu website — Web Studio";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 

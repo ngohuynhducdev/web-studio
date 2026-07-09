@@ -25,18 +25,18 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://tiemwebnho.com"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://webstudio.com"
   ),
   title: {
-    default: "Tiệm Web Nhỏ — Web đẹp cho doanh nghiệp nhỏ",
-    template: "%s | Tiệm Web Nhỏ",
+    default: "Web Studio — Web đẹp cho doanh nghiệp nhỏ",
+    template: "%s | Web Studio",
   },
   description:
     "Thiết kế landing page cho tiệm nail, spa, café, gym. Chọn mẫu — customize — có web trong 5 ngày. Từ 299k/tháng.",
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    siteName: "Tiệm Web Nhỏ",
+    siteName: "Web Studio",
   },
   twitter: {
     card: "summary_large_image",
@@ -48,11 +48,11 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Tiệm Web Nhỏ",
-  "url": "https://tiemwebnho.com",
+  "name": "Web Studio",
+  "url": "https://webstudio.com",
   "description": "Thiết kế website chuyên nghiệp cho tiệm nail, spa, cà phê, gym. Chọn mẫu có sẵn, nhận web trong 5 ngày.",
   "telephone": "+84901234567",
-  "email": "hello@tiemwebnho.com",
+  "email": "hello@webstudio.com",
   "priceRange": "$$",
   "areaServed": { "@type": "Country", "name": "Vietnam" },
   "openingHoursSpecification": {
@@ -62,9 +62,9 @@ const jsonLd = {
     "closes": "18:00",
   },
   "sameAs": [
-    "https://facebook.com/tiemwebnho",
-    "https://instagram.com/tiemwebnho",
-    "https://tiktok.com/@tiemwebnho",
+    "https://facebook.com/webstudio",
+    "https://instagram.com/webstudio",
+    "https://tiktok.com/@webstudio",
   ],
 };
 

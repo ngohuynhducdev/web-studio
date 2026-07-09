@@ -97,7 +97,7 @@ export const siteSchema = defineType({
       title: 'Slug preview (URL demo)',
       type: 'slug',
       group: 'info',
-      description: 'Link demo: tiemwebnho.vercel.app/preview/[slug]',
+      description: 'Demo link: web-studio.vercel.app/preview/[slug]',
       options: { source: 'businessName' },
     }),
     defineField({

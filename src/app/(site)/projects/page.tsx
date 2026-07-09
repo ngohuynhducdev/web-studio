@@ -8,7 +8,7 @@ import Reveal, { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Dự án đã làm — Tiệm Web Nhỏ",
+  title: "Dự án đã làm — Web Studio",
   description:
     "Những trang web mình đã làm cho tiệm nail, spa, cà phê, gym ở TP.HCM. Xem thực tế — không phải mock-up.",
 };
@@ -40,7 +40,7 @@ export default async function DuAnPage() {
   const projects = fetched.length > 0 ? fetched : FALLBACK_PROJECTS;
   const page = pageContent ?? FALLBACK_PAGE;
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tiemwebnho.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://webstudio.com";
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

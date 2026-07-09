@@ -14,7 +14,7 @@ export const DEFAULT_NAV = [
 // ── SiteHeader (Sanity document) ─────────────────────────────────────────────
 
 export const DEFAULT_HEADER = {
-  brandName: "tiệm web nhỏ",
+  brandName: "web studio",
   navLinks: [
     { _key: "n1", label: "mẫu",          href: "/templates" },
     { _key: "n2", label: "dự án",         href: "/projects" },
@@ -36,7 +36,7 @@ export const DEFAULT_SHOP_LINKS = [
 ];
 
 export const DEFAULT_FOOTER = {
-  brandName:    "tiệm web nhỏ",
+  brandName:    "web studio",
   tagline:      "web đẹp cho doanh nghiệp nhỏ.",
   description:  "một tiệm — không phải agency, không phải platform.\nlàm từng cái, tử tế từng cái.",
   shopLinks: [
@@ -45,12 +45,12 @@ export const DEFAULT_FOOTER = {
     { _key: "s3", label: "Về chúng mình",      href: "/about" },
     { _key: "s4", label: "Liên hệ & Đặt mẫu", href: "/contact" },
   ],
-  email:        "hello@tiemwebnho.com",
+  email:        "hello@webstudio.com",
   phone:        "0901 234 567",
   zaloUrl:      "https://zalo.me/0901234567",
   hours:        "Thứ 2 – Thứ 7, 9h–18h",
-  facebookUrl:  "https://facebook.com/tiemwebnho",
-  instagramUrl: "https://instagram.com/tiemwebnho",
-  tiktokUrl:    "https://tiktok.com/@tiemwebnho",
-  copyright:    "© 2025 Tiệm Web Nhỏ",
+  facebookUrl:  "https://facebook.com/webstudio",
+  instagramUrl: "https://instagram.com/webstudio",
+  tiktokUrl:    "https://tiktok.com/@webstudio",
+  copyright:    "© 2025 Web Studio",
 };

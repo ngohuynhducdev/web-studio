@@ -1,4 +1,4 @@
-# Tiệm Web Nhỏ — Project Context
+# Web Studio — Project Context
 
 ## Overview
 

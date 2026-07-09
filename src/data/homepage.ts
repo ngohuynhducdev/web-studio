@@ -13,10 +13,10 @@ export const DEFAULT_TAPE_ITEMS = [
 // ── Hero ─────────────────────────────────────────────────────────────────────
 
 export const DEFAULT_HERO = {
-  heroEyebrow:      "TIỆM WEB NHỎ · KỂ TỪ 2024",
+  heroEyebrow:      "WEB STUDIO · KỂ TỪ 2024",
   heroHeading:      "chọn mẫu — đo may —",
   heroHeadingItal:  "trong 5 ngày.",
-  heroLede:         "tiệm web nhỏ có sẵn 15+ mẫu website đẹp cho tiệm nail, spa, café, gym. bạn chọn mẫu, mình customize theo tiệm bạn — không vội, không qua loa.",
+  heroLede:         "web studio có sẵn 15+ mẫu website đẹp cho tiệm nail, spa, café, gym. bạn chọn mẫu, mình customize theo tiệm bạn — không vội, không qua loa.",
   heroBadge:        "bàn giao trong 5 ngày",
   heroCtaPrimary:   "xem mẫu",
   heroCtaSecondary: "về chúng mình",

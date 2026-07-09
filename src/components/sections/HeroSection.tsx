@@ -76,7 +76,7 @@ export default function HeroSection({ cms }: { cms?: HeroCms }) {
             </figcaption>
           </figure>
 
-          <PostmarkStamp ring="· tiệm web nhỏ · sài gòn " top="5" bottom="ngày" className={styles.heroPostmark} />
+          <PostmarkStamp ring="· web studio · sài gòn " top="5" bottom="ngày" className={styles.heroPostmark} />
         </Reveal>
 
       </div>

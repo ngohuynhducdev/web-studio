@@ -14,9 +14,9 @@ import Reveal, { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Về chúng mình — Tiệm Web Nhỏ",
+  title: "Về chúng mình — Web Studio",
   description:
-    "Tiệm Web Nhỏ là ai, làm gì, và tại sao lại có tiệm này — câu chuyện của một studio nhỏ ở Sài Gòn.",
+    "Web Studio là ai, làm gì, và tại sao lại có tiệm này — câu chuyện của một studio nhỏ ở Sài Gòn.",
 };
 
 function ArrowIcon() {
@@ -82,7 +82,7 @@ export default async function VeChungToiPage() {
             <div className={styles.aboutImageWrap}>
               <Image
                 src={storyImage}
-                alt="Không gian làm việc của Tiệm Web Nhỏ"
+                alt="Không gian làm việc của Web Studio"
                 fill
                 sizes="(max-width: 1023px) 100vw, 50vw"
                 className={styles.aboutImage}

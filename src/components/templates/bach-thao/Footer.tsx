@@ -108,7 +108,7 @@ export default function Footer({ displayName, zaloUrl }: { displayName: string; 
           </div>
           <span className="text-[12px] text-[var(--bt-light)]/50">© {new Date().getFullYear()} {displayName}. Đã đăng ký bản quyền.</span>
           <span className="text-[12px] text-[var(--bt-light)]/50">
-            Thiết kế bởi <span className="text-[var(--bt-light)]/75">Tiệm Web Nhỏ</span>
+            Thiết kế bởi <span className="text-[var(--bt-light)]/75">Web Studio</span>
           </span>
         </div>
       </div>

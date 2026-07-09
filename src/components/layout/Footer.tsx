@@ -12,18 +12,18 @@ function TikTokIcon()    { return <svg width={16} height={16} viewBox="0 0 24 24
 export default async function Footer() {
   const cms = await client.fetch(siteFooterQuery, {}, { next: { revalidate: 60 } });
 
-  const brandName   = cms?.brandName    ?? "tiệm web nhỏ";
+  const brandName   = cms?.brandName    ?? "web studio";
   const tagline     = cms?.tagline      ?? "web đẹp cho doanh nghiệp nhỏ.";
   const description = cms?.description  ?? "một tiệm — không phải agency, không phải platform.\nlàm từng cái, tử tế từng cái.";
   const shopLinks   = cms?.shopLinks?.length ? cms.shopLinks : DEFAULT_SHOP_LINKS;
-  const email       = cms?.email        ?? "hello@tiemwebnho.com";
+  const email       = cms?.email        ?? "hello@webstudio.com";
   const phone       = cms?.phone        ?? "0901 234 567";
   const zaloUrl     = cms?.zaloUrl      ?? "https://zalo.me/0901234567";
   const hours       = cms?.hours        ?? "Thứ 2 – Thứ 7, 9h–18h";
-  const facebookUrl = cms?.facebookUrl  ?? "https://facebook.com/tiemwebnho";
-  const instagramUrl= cms?.instagramUrl ?? "https://instagram.com/tiemwebnho";
-  const tiktokUrl   = cms?.tiktokUrl    ?? "https://tiktok.com/@tiemwebnho";
-  const copyright   = cms?.copyright    ?? `© ${new Date().getFullYear()} Tiệm Web Nhỏ · làm bằng tay ở Sài Gòn`;
+  const facebookUrl = cms?.facebookUrl  ?? "https://facebook.com/webstudio";
+  const instagramUrl= cms?.instagramUrl ?? "https://instagram.com/webstudio";
+  const tiktokUrl   = cms?.tiktokUrl    ?? "https://tiktok.com/@webstudio";
+  const copyright   = cms?.copyright    ?? `© ${new Date().getFullYear()} Web Studio · handmade in Saigon`;
 
   const socialLinks = [
     { href: facebookUrl,  label: "Facebook",  Icon: FacebookIcon },

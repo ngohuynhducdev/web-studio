@@ -99,7 +99,7 @@ export default function Footer({ businessName, s }: { businessName: string; s?: 
       <div className="border-t border-[rgba(244,237,226,0.1)]">
         <div className="max-w-[78rem] mx-auto px-6 md:px-10 py-6 text-center text-[0.74rem] text-[var(--sm-light)]/60">
           © {new Date().getFullYear()} {businessName} Spa & Wellness · Website by{' '}
-          <Link href="/" className="text-[var(--sm-light)]/70 underline">tiệm web nhỏ</Link>
+          <Link href="/" className="text-[var(--sm-light)]/70 underline">web studio</Link>
         </div>
       </div>
     </footer>

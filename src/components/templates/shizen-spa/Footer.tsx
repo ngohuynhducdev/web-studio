@@ -16,7 +16,7 @@ export default function Footer({ businessName }: { businessName: string }) {
         </a>
         <p className="text-[0.72rem] text-white/55">
           © {new Date().getFullYear()} {businessName} Spa & Wellness · Website by{' '}
-          <Link href="/" className="text-white/70 underline">tiệm web nhỏ</Link>
+          <Link href="/" className="text-white/70 underline">web studio</Link>
         </p>
         <nav className="flex gap-7 justify-center md:justify-start" aria-label="Footer links">
           {FOOTER_LINKS.map((link) => (

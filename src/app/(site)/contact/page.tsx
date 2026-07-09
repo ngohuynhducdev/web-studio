@@ -9,7 +9,7 @@ import Reveal from "@/components/ui/motion/Reveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Liên hệ & Đặt mẫu — Tiệm Web Nhỏ",
+  title: "Liên hệ & Đặt mẫu — Web Studio",
   description:
     "Đặt web cho tiệm của bạn — nail, spa, café, gym. Tư vấn miễn phí, trả lời trong 1–2 giờ.",
 };

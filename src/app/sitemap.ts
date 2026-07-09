@@ -4,7 +4,7 @@ import { allTemplatesQuery } from "@/lib/queries";
 import type { Template } from "@/types";
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://tiemwebnho.com";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://webstudio.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const templates = await client.fetch<Template[]>(

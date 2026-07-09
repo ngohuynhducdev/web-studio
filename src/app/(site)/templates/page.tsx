@@ -10,7 +10,7 @@ import Reveal from "@/components/ui/motion/Reveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Mẫu Website | Tiệm Web Nhỏ",
+  title: "Mẫu Website | Web Studio",
   description:
     "Mẫu website sẵn có cho nail, spa, cà phê, gym, barber. Chọn mẫu — tụi em lo phần còn lại.",
 };
@@ -30,7 +30,7 @@ export default async function TemplatesPage() {
   const metaUpdateNote   = cms?.metaUpdateNote   ?? DEFAULT_TEMPLATES_PAGE.metaUpdateNote;
   const metaStartingPrice= cms?.metaStartingPrice?? DEFAULT_TEMPLATES_PAGE.metaStartingPrice;
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tiemwebnho.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://webstudio.com";
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

@@ -10,10 +10,10 @@ if (!to)     { console.error("❌  NOTIFICATION_EMAIL chưa có trong .env.local
 const resend = new Resend(apiKey);
 
 const { data, error } = await resend.emails.send({
-  from: process.env.RESEND_FROM_EMAIL ?? "Tiệm Web Nhỏ <onboarding@resend.dev>",
+  from: process.env.RESEND_FROM_EMAIL ?? "Web Studio <onboarding@resend.dev>",
   to,
-  subject: "✅ Test email — Tiệm Web Nhỏ",
-  html: "<p>Email notification hoạt động rồi! 🎉</p><p>Đây là email test từ hệ thống tiemwebnho.com.</p>",
+  subject: "✅ Test email — Web Studio",
+  html: "<p>Email notification hoạt động rồi! 🎉</p><p>Đây là email test từ hệ thống webstudio.com.</p>",
 });
 
 if (error) {

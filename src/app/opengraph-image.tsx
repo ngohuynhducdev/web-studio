@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Tiệm Web Nhỏ — Web đẹp cho doanh nghiệp nhỏ";
+export const alt = "Web Studio — Web đẹp cho doanh nghiệp nhỏ";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -81,7 +81,7 @@ export default function Image() {
             display: "flex",
           }}
         >
-          tiệm web nhỏ
+          web studio
           <span style={{ color: "#D97757" }}>.</span>
         </div>
 

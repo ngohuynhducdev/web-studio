@@ -101,7 +101,7 @@ export default function MobileMenu({
           {/* Header — brand + nút đóng */}
           <div className={styles.mobileMenuHeader}>
             <Link href="/" className={styles.mobileMenuBrand} onClick={close}>
-              tiệm web nhỏ<span className={styles.mobileMenuDot}>.</span>
+              web studio<span className={styles.mobileMenuDot}>.</span>
             </Link>
             <button
               className={styles.mobileMenuCloseBtn}

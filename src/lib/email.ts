@@ -39,7 +39,7 @@ export async function sendNewOrderNotification(data: NewOrderData): Promise<void
   const resend = new Resend(apiKey);
 
   const from =
-    process.env.RESEND_FROM_EMAIL ?? "Tiệm Web Nhỏ <onboarding@resend.dev>";
+    process.env.RESEND_FROM_EMAIL ?? "Web Studio <onboarding@resend.dev>";
 
   const industryLabel = data.businessType
     ? (INDUSTRY_LABELS[data.businessType] ?? data.businessType)
@@ -78,7 +78,7 @@ function row(label: string, value: string) {
 function buildHtml(
   d: NewOrderData & { industryLabel: string; templateLabel: string }
 ): string {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tiemwebnho.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://webstudio.com";
   const adminUrl = `${siteUrl}/admin/don-hang`;
 
   return `<!DOCTYPE html>
@@ -89,7 +89,7 @@ function buildHtml(
 
     <!-- Header -->
     <div style="background:#6f4e37;padding:24px 32px">
-      <p style="margin:0;color:#faf6f0;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Tiệm Web Nhỏ</p>
+      <p style="margin:0;color:#faf6f0;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Web Studio</p>
       <h1 style="margin:6px 0 0;color:#fff;font-size:22px;font-weight:700">Có đơn hàng mới 🎉</h1>
     </div>
 
@@ -117,7 +117,7 @@ function buildHtml(
     <!-- Footer -->
     <div style="padding:16px 32px;border-top:1px solid #e8ddd0;text-align:center">
       <p style="margin:0;font-size:12px;color:#a09080">
-        Email này được gửi tự động khi có đơn hàng mới trên tiemwebnho.com
+        Email này được gửi tự động khi có đơn hàng mới trên webstudio.com
       </p>
     </div>
 

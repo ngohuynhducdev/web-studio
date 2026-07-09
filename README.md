@@ -1,12 +1,12 @@
-# Tiệm Web Nhỏ — a mini website platform for Vietnamese small businesses
+# Web Studio — a mini website platform for Vietnamese small businesses
 
-**Tiệm Web Nhỏ** ("Little Web Shop") is a template-based landing page platform for small Vietnamese businesses — nail salons, spas, cafés, bakeries. A client picks a template, the studio customizes the content through a CMS, and the client's site is served on their own domain — all from a single Next.js codebase.
+**Web Studio** ("Little Web Shop") is a template-based landing page platform for small Vietnamese businesses — nail salons, spas, cafés, bakeries. A client picks a template, the studio customizes the content through a CMS, and the client's site is served on their own domain — all from a single Next.js codebase.
 
 This repository is a **portfolio project**: it contains the full marketing site, nine production-quality landing page templates, an embedded CMS, and the order/delivery pipeline that would run the business end-to-end. All business data is fictional; photography is from Unsplash.
 
 **Live demo:** [web-studio-chi.vercel.app](https://web-studio-chi.vercel.app)
 
-![Homepage — Tiệm Web Nhỏ](docs/screenshots/homepage.webp)
+![Homepage — Web Studio](docs/screenshots/homepage.webp)
 
 ## What's inside
 
