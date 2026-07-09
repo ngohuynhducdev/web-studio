@@ -1,9 +1,9 @@
 export const DEFAULT_TEMPLATES_PAGE = {
-  heroEyebrow:       "THƯ VIỆN MẪU",
-  heroHeadingLine1:  "mẫu làm sẵn,",
-  heroHeadingItal:   "chỉnh theo tiệm",
-  heroHeadingLine3:  "của bạn.",
-  heroDesc:          "tụi em không bán theme rồi thôi — mỗi mẫu được customize đúng màu sắc, nội dung, hình ảnh của tiệm. chọn cái phù hợp, nhắn zalo, có web trong 5 ngày.",
-  metaUpdateNote:    "cập nhật thường xuyên",
-  metaStartingPrice: "từ 399.000đ / tháng",
+  heroEyebrow:       "TEMPLATE LIBRARY",
+  heroHeadingLine1:  "ready-made templates,",
+  heroHeadingItal:   "customized for your",
+  heroHeadingLine3:  "business.",
+  heroDesc:          "we don't just sell you a theme and walk away — every template is customized with your colors, content, and photos. pick the one that fits, message us on zalo, get your site in 5 days.",
+  metaUpdateNote:    "updated regularly",
+  metaStartingPrice: "starting at $29/month",
 };
