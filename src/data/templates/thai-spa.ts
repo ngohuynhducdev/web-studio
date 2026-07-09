@@ -55,11 +55,11 @@ export const DEFAULT_SECTIONS: PageSection[] = [
     _type: "featuresSection", _key: "benefits",
     headingMain: "Thai Massage Helps If You:",
     items: [
-      { _key: "b1", title: "Want To Feel Lighter",        desc: "Want a more supple, flexible body" },
-      { _key: "b2", title: "Want Relief From Pain",       desc: "Are living with chronic pain" },
-      { _key: "b3", title: "Want Better, Deeper Sleep",   desc: "Struggle with insomnia and wake up tired every day" },
-      { _key: "b4", title: "Want To Release Stress",      desc: "Feel constantly tense and unable to relax" },
-      { _key: "b5", title: "Want More Confidence In Life", desc: "Want to find balance and clarity of mind again" },
+      { _key: "b1", title: "Feel Lighter",                desc: "Want a more supple, flexible body" },
+      { _key: "b2", title: "Relief From Pain",             desc: "Are living with chronic pain" },
+      { _key: "b3", title: "Sleep Better, Full Of Energy", desc: "Struggle with insomnia and wake up tired every day" },
+      { _key: "b4", title: "Release Stress",               desc: "Feel constantly tense and unable to relax" },
+      { _key: "b5", title: "More Confidence In Life",      desc: "Want to find balance and clarity of mind again" },
     ],
   },
   {
