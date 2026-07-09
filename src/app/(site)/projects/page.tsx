@@ -46,7 +46,7 @@ export default async function DuAnPage() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Trang chủ", item: siteUrl },
-      { "@type": "ListItem", position: 2, name: "Dự án đã làm", item: `${siteUrl}/du-an` },
+      { "@type": "ListItem", position: 2, name: "Dự án đã làm", item: `${siteUrl}/projects` },
     ],
   };
 
@@ -114,7 +114,7 @@ export default async function DuAnPage() {
                   <div className={styles.projectCardTop}>
                     <div>
                       <h2 className={styles.projectCardName}>
-                        <Link href={`/du-an/${slugify(p.shopName)}`} className={styles.projectCardNameLink}>
+                        <Link href={`/projects/${slugify(p.shopName)}`} className={styles.projectCardNameLink}>
                           {p.shopName}
                         </Link>
                       </h2>
@@ -158,7 +158,7 @@ export default async function DuAnPage() {
             </h2>
             <p className={styles.projectsCtaBody}>{page.ctaBody}</p>
             <div className={styles.projectsCtaActions}>
-              <Link href="/lien-he" className="btn btn-primary btn-lg">
+              <Link href="/contact" className="btn btn-primary btn-lg">
                 Bắt đầu dự án
                 <svg className="btn-arrow" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12" />

@@ -62,7 +62,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       {/* ── Back nav ── */}
       <div className={styles.backNav}>
         <div className="container-site">
-          <Link href="/du-an" className={styles.backLink}>
+          <Link href="/projects" className={styles.backLink}>
             <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <line x1="19" y1="12" x2="5" y2="12" />
               <polyline points="12 19 5 12 12 5" />
@@ -159,7 +159,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               {others.map((p) => (
                 <Link
                   key={p._id}
-                  href={`/du-an/${slugify(p.shopName)}`}
+                  href={`/projects/${slugify(p.shopName)}`}
                   className={styles.otherCard}
                 >
                   <div className={styles.otherCardImage}>
@@ -194,7 +194,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             <em className="italic-acc">một web tử tế.</em>
           </h2>
           <div className={styles.ctaActions}>
-            <Link href="/lien-he" className="btn btn-primary btn-lg">
+            <Link href="/contact" className="btn btn-primary btn-lg">
               Bắt đầu dự án
               <svg className="btn-arrow" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" />

@@ -83,7 +83,7 @@ export default function TemplatePreviewBar({ componentKey, title }: TemplatePrev
           <ZaloIcon />
           Nhắn Zalo
         </a>
-        <Link href={`/lien-he?template=${componentKey}`} className={styles.previewBarCta}>
+        <Link href={`/contact?template=${componentKey}`} className={styles.previewBarCta}>
           Đặt mẫu này
           <ArrowIcon />
         </Link>

@@ -53,7 +53,7 @@ export default function PricingSection({ cms }: { cms?: PricingCms }) {
   const plans      = cms?.pricingPlans?.length ? cms.pricingPlans : DEFAULT_PRICING_PLANS;
 
   return (
-    <section className="section" id="bang-gia">
+    <section className="section" id="pricing">
       <div className="container-site">
         <div className={styles.pricingSectionHead}>
           <h2 className="h2-heading">
@@ -79,7 +79,7 @@ export default function PricingSection({ cms }: { cms?: PricingCms }) {
 
         {/* Footer link */}
         <div className={styles.pricingFoot}>
-          <Link href="/lien-he" className="btn-link">
+          <Link href="/contact" className="btn-link">
             xem chi tiết bảng giá
             <svg
               width={14}
@@ -154,7 +154,7 @@ function RegularCard({ plan }: { plan: PricingPlan }) {
       </ul>
 
       {/* CTA */}
-      <a href="/lien-he" className="btn btn-outline btn-full">
+      <a href="/contact" className="btn btn-outline btn-full">
         {plan.cta}
       </a>
 
@@ -195,7 +195,7 @@ function FeaturedCard({ plan }: { plan: PricingPlan }) {
       </ul>
 
       {/* CTA */}
-      <a href="/lien-he" className="btn btn-accent btn-full">
+      <a href="/contact" className="btn btn-accent btn-full">
         {plan.cta}
       </a>
 

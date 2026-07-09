@@ -66,13 +66,13 @@ app/
 │   ├── templates/          — /templates
 │   │   ├── page.tsx
 │   │   └── page.module.css
-│   ├── du-an/              — /du-an
+│   ├── projects/            — /projects
 │   │   ├── page.tsx
 │   │   └── page.module.css
-│   ├── lien-he/            — /lien-he?template=<slug> pre-selects template dropdown
+│   ├── contact/            — /contact?template=<slug> pre-selects template dropdown
 │   │   ├── page.tsx
 │   │   └── page.module.css
-│   └── ve-chung-toi/       — /ve-chung-toi
+│   └── about/              — /about
 │       ├── page.tsx
 │       └── page.module.css
 ├── templates/[slug]/       — /templates/:slug (fullscreen, no Navbar)

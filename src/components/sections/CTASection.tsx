@@ -18,7 +18,7 @@ export default async function CTASection() {
   const hours      = cms?.ctaHours       ?? DEFAULT_CTA.ctaHours;
 
   return (
-    <section className={styles.ctaMocha} id="lien-he">
+    <section className={styles.ctaMocha} id="contact">
       <div aria-hidden="true" className={styles.ctaGradientDecoration} />
       <div className={`container-site ${styles.ctaContainer}`}>
         <div className={styles.ctaLayout}>

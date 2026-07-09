@@ -4,11 +4,11 @@ export const STUDIO_ZALO_URL = "https://zalo.me/0901234567";
 // ── Navbar ───────────────────────────────────────────────────────────────────
 
 export const DEFAULT_NAV = [
-  { href: "/templates",    label: "mẫu" },
-  { href: "/du-an",        label: "dự án" },
-  { href: "/#bang-gia",    label: "bảng giá" },
-  { href: "/ve-chung-toi", label: "về chúng mình" },
-  { href: "/lien-he",      label: "liên hệ" },
+  { href: "/templates", label: "mẫu" },
+  { href: "/projects",  label: "dự án" },
+  { href: "/#pricing",  label: "bảng giá" },
+  { href: "/about",     label: "về chúng mình" },
+  { href: "/contact",   label: "liên hệ" },
 ];
 
 // ── SiteHeader (Sanity document) ─────────────────────────────────────────────
@@ -17,10 +17,10 @@ export const DEFAULT_HEADER = {
   brandName: "tiệm web nhỏ",
   navLinks: [
     { _key: "n1", label: "mẫu",          href: "/templates" },
-    { _key: "n2", label: "dự án",         href: "/du-an" },
-    { _key: "n3", label: "bảng giá",      href: "/#bang-gia" },
-    { _key: "n4", label: "về chúng mình", href: "/ve-chung-toi" },
-    { _key: "n5", label: "liên hệ",       href: "/lien-he" },
+    { _key: "n2", label: "dự án",         href: "/projects" },
+    { _key: "n3", label: "bảng giá",      href: "/#pricing" },
+    { _key: "n4", label: "về chúng mình", href: "/about" },
+    { _key: "n5", label: "liên hệ",       href: "/contact" },
   ],
   ctaLabel: "xem mẫu ngay",
   ctaHref:  "/templates",
@@ -29,10 +29,10 @@ export const DEFAULT_HEADER = {
 // ── Footer ───────────────────────────────────────────────────────────────────
 
 export const DEFAULT_SHOP_LINKS = [
-  { href: "/templates",    label: "Templates" },
-  { href: "/du-an",        label: "Dự án" },
-  { href: "/ve-chung-toi", label: "Về chúng mình" },
-  { href: "/lien-he",      label: "Liên hệ & Đặt mẫu" },
+  { href: "/templates", label: "Templates" },
+  { href: "/projects",  label: "Dự án" },
+  { href: "/about",     label: "Về chúng mình" },
+  { href: "/contact",   label: "Liên hệ & Đặt mẫu" },
 ];
 
 export const DEFAULT_FOOTER = {
@@ -41,9 +41,9 @@ export const DEFAULT_FOOTER = {
   description:  "một tiệm — không phải agency, không phải platform.\nlàm từng cái, tử tế từng cái.",
   shopLinks: [
     { _key: "s1", label: "Templates",          href: "/templates" },
-    { _key: "s2", label: "Dự án",              href: "/du-an" },
-    { _key: "s3", label: "Về chúng mình",      href: "/ve-chung-toi" },
-    { _key: "s4", label: "Liên hệ & Đặt mẫu", href: "/lien-he" },
+    { _key: "s2", label: "Dự án",              href: "/projects" },
+    { _key: "s3", label: "Về chúng mình",      href: "/about" },
+    { _key: "s4", label: "Liên hệ & Đặt mẫu", href: "/contact" },
   ],
   email:        "hello@tiemwebnho.com",
   phone:        "0901 234 567",

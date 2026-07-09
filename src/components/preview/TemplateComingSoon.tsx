@@ -111,7 +111,7 @@ export default function TemplateComingSoon({
 
             <div className={styles.tcsActions}>
               <Link
-                href={`/lien-he?template=${slug}`}
+                href={`/contact?template=${slug}`}
                 className="btn btn-primary btn-lg"
               >
                 Đặt trước mẫu này

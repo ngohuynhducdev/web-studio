@@ -130,7 +130,7 @@ export default async function VeChungToiPage() {
               trong vòng 1–2 giờ.
             </p>
             <div className={styles.aboutCtaActions}>
-              <Link href="/lien-he" className="btn btn-primary btn-lg">
+              <Link href="/contact" className="btn btn-primary btn-lg">
                 đặt mẫu ngay
                 <ArrowIcon />
               </Link>

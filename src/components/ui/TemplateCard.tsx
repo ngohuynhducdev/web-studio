@@ -78,7 +78,7 @@ export default function TemplateCard({ template }: TemplateCardProps) {
             Xem mẫu
           </a>
           {componentKey && (
-            <a href={`/lien-he?template=${componentKey}`} className="btn btn-primary">
+            <a href={`/contact?template=${componentKey}`} className="btn btn-primary">
               Đặt mẫu này
               <svg
                 className="btn-arrow"
