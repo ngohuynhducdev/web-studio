@@ -1,12 +1,12 @@
-// Nguồn sự thật DUY NHẤT cho danh sách template (do code định nghĩa).
-// Chỉ chứa dữ liệu thuần — KHÔNG import React/CSS — để schema Sanity import an toàn.
-// Thêm template mới: thêm 1 dòng ở đây, rồi đăng ký component trong templateRegistry.ts.
+// Single source of truth for template list (defined by code).
+// Contains only pure data — NO React/CSS imports — so Sanity schema can import safely.
+// To add new template: add one line here, then register component in templateRegistry.ts.
 export const TEMPLATE_MANIFEST = [
-  { slug: "thai-spa", label: "Thai Spa", tagline: "Spa / Massage Thái" },
-  { slug: "shizen-spa", label: "Shizen Spa", tagline: "Spa / Phong cách Nhật" },
+  { slug: "thai-spa", label: "Thai Spa", tagline: "Thai spa & massage" },
+  { slug: "shizen-spa", label: "Shizen Spa", tagline: "Japanese-style spa" },
   { slug: "zen-wellness", label: "Zen Wellness", tagline: "Spa / Wellness" },
-  { slug: "bach-thao", label: "Bách Thảo Spa", tagline: "Spa thảo mộc" },
-  { slug: "suoi-may", label: "Suối Mây", tagline: "Spa / Private onsen" },
+  { slug: "bach-thao", label: "Herbal Grove Spa", tagline: "Herbal spa" },
+  { slug: "suoi-may", label: "Mist Spring Spa", tagline: "Spa / Private onsen" },
 ] as const;
 
 export type TemplateSlug = (typeof TEMPLATE_MANIFEST)[number]["slug"];
