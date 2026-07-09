@@ -26,8 +26,6 @@ const TEMPLATE_LABELS: Record<string, string> = {
   "thai-spa":     "Thai Spa",
   "shizen-spa":   "Shizen Spa",
   "zen-wellness": "Zen Wellness",
-  "urban-brew":   "Urban Brew",
-  "sweet-corner": "Sweet Corner",
 };
 
 // Returns false (silently) when env vars are missing — order creation still succeeds.

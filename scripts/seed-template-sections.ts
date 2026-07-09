@@ -10,8 +10,6 @@
 
 import * as dotenv from "dotenv";
 import { createClient } from "@sanity/client";
-import { DEFAULT_SECTIONS as SWEET_CORNER_SECTIONS } from "../src/data/templates/sweet-corner";
-import { DEFAULT_SECTIONS as URBAN_BREW_SECTIONS } from "../src/data/templates/urban-brew";
 import { DEFAULT_SECTIONS as ZEN_WELLNESS_SECTIONS } from "../src/data/templates/zen-wellness";
 
 dotenv.config({ path: ".env.local" });
@@ -25,8 +23,6 @@ const client = createClient({
 });
 
 const TARGETS = [
-  { id: "sydQkTivUNpklI3giKtQ5L", componentKey: "sweet-corner", sections: SWEET_CORNER_SECTIONS },
-  { id: "9SqAZx1N8m9IspGhM9Za9c", componentKey: "urban-brew",   sections: URBAN_BREW_SECTIONS   },
   { id: "sydQkTivUNpklI3giKtPYX", componentKey: "zen-wellness",  sections: ZEN_WELLNESS_SECTIONS  },
 ];
 

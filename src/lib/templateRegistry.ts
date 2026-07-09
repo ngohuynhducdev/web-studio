@@ -1,13 +1,9 @@
 import type { PageSection } from "@/types";
 import type { TemplateSlug } from "@/lib/templates";
 import ShizenSpaTemplate from "@/components/templates/shizen-spa";
-import SweetCornerTemplate from "@/components/templates/sweet-corner";
-import UrbanBrewTemplate from "@/components/templates/urban-brew";
 import ZenWellnessTemplate from "@/components/templates/zen-wellness";
 import ThaiSpaTemplate from "@/components/templates/thai-spa";
-import LuaNailTemplate from "@/components/templates/lua-nail";
 import BachThaoTemplate from "@/components/templates/bach-thao";
-import TsukiCoffeeTemplate from "@/components/templates/tsuki-coffee";
 import SuoiMayTemplate from "@/components/templates/suoi-may";
 
 // Data-only map lives in @/data/templates (usable from Studio components
@@ -27,12 +23,8 @@ export type TemplateProps = {
 
 export const TEMPLATE_COMPONENTS: Record<string, React.ComponentType<TemplateProps>> = {
   "shizen-spa":   ShizenSpaTemplate,
-  "sweet-corner": SweetCornerTemplate,
-  "urban-brew":   UrbanBrewTemplate,
   "zen-wellness": ZenWellnessTemplate,
   "thai-spa":     ThaiSpaTemplate,
-  "lua-nail":     LuaNailTemplate,
   "bach-thao":    BachThaoTemplate,
-  "tsuki-coffee": TsukiCoffeeTemplate,
   "suoi-may":     SuoiMayTemplate,
 } satisfies Record<TemplateSlug, React.ComponentType<TemplateProps>>;

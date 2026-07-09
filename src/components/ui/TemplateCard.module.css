@@ -68,26 +68,6 @@
   background: rgba(107, 124, 94, 0.08);
 }
 
-.templateCardPlaceholder[data-tpl="sweet-corner"] {
-  background: linear-gradient(160deg, #fff0f5 0%, #fce4ed 100%);
-}
-.templateCardPlaceholder[data-tpl="sweet-corner"]::before {
-  background: rgba(232, 120, 154, 0.14);
-}
-.templateCardPlaceholder[data-tpl="sweet-corner"]::after {
-  background: rgba(232, 120, 154, 0.10);
-}
-
-.templateCardPlaceholder[data-tpl="urban-brew"] {
-  background: linear-gradient(160deg, #0a0a0a 0%, #1a1208 100%);
-}
-.templateCardPlaceholder[data-tpl="urban-brew"]::before {
-  background: rgba(255,255,255,0.06);
-}
-.templateCardPlaceholder[data-tpl="urban-brew"]::after {
-  background: rgba(201, 161, 74, 0.15);
-}
-
 .templateCardPlaceholder[data-tpl="zen-wellness"] {
   background: linear-gradient(160deg, #eef2eb 0%, #dde8d8 100%);
 }
