@@ -6,7 +6,7 @@ import { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal";
 import styles from "./PricingSection.module.css";
 
 function formatPrice(price: number) {
-  return new Intl.NumberFormat("vi-VN").format(price);
+  return `$${new Intl.NumberFormat("en-US").format(price)}`;
 }
 
 function CheckIcon() {
@@ -132,7 +132,7 @@ function RegularCard({ plan }: { plan: PricingPlan }) {
       {/* Price */}
       <div className={styles.priceAmtRow}>
         <span className={styles.priceAmt}>{formatPrice(plan.price)}</span>
-        <span className={styles.priceUnit}>đ/tháng</span>
+        <span className={styles.priceUnit}>/mo</span>
       </div>
 
       {/* Features */}
@@ -179,7 +179,7 @@ function FeaturedCard({ plan }: { plan: PricingPlan }) {
       {/* Price */}
       <div className={styles.priceAmtRow}>
         <span className={styles.priceAmt}>{formatPrice(plan.price)}</span>
-        <span className={styles.priceUnit}>đ/tháng</span>
+        <span className={styles.priceUnit}>/mo</span>
       </div>
 
       {/* Features */}
