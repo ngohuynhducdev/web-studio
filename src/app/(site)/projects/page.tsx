@@ -8,9 +8,9 @@ import Reveal, { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Dự án đã làm — Web Studio",
+  title: "Our projects — Web Studio",
   description:
-    "Những trang web mình đã làm cho tiệm nail, spa, cà phê, gym ở TP.HCM. Xem thực tế — không phải mock-up.",
+    "Websites we've built for nail salons, spas, cafes, gyms in Ho Chi Minh City. See the real thing — not mock-ups.",
 };
 
 const industryColorClass: Record<string, string | undefined> = {
@@ -45,8 +45,8 @@ export default async function DuAnPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Trang chủ", item: siteUrl },
-      { "@type": "ListItem", position: 2, name: "Dự án đã làm", item: `${siteUrl}/projects` },
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Our projects", item: `${siteUrl}/projects` },
     ],
   };
 
@@ -73,9 +73,9 @@ export default async function DuAnPage() {
             </Reveal>
           </div>
           <Reveal className={styles.projectsHeroMeta}>
-            <span>{projects.length} dự án hoàn thành</span>
+            <span>{projects.length} projects completed</span>
             <span className={styles.projectsMetaDot} aria-hidden="true">·</span>
-            <span>4 ngành</span>
+            <span>4 industries</span>
             <span className={styles.projectsMetaDot} aria-hidden="true">·</span>
             <span>{page.metaLocation}</span>
           </Reveal>
@@ -126,10 +126,10 @@ export default async function DuAnPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.projectCardLink}
-                        aria-label={`Xem trang của ${p.shopName}`}
+                        aria-label={`View ${p.shopName}'s site`}
                       >
                         <ExternalLinkIcon />
-                        Xem trang
+                        View site
                       </a>
                     )}
                   </div>
@@ -137,7 +137,7 @@ export default async function DuAnPage() {
                   <p className={styles.projectCardHighlight}>&ldquo;{p.highlight}&rdquo;</p>
 
                   <div className={styles.projectCardTemplate}>
-                    <span className={styles.projectTemplateLabel}>Mẫu đã dùng</span>
+                    <span className={styles.projectTemplateLabel}>Template used</span>
                     <span className={styles.projectTemplateName}>{p.templateUsed}</span>
                   </div>
                 </div>
@@ -159,14 +159,14 @@ export default async function DuAnPage() {
             <p className={styles.projectsCtaBody}>{page.ctaBody}</p>
             <div className={styles.projectsCtaActions}>
               <Link href="/contact" className="btn btn-primary btn-lg">
-                Bắt đầu dự án
+                Start a project
                 <svg className="btn-arrow" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
               </Link>
               <Link href="/templates" className="btn btn-outline btn-lg">
-                Xem mẫu trước
+                Browse templates
               </Link>
             </div>
           </Reveal>

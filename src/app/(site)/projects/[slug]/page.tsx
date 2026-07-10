@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = projects.find((p) => slugify(p.shopName) === slug);
   if (!project) return {};
   return {
-    title: `${project.shopName} — Dự án | Web Studio`,
+    title: `${project.shopName} — Project | Web Studio`,
     description: project.highlight,
   };
 }
@@ -67,7 +67,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               <line x1="19" y1="12" x2="5" y2="12" />
               <polyline points="12 19 5 12 12 5" />
             </svg>
-            Dự án
+            Projects
           </Link>
         </div>
       </div>
@@ -112,7 +112,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
           {/* Main — highlight */}
           <div className={styles.main}>
-            <p className={styles.mainLabel}>Kết quả nổi bật</p>
+            <p className={styles.mainLabel}>Highlight result</p>
             <blockquote className={styles.highlight}>
               <p>{project.highlight}</p>
             </blockquote>
@@ -123,15 +123,15 @@ export default async function ProjectDetailPage({ params }: Props) {
             <div className={styles.infoCard}>
               <dl className={styles.infoList}>
                 <div className={styles.infoRow}>
-                  <dt className={styles.infoKey}>Mẫu đã dùng</dt>
+                  <dt className={styles.infoKey}>Template used</dt>
                   <dd className={styles.infoVal}>{project.templateUsed}</dd>
                 </div>
                 <div className={styles.infoRow}>
-                  <dt className={styles.infoKey}>Ngành</dt>
+                  <dt className={styles.infoKey}>Industry</dt>
                   <dd className={styles.infoVal}>{project.industryLabel}</dd>
                 </div>
                 <div className={styles.infoRow}>
-                  <dt className={styles.infoKey}>Địa điểm</dt>
+                  <dt className={styles.infoKey}>Location</dt>
                   <dd className={styles.infoVal}>{project.location}</dd>
                 </div>
               </dl>
@@ -143,7 +143,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                   className={styles.liveBtn}
                 >
                   <ExternalLinkIcon />
-                  Xem trang web
+                  View live site
                 </a>
               )}
             </div>
@@ -190,19 +190,19 @@ export default async function ProjectDetailPage({ params }: Props) {
         {/* ── CTA ── */}
         <div className={styles.cta}>
           <h2 className={styles.ctaTitle}>
-            tiệm bạn xứng đáng có<br />
-            <em className="italic-acc">một web tử tế.</em>
+            your business deserves<br />
+            <em className="italic-acc">a website that shows it.</em>
           </h2>
           <div className={styles.ctaActions}>
             <Link href="/contact" className="btn btn-primary btn-lg">
-              Bắt đầu dự án
+              Start a project
               <svg className="btn-arrow" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </Link>
             <Link href="/templates" className="btn btn-outline btn-lg">
-              Xem mẫu
+              View templates
             </Link>
           </div>
         </div>

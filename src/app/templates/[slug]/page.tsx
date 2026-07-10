@@ -48,7 +48,7 @@ export async function generateMetadata({
   const isLive = !!(template?.componentKey && template.componentKey in TEMPLATE_COMPONENTS);
   const title = isLive
     ? `${template.title} — Web Studio`
-    : `${template.title} (sắp ra mắt) — Web Studio`;
+    : `${template.title} (coming soon) — Web Studio`;
   return {
     title,
     description: template.description,

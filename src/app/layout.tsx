@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://webstudio.com"
   ),
   title: {
-    default: "Web Studio — Web đẹp cho doanh nghiệp nhỏ",
+    default: "Web Studio — Beautiful websites for small businesses",
     template: "%s | Web Studio",
   },
   description:
-    "Thiết kế landing page cho tiệm nail, spa, café, gym. Chọn mẫu — customize — có web trong 5 ngày. Từ 299k/tháng.",
+    "Landing pages for nail salons, spas, cafes, gyms. Pick a template — customize — get your site in 5 days. Starting at $19/month.",
   openGraph: {
     type: "website",
-    locale: "vi_VN",
+    locale: "en_US",
     siteName: "Web Studio",
   },
   twitter: {
@@ -50,7 +50,7 @@ const jsonLd = {
   "@type": "ProfessionalService",
   "name": "Web Studio",
   "url": "https://webstudio.com",
-  "description": "Thiết kế website chuyên nghiệp cho tiệm nail, spa, cà phê, gym. Chọn mẫu có sẵn, nhận web trong 5 ngày.",
+  "description": "Professional website design for nail salons, spas, cafes, gyms. Pick a ready-made template, get your site in 5 days.",
   "telephone": "+84901234567",
   "email": "hello@webstudio.com",
   "priceRange": "$$",
@@ -76,7 +76,7 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
-    <html lang="vi" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body>
         <script
           type="application/ld+json"

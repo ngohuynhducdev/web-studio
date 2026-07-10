@@ -10,9 +10,9 @@ import Reveal from "@/components/ui/motion/Reveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Mẫu Website | Web Studio",
+  title: "Website Templates | Web Studio",
   description:
-    "Mẫu website sẵn có cho nail, spa, cà phê, gym, barber. Chọn mẫu — tụi em lo phần còn lại.",
+    "Ready-made website templates for nail salons, spas, cafes, gyms, barbershops. Pick a template — we handle the rest.",
 };
 
 export default async function TemplatesPage() {
@@ -35,8 +35,8 @@ export default async function TemplatesPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Trang chủ", item: siteUrl },
-      { "@type": "ListItem", position: 2, name: "Mẫu Website", item: `${siteUrl}/templates` },
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Website Templates", item: `${siteUrl}/templates` },
     ],
   };
 
@@ -71,7 +71,7 @@ export default async function TemplatesPage() {
 
           {/* Bottom meta strip */}
           <Reveal className={styles.templatesHeroMeta}>
-            <span className={styles.templatesHeroMetaItem}>{count} mẫu hiện có</span>
+            <span className={styles.templatesHeroMetaItem}>{count} templates available</span>
             <span className={styles.templatesHeroMetaDot} aria-hidden="true">·</span>
             <span className={styles.templatesHeroMetaItem}>{metaUpdateNote}</span>
             <span className={styles.templatesHeroMetaDot} aria-hidden="true">·</span>

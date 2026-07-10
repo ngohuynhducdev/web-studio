@@ -9,9 +9,9 @@ import Reveal from "@/components/ui/motion/Reveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Liên hệ & Đặt mẫu — Web Studio",
+  title: "Contact & Order — Web Studio",
   description:
-    "Đặt web cho tiệm của bạn — nail, spa, café, gym. Tư vấn miễn phí, trả lời trong 1–2 giờ.",
+    "Order a website for your business — nail, spa, cafe, gym. Free consultation, reply within 1–2 hours.",
 };
 
 function ZaloIcon() {
@@ -124,14 +124,14 @@ export default async function LienHePage({
                 className={styles.contactZaloBtn}
               >
                 <ZaloIcon />
-                Nhắn Zalo ngay
+                Message us on Zalo
               </a>
               <p className={styles.contactZaloNote}>{zaloCardNote}</p>
             </Reveal>
 
             {/* Contact info */}
             <Reveal delay={0.16} className={styles.contactInfoCard}>
-              <h3 className={styles.contactInfoTitle}>Thông tin liên hệ</h3>
+              <h3 className={styles.contactInfoTitle}>Contact information</h3>
               <ul className={styles.contactInfoList}>
                 <li>
                   <span className={styles.contactInfoIcon}><PhoneIcon /></span>

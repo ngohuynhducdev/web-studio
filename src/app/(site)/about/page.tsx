@@ -14,9 +14,9 @@ import Reveal, { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Về chúng mình — Web Studio",
+  title: "About us — Web Studio",
   description:
-    "Web Studio là ai, làm gì, và tại sao lại có tiệm này — câu chuyện của một studio nhỏ ở Sài Gòn.",
+    "Who Web Studio is, what we do, and why this studio exists — the story of a small studio in Saigon.",
 };
 
 function ArrowIcon() {
@@ -82,14 +82,14 @@ export default async function VeChungToiPage() {
             <div className={styles.aboutImageWrap}>
               <Image
                 src={storyImage}
-                alt="Không gian làm việc của Web Studio"
+                alt="Web Studio's workspace"
                 fill
                 sizes="(max-width: 1023px) 100vw, 50vw"
                 className={styles.aboutImage}
               />
             </div>
             <div className={styles.aboutImageCaption}>
-              <span className="dot-terracotta">·</span>&nbsp; nơi mình ngồi làm từng cái
+              <span className="dot-terracotta">·</span>&nbsp; where we sit and build every one
             </div>
           </Reveal>
 
@@ -101,7 +101,7 @@ export default async function VeChungToiPage() {
         <div className="container-site">
           <div className="section-head">
             <h2 className="h2-heading">
-              ba thứ mình <span className="italic-acc">tin tưởng</span>.
+              three things we <span className="italic-acc">believe in</span>.
             </h2>
           </div>
 
@@ -123,19 +123,19 @@ export default async function VeChungToiPage() {
         <div className={`container-site ${styles.aboutCta}`}>
           <Reveal className={styles.aboutCtaInner}>
             <h2 className={styles.aboutCtaTitle}>
-              kể mình nghe về tiệm của bạn<span className="dot-terracotta">.</span>
+              tell us about your business<span className="dot-terracotta">.</span>
             </h2>
             <p className={styles.aboutCtaBody}>
-              Tư vấn miễn phí — mình sẽ gợi ý mẫu phù hợp và báo giá rõ ràng
-              trong vòng 1–2 giờ.
+              Free consultation — we&rsquo;ll suggest the right template and a
+              clear quote within 1–2 hours.
             </p>
             <div className={styles.aboutCtaActions}>
               <Link href="/contact" className="btn btn-primary btn-lg">
-                đặt mẫu ngay
+                order now
                 <ArrowIcon />
               </Link>
               <Link href="/templates" className="btn btn-outline btn-lg">
-                xem mẫu trước
+                browse templates first
               </Link>
             </div>
           </Reveal>

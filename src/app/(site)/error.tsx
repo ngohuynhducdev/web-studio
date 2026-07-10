@@ -18,24 +18,24 @@ export default function SiteError({
   return (
     <main className={`${styles.page} grain`}>
       <div className={`container-site ${styles.inner}`}>
-        <span className="eyebrow">có gì đó không ổn</span>
+        <span className="eyebrow">something&rsquo;s off</span>
 
         <h1 className={styles.heading}>
-          trang này đang<br />
-          <em className={styles.headingItal}>gặp trục trặc</em> một chút.
+          this page is having<br />
+          <em className={styles.headingItal}>a little trouble</em> right now.
         </h1>
 
         <p className={styles.sub}>
-          Lỗi tạm thời thôi — thường thử lại là được.<br />
-          Nếu vẫn không vào được, quay về trang chủ giúp tụi mình nhé.
+          Just a temporary glitch — usually a retry does the trick.<br />
+          If it still won&rsquo;t load, head back home for us.
         </p>
 
         <div className={styles.actions}>
           <button type="button" onClick={reset} className="btn btn-primary btn-lg">
-            thử lại
+            try again
           </button>
           <Link href="/" className="btn btn-outline btn-lg">
-            về trang chủ
+            back home
           </Link>
         </div>
       </div>

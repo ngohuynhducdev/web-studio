@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Web Studio — Web đẹp cho doanh nghiệp nhỏ";
+export const alt = "Web Studio — Beautiful websites for small businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -64,7 +64,7 @@ export default function Image() {
               color: "#D97757",
             }}
           >
-            NAIL · SPA · CÀ PHÊ · GYM
+            NAIL · SPA · CAFE · GYM
           </span>
         </div>
 
@@ -94,7 +94,7 @@ export default function Image() {
             opacity: 0.5,
           }}
         >
-          web đẹp cho doanh nghiệp nhỏ — chọn mẫu, có web trong 5 ngày
+          beautiful websites for small businesses — pick a template, live in 5 days
         </div>
       </div>
     ),
