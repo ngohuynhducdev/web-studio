@@ -47,13 +47,13 @@ export default function Header({ displayName }: { displayName: string }) {
           <span className="flex flex-col leading-none">
             <span className={`${styles.serif} text-[22px] font-medium tracking-[0.06em]`}>{displayName}</span>
             <span className={`mt-1 text-[8.5px] font-semibold uppercase tracking-[0.34em] ${onDark ? 'text-[var(--bt-light)]/75' : 'text-[var(--bt-ink-mid)]'}`}>
-              Spa Thảo Mộc
+              Herbal Foot Spa
             </span>
           </span>
         </a>
 
         {/* Desktop nav */}
-        <ul className="m-0 hidden list-none gap-8 p-0 lg:flex" aria-label="Menu chính">
+        <ul className="m-0 hidden list-none gap-8 p-0 lg:flex" aria-label="Main menu">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
               <a
@@ -74,7 +74,7 @@ export default function Header({ displayName }: { displayName: string }) {
               onDark ? styles.btnOutlineRectLight : styles.btnOutlineRectDark
             }`}
           >
-            Đặt lịch
+            Book Now
           </a>
 
           {/* Hamburger — always visible (matches reference) */}
@@ -83,7 +83,7 @@ export default function Header({ displayName }: { displayName: string }) {
               onDark ? 'border-[rgba(245,239,228,0.4)]' : 'border-[var(--bt-line)]'
             }`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
         >
           <span className={`block h-[1.5px] w-[20px] transition-transform duration-300 ${menuOpen ? `${styles.hamburgerLineTop} bg-[var(--bt-ink)]` : onDark ? 'bg-[var(--bt-light)]' : 'bg-[var(--bt-ink)]'}`} />
@@ -114,7 +114,7 @@ export default function Header({ displayName }: { displayName: string }) {
             className={`${styles.btnSolidDark} mt-4 justify-center`}
             onClick={() => setMenuOpen(false)}
           >
-            Đặt lịch ngay
+            Book Now
           </a>
         </nav>
       )}

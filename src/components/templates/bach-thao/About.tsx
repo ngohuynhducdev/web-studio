@@ -22,7 +22,7 @@ function StudioSeal() {
         </defs>
         <text className={styles.studioSealText}>
           <textPath href="#bt-seal-arc" startOffset="0%">
-            BÁCH THẢO · SPA THẢO MỘC · BÁCH THẢO · SPA THẢO MỘC ·
+            HERBAL GROVE SPA · HERBAL FOOT SPA · HERBAL GROVE SPA · HERBAL FOOT SPA ·
           </textPath>
         </text>
       </svg>
@@ -68,18 +68,18 @@ export default function About({ s }: { s: AboutSection }) {
                   <p key={i} className="m-0 text-[14.5px] leading-[1.8] text-[var(--bt-light)]">{p}</p>
                 ))}
                 <a href="#gallery" className={styles.studioLink}>
-                  Xem không gian <ArrowUpRightIcon />
+                  View the space <ArrowUpRightIcon />
                 </a>
               </div>
             )}
 
             {/* CTA row */}
             <div className={`${styles.revealElem} ${styles.rd3} mt-1 flex flex-wrap items-center gap-7`}>
-              <a href="#services" className={styles.btnOutlineRectLight}>Khám phá dịch vụ</a>
+              <a href="#services" className={styles.btnOutlineRectLight}>Explore Services</a>
               <span className="flex items-center gap-3 text-[var(--bt-light)]">
                 <PhoneIcon />
                 <span className="flex flex-col leading-tight">
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--bt-light)]">Đặt lịch ngay</span>
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--bt-light)]">Book Now</span>
                   <a href="tel:0901234567" className={`${styles.serif} text-[18px] text-[var(--bt-light)] no-underline transition-colors hover:text-[var(--bt-amber-light)]`}>
                     0901 234 567
                   </a>
@@ -90,13 +90,13 @@ export default function About({ s }: { s: AboutSection }) {
             {/* Arch photo + experience stat */}
             <div className={`${styles.revealElem} ${styles.rd4} mt-6 flex items-center gap-7`}>
               <span className="relative h-[160px] w-[150px] flex-shrink-0 overflow-hidden rounded-t-full rounded-b-[16px] bg-[var(--bt-dark-raised)]">
-                <Image src={ROUND_IMAGE} alt="Trị liệu tại Bách Thảo" fill sizes="150px" className="object-cover" />
+                <Image src={ROUND_IMAGE} alt="Treatment at Herbal Grove Spa" fill sizes="150px" className="object-cover" />
               </span>
               <div className="flex flex-col">
                 <CalendarIcon className="h-7 w-7 text-[var(--bt-light)]" />
                 <span className={`${styles.serif} mt-3 text-[46px] leading-none text-[var(--bt-light)]`}>7+</span>
                 <span className="mt-2 text-[13px] leading-snug text-[var(--bt-light)]">
-                  Năm kinh nghiệm<br />trong chăm sóc &amp; spa
+                  Years of experience<br />in herbal care &amp; spa
                 </span>
               </div>
             </div>
@@ -107,7 +107,7 @@ export default function About({ s }: { s: AboutSection }) {
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[6px] bg-[var(--bt-dark-raised)]">
               <Image
                 src={STUDIO_IMAGE}
-                alt="Không gian trị liệu Bách Thảo"
+                alt="Herbal Grove Spa treatment space"
                 fill
                 sizes="(min-width: 1024px) 540px, 100vw"
                 className={`${styles.archedPhotoImg} object-cover`}
@@ -116,7 +116,7 @@ export default function About({ s }: { s: AboutSection }) {
             <StudioSeal />
             <div className="mt-5 flex justify-end">
               <a href="#gallery" className={styles.studioLink}>
-                Khám phá không gian <ArrowUpRightIcon />
+                Explore the space <ArrowUpRightIcon />
               </a>
             </div>
           </div>

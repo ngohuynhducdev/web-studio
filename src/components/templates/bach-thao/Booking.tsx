@@ -8,9 +8,9 @@ import { ClockIcon, ZaloIcon, PhoneIcon, ArrowRightIcon, BotanicalSprigIcon } fr
 const EMAIL = 'bachthao.spa@gmail.com';
 
 const PERKS = [
-  'Giữ ghế trước, không phải chờ',
-  'Tụi mình phản hồi Zalo trong vài phút',
-  'Tư vấn chọn bài chăm phù hợp với bạn',
+  'Reserve your seat ahead — skip the wait',
+  'We reply on Zalo within minutes',
+  "We'll help you pick the right treatment for you",
 ];
 
 export default function Booking({ s }: { s: BookingSection }) {
@@ -54,7 +54,7 @@ export default function Booking({ s }: { s: BookingSection }) {
               {s.zaloUrl && (
                 <a href={s.zaloUrl} target="_blank" rel="noopener noreferrer" className={styles.btnSolidDark}>
                   <ZaloIcon />
-                  Đặt qua Zalo
+                  Book via Zalo
                   <ArrowRightIcon />
                 </a>
               )}
@@ -73,10 +73,10 @@ export default function Booking({ s }: { s: BookingSection }) {
 
             <div className="relative flex flex-col items-center gap-5 text-center">
               <ClockIcon />
-              <h3 className={`${styles.serif} m-0 text-[28px] text-[var(--bt-light)]`}>Liên hệ</h3>
+              <h3 className={`${styles.serif} m-0 text-[28px] text-[var(--bt-light)]`}>Contact</h3>
 
               <div className="text-[14px] leading-[1.7] text-[var(--bt-light)]/80">
-                <div className="mb-1 text-[15px] font-semibold text-[var(--bt-light)]">Bách Thảo Spa</div>
+                <div className="mb-1 text-[15px] font-semibold text-[var(--bt-light)]">Herbal Grove Spa</div>
                 {s.address}
               </div>
 
@@ -104,7 +104,7 @@ export default function Booking({ s }: { s: BookingSection }) {
 
               {mapsUrl && (
                 <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className={`${styles.btnOutlineRectLight} mt-1`}>
-                  Xem trên Google Map
+                  View on Google Maps
                 </a>
               )}
             </div>

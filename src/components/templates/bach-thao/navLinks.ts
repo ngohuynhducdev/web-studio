@@ -1,8 +1,8 @@
 // Single source of truth for Header + Footer nav
 export const NAV_LINKS = [
-  { href: '#services', label: 'Dịch vụ' },
-  { href: '#about',    label: 'Về chúng tôi' },
-  { href: '#gallery',  label: 'Không gian' },
-  { href: '#pricing',  label: 'Bảng giá' },
-  { href: '#booking',  label: 'Liên hệ' },
+  { href: '#services', label: 'Services' },
+  { href: '#about',    label: 'About Us' },
+  { href: '#gallery',  label: 'Our Space' },
+  { href: '#pricing',  label: 'Pricing' },
+  { href: '#booking',  label: 'Contact' },
 ];
