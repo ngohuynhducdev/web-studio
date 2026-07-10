@@ -9,21 +9,21 @@ type FormState = "idle" | "submitting" | "success" | "error";
 type FieldErrors = Partial<Record<"name" | "phone" | "businessName" | "industry", string>>;
 
 const INDUSTRY_OPTIONS = [
-  { value: "",        label: "— Chọn loại tiệm —" },
-  { value: "nail",    label: "Nail salon / Tiệm nail" },
+  { value: "",        label: "— Select business type —" },
+  { value: "nail",    label: "Nail salon" },
   { value: "spa",     label: "Spa / Massage" },
-  { value: "cafe",    label: "Cà phê / Trà sữa" },
+  { value: "cafe",    label: "Café / Bubble tea" },
   { value: "gym",     label: "Gym / Yoga / Fitness" },
-  { value: "bakery",  label: "Tiệm bánh" },
-  { value: "barber",  label: "Barber / Salon tóc" },
+  { value: "bakery",  label: "Bakery" },
+  { value: "barber",  label: "Barber / Hair salon" },
   { value: "studio",  label: "Studio" },
-  { value: "other",   label: "Ngành khác" },
+  { value: "other",   label: "Other" },
 ];
 
 const TEMPLATE_OPTIONS = [
-  { value: "", label: "— Chọn mẫu quan tâm —" },
+  { value: "", label: "— Select a template —" },
   ...TEMPLATE_MANIFEST.map((t) => ({ value: t.slug, label: `${t.label} (${t.tagline})` })),
-  { value: "chua-biet", label: "Chưa biết — nhờ tư vấn" },
+  { value: "chua-biet", label: "Not sure yet — need advice" },
 ];
 
 export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTemplate?: string; zaloUrl?: string }) {
@@ -34,8 +34,8 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
 
   function validatePhone(value: string): string {
     const cleaned = value.replace(/\s+/g, "");
-    if (!cleaned) return "Vui lòng nhập số điện thoại";
-    if (!/^0[0-9]{9}$/.test(cleaned)) return "Số không hợp lệ — cần 10 số, bắt đầu bằng 0";
+    if (!cleaned) return "Please enter a phone number";
+    if (!/^0[0-9]{9}$/.test(cleaned)) return "Invalid number — needs 10 digits, starting with 0";
     return "";
   }
 
@@ -51,11 +51,11 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
     const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
 
     const errors: FieldErrors = {};
-    if (!data.name?.trim())        errors.name         = "Vui lòng nhập họ tên";
+    if (!data.name?.trim())        errors.name         = "Please enter your name";
     const phoneErr = validatePhone(data.phone ?? "");
     if (phoneErr)                  errors.phone        = phoneErr;
-    if (!data.businessName?.trim()) errors.businessName = "Vui lòng nhập tên tiệm";
-    if (!data.industry)            errors.industry     = "Vui lòng chọn loại tiệm";
+    if (!data.businessName?.trim()) errors.businessName = "Please enter your business name";
+    if (!data.industry)            errors.industry     = "Please select a business type";
 
     if (Object.keys(errors).length > 0) {
       setFieldErrors(errors);
@@ -79,14 +79,14 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
       });
 
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error ?? "Lỗi không xác định");
+      if (!res.ok) throw new Error(json.error ?? "Unknown error");
 
       setPreviewSlug(json.previewSlug ?? "");
       setState("success");
       form.reset();
     } catch (err) {
       setState("error");
-      setErrorMsg(err instanceof Error ? err.message : "Gửi thất bại, thử lại nhé.");
+      setErrorMsg(err instanceof Error ? err.message : "Send failed, please try again.");
     }
   }
 
@@ -94,21 +94,21 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
     return (
       <div className={styles.contactSuccess}>
         <div className={styles.contactSuccessIcon} aria-hidden="true">✓</div>
-        <h3 className={styles.contactSuccessTitle}>Gửi thành công!</h3>
+        <h3 className={styles.contactSuccessTitle}>Sent successfully!</h3>
         <p className={styles.contactSuccessBody}>
-          Mình đã nhận được yêu cầu của bạn. Em sẽ nhắn lại qua Zalo hoặc gọi điện
-          trong vòng <strong>1–2 giờ</strong> (giờ hành chánh).
+          We&apos;ve received your request. We&apos;ll message you on Zalo or call within{" "}
+          <strong>1–2 hours</strong> (business hours).
         </p>
         {previewSlug && (
           <p className={styles.contactSuccessNote}>
-            Mã đơn: <code>{previewSlug}</code>
+            Order code: <code>{previewSlug}</code>
           </p>
         )}
         <a href={zaloUrl ?? STUDIO_ZALO_URL} target="_blank" rel="noopener noreferrer" className="btn btn-accent">
-          💬 Nhắn Zalo để nhanh hơn
+          💬 Message on Zalo for a faster reply
         </a>
         <button onClick={() => setState("idle")} className={styles.contactResetBtn}>
-          Gửi thêm yêu cầu khác
+          Send another request
         </button>
       </div>
     );
@@ -119,7 +119,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
       <div className={styles.contactFormRow}>
         <div className={styles.contactField}>
           <label htmlFor="name" className={styles.contactLabel}>
-            Họ tên <span className={styles.contactRequired}>*</span>
+            Full name <span className={styles.contactRequired}>*</span>
           </label>
           <input
             id="name"
@@ -127,7 +127,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
             type="text"
             required
             aria-required="true"
-            placeholder="Nguyễn Thị Lan"
+            placeholder="Jane Doe"
             className={`${styles.contactInput}${fieldErrors.name ? ` ${styles.contactInputError}` : ""}`}
             aria-describedby={fieldErrors.name ? "name-error" : undefined}
             onChange={() => clearFieldError("name")}
@@ -141,7 +141,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
 
         <div className={styles.contactField}>
           <label htmlFor="phone" className={styles.contactLabel}>
-            Số điện thoại / Zalo <span className={styles.contactRequired}>*</span>
+            Phone / Zalo <span className={styles.contactRequired}>*</span>
           </label>
           <input
             id="phone"
@@ -164,7 +164,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
 
       <div className={styles.contactField}>
         <label htmlFor="businessName" className={styles.contactLabel}>
-          Tên tiệm <span className={styles.contactRequired}>*</span>
+          Business name <span className={styles.contactRequired}>*</span>
         </label>
         <input
           id="businessName"
@@ -172,7 +172,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
           type="text"
           required
           aria-required="true"
-          placeholder="Tiệm Nail Hoa Mai, Spa Lotus..."
+          placeholder="Hoa Mai Nails, Lotus Spa..."
           className={`${styles.contactInput}${fieldErrors.businessName ? ` ${styles.contactInputError}` : ""}`}
           aria-describedby={fieldErrors.businessName ? "businessName-error" : undefined}
           onChange={() => clearFieldError("businessName")}
@@ -187,7 +187,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
       <div className={styles.contactFormRow}>
         <div className={styles.contactField}>
           <label htmlFor="industry" className={styles.contactLabel}>
-            Loại tiệm <span className={styles.contactRequired}>*</span>
+            Business type <span className={styles.contactRequired}>*</span>
           </label>
           <select
             id="industry"
@@ -211,7 +211,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
 
         <div className={styles.contactField}>
           <label htmlFor="template" className={styles.contactLabel}>
-            Mẫu quan tâm
+            Template of interest
           </label>
           <select id="template" name="template" defaultValue={defaultTemplate ?? ""} className={styles.contactSelect}>
             {TEMPLATE_OPTIONS.map((o) => (
@@ -223,20 +223,20 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
 
       <div className={styles.contactField}>
         <label htmlFor="message" className={styles.contactLabel}>
-          Kể về tiệm của bạn
+          Tell us about your business
         </label>
         <textarea
           id="message"
           name="message"
           rows={4}
-          placeholder="Tiệm nail tại quận 7, cần web đặt lịch online, có khoảng 200 khách quen mỗi tháng..."
+          placeholder="Nail salon in District 7, need online booking, about 200 regular customers a month..."
           className={styles.contactTextarea}
         />
       </div>
 
       {state === "error" && (
         <p className={styles.contactError} role="alert">
-          {errorMsg || "Có lỗi xảy ra. Vui lòng thử lại hoặc nhắn Zalo trực tiếp."}
+          {errorMsg || "Something went wrong. Please try again or message us directly on Zalo."}
         </p>
       )}
 
@@ -249,11 +249,11 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
           {state === "submitting" ? (
             <>
               <span className={styles.contactSpinner} aria-hidden="true" />
-              Đang gửi...
+              Sending...
             </>
           ) : (
             <>
-              Gửi yêu cầu
+              Send request
               <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
@@ -262,7 +262,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
           )}
         </button>
         <p className={styles.contactPrivacy}>
-          Thông tin của bạn chỉ dùng để liên hệ tư vấn, không chia sẻ bên ngoài.
+          Your information is only used to follow up — never shared externally.
         </p>
       </div>
     </form>
