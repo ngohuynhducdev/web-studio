@@ -6,31 +6,31 @@ brand
 
 ## Users
 
-Chủ tiệm nhỏ tại Việt Nam — chủ yếu spa và nail salon, phụ là café và gym. Họ không rành tech, thường ra quyết định qua cảm xúc thẩm mỹ ("thấy đẹp là mua"), cần web nhanh với giá hợp lý. Họ đang dùng fanpage là chính và muốn có thêm landing page để trông "xịn hơn" khi có khách tìm trên Google hoặc giới thiệu qua Zalo.
+Small business owners in Vietnam — mostly spas and nail salons, with cafes and gyms as a secondary segment. They aren't tech-savvy and tend to decide with their eyes ("if it looks good, I'll buy"), and need a fast, affordably priced website. Today they rely mainly on a Facebook page and want a landing page to look more "legit" when customers find them on Google or get referred through Zalo.
 
 ## Product Purpose
 
-Web Studio là studio thiết kế web cho tiệm nhỏ tại Việt Nam. Khách chọn template → mình customize. Thu tiền thuê tháng. Trang web của studio vừa là cửa hàng (showcase template) vừa là bằng chứng năng lực — nếu site của studio không đẹp, khách không tin mình làm đẹp cho họ được. Lead capture qua Zalo là điểm chốt của toàn bộ funnel.
+Web Studio is a web design studio for small businesses in Vietnam. Clients pick a template → we customize it. Revenue comes from a monthly fee. The studio's own site is both the storefront (a showcase of templates) and proof of competence — if the studio's own site isn't beautiful, clients won't trust it to make their business look good. Lead capture via Zalo is the closing point of the entire funnel.
 
 ## Brand Personality
 
-Sáng tạo · Trẻ · Có gu — nhỏ nhưng sắc bén, không phải freelancer làng nhàng, không phải agency to mất hơi. Giống một boutique có chính kiến riêng về thẩm mỹ, biết mình đang làm gì và làm cho ai.
+Creative · Young · Tasteful — small but sharp, not a mediocre freelancer, not a bloated big agency. Like a boutique with a clear point of view on aesthetics, that knows exactly what it's doing and who it's doing it for.
 
 ## Anti-references
 
-- **Web agency lớn (Webflow showcase, Themeforest)**: quá corporate, gradient tím/xanh, grid đều đặn vô hồn, hero số liệu giả
-- **Freelancer VN thông thường**: Canva-style, màu sắc chói, layout lộn xộn, font tùy tiện, thiếu identity
-- **Template SaaS / startup tech**: pill badge, dark mode mặc định, ngôn ngữ "solution/platform/ecosystem", quá digital cho đối tượng tiệm nhỏ
-- **Portfolio dev cá nhân**: terminal aesthetic, console log, quá kỹ thuật — không liên quan đến khách mục tiêu
+- **Large web agencies (Webflow showcase, Themeforest)**: too corporate — purple/blue gradients, lifeless uniform grids, fake stat-driven heroes
+- **Typical Vietnamese freelancers**: Canva-style, garish colors, cluttered layouts, arbitrary fonts, no identity
+- **SaaS / tech-startup templates**: pill badges, default dark mode, "solution/platform/ecosystem" language — too digital for a small-shop audience
+- **Personal developer portfolios**: terminal aesthetics, console-log motifs, too technical — irrelevant to the target customer
 
 ## Design Principles
 
-1. **Trang web studio là sản phẩm đầu tiên khách thấy.** Mọi lựa chọn thiết kế trên site của Web Studio là lập luận ngầm: "chúng tôi có gu, bạn có thể tin chúng tôi làm đẹp cho tiệm của bạn."
-2. **Nhỏ không có nghĩa là thiếu.** Craft chuẩn của một boutique beats quy mô của một agency. Tập trung vào từng chi tiết thay vì phủ rộng.
-3. **Phục vụ khách hàng của khách hàng.** Template phải đẹp với mắt của người đi spa, không phải mắt của designer. Cảm giác sang trọng và đáng tin — không phải "award-winning design".
-4. **Show, đừng giải thích.** Template trong showcase làm nhiều hơn bất kỳ feature list nào. Hình ảnh và cảm xúc đặt trước tính năng.
-5. **Local context, international craft.** Tiếng Việt, văn hóa Việt Nam, nhưng chất lượng hình ảnh và typography ở mức quốc tế — không có "phong cách web Việt cũ".
+1. **The studio's own site is the first product clients see.** Every design decision on the Web Studio site is an implicit argument: "we have taste — you can trust us to make your shop beautiful."
+2. **Small doesn't mean lacking.** Boutique-grade craft beats agency-scale coverage. Focus on every detail rather than spreading thin.
+3. **Serve the customer's customer.** Templates need to look good through the eyes of a spa-goer, not a designer's eyes. The feeling should be upscale and trustworthy — not "award-winning design."
+4. **Show, don't explain.** The templates in the showcase do more work than any feature list. Imagery and emotion come before features.
+5. **Local context, international craft.** Vietnamese language and culture, but photography and typography quality at an international standard — no "old-school Vietnamese web" look.
 
 ## Accessibility & Inclusion
 
-WCAG AA tối thiểu. Đối tượng dùng điện thoại Android tầm trung là phần lớn — mobile-first là bắt buộc, không phải tùy chọn. Không giả định băng thông cao (ảnh cần optimize). Reduced-motion cần được tôn trọng cho mọi animation.
+WCAG AA at minimum. The majority of the audience uses mid-range Android phones — mobile-first is mandatory, not optional. High bandwidth should never be assumed (images must be optimized). Reduced motion must be respected for every animation.
