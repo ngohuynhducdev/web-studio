@@ -5,16 +5,16 @@ import styles from "./TemplateCard.module.css";
 const industryLabel: Record<Industry, string> = {
   nail: "Nail",
   spa: "Spa",
-  cafe: "Cà phê",
+  cafe: "Cafe",
   gym: "Gym",
-  bakery: "Tiệm bánh",
+  bakery: "Bakery",
   barber: "Barber",
   studio: "Studio",
-  other: "Khác",
+  other: "Other",
 };
 
 function formatPrice(price: number) {
-  return new Intl.NumberFormat("vi-VN").format(price) + "đ";
+  return `$${new Intl.NumberFormat("en-US").format(price)}`;
 }
 
 interface TemplateCardProps {
@@ -42,7 +42,7 @@ export default function TemplateCard({ template }: TemplateCardProps) {
         {thumbnailUrl ? (
           <Image
             src={thumbnailUrl}
-            alt={`Mẫu ${title}`}
+            alt={`${title} template`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className={styles.templateCardImg}
@@ -52,7 +52,7 @@ export default function TemplateCard({ template }: TemplateCardProps) {
         )}
 
         {isFeatured && (
-          <span className={styles.templateCardBadgeFeatured}>NỔI BẬT</span>
+          <span className={styles.templateCardBadgeFeatured}>FEATURED</span>
         )}
         <span className={styles.templateCardBadgeIndustry}>
           {industryLabel[industry]}
@@ -70,16 +70,16 @@ export default function TemplateCard({ template }: TemplateCardProps) {
 
         <div className={styles.templateCardFooter}>
           <span className={styles.templateCardPrice}>{formatPrice(price)}</span>
-          <span className={styles.templateCardPriceUnit}>/tháng</span>
+          <span className={styles.templateCardPriceUnit}>/mo</span>
         </div>
 
         <div className={styles.templateCardActions}>
           <a href={href} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-            Xem mẫu
+            View template
           </a>
           {componentKey && (
             <a href={`/contact?template=${componentKey}`} className="btn btn-primary">
-              Đặt mẫu này
+              Order this template
               <svg
                 className="btn-arrow"
                 width={14}

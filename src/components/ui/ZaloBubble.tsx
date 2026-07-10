@@ -15,7 +15,7 @@ export default async function ZaloBubble() {
       target="_blank"
       rel="noopener noreferrer"
       className="zalo-bubble"
-      aria-label="Nhắn Zalo"
+      aria-label="Message on Zalo"
     >
       {/* Pulse ring */}
       <span className="zalo-bubble-ring" aria-hidden="true" />
@@ -32,7 +32,7 @@ export default async function ZaloBubble() {
       </svg>
 
       {/* Tooltip */}
-      <span className="zalo-bubble-tooltip">Nhắn Zalo</span>
+      <span className="zalo-bubble-tooltip">Message on Zalo</span>
     </a>
   );
 }

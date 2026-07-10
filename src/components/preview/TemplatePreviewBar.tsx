@@ -33,11 +33,11 @@ export default function TemplatePreviewBar({ componentKey, title }: TemplatePrev
   const next = idx < manifest.length - 1 ? manifest[idx + 1] : null;
 
   const zaloMsg = encodeURIComponent(
-    `Mình muốn đặt mẫu "${title}" cho tiệm. Bạn tư vấn giúp mình với nhé!`
+    `I'd like to order the "${title}" template for my business. Could you help me out?`
   );
 
   return (
-    <div className={styles.previewBar} role="complementary" aria-label="Đặt mẫu này">
+    <div className={styles.previewBar} role="complementary" aria-label="Order this template">
       <div className={styles.previewBarLeft}>
         {/* Prev / Next template nav */}
         <div className={styles.previewBarNav}>
@@ -68,7 +68,7 @@ export default function TemplatePreviewBar({ componentKey, title }: TemplatePrev
         </div>
 
         <span className={styles.previewBarSep} aria-hidden="true" />
-        <span className={styles.previewBarEyebrow}>Đang xem mẫu</span>
+        <span className={styles.previewBarEyebrow}>Currently viewing</span>
         <span className={styles.previewBarSep} aria-hidden="true" />
         <span className={styles.previewBarTitle}>{title}</span>
       </div>
@@ -81,10 +81,10 @@ export default function TemplatePreviewBar({ componentKey, title }: TemplatePrev
           className={styles.previewBarZalo}
         >
           <ZaloIcon />
-          Nhắn Zalo
+          Message on Zalo
         </a>
         <Link href={`/contact?template=${componentKey}`} className={styles.previewBarCta}>
-          Đặt mẫu này
+          Order this template
           <ArrowIcon />
         </Link>
       </div>
