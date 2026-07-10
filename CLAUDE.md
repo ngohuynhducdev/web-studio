@@ -39,7 +39,6 @@ Site-wide (load trong `app/layout.tsx`):
 
 Template-specific (load trong từng template component):
 - ThaiSpa: Playfair Display + Source Sans 3 (load trong `thai-spa/index.tsx`)
-- SweetCorner: Pacifico + Nunito (load trong `sweet-corner/index.tsx`)
 - ShizenSpa: Fraunces + Be Vietnam Pro (load trong `shizen-spa/index.tsx`, expose qua `--sz-font-display`/`--sz-font-body`)
 - SuoiMay: Cormorant Garamond + Manrope (load trong `suoi-may/index.tsx`, expose qua `--sm-font-display`/`--sm-font-body`)
 - ZenWellness: Space Grotesk + Archivo (load trong `zen-wellness/index.tsx`, expose qua `--zw-font-display`/`--zw-font-body`)
@@ -123,16 +122,8 @@ components/
 │   │   ├── Header / Hero / Benefits / Services / Pricing / Team /
 │   │   │   Gallery / Reviews / Process / OfferStrip / Booking / Footer
 │   │   ├── FloatingActions.tsx + icons.tsx
-│   ├── sweet-corner/       — ✅ CMS-driven, folder-based
-│   │   ├── index.tsx + SweetCorner.module.css + navLinks.ts
-│   │   ├── Header / Hero / About / Menu / CustomCake / Steps /
-│   │   │   Gallery / Reviews / Policy / CTA / Footer
-│   │   └── icons.tsx
-│   ├── urban-brew/         — ✅ CMS-driven, folder-based
 │   ├── zen-wellness/       — ✅ CMS-driven, folder-based
-│   ├── lua-nail/           — ✅ CMS-driven, folder-based (Lụa Nail Studio)
 │   ├── bach-thao/          — ✅ CMS-driven, folder-based (Bách Thảo Spa)
-│   ├── tsuki-coffee/       — ✅ CMS-driven, folder-based (Tsuki Coffee)
 │   ├── suoi-may/           — ✅ CMS-driven, folder-based (Suối Mây — spa sáng, Lumera-style)
 │   └── BannerCarousel.tsx + BannerCarousel.module.css  — shared across templates
 ├── preview/                — Site chrome phủ lên trang template (KHÔNG phải template giao khách)
@@ -144,13 +135,13 @@ components/
     ├── ZaloBubble.tsx
 ```
 
-**Lưu ý kiến trúc template:** tất cả 9 template đều CMS-driven — đọc nội dung
+**Lưu ý kiến trúc template:** tất cả 5 template đều CMS-driven — đọc nội dung
 qua `sections` prop và fallback về `DEFAULT_SECTIONS` trong code.
-`DEFAULT_SECTIONS_MAP` có đủ 9 entry. Tất cả đều folder-based với `index.tsx` là entry point.
+`DEFAULT_SECTIONS_MAP` có đủ 5 entry. Tất cả đều folder-based với `index.tsx` là entry point.
 - Helper chọn section (`pickType`/`pick`/`shown`) nằm trong `lib/sections.ts` — KHÔNG copy vào từng template
-- Dùng `pick` theo `_key` khi template có nhiều section cùng `_type`: thai-spa (2 `aboutSection`), zen-wellness (2 `featuresSection`), bach-thao, tsuki-coffee (2 `servicesSection`)
-- Dùng `pickType` theo `_type` khi section type là duy nhất: shizen-spa, sweet-corner, urban-brew, lua-nail, suoi-may
-- Template có nhiều nav link: extract ra `navLinks.ts` trong cùng folder — single source of truth cho cả Header lẫn Footer (áp dụng cho cả 9 template)
+- Dùng `pick` theo `_key` khi template có nhiều section cùng `_type`: thai-spa (2 `aboutSection`), zen-wellness (2 `featuresSection`), bach-thao (2 `servicesSection`)
+- Dùng `pickType` theo `_type` khi section type là duy nhất: shizen-spa, suoi-may
+- Template có nhiều nav link: extract ra `navLinks.ts` trong cùng folder — single source of truth cho cả Header lẫn Footer (áp dụng cho cả 5 template)
 
 ### Template Identity (archetype riêng từng template)
 
@@ -204,12 +195,8 @@ data/                     — Single source of truth cho default/fallback conten
 └── templates/
     ├── thai-spa.ts       — DEFAULT_SECTIONS
     ├── shizen-spa.ts     — DEFAULT_SECTIONS
-    ├── sweet-corner.ts   — DEFAULT_SECTIONS
-    ├── urban-brew.ts     — DEFAULT_SECTIONS
     ├── zen-wellness.ts   — DEFAULT_SECTIONS
-    ├── lua-nail.ts       — DEFAULT_SECTIONS
     ├── bach-thao.ts      — DEFAULT_SECTIONS
-    ├── tsuki-coffee.ts   — DEFAULT_SECTIONS
     ├── suoi-may.ts       — DEFAULT_SECTIONS
     └── index.ts          — DEFAULT_SECTIONS_MAP (data-only, dùng cho Studio + registry)
 
@@ -282,7 +269,7 @@ Content types: `template`, `site`, `homepage`, `sections`, `project`,
 - Fallback render: `site.sections` → `template.sections` → `DEFAULT_SECTIONS` (code)
 - API: `POST /api/seed-order` copy DEFAULT_SECTIONS vào site (header `x-seed-secret`);
   `POST /api/admin/seed-order` tương tự cho admin UI
-- CMS flow áp dụng cho tất cả 9 template (xem `TEMPLATE_MANIFEST` trong `lib/templates.ts`)
+- CMS flow áp dụng cho tất cả 5 template (xem `TEMPLATE_MANIFEST` trong `lib/templates.ts`)
 
 ### Template Registry
 
@@ -309,7 +296,7 @@ Credentials: `.env.local` (xem `.env.example` để biết đủ danh sách env 
 3. No inline styles — dùng Tailwind class hoặc CSS module class. Ngoại lệ duy nhất: dynamic CSS variable qua `style={{ '--token': value }}`
 4. All props typed with TypeScript interfaces
 5. No UI component library — dùng Tailwind utility thuần cho tất cả component
-6. Vietnamese text in UI
+6. English text in UI
 7. Mobile-first responsive — base styles = mobile, `@media (min-width: X)` cho desktop. Không dùng `max-width` query
 8. Component styles in co-located `.module.css` — không để trong `globals.css`
 9. External links: `target="_blank"` + `rel="noopener noreferrer"` chỉ khi URL thực sự là external (không phải `#anchor` hay fallback `'#'`)
