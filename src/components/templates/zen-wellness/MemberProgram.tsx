@@ -50,7 +50,7 @@ export default function MemberProgram({ s }: { s: PricingSection }) {
                 >
                   {isFeatured && (
                     <span className="absolute -top-3 left-7 rounded-full bg-[var(--zw-lime)] px-3.5 py-1 text-[0.66rem] font-bold tracking-[0.08em] uppercase text-[var(--zw-ink)]">
-                      Được chọn nhiều
+                      Most popular
                     </span>
                   )}
 
@@ -94,7 +94,7 @@ export default function MemberProgram({ s }: { s: PricingSection }) {
                         : 'border border-white/20 text-white hover:border-[var(--zw-lime)] hover:text-[var(--zw-lime)]'
                     }`}
                   >
-                    Đăng ký {p.name}
+                    Join {p.name}
                     <ArrowIcon />
                   </a>
                 </article>

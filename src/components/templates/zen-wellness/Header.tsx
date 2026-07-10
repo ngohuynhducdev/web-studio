@@ -48,7 +48,7 @@ export default function Header({ displayName }: { displayName: string }) {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex flex-1 justify-center" aria-label="Menu chính">
+        <nav className="hidden md:flex flex-1 justify-center" aria-label="Main menu">
           <ul className="flex gap-1 list-none m-0 p-0">
             {NAV_LINKS.slice(0, 4).map((link) => (
               <li key={link.href}>
@@ -63,14 +63,14 @@ export default function Header({ displayName }: { displayName: string }) {
           href="#book"
           className="hidden md:inline-flex items-center text-[0.8rem] font-semibold text-white bg-[var(--zw-accent)] no-underline rounded-full px-5 py-2 shrink-0 transition-[background,transform] duration-200 hover:bg-[var(--zw-accent-deep)] active:scale-[0.98]"
         >
-          Đặt buổi trial
+          Book a trial
         </a>
 
         {/* Mobile hamburger */}
         <button
           className="flex md:hidden flex-col justify-center gap-[0.25rem] w-9 h-9 bg-transparent border-none cursor-pointer p-1 shrink-0"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
         >
           <span className={`${styles.hamburgerLine} ${menuOpen ? styles.hamburgerLineTop : ''}`} />

@@ -37,14 +37,14 @@ export default function Booking({ s }: { s: BookingSection }) {
                 rel={isExternal ? 'noopener noreferrer' : undefined}
                 className="inline-flex items-center gap-2.5 rounded-full bg-[var(--zw-lime)] px-7 py-[0.9375rem] text-[0.88rem] font-bold text-[var(--zw-ink)] no-underline transition-[filter,transform] duration-200 hover:brightness-105 active:scale-[0.98]"
               >
-                Nhắn Zalo đặt lịch
+                Message Zalo to book
               </a>
               {s.phone && (
                 <a
                   href={`tel:${s.phone.replace(/\s/g, '')}`}
                   className={`${styles.num} text-[0.9rem] font-semibold text-white/80 no-underline transition-colors duration-200 hover:text-white`}
                 >
-                  hoặc gọi {s.phone}
+                  or call {s.phone}
                 </a>
               )}
             </div>
@@ -56,7 +56,7 @@ export default function Booking({ s }: { s: BookingSection }) {
           {/* Right — schedule card */}
           <div className="rounded-3xl bg-white p-7 md:p-8 flex flex-col gap-5">
             <p className="m-0 flex items-center gap-2 text-[0.7rem] font-semibold tracking-[0.1em] uppercase text-[var(--zw-mut)]">
-              <span className="text-[var(--zw-accent)]"><ClockIcon /></span> Giờ mở cửa
+              <span className="text-[var(--zw-accent)]"><ClockIcon /></span> Opening hours
             </p>
             <div className="flex flex-col">
               {(s.hours ?? []).map((h) => (
@@ -67,7 +67,7 @@ export default function Booking({ s }: { s: BookingSection }) {
               ))}
             </div>
             <div className="rounded-2xl bg-[var(--zw-tint)] px-5 py-4 flex items-center justify-between gap-4">
-              <span className="text-[0.8rem] font-medium text-[var(--zw-accent)]">Buổi trial 60 phút</span>
+              <span className="text-[0.8rem] font-medium text-[var(--zw-accent)]">60-min trial session</span>
               <span className={`${styles.num} font-[family-name:var(--zw-font-display)] text-[1.2rem] font-bold text-[var(--zw-ink)]`}>380k</span>
             </div>
           </div>
