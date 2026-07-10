@@ -3,12 +3,12 @@
 export const INDUSTRY_OPTIONS = [
   { title: "Nail", value: "nail" },
   { title: "Spa", value: "spa" },
-  { title: "Cà phê", value: "cafe" },
+  { title: "Cafe", value: "cafe" },
   { title: "Gym", value: "gym" },
-  { title: "Tiệm bánh", value: "bakery" },
+  { title: "Bakery", value: "bakery" },
   { title: "Barber", value: "barber" },
   { title: "Studio", value: "studio" },
-  { title: "Khác", value: "other" },
+  { title: "Other", value: "other" },
 ] as const;
 
 export type Industry = (typeof INDUSTRY_OPTIONS)[number]["value"];
@@ -61,7 +61,7 @@ export interface HeroSection extends SectionBase {
   ctaSecondary?: string;
   stats?: Array<{ _key: string; num: string; label: string }>;
   features?: string[];
-  // Carousel slides (tùy chọn) — ≥2 slide bật mũi tên + dots; để trống = 1 slide tĩnh.
+  // Carousel slides (optional) — ≥2 slides enables arrows + dots; empty = 1 static slide.
   slides?: Array<{
     _key: string;
     imageUrl?: string;
@@ -295,7 +295,7 @@ export interface PricingPlan {
   featured?: boolean;
 }
 
-// ── Site (đơn hàng / trang khách) ────────────────────────────────────────────
+// ── Site (order / client page) ────────────────────────────────────────────
 
 export interface Site {
   _id: string;
