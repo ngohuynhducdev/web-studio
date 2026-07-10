@@ -29,7 +29,7 @@ export default function Booking({ s }: { s: BookingSection }) {
             rel={isExternal ? 'noopener noreferrer' : undefined}
             className="inline-flex items-center gap-3 text-[0.9rem] font-semibold text-[var(--sz-off)] no-underline tracking-[0.04em] px-8 py-4 bg-[var(--sz-ink)] transition-[background,color] duration-[220ms] hover:bg-[var(--sz-earth)] hover:text-white active:translate-y-px"
           >
-            <ChatIcon /> Nhắn Zalo đặt lịch
+            <ChatIcon /> Message on Zalo to Book
           </a>
           <div className="flex flex-col gap-[0.875rem] mt-9">
             {s.phone   && (
@@ -57,7 +57,7 @@ export default function Booking({ s }: { s: BookingSection }) {
           </div>
           <div className="bg-[var(--sz-off)] border border-[var(--sz-border)] border-t-0 p-9 flex flex-col gap-6">
             <p className="flex items-center gap-2 text-[0.72rem] tracking-[0.14em] uppercase text-[var(--sz-muted)]">
-              <ClockIcon />Giờ mở cửa
+              <ClockIcon />Opening Hours
             </p>
             <div className="flex flex-col">
               {(s.hours ?? []).map((h) => (
@@ -68,7 +68,7 @@ export default function Booking({ s }: { s: BookingSection }) {
               ))}
             </div>
             <p className="text-[0.74rem] text-[var(--sz-muted)] leading-[1.55]">
-              Liệu trình cuối nhận khách trước giờ đóng cửa 90 phút.
+              Last treatment accepted 90 minutes before closing.
             </p>
           </div>
         </div>

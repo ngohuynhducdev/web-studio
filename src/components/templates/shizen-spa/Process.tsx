@@ -6,21 +6,21 @@ import styles from './ShizenSpa.module.css';
 const STEPS = [
   {
     num: '01',
-    title: 'Chọn liệu pháp',
-    desc: 'Khám phá danh sách dịch vụ và chọn liệu trình phù hợp với nhu cầu — thư giãn, phục hồi hay chăm sóc chuyên sâu.',
-    note: 'Xem bảng giá bên trên',
+    title: 'Choose a Treatment',
+    desc: 'Browse our service list and choose the treatment that fits your needs — relaxation, recovery, or intensive care.',
+    note: 'See pricing above',
   },
   {
     num: '02',
-    title: 'Đặt lịch qua Zalo',
-    desc: 'Nhắn tin qua Zalo, chúng tôi xác nhận lịch hẹn trong vòng 30 phút. Không cần đặt cọc cho lần đầu tiên.',
-    note: 'Phản hồi trong 30 phút',
+    title: 'Book via Zalo',
+    desc: 'Message us on Zalo, and we\'ll confirm your appointment within 30 minutes. No deposit required for your first visit.',
+    note: 'Response within 30 minutes',
   },
   {
     num: '03',
-    title: 'Đến và thư giãn',
-    desc: 'Đến đúng giờ, chuyên viên sẽ đón tiếp và hướng dẫn. Tắt điện thoại — đây là thời gian dành riêng cho bạn.',
-    note: 'Đến trước 10 phút',
+    title: 'Arrive and Relax',
+    desc: 'Arrive on time, and our therapist will welcome and guide you. Turn off your phone — this time is yours alone.',
+    note: 'Arrive 10 minutes early',
   },
 ] as const;
 
@@ -33,9 +33,9 @@ export default function Process() {
       <div className={styles.sectionInner}>
         {/* Section head */}
         <div className={`${styles.sectionHead} pb-[3.75rem]`}>
-          <p className={styles.eyebrow}>Quy trình đặt lịch</p>
+          <p className={styles.eyebrow}>Booking Process</p>
           <h2 className={styles.h2}>
-            Dễ dàng trong <em>3 bước</em>
+            Easy in <em>3 steps</em>
           </h2>
         </div>
 

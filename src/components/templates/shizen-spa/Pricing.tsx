@@ -33,7 +33,7 @@ export default function Pricing({ s }: { s: PricingSection }) {
             >
               {pkg.featured && (
                 <div className="self-start text-[0.62rem] tracking-[0.14em] uppercase text-[var(--sz-earth)] bg-[rgba(250,247,242,0.92)] border border-transparent px-3 py-1 font-medium -mb-2">
-                  Phổ biến nhất
+                  Most Popular
                 </div>
               )}
 
@@ -71,7 +71,7 @@ export default function Pricing({ s }: { s: PricingSection }) {
                 href="#booking"
                 className={`inline-flex items-center gap-[0.625rem] text-[0.82rem] font-medium tracking-[0.04em] no-underline pt-2 mt-auto transition-[gap] duration-200 hover:gap-4 ${pkg.featured ? 'text-white/85' : 'text-[var(--sz-earth)]'}`}
               >
-                Chọn gói này <ArrowIcon />
+                Choose This Package <ArrowIcon />
               </a>
             </div>
           ))}

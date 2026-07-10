@@ -31,7 +31,7 @@ export default function FloatingActions({ zaloUrl }: Props) {
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener noreferrer' : undefined}
         className="group relative inline-flex items-center justify-center w-[2.875rem] h-[2.875rem] md:w-12 md:h-12 rounded-full bg-[var(--sz-earth)] text-white no-underline cursor-pointer transition-[background,transform] duration-[220ms] hover:bg-[#7d6249] hover:-translate-y-0.5"
-        aria-label="Nhắn Zalo đặt lịch"
+        aria-label="Message on Zalo to book"
       >
         {/* Pulse ring — class keeps keyframe scoped */}
         <span className={styles.floatZaloRing} aria-hidden="true" />
@@ -40,7 +40,7 @@ export default function FloatingActions({ zaloUrl }: Props) {
         </svg>
         {/* Tooltip */}
         <span className="absolute right-[calc(100%+0.625rem)] top-1/2 -translate-y-1/2 bg-[var(--sz-earth)] text-white text-[0.72rem] font-medium tracking-[0.04em] whitespace-nowrap px-[0.625rem] py-[0.3125rem] rounded pointer-events-none opacity-0 transition-opacity duration-200 group-hover:opacity-100 after:content-[''] after:absolute after:left-full after:top-1/2 after:-translate-y-1/2 after:border-[5px] after:border-transparent after:border-l-[var(--sz-earth)]">
-          Nhắn Zalo
+          Message on Zalo
         </span>
       </a>
 
@@ -48,7 +48,7 @@ export default function FloatingActions({ zaloUrl }: Props) {
       <button
         className={`inline-flex items-center justify-center w-11 h-11 bg-[rgba(250,248,243,0.92)] border border-[var(--sz-border)] text-[var(--sz-ink)]/60 shadow-[0_0.25rem_1rem_rgba(90,70,50,0.12)] cursor-pointer transition-[opacity,transform,background,color] duration-300 ${showTop ? 'opacity-100 pointer-events-auto translate-y-0 hover:bg-[var(--sz-off)] hover:text-[var(--sz-ink)] hover:-translate-y-0.5' : 'opacity-0 pointer-events-none translate-y-2'}`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        aria-label="Về đầu trang"
+        aria-label="Back to top"
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <polyline points="3 9 7 5 11 9" />

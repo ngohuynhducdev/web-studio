@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { NAV_LINKS, BOOKING_LINK } from './navLinks';
 
-// Footer hiển thị 3 nav link đầu + CTA đặt lịch (thay cho "Không gian").
+// Footer shows the first 3 nav links + booking CTA (replacing "Spaces").
 const FOOTER_LINKS = [...NAV_LINKS.slice(0, 3), BOOKING_LINK];
 
 export default function Footer({ businessName }: { businessName: string }) {
