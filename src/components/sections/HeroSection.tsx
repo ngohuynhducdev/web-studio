@@ -64,14 +64,14 @@ export default function HeroSection({ cms }: { cms?: HeroCms }) {
             <div className={styles.polaroidPhoto}>
               <Image
                 src={cms?.heroImageUrl ?? "/images/cafe-cozy.jpg"}
-                alt="Landing page template for Nau Cafe, District 3 — warm brown tones, food photos, table booking"
+                alt="Landing page template for Brown Coffee Shop, District 3 — warm brown tones, food photos, table booking"
                 fill
                 sizes="(max-width: 1023px) 100vw, 46vw"
                 priority
               />
             </div>
             <figcaption className={styles.polaroidCaption}>
-              <span className={styles.polaroidHand}>nau cafe, d.3</span>
+              <span className={styles.polaroidHand}>brown coffee shop, d.3</span>
               <span className={styles.polaroidStamp}>cozy vintage template</span>
             </figcaption>
           </figure>
