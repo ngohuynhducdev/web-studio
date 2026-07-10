@@ -30,12 +30,12 @@ export default function HowItWorks({ cms }: { cms?: HiwCms }) {
   const steps      = cms?.hiwSteps?.length ? cms.hiwSteps : DEFAULT_STEPS;
 
   return (
-    <section className="section section-paper" id="cach-hoat-dong">
+    <section className="section section-paper" id="how-it-works">
       <div className="container-site">
         <div className="section-head">
           <h2 className="h2-heading">
             {heading} <span className="italic-acc">{headingItal}</span> —<br />
-            không phải ba cuộc họp.
+            not three meetings.
           </h2>
         </div>
         <RevealStagger className={styles.stepsGrid}>

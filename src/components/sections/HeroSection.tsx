@@ -27,7 +27,7 @@ export default function HeroSection({ cms }: { cms?: HeroCms }) {
           <span className="kraft-label">{d.eyebrow}</span>
           <h1 className={styles.heroHeading}>
             {d.heading}<br />
-            có web đẹp{" "}
+            get a beautiful site{" "}
             <span className={styles.heroHeadingItal}>{d.headingItal}</span>
           </h1>
           <p className={styles.heroLede}>{d.lede}</p>
@@ -64,19 +64,19 @@ export default function HeroSection({ cms }: { cms?: HeroCms }) {
             <div className={styles.polaroidPhoto}>
               <Image
                 src={cms?.heroImageUrl ?? "/images/cafe-cozy.jpg"}
-                alt="Mẫu landing cho tiệm cà phê Nâu, Quận 3 — tông nâu ấm, ảnh món, đặt bàn"
+                alt="Landing page template for Nau Cafe, District 3 — warm brown tones, food photos, table booking"
                 fill
                 sizes="(max-width: 1023px) 100vw, 46vw"
                 priority
               />
             </div>
             <figcaption className={styles.polaroidCaption}>
-              <span className={styles.polaroidHand}>tiệm cà phê Nâu, q.3</span>
-              <span className={styles.polaroidStamp}>mẫu vintage cozy</span>
+              <span className={styles.polaroidHand}>nau cafe, d.3</span>
+              <span className={styles.polaroidStamp}>cozy vintage template</span>
             </figcaption>
           </figure>
 
-          <PostmarkStamp ring="· web studio · sài gòn " top="5" bottom="ngày" className={styles.heroPostmark} />
+          <PostmarkStamp ring="· web studio · saigon " top="5" bottom="days" className={styles.heroPostmark} />
         </Reveal>
 
       </div>

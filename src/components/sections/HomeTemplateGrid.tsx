@@ -16,7 +16,7 @@ interface HomeTemplateGridProps {
 }
 
 export default async function HomeTemplateGrid({
-  title = "bốn mẫu được chọn nhiều nhất tháng này.",
+  title = "four most-picked templates this month.",
   showViewAll = true,
   eyebrow,
   heading,
@@ -45,7 +45,7 @@ export default async function HomeTemplateGrid({
         {showViewAll && (
           <div className={styles.templatesFoot}>
             <Link href="/templates" className="btn-link">
-              xem tất cả 15+ mẫu
+              view all 15+ templates
               <svg
                 width={14}
                 height={14}
