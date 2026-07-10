@@ -52,7 +52,7 @@ export interface SuoiMayProps {
 }
 
 export default function SuoiMayTemplate({
-  businessName = "Suối Mây",
+  businessName = "Mist Spring Spa",
   brandColor,
   sections,
 }: SuoiMayProps = {}) {

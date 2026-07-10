@@ -45,7 +45,7 @@ export default function Springs({ s }: { s: ServicesSection }) {
                 <p className={styles.trDesc}>{sv.desc}</p>
                 {(sv.includes?.length ?? 0) > 0 && (
                   <div className={styles.trSteps}>
-                    <p className={styles.trStepsLabel}>Liệu trình gồm</p>
+                    <p className={styles.trStepsLabel}>What&apos;s Included</p>
                     <ul className={styles.trStepList}>
                       {sv.includes!.map((step, i) => (
                         <li key={i} className={styles.trStepItem}>{step}</li>
@@ -54,7 +54,7 @@ export default function Springs({ s }: { s: ServicesSection }) {
                   </div>
                 )}
                 <a href="#booking" className={styles.trLink}>
-                  Đặt liệu trình <ArrowIcon />
+                  Book This Treatment <ArrowIcon />
                 </a>
               </div>
             </article>

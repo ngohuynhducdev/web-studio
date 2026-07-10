@@ -6,10 +6,10 @@ import styles from './SuoiMay.module.css';
 import { CheckIcon } from './icons';
 
 const POINTS = [
-  'Trị liệu viên được đào tạo bài bản, hơn 10 năm kinh nghiệm',
-  'Tinh dầu & thảo dược hữu cơ, chọn lọc kỹ từng mẻ',
-  'Phòng riêng tư, phòng xông hơi thảo mộc thư giãn',
-  'Liệu trình cá nhân hóa theo nhu cầu từng khách',
+  'Fully trained therapists with over 10 years of experience',
+  'Organic oils & herbs, carefully sourced batch by batch',
+  'Private rooms and a relaxing herbal steam room',
+  'Treatments personalized to every guest\'s needs',
 ];
 
 export default function Intro({ businessName }: { businessName: string }) {
@@ -28,7 +28,7 @@ export default function Intro({ businessName }: { businessName: string }) {
           <div className={styles.introImg1}>
             <Image
               src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1100&q=85&fit=crop&auto=format"
-              alt={`Không gian trị liệu tại ${businessName}`}
+              alt={`Treatment space at ${businessName}`}
               fill
               sizes="(max-width: 1023px) 100vw, 40rem"
               className="object-cover"
@@ -37,7 +37,7 @@ export default function Intro({ businessName }: { businessName: string }) {
           <div className={styles.introImg2}>
             <Image
               src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=700&q=85&fit=crop&auto=format"
-              alt="Tinh dầu và thảo mộc dùng trong liệu trình"
+              alt="Oils and herbs used in our treatments"
               fill
               sizes="(max-width: 1023px) 60vw, 18rem"
               className="object-cover"
@@ -48,12 +48,12 @@ export default function Intro({ businessName }: { businessName: string }) {
         {/* Copy */}
         <div className={styles.introCopy}>
           <h2 className="font-[family-name:var(--sm-serif)] font-light text-[clamp(2rem,4vw,3.1rem)] leading-[1.14] tracking-[-0.01em] text-[var(--sm-ivory)] [text-wrap:balance]">
-            Chốn lặng cho <em className="italic">thân và tâm</em>
+            A quiet refuge for <em className="italic">body and mind</em>
           </h2>
           <p className="text-[0.95rem] leading-[1.85] text-[var(--sm-muted)] mt-5 max-w-[32rem]">
-            {businessName} là một khoảng dừng giữa phố, nơi nghi thức chăm sóc cổ truyền
-            gặp không gian hiện đại, tĩnh và ấm. Mỗi liệu trình được thiết kế quanh hơi thở
-            và sự thư giãn của riêng bạn.
+            {businessName} is a pause in the middle of the city, where time-honored rituals
+            meet a warm, modern, and tranquil space. Every treatment is designed around
+            your breath and your own relaxation.
           </p>
 
           <ul className="flex flex-col gap-3.5 mt-8 list-none p-0">
@@ -71,7 +71,7 @@ export default function Intro({ businessName }: { businessName: string }) {
             href="#services"
             className="inline-flex items-center gap-2.5 mt-9 text-[0.85rem] font-semibold tracking-[0.04em] text-[var(--sm-light)] bg-[var(--sm-accent)] rounded-full no-underline px-7 py-3.5 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
           >
-            Khám phá liệu trình <span aria-hidden="true">→</span>
+            Explore Treatments <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>

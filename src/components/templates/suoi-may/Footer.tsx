@@ -17,8 +17,8 @@ export default function Footer({ businessName, s }: { businessName: string; s?: 
             {businessName}
           </a>
           <p className="text-[0.88rem] leading-[1.8] text-[var(--sm-light)]/55 mt-4 max-w-[24rem]">
-            Một chốn tĩnh giữa lòng phố, nơi nghi thức chăm sóc cổ truyền gặp không gian
-            hiện đại. Thư giãn, hồi phục, tìm lại cân bằng cho chính mình.
+            A quiet retreat in the heart of the city, where time-honored rituals meet a
+            modern space. Relax, restore, and find your balance again.
           </p>
           <div className="flex gap-3 mt-6">
             {SOCIAL_LINKS.map((soc) => (
@@ -35,8 +35,8 @@ export default function Footer({ businessName, s }: { businessName: string; s?: 
         </div>
 
         {/* Links */}
-        <nav className="md:col-span-3" aria-label="Khám phá">
-          <p className="text-[0.7rem] tracking-[0.18em] uppercase text-[var(--sm-light)]/60 mb-5">Khám phá</p>
+        <nav className="md:col-span-3" aria-label="Explore">
+          <p className="text-[0.7rem] tracking-[0.18em] uppercase text-[var(--sm-light)]/60 mb-5">Explore</p>
           <ul className="flex flex-col gap-3 list-none p-0">
             {FOOTER_LINKS.map((link) => (
               <li key={link.href}>
@@ -48,7 +48,7 @@ export default function Footer({ businessName, s }: { businessName: string; s?: 
 
         {/* Contact */}
         <div className="md:col-span-4">
-          <p className="text-[0.7rem] tracking-[0.18em] uppercase text-[var(--sm-light)]/60 mb-5">Liên hệ</p>
+          <p className="text-[0.7rem] tracking-[0.18em] uppercase text-[var(--sm-light)]/60 mb-5">Contact</p>
           <ul className="flex flex-col gap-3.5 list-none p-0">
             {s?.address && (
               <li>
@@ -90,7 +90,7 @@ export default function Footer({ businessName, s }: { businessName: string; s?: 
               rel={isExternal ? 'noopener noreferrer' : undefined}
               className="inline-flex items-center gap-2.5 mt-6 text-[0.82rem] font-semibold tracking-[0.04em] text-[var(--sm-light)] bg-[var(--sm-accent)] rounded-full no-underline px-6 py-3 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
             >
-              <ChatIcon /> Nhắn Zalo giữ chỗ
+              <ChatIcon /> Message on Zalo
             </a>
           )}
         </div>
