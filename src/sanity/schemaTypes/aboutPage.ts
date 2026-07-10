@@ -2,13 +2,13 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const aboutPageSchema = defineType({
   name: "aboutPage",
-  title: "Về chúng mình",
+  title: "About Page",
   type: "document",
   groups: [
     { name: "hero",   title: "Hero" },
-    { name: "story",  title: "Câu chuyện" },
-    { name: "values", title: "Giá trị" },
-    { name: "stats",  title: "Số liệu" },
+    { name: "story",  title: "Story" },
+    { name: "values", title: "Values" },
+    { name: "stats",  title: "Statistics" },
   ],
   fields: [
     // Hero
@@ -17,25 +17,25 @@ export const aboutPageSchema = defineType({
       title: "Eyebrow",
       type: "string",
       group: "hero",
-      initialValue: "VỀ CHÚNG MÌNH",
+      initialValue: "ABOUT US",
     }),
     defineField({
       name: "heroTitle",
-      title: "Tiêu đề",
+      title: "Heading",
       type: "string",
       group: "hero",
-      initialValue: "một tiệm nhỏ —",
+      initialValue: "a small studio —",
     }),
     defineField({
       name: "heroTitleItal",
-      title: "Tiêu đề (chữ nghiêng)",
+      title: "Heading (italic)",
       type: "string",
       group: "hero",
-      initialValue: "không phải agency.",
+      initialValue: "not an agency.",
     }),
     defineField({
       name: "heroSub",
-      title: "Mô tả ngắn",
+      title: "Short description",
       type: "text",
       rows: 3,
       group: "hero",
@@ -44,34 +44,34 @@ export const aboutPageSchema = defineType({
     // Story
     defineField({
       name: "storyTitle",
-      title: "Tiêu đề phần câu chuyện",
+      title: "Story section heading",
       type: "string",
       group: "story",
-      initialValue: "tại sao có tiệm này",
+      initialValue: "why this studio exists",
     }),
     defineField({
       name: "storyParagraphs",
-      title: "Các đoạn văn",
+      title: "Paragraphs",
       type: "array",
       group: "story",
       of: [defineArrayMember({ type: "text" })],
     }),
     defineField({
       name: "storyQuote",
-      title: "Trích dẫn",
+      title: "Quote",
       type: "text",
       rows: 2,
       group: "story",
     }),
     defineField({
       name: "storyQuoteSource",
-      title: "Nguồn trích dẫn",
+      title: "Quote source",
       type: "string",
       group: "story",
     }),
     defineField({
       name: "storyImage",
-      title: "Ảnh câu chuyện",
+      title: "Story image",
       type: "image",
       group: "story",
       options: { hotspot: true },
@@ -80,16 +80,16 @@ export const aboutPageSchema = defineType({
     // Values
     defineField({
       name: "values",
-      title: "Giá trị cốt lõi",
+      title: "Core values",
       type: "array",
       group: "values",
       of: [
         defineArrayMember({
           type: "object",
           fields: [
-            defineField({ name: "num",   title: "Số thứ tự", type: "string" }),
-            defineField({ name: "title", title: "Tiêu đề",   type: "string" }),
-            defineField({ name: "body",  title: "Nội dung",  type: "text", rows: 3 }),
+            defineField({ name: "num",   title: "Number", type: "string" }),
+            defineField({ name: "title", title: "Title",   type: "string" }),
+            defineField({ name: "body",  title: "Body",  type: "text", rows: 3 }),
           ],
           preview: { select: { title: "title", subtitle: "num" } },
         }),
@@ -99,15 +99,15 @@ export const aboutPageSchema = defineType({
     // Stats
     defineField({
       name: "stats",
-      title: "Số liệu nổi bật",
+      title: "Key stats",
       type: "array",
       group: "stats",
       of: [
         defineArrayMember({
           type: "object",
           fields: [
-            defineField({ name: "value", title: "Giá trị", type: "string", description: 'Ví dụ: "15+" hay "5"' }),
-            defineField({ name: "label", title: "Nhãn",    type: "string" }),
+            defineField({ name: "value", title: "Value", type: "string", description: 'Example: "15+" or "5"' }),
+            defineField({ name: "label", title: "Label",    type: "string" }),
           ],
           preview: { select: { title: "value", subtitle: "label" } },
         }),

@@ -5,11 +5,11 @@ export const siteFooterSchema = defineType({
   title: 'Footer',
   type: 'document',
   fields: [
-    defineField({ name: 'brandName',    title: 'Tên thương hiệu',  type: 'string' }),
+    defineField({ name: 'brandName',    title: 'Brand name',  type: 'string' }),
     defineField({ name: 'tagline',      title: 'Tagline',           type: 'string' }),
-    defineField({ name: 'description',  title: 'Mô tả ngắn',       type: 'text', rows: 2 }),
+    defineField({ name: 'description',  title: 'Short description',       type: 'text', rows: 2 }),
     defineField({
-      name: 'shopLinks', title: 'Cột "Tiệm" — links', type: 'array',
+      name: 'shopLinks', title: '"Business" column — links', type: 'array',
       of: [defineArrayMember({
         type: 'object', name: 'shopLink',
         fields: [
@@ -19,10 +19,10 @@ export const siteFooterSchema = defineType({
         preview: { select: { title: 'label', subtitle: 'href' } },
       })],
     }),
-    defineField({ name: 'email',        title: 'Email liên hệ',    type: 'string' }),
-    defineField({ name: 'phone',        title: 'Số điện thoại',    type: 'string' }),
-    defineField({ name: 'zaloUrl',      title: 'Link Zalo',         type: 'string' }),
-    defineField({ name: 'hours',        title: 'Giờ làm việc',      type: 'string' }),
+    defineField({ name: 'email',        title: 'Contact email',    type: 'string' }),
+    defineField({ name: 'phone',        title: 'Phone number',    type: 'string' }),
+    defineField({ name: 'zaloUrl',      title: 'Zalo link',         type: 'string' }),
+    defineField({ name: 'hours',        title: 'Business hours',      type: 'string' }),
     defineField({ name: 'facebookUrl',  title: 'Facebook URL',      type: 'string' }),
     defineField({ name: 'instagramUrl', title: 'Instagram URL',     type: 'string' }),
     defineField({ name: 'tiktokUrl',    title: 'TikTok URL',        type: 'string' }),
