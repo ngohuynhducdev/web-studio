@@ -4,24 +4,24 @@ import { useState } from 'react'
 import { Site, OrderStatus } from '@/types'
 
 const STATUS_CONFIG: Record<OrderStatus, { label: string; color: string }> = {
-  new:         { label: '🆕 Mới',          color: 'bg-blue-100 text-blue-800' },
-  in_progress: { label: '⚙️ Đang làm',    color: 'bg-orange-100 text-orange-800' },
-  review:      { label: '✅ Chờ duyệt',   color: 'bg-purple-100 text-purple-800' },
-  delivered:   { label: '🎉 Đã bàn giao', color: 'bg-green-100 text-green-800' },
-  cancelled:   { label: '❌ Hủy',         color: 'bg-red-100 text-red-800' },
+  new:         { label: '🆕 New',           color: 'bg-blue-100 text-blue-800' },
+  in_progress: { label: '⚙️ In progress',  color: 'bg-orange-100 text-orange-800' },
+  review:      { label: '✅ Pending review', color: 'bg-purple-100 text-purple-800' },
+  delivered:   { label: '🎉 Delivered',    color: 'bg-green-100 text-green-800' },
+  cancelled:   { label: '❌ Cancelled',    color: 'bg-red-100 text-red-800' },
 }
 
 const BUSINESS_TYPE_LABEL: Record<string, string> = {
-  nail: 'Tiệm Nail', spa: 'Spa & Massage', cafe: 'Café & Quán',
-  gym: 'Phòng Gym', bakery: 'Tiệm Bánh', barber: 'Barber / Salon',
-  studio: 'Studio', other: 'Khác',
+  nail: 'Nail Salon', spa: 'Spa & Massage', cafe: 'Cafe & Restaurant',
+  gym: 'Gym', bakery: 'Bakery', barber: 'Barber / Salon',
+  studio: 'Studio', other: 'Other',
 }
 
 const ALL_STATUSES = ['all', ...Object.keys(STATUS_CONFIG)] as const
 
 function formatDate(dateStr?: string) {
   if (!dateStr) return '—'
-  return new Date(dateStr).toLocaleDateString('vi-VN')
+  return new Date(dateStr).toLocaleDateString('en-US')
 }
 
 const DOMAIN_STATUS: Record<string, { label: string; color: string }> = {
@@ -30,7 +30,7 @@ const DOMAIN_STATUS: Record<string, { label: string; color: string }> = {
   live:       { label: '🌐 Live',   color: 'bg-green-100 text-green-800' },
 }
 
-// Tổng số mục — khớp options trong site.ts (intakeReceived / qaChecks)
+// Total count — matches options in site.ts (intakeReceived / qaChecks)
 const INTAKE_TOTAL = 7
 const QA_TOTAL = 5
 
@@ -55,8 +55,8 @@ function SeedButton({ orderId, templateSlug }: { orderId: string; templateSlug?:
   const [status, setStatus] = useState<'idle' | 'loading' | 'ok' | 'err'>('idle')
 
   async function handleSeed() {
-    if (!templateSlug) return alert('Đơn này chưa chọn template.')
-    if (!confirm(`Seed sections từ template "${templateSlug}" vào đơn này?`)) return
+    if (!templateSlug) return alert('This order has no template selected.')
+    if (!confirm(`Seed sections from template "${templateSlug}" into this order?`)) return
 
     setStatus('loading')
     try {
@@ -78,14 +78,14 @@ function SeedButton({ orderId, templateSlug }: { orderId: string; templateSlug?:
     <button
       onClick={handleSeed}
       disabled={status === 'loading'}
-      title="Copy DEFAULT_SECTIONS vào đơn này"
+      title="Copy DEFAULT_SECTIONS into this order"
       className={`text-xs px-2 py-1 rounded border transition-colors ${
         status === 'ok'  ? 'border-green-400 text-green-700 bg-green-50' :
         status === 'err' ? 'border-red-400 text-red-700 bg-red-50' :
         'border-[var(--color-brand-beige)] text-[var(--color-brand-ink)]/60 hover:border-[var(--color-brand-mocha)] hover:text-[var(--color-brand-mocha)]'
       }`}
     >
-      {status === 'loading' ? '...' : status === 'ok' ? '✓ Đã seed' : status === 'err' ? '✗ Lỗi' : '⚡ Seed'}
+      {status === 'loading' ? '...' : status === 'ok' ? '✓ Seeded' : status === 'err' ? '✗ Error' : '⚡ Seed'}
     </button>
   )
 }
@@ -135,7 +135,7 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
       {/* Search */}
       <input
         type="text"
-        placeholder="Tìm theo tên tiệm, tên khách, SĐT..."
+        placeholder="Search by shop name, client name, phone..."
         value={search}
         onChange={(e) => { setSearch(e.target.value); setPage(1); }}
         className="w-full mb-4 px-4 py-2 border border-[var(--color-brand-beige)] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-mocha)]"
@@ -153,7 +153,7 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
                 : 'bg-[var(--color-brand-beige)] text-[var(--color-brand-ink)] hover:bg-[var(--color-brand-mocha)]/10'
             }`}
           >
-            {s === 'all' ? 'Tất cả' : STATUS_CONFIG[s as OrderStatus].label}
+            {s === 'all' ? 'All' : STATUS_CONFIG[s as OrderStatus].label}
             <span className="ml-1.5 opacity-70">({countByStatus(s)})</span>
           </button>
         ))}
@@ -161,13 +161,13 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
 
       {/* Table */}
       {filtered.length === 0 ? (
-        <p className="text-center py-16 text-[var(--color-brand-ink)]/40">Không có đơn nào.</p>
+        <p className="text-center py-16 text-[var(--color-brand-ink)]/40">No orders yet.</p>
       ) : (
         <div className="overflow-x-auto rounded-xl border border-[var(--color-brand-beige)]">
           <table className="w-full text-sm">
             <thead className="bg-[var(--color-brand-beige)]/50">
               <tr>
-                {['Tiệm', 'Khách hàng', 'SĐT', 'Loại hình', 'Template', 'Trạng thái', 'Tiến độ', 'Preview'].map((h) => (
+                {['Business', 'Client', 'Phone', 'Type', 'Template', 'Status', 'Progress', 'Preview'].map((h) => (
                   <th key={h} className="text-left px-4 py-3 font-medium text-[var(--color-brand-ink)]/60 whitespace-nowrap">{h}</th>
                 ))}
                 {(['orderDate', 'deliveryDate'] as const).map((field) => (
@@ -176,7 +176,7 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
                       onClick={() => toggleSort(field)}
                       className="inline-flex items-center gap-1 hover:text-[var(--color-brand-mocha)] transition-colors"
                     >
-                      {field === 'orderDate' ? 'Ngày đặt' : 'Bàn giao'}
+                      {field === 'orderDate' ? 'Order date' : 'Delivery'}
                       <span className="text-[10px]">{sortField === field ? (sortDir === 'desc' ? '↓' : '↑') : '↕'}</span>
                     </button>
                   </th>
@@ -231,7 +231,7 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
                             rel="noopener noreferrer"
                             className="text-xs text-[var(--color-brand-mocha)] hover:underline whitespace-nowrap"
                           >
-                            Xem preview ↗
+                            View preview ↗
                           </a>
                           <button
                             onClick={() => navigator.clipboard.writeText(`${window.location.origin}/preview/${o.previewSlug}`)}
@@ -242,7 +242,7 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
                           </button>
                         </div>
                       ) : (
-                        <span className="text-xs text-[var(--color-brand-ink)]/30">Chưa có</span>
+                        <span className="text-xs text-[var(--color-brand-ink)]/30">None yet</span>
                       )}
                     </td>
                     <td className="px-4 py-3 text-[var(--color-brand-ink)]/60 whitespace-nowrap">
@@ -267,17 +267,17 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
             disabled={page === 1}
             className="px-3 py-1.5 rounded border border-[var(--color-brand-beige)] disabled:opacity-40 hover:border-[var(--color-brand-mocha)] hover:text-[var(--color-brand-mocha)] transition-colors"
           >
-            ← Trước
+            ← Previous
           </button>
           <span>
-            Trang {page} / {totalPages} &nbsp;·&nbsp; {sorted.length} đơn
+            Page {page} / {totalPages} &nbsp;·&nbsp; {sorted.length} orders
           </span>
           <button
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={page === totalPages}
             className="px-3 py-1.5 rounded border border-[var(--color-brand-beige)] disabled:opacity-40 hover:border-[var(--color-brand-mocha)] hover:text-[var(--color-brand-mocha)] transition-colors"
           >
-            Tiếp →
+            Next →
           </button>
         </div>
       )}

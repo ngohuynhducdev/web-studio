@@ -23,10 +23,10 @@ export default async function DonHangPage() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="font-display text-3xl font-bold text-[var(--color-brand-ink)]">
-            Quản lý đơn hàng
+            Order management
           </h1>
           <p className="text-[var(--color-brand-ink)]/50 mt-1 text-sm">
-            Cập nhật tại{' '}
+            Update in{' '}
             <Link href="/studio" className="text-[var(--color-brand-mocha)] hover:underline">
               Sanity Studio
             </Link>
@@ -36,11 +36,11 @@ export default async function DonHangPage() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
           {[
-            { label: 'Tổng đơn', value: stats.total, color: 'text-[var(--color-brand-ink)]' },
-            { label: 'Mới', value: stats.newOrders, color: 'text-blue-600' },
-            { label: 'Đang làm', value: stats.inProgress, color: 'text-orange-600' },
-            { label: 'Chờ duyệt', value: stats.review, color: 'text-purple-600' },
-            { label: 'Đã bàn giao', value: stats.delivered, color: 'text-green-600' },
+            { label: 'Total orders', value: stats.total, color: 'text-[var(--color-brand-ink)]' },
+            { label: 'New', value: stats.newOrders, color: 'text-blue-600' },
+            { label: 'In progress', value: stats.inProgress, color: 'text-orange-600' },
+            { label: 'Pending review', value: stats.review, color: 'text-purple-600' },
+            { label: 'Delivered', value: stats.delivered, color: 'text-green-600' },
           ].map(({ label, value, color }) => (
             <div key={label} className="bg-white rounded-xl border border-[var(--color-brand-beige)] px-5 py-4">
               <p className="text-sm text-[var(--color-brand-ink)]/50">{label}</p>
