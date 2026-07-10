@@ -28,7 +28,7 @@ export default function MobileMenu({
     return href === "/" ? pathname === "/" : pathname.startsWith(href);
   }
 
-  // Khóa scroll body khi menu mở
+  // Lock body scroll while menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -36,7 +36,7 @@ export default function MobileMenu({
     };
   }, [open]);
 
-  // Focus management: mở → focus link đầu tiên; đóng → trả focus về hamburger
+  // Focus management: open → focus first link; close → return focus to hamburger
   useEffect(() => {
     if (open) {
       wasOpen.current = true;
@@ -47,7 +47,7 @@ export default function MobileMenu({
     }
   }, [open]);
 
-  // Đóng bằng Escape + trap focus bằng Tab trong menu
+  // Close with Escape + trap focus with Tab inside the menu
   useEffect(() => {
     if (!open) return;
     const handle = (e: KeyboardEvent) => {
@@ -73,12 +73,12 @@ export default function MobileMenu({
 
   return (
     <>
-      {/* Nút hamburger */}
+      {/* Hamburger button */}
       <button
         ref={triggerRef}
         className={`${styles.hamburgerBtn}${open ? ` ${styles.hamburgerBtnOpen}` : ""}`}
         onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Đóng menu" : "Mở menu"}
+        aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         aria-controls="mobile-menu"
       >
@@ -87,18 +87,18 @@ export default function MobileMenu({
         <span className={styles.hamburgerBar} />
       </button>
 
-      {/* Overlay toàn màn hình */}
+      {/* Fullscreen overlay */}
       <div
         ref={menuRef}
         id="mobile-menu"
         className={`${styles.mobileMenu}${open ? ` ${styles.mobileMenuOpen}` : ""}`}
         role="dialog"
         aria-modal="true"
-        aria-label="Menu điều hướng"
+        aria-label="Navigation menu"
         aria-hidden={!open}
       >
         <div className={styles.mobileMenuInner}>
-          {/* Header — brand + nút đóng */}
+          {/* Header — brand + close button */}
           <div className={styles.mobileMenuHeader}>
             <Link href="/" className={styles.mobileMenuBrand} onClick={close}>
               web studio<span className={styles.mobileMenuDot}>.</span>
@@ -106,7 +106,7 @@ export default function MobileMenu({
             <button
               className={styles.mobileMenuCloseBtn}
               onClick={close}
-              aria-label="Đóng menu"
+              aria-label="Close menu"
             >
               <svg
                 width={18}
@@ -125,8 +125,8 @@ export default function MobileMenu({
             </button>
           </div>
 
-          {/* Danh sách link — slide in có delay */}
-          <nav className={styles.mobileMenuNav} aria-label="Menu chính">
+          {/* Link list — slide in with delay */}
+          <nav className={styles.mobileMenuNav} aria-label="Main menu">
             {navLinks.map((link, i) => {
               const active = isActive(link.href);
               const linkClass = `${styles.mobileMenuLink}${active ? ` ${styles.mobileMenuLinkActive}` : ""}`;
@@ -178,7 +178,7 @@ export default function MobileMenu({
               </svg>
             </Link>
             <p className={styles.mobileMenuFootNote}>
-              trả lời trong 1–2 giờ · 9h–18h
+              replies within 1–2 hours · 9am–6pm
             </p>
           </div>
         </div>

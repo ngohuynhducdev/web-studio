@@ -13,13 +13,13 @@ export default async function Footer() {
   const cms = await client.fetch(siteFooterQuery, {}, { next: { revalidate: 60 } });
 
   const brandName   = cms?.brandName    ?? "web studio";
-  const tagline     = cms?.tagline      ?? "web đẹp cho doanh nghiệp nhỏ.";
-  const description = cms?.description  ?? "một tiệm — không phải agency, không phải platform.\nlàm từng cái, tử tế từng cái.";
+  const tagline     = cms?.tagline      ?? "beautiful websites for small businesses.";
+  const description = cms?.description  ?? "a studio — not an agency, not a platform.\nbuilt one at a time, with care.";
   const shopLinks   = cms?.shopLinks?.length ? cms.shopLinks : DEFAULT_SHOP_LINKS;
   const email       = cms?.email        ?? "hello@webstudio.com";
   const phone       = cms?.phone        ?? "0901 234 567";
   const zaloUrl     = cms?.zaloUrl      ?? "https://zalo.me/0901234567";
-  const hours       = cms?.hours        ?? "Thứ 2 – Thứ 7, 9h–18h";
+  const hours       = cms?.hours        ?? "Mon – Sat, 9am–6pm";
   const facebookUrl = cms?.facebookUrl  ?? "https://facebook.com/webstudio";
   const instagramUrl= cms?.instagramUrl ?? "https://instagram.com/webstudio";
   const tiktokUrl   = cms?.tiktokUrl    ?? "https://tiktok.com/@webstudio";
@@ -51,7 +51,7 @@ export default async function Footer() {
           </div>
 
           <div>
-            <h3 className={styles.footerColTitle}>Tiệm</h3>
+            <h3 className={styles.footerColTitle}>Studio</h3>
             <ul className={styles.footerColList}>
               {shopLinks.map((link: { href: string; label: string }) => (
                 <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
@@ -60,7 +60,7 @@ export default async function Footer() {
           </div>
 
           <div>
-            <h3 className={styles.footerColTitle}>Liên hệ</h3>
+            <h3 className={styles.footerColTitle}>Contact</h3>
             <ul className={styles.footerColList}>
               {contactItems.map((item) => (
                 <li key={item.label}>
@@ -77,8 +77,8 @@ export default async function Footer() {
           </div>
 
           <div>
-            <h3 className={styles.footerColTitle}>Mạng xã hội</h3>
-            <nav aria-label="Mạng xã hội" className={styles.footerSocial}>
+            <h3 className={styles.footerColTitle}>Social</h3>
+            <nav aria-label="Social media" className={styles.footerSocial}>
               {socialLinks.map(({ href, label, Icon }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
                   <Icon />

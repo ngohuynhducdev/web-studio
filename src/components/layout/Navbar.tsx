@@ -13,13 +13,13 @@ export default async function Navbar() {
   const brandName = cms?.brandName ?? "web studio";
   const logoUrl   = cms?.logoUrl as string | undefined;
   const navLinks  = cms?.navLinks?.length ? cms.navLinks : DEFAULT_NAV;
-  const ctaLabel  = cms?.ctaLabel ?? "xem mẫu ngay";
+  const ctaLabel  = cms?.ctaLabel ?? "see templates";
   const ctaHref   = cms?.ctaHref  ?? "/templates";
 
   return (
     <>
     <a href="#main-content" className={styles.skipLink}>
-      Chuyển đến nội dung chính
+      Skip to main content
     </a>
     <nav className={styles.nav}>
       <div className={`container-site ${styles.navInner}`}>
