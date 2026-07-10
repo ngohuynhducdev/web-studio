@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   SUỐI MÂY — light spa (Lumera-style)
+   MIST SPRING SPA — light spa (Lumera-style)
    Only: CSS variables, typography utilities, pseudo-elements,
    compound selectors, animation keyframes + inView system
 ═══════════════════════════════════════════════ */
@@ -30,7 +30,7 @@
   font-family: var(--sm-font-body, system-ui), system-ui, sans-serif;
   background: var(--sm-bg);
   color: var(--sm-ivory);
-  /* clip (không phải hidden) để chặn tràn ngang mà KHÔNG phá position:sticky của header */
+  /* clip (not hidden) to block horizontal overflow WITHOUT breaking the header's position:sticky */
   overflow-x: clip;
 }
 
@@ -329,7 +329,7 @@
 .intro.inView .introMedia,
 .intro.inView .introCopy { opacity: 1; transform: none; }
 
-/* ── Booking — dark rounded panel (content + ảnh) trên nền kem ── */
+/* ── Booking — dark rounded panel (content + image) on a cream background ── */
 .bkInner {
   position: relative;
   display: grid;
@@ -493,7 +493,7 @@
 }
 .trLink:hover { gap: 0.75rem; }
 
-/* ── Card steps — hiện sẵn trong thân thẻ ── */
+/* ── Card steps — shown by default inside the card body ── */
 .trSteps {
   margin-top: 1.1rem;
   padding-top: 1.1rem;
@@ -529,7 +529,7 @@
   .trCard { opacity: 1 !important; transform: none !important; transition: none !important; will-change: auto; }
 }
 
-/* ── Menu / Bảng giá — kiểu thực đơn in (dotted leader) ── */
+/* ── Menu / Price List — printed-menu style (dotted leader) ── */
 .mnGrid {
   max-width: 58rem;
   margin: 0 auto;
@@ -538,7 +538,7 @@
   transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .menu.inView .mnGrid { opacity: 1; transform: none; }
-/* multi-column cân bằng chiều cao, không cắt ngang 1 nhóm */
+/* multi-column with balanced height, never splitting a group mid-way */
 @media (min-width: 48rem) {
   .mnGrid { column-count: 2; column-gap: 4rem; }
 }
