@@ -6,8 +6,7 @@ export type { Step, TestimonialItem, PricingFeature, PricingPlan };
 // ── TapeStrip ────────────────────────────────────────────────────────────────
 
 export const DEFAULT_TAPE_ITEMS = [
-  "Nail Salons", "Spa & Massage", "Cafes", "Gyms",
-  "Hair Salons", "Dental Clinics", "Restaurants", "Photo Studios",
+  "Nail Salons", "Spa & Massage", "Cafes", "Gyms", "Hair Salons",
 ];
 
 // ── Hero ─────────────────────────────────────────────────────────────────────
@@ -16,7 +15,7 @@ export const DEFAULT_HERO = {
   heroEyebrow:      "WEB STUDIO · SINCE 2024",
   heroHeading:      "pick a template — tailor it —",
   heroHeadingItal:  "in 5 days.",
-  heroLede:         "web studio has 15+ beautiful ready-made templates for nail salons, spas, cafes, gyms. you pick a template, we customize it for your business — no rush, no shortcuts.",
+  heroLede:         "web studio makes beautiful ready-made templates for nail salons, spas, cafes, gyms. you pick one, we customize it for your business — no rush, no shortcuts.",
   heroBadge:        "delivered in 5 days",
   heroCtaPrimary:   "browse templates",
   heroCtaSecondary: "about us",
@@ -32,7 +31,7 @@ export const DEFAULT_HIW_HEADINGS = {
 };
 
 export const DEFAULT_STEPS: Step[] = [
-  { _key: "h1", title: "pick a template",     icon: "grid",  desc: "browse 15+ ready-made designs. pick the one that fits your business — colors, mood, typography. not sure yet? we'll help you decide." },
+  { _key: "h1", title: "pick a template",     icon: "grid",  desc: "browse our ready-made designs. pick the one that fits your business — colors, mood, typography. not sure yet? we'll help you decide." },
   { _key: "h2", title: "send us your info",   icon: "chat",  desc: "logo, photos, copy, pricing — just send it over on zalo. we'll handle the rest: layout, copywriting, image placement." },
   { _key: "h3", title: "your site, in 5 days", icon: "pulse", desc: "we deploy it, connect your domain, and hand over the accounts. plus a quick guide so you can make updates yourself later." },
 ];
@@ -41,8 +40,8 @@ export const DEFAULT_STEPS: Step[] = [
 
 export const DEFAULT_TEMPLATES_SECTION = {
   tplEyebrow:     "FEATURED TEMPLATES",
-  tplHeading:     "four templates,",
-  tplHeadingItal: "picked the most this month.",
+  tplHeading:     "three templates,",
+  tplHeadingItal: "each one built with care.",
 };
 
 // ── Testimonials ─────────────────────────────────────────────────────────────
@@ -135,53 +134,43 @@ export const DEFAULT_CTA = {
 export const FALLBACK_TEMPLATES: Template[] = [
   {
     _id: "1",
-    title: "Pink Luxury",
-    slug: "pink-luxury",
-    description: "An elegant design in soft pastel pink — perfect for upscale nail salons that want to make an impression from the first glance.",
-    industry: "nail",
-    price: 39,
-    demoUrl: "#",
-    thumbnailUrl: "/images/nail-polish-wall.jpg",
-    features: ["online booking", "photo gallery", "pricing"],
+    title: "Mist Spring Spa",
+    slug: "suoi-may",
+    componentKey: "suoi-may",
+    description: "Upscale spa & wellness — hero carousel, menu-style pricing, and a dark booking panel with Zalo at the center.",
+    industry: "spa",
+    price: 49,
+    demoUrl: "/templates/suoi-may",
+    thumbnailUrl: "/images/spa-flowers.jpg",
+    features: ["hero carousel", "menu-style pricing", "zalo booking"],
     isFeatured: true,
     isActive: true,
   },
   {
     _id: "2",
-    title: "Mist Spring Spa",
-    slug: "suoi-may",
-    description: "A soft sage-green palette with an airy layout — creating a sense of calm from the homepage on, for spas and massage studios.",
+    title: "Thai Spa",
+    slug: "thai-spa",
+    componentKey: "thai-spa",
+    description: "Classic Thai massage spa with formal symmetry — deep red and turmeric gold, treatment price list, offers via Zalo.",
     industry: "spa",
-    price: 39,
-    demoUrl: "#",
-    thumbnailUrl: "/images/spa-flowers.jpg",
-    features: ["appointment booking", "treatments", "service packages"],
-    isFeatured: true,
+    price: 29,
+    demoUrl: "/templates/thai-spa",
+    thumbnailUrl: "/images/spa-massage.jpg",
+    features: ["treatment price list", "founder introduction", "zalo booking"],
+    isFeatured: false,
     isActive: true,
   },
   {
     _id: "3",
-    title: "Vintage Cozy",
-    slug: "vintage-cozy",
-    description: "Warm browns and a gentle serif typeface — capturing the slow, thoughtful atmosphere of a specialty coffee shop.",
-    industry: "cafe",
-    price: 39,
-    demoUrl: "#",
-    thumbnailUrl: "/images/cafe-interior-01.jpg",
-    features: ["menu", "brand story", "table reservations"],
-    isFeatured: true,
-    isActive: true,
-  },
-  {
-    _id: "4",
-    title: "Bold Energy",
-    slug: "bold-energy",
-    description: "Dark, bold, and decisive — for gyms and fitness studios that want to radiate energy straight from the homepage.",
-    industry: "gym",
-    price: 39,
-    demoUrl: "#",
-    thumbnailUrl: "/images/gym-fitness.jpg",
-    features: ["class schedule", "trial signup", "trainers"],
+    title: "Herbal Grove Spa",
+    slug: "bach-thao",
+    componentKey: "bach-thao",
+    description: "Vietnamese folk herbal spa — handmade paper texture, herbal leaf illustrations, and remedy storytelling.",
+    industry: "spa",
+    price: 29,
+    demoUrl: "/templates/bach-thao",
+    thumbnailUrl: "/images/atmosphere-02.jpg",
+    features: ["herbal treatment menu", "remedy storytelling", "zalo booking"],
     isFeatured: false,
     isActive: true,
   },
