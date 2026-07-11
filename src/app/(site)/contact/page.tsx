@@ -9,7 +9,7 @@ import Reveal from "@/components/ui/motion/Reveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact & Order — Web Studio",
+  title: "Contact & Order",
   description:
     "Order a website for your business — nail, spa, cafe, gym. Free consultation, reply within 1–2 hours.",
 };

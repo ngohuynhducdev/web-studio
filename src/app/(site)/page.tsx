@@ -29,12 +29,10 @@ export default async function HomePage() {
       <HowItWorks cms={cms} />
       <HomeTemplateGrid
         showViewAll={true}
-        eyebrow={cms?.tplEyebrow}
         heading={cms?.tplHeading}
         headingItal={cms?.tplHeadingItal}
       />
       <Testimonials
-        eyebrow={cms?.testiEyebrow}
         heading={cms?.testiHeading}
         items={cms?.testiItems}
       />

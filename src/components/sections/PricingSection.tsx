@@ -47,7 +47,6 @@ function CrossIcon() {
 }
 
 export default function PricingSection({ cms }: { cms?: PricingCms }) {
-  const eyebrow    = cms?.pricingEyebrow     ?? DEFAULT_PRICING_HEADINGS.pricingEyebrow;
   const heading    = cms?.pricingHeading     ?? DEFAULT_PRICING_HEADINGS.pricingHeading;
   const headingItal= cms?.pricingHeadingItal ?? DEFAULT_PRICING_HEADINGS.pricingHeadingItal;
   const plans      = cms?.pricingPlans?.length ? cms.pricingPlans : DEFAULT_PRICING_PLANS;

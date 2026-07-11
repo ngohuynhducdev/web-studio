@@ -10,7 +10,6 @@ import { FALLBACK_TEMPLATES } from "@/data/homepage";
 interface HomeTemplateGridProps {
   title?: string;
   showViewAll?: boolean;
-  eyebrow?: string;
   heading?: string;
   headingItal?: string;
 }
@@ -18,7 +17,6 @@ interface HomeTemplateGridProps {
 export default async function HomeTemplateGrid({
   title = "four most-picked templates this month.",
   showViewAll = true,
-  eyebrow,
   heading,
   headingItal,
 }: HomeTemplateGridProps) {

@@ -8,7 +8,7 @@ import Reveal, { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Our projects — Web Studio",
+  title: "Our projects",
   description:
     "Websites we've built for nail salons, spas, cafes, gyms in Ho Chi Minh City. See the real thing — not mock-ups.",
 };
