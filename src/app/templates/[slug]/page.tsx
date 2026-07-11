@@ -49,15 +49,14 @@ export async function generateMetadata({
   const title = isLive
     ? template.title
     : `${template.title} (coming soon)`;
+  // No openGraph.images here — the co-located opengraph-image.tsx renders the
+  // branded card, and metadata-set images would override the file convention.
   return {
     title,
     description: template.description,
     openGraph: {
       title,
       description: template.description ?? undefined,
-      ...(template.thumbnailUrl && {
-        images: [{ url: template.thumbnailUrl, width: 1200, height: 630 }],
-      }),
     },
   };
 }

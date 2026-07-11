@@ -9,7 +9,7 @@ export const contentType = OG_CONTENT_TYPE;
 export default function Image() {
   return new ImageResponse(
     ogElement({
-      eyebrow: "5+ TEMPLATES · NAIL · SPA · CAFE · GYM",
+      eyebrow: "HAND-CRAFTED TEMPLATES · SPA & WELLNESS",
       heading: "pick a template —\nstart today",
       sub: "Professional website templates, customized for your business",
       watermark: "M",

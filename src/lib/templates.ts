@@ -4,7 +4,7 @@
 export const TEMPLATE_MANIFEST = [
   { slug: "thai-spa", label: "Thai Spa", tagline: "Thai spa & massage" },
   { slug: "herbal-grove-spa", label: "Herbal Grove Spa", tagline: "Herbal spa" },
-  { slug: "mist-spring-spa", label: "Mist Spring Spa", tagline: "Spa / Private onsen" },
+  { slug: "mist-spring-spa", label: "Mist Spring Spa", tagline: "Premium day spa" },
 ] as const;
 
 export type TemplateSlug = (typeof TEMPLATE_MANIFEST)[number]["slug"];
