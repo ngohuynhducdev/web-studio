@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from './BachThao.module.css';
+import styles from './HerbalGroveSpa.module.css';
 import { NAV_LINKS } from './navLinks';
 import { LeafIcon } from './icons';
 

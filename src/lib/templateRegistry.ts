@@ -1,8 +1,8 @@
 import type { PageSection } from "@/types";
 import type { TemplateSlug } from "@/lib/templates";
 import ThaiSpaTemplate from "@/components/templates/thai-spa";
-import BachThaoTemplate from "@/components/templates/bach-thao";
-import SuoiMayTemplate from "@/components/templates/suoi-may";
+import HerbalGroveSpaTemplate from "@/components/templates/herbal-grove-spa";
+import MistSpringSpaTemplate from "@/components/templates/mist-spring-spa";
 
 // Data-only map lives in @/data/templates (usable from Studio components
 // without pulling template React components into the bundle). Re-exported
@@ -21,6 +21,6 @@ export type TemplateProps = {
 
 export const TEMPLATE_COMPONENTS: Record<string, React.ComponentType<TemplateProps>> = {
   "thai-spa":     ThaiSpaTemplate,
-  "bach-thao":    BachThaoTemplate,
-  "suoi-may":     SuoiMayTemplate,
+  "herbal-grove-spa":    HerbalGroveSpaTemplate,
+  "mist-spring-spa":     MistSpringSpaTemplate,
 } satisfies Record<TemplateSlug, React.ComponentType<TemplateProps>>;

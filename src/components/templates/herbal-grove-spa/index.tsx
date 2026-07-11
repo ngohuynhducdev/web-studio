@@ -4,9 +4,9 @@ import type {
   HeroSection, ServicesSection, AboutSection,
   GallerySection, PricingSection, ReviewsSection, BookingSection,
 } from '@/types';
-import { DEFAULT_SECTIONS } from '@/data/templates/bach-thao';
+import { DEFAULT_SECTIONS } from '@/data/templates/herbal-grove-spa';
 import { pickType, shown } from '@/lib/sections';
-import styles from './BachThao.module.css';
+import styles from './HerbalGroveSpa.module.css';
 import Header from './Header';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
@@ -40,7 +40,7 @@ const mulish = Mulish({
 // Velura-style luxury flow: hero → trust → services → offer → pricing →
 //   story (dark green) → facilities → testimonials → booking → footer.
 //   Herbs / Process / Interstitial sections intentionally not rendered here.
-export default function BachThaoTemplate({
+export default function HerbalGroveSpaTemplate({
   sections,
   brandColor,
   businessName = 'Herbal Grove Spa',

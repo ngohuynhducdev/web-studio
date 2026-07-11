@@ -39,7 +39,7 @@ Site-wide (loaded in `app/layout.tsx`):
 
 Template-specific (loaded in each template component):
 - ThaiSpa: Playfair Display + Source Sans 3 (loaded in `thai-spa/index.tsx`)
-- SuoiMay: Cormorant Garamond + Manrope (loaded in `suoi-may/index.tsx`, exposed via `--sm-font-display`/`--sm-font-body`)
+- MistSpringSpa: Cormorant Garamond + Manrope (loaded in `mist-spring-spa/index.tsx`, exposed via `--sm-font-display`/`--sm-font-body`)
 
 ## Architecture
 
@@ -112,8 +112,8 @@ components/
 │   │   ├── Header / Hero / LovingTouch / Benefits / HarmonyIntro /
 │   │   │   AfterMassage / Founder / Testimonials / Pricing / Offer / Footer
 │   │   └── icons.tsx
-│   ├── bach-thao/          — ✅ CMS-driven, folder-based (Herbal Grove Spa)
-│   ├── suoi-may/           — ✅ CMS-driven, folder-based (Mist Spring Spa — bright spa, Lumera-style)
+│   ├── herbal-grove-spa/          — ✅ CMS-driven, folder-based (Herbal Grove Spa)
+│   ├── mist-spring-spa/           — ✅ CMS-driven, folder-based (Mist Spring Spa — bright spa, Lumera-style)
 │   └── BannerCarousel.tsx + BannerCarousel.module.css  — shared across templates
 ├── preview/                — Site chrome layered over the template page (NOT the template delivered to the client)
 │   ├── TemplatePreviewBar.tsx + .module.css
@@ -128,8 +128,8 @@ components/
 via the `sections` prop and fall back to `DEFAULT_SECTIONS` in code.
 `DEFAULT_SECTIONS_MAP` has all 3 entries. All are folder-based with `index.tsx` as the entry point.
 - The section picker helper (`pickType`/`pick`/`shown`) lives in `lib/sections.ts` — do NOT copy it into each template
-- Use `pick` by `_key` when a template has multiple sections of the same `_type`: thai-spa (2 `aboutSection`), bach-thao (2 `servicesSection`)
-- Use `pickType` by `_type` when the section type is unique: suoi-may
+- Use `pick` by `_key` when a template has multiple sections of the same `_type`: thai-spa (2 `aboutSection`), herbal-grove-spa (2 `servicesSection`)
+- Use `pickType` by `_type` when the section type is unique: mist-spring-spa
 - Templates with multiple nav links: extract them into `navLinks.ts` in the same folder — single source of truth for both Header and Footer (applies to all 3 templates)
 
 ### Template Identity (each template's own archetype)
@@ -144,11 +144,11 @@ into a shared "house style" (serif + italicized accent-colored words + hairlines
 
 | Template | Archetype | Status |
 |---|---|---|
-| suoi-may | Elegant bright spa (based on Lumera) → now a **mini-website**: hero **carousel** (swiper, CMS slides) + layered-image intro + **Services = 3 signature cards** (price + steps shown upfront) + **Pricing** (dedicated `menuSection`, menu-style dotted leader) + **Gallery** + 5-star Reviews + **Booking** (dark CTA panel: Zalo + call + 3 perks) + 4-column footer (hours, address links to Maps). Booking is Zalo-only by design. Deliberately NO "team"/"stats" section (Vietnamese spas rarely show faces; fake numbers feel off for a small shop) | done |
+| mist-spring-spa | Elegant bright spa (based on Lumera) → now a **mini-website**: hero **carousel** (swiper, CMS slides) + layered-image intro + **Services = 3 signature cards** (price + steps shown upfront) + **Pricing** (dedicated `menuSection`, menu-style dotted leader) + **Gallery** + 5-star Reviews + **Booking** (dark CTA panel: Zalo + call + 3 perks) + 4-column footer (hours, address links to Maps). Booking is Zalo-only by design. Deliberately NO "team"/"stats" section (Vietnamese spas rarely show faces; fake numbers feel off for a small shop) | done |
 | thai-spa | Formal symmetric classic — deep red + turmeric gold, Thai pattern border | not started |
-| bach-thao | Vietnamese folk/handcrafted — traditional handmade paper texture, herbal-leaf SVG illustrations, old-book type | not started |
+| herbal-grove-spa | Vietnamese folk/handcrafted — traditional handmade paper texture, herbal-leaf SVG illustrations, old-book type | not started |
 
-Code-only "signature" sections (suoi-may's layered-image intro + dark Booking panel)
+Code-only "signature" sections (mist-spring-spa's layered-image intro + dark Booking panel)
 belong to identity — clients do NOT edit these via CMS, by design. Each template uses
 its own Unsplash image set, never shared across templates.
 
@@ -173,8 +173,8 @@ data/                     — Single source of truth for default/fallback conten
 ├── templates-page.ts
 └── templates/
     ├── thai-spa.ts       — DEFAULT_SECTIONS
-    ├── bach-thao.ts      — DEFAULT_SECTIONS
-    ├── suoi-may.ts       — DEFAULT_SECTIONS
+    ├── herbal-grove-spa.ts      — DEFAULT_SECTIONS
+    ├── mist-spring-spa.ts       — DEFAULT_SECTIONS
     └── index.ts          — DEFAULT_SECTIONS_MAP (data-only, used by Studio + registry)
 
 sanity/

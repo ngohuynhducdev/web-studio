@@ -1,7 +1,7 @@
 "use client";
 
 import { Cormorant_Garamond, Manrope } from "next/font/google";
-import styles from "./SuoiMay.module.css";
+import styles from "./MistSpringSpa.module.css";
 import type {
   PageSection,
   HeroSection,
@@ -12,7 +12,7 @@ import type {
   BookingSection,
   BannerCarouselSection,
 } from "@/types";
-import { DEFAULT_SECTIONS } from "@/data/templates/suoi-may";
+import { DEFAULT_SECTIONS } from "@/data/templates/mist-spring-spa";
 import { pickType, shown } from "@/lib/sections";
 import BannerCarousel from "@/components/templates/BannerCarousel";
 import Header from "./Header";
@@ -45,17 +45,17 @@ const manrope = Manrope({
   weight: ["300", "400", "500", "600"],
 });
 
-export interface SuoiMayProps {
+export interface MistSpringSpaProps {
   businessName?: string;
   brandColor?: string;
   sections?: PageSection[];
 }
 
-export default function SuoiMayTemplate({
+export default function MistSpringSpaTemplate({
   businessName = "Mist Spring Spa",
   brandColor,
   sections,
-}: SuoiMayProps = {}) {
+}: MistSpringSpaProps = {}) {
   const active = sections && sections.length > 0 ? sections : DEFAULT_SECTIONS;
 
   const carousel = pickType<BannerCarouselSection>(

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import TemplateCard from "@/components/ui/TemplateCard";
 import { client } from "@/sanity/lib/client";
-import { featuredTemplatesQuery } from "@/lib/queries";
+import { allTemplatesQuery } from "@/lib/queries";
 import type { Template } from "@/types";
 import { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal";
 import styles from "./HomeTemplateGrid.module.css";
@@ -15,13 +15,13 @@ interface HomeTemplateGridProps {
 }
 
 export default async function HomeTemplateGrid({
-  title = "four most-picked templates this month.",
+  title = "three templates, each one built with care.",
   showViewAll = true,
   heading,
   headingItal,
 }: HomeTemplateGridProps) {
-  const fetched = await client.fetch<Template[]>(featuredTemplatesQuery, {}, { next: { revalidate: 60 } });
-  const templates = fetched.length > 0 ? fetched.slice(0, 4) : FALLBACK_TEMPLATES;
+  const fetched = await client.fetch<Template[]>(allTemplatesQuery, {}, { next: { revalidate: 60 } });
+  const templates = fetched.length > 0 ? fetched.slice(0, 3) : FALLBACK_TEMPLATES;
 
   return (
     <section className="section" id="templates">
@@ -43,7 +43,7 @@ export default async function HomeTemplateGrid({
         {showViewAll && (
           <div className={styles.templatesFoot}>
             <Link href="/templates" className="btn-link">
-              view all 15+ templates
+              view all templates
               <svg
                 width={14}
                 height={14}

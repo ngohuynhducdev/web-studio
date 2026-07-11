@@ -1,10 +1,10 @@
 # DESIGN.md — Mist Spring Spa
 
-> Design-system doc for **one** template: `suoi-may`.
+> Design-system doc for **one** template: `mist-spring-spa`.
 > This is NOT the site's shared design system. This file only describes the visual world
 > of Mist Spring Spa.
 >
-> Token source: `SuoiMay.module.css` + the components (single source of truth).
+> Token source: `MistSpringSpa.module.css` + the components (single source of truth).
 > When changing a value, update the CSS/component first, then update this file — don't let them drift.
 
 ---
@@ -37,7 +37,7 @@ restrained copper accent.
 
 ## 2. Color Palette & Roles
 
-All defined inside `.page { ... }` in `SuoiMay.module.css`.
+All defined inside `.page { ... }` in `MistSpringSpa.module.css`.
 Token prefix `--sm-`. **Do not use** the site's `--color-brand-*`.
 
 | Token | Value | Role |

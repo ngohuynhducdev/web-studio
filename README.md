@@ -23,13 +23,13 @@ Each template locks in its own archetype — typography system, color world, sig
 
 | Template | Business | Art direction |
 |---|---|---|
-| `suoi-may` | Premium day spa | Elegant western spa — copper/cream, layered-image intro, menu-style price list, dark booking panel |
+| `mist-spring-spa` | Premium day spa | Elegant western spa — copper/cream, layered-image intro, menu-style price list, dark booking panel |
 | `thai-spa` | Thai massage | Classic symmetric formality — deep red and turmeric gold |
-| `bach-thao` | Herbal spa | Vietnamese folk craft — handmade paper texture, herbal SVG illustrations |
+| `herbal-grove-spa` | Herbal spa | Vietnamese folk craft — handmade paper texture, herbal SVG illustrations |
 
-| [Mist Spring Spa](https://web-studio-chi.vercel.app/templates/suoi-may) | [Template catalog](https://web-studio-chi.vercel.app/templates) |
+| [Mist Spring Spa](https://web-studio-chi.vercel.app/templates/mist-spring-spa) | [Template catalog](https://web-studio-chi.vercel.app/templates) |
 |---|---|
-| ![Mist Spring Spa](docs/screenshots/suoi-may.webp) | ![Template catalog](docs/screenshots/catalog.webp) |
+| ![Mist Spring Spa](docs/screenshots/mist-spring-spa.webp) | ![Template catalog](docs/screenshots/catalog.webp) |
 
 ## Architecture highlights
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useInView } from '@/hooks/useInView';
-import styles from './BachThao.module.css';
+import styles from './HerbalGroveSpa.module.css';
 import type { ReviewsSection } from '@/types';
 import { StarIcon, BotanicalSprigIcon, ChevronLeftIcon, ChevronRightIcon } from './icons';
 

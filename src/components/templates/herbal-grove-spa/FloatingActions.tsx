@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import styles from './BachThao.module.css';
+import styles from './HerbalGroveSpa.module.css';
 import { ChatIcon } from './icons';
 
 interface Props {

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useInView } from '@/hooks/useInView';
-import styles from './SuoiMay.module.css';
+import styles from './MistSpringSpa.module.css';
 import type { BookingSection } from '@/types';
 import { ChatIcon, PhoneIcon, CheckIcon } from './icons';
 

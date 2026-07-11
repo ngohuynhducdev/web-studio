@@ -95,9 +95,10 @@
 }
 
 @media (min-width: 1024px) {
-  .testiGrid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .testiGrid > *:nth-child(1) .testiCard { transform: rotate(-1.2deg); --lift-rot: -0.8deg; }
-  .testiGrid > *:nth-child(2) .testiCard { transform: rotate(0.9deg); margin-top: 16px; --lift-rot: 0.6deg; }
+  /* hand-pinned: natural heights, staggered downward like notes on a board */
+  .testiGrid { grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
+  .testiGrid > *:nth-child(1) .testiCard { transform: rotate(-1.2deg); margin-top: 14px; --lift-rot: -0.8deg; }
+  .testiGrid > *:nth-child(2) .testiCard { transform: rotate(0.9deg); margin-top: 44px; --lift-rot: 0.6deg; }
   .testiGrid > *:nth-child(3) .testiCard { transform: rotate(-0.5deg); --lift-rot: -0.4deg; }
 }
 

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from './BachThao.module.css';
+import styles from './HerbalGroveSpa.module.css';
 import { ArrowRightIcon, StoneStackIcon } from './icons';
 
 // Velura offer band — contained (not full-bleed): dark-green block over a faint
