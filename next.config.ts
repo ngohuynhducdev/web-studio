@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: '/pricing', destination: '/#pricing', permanent: false },
+      // /projects was removed — send old links home
+      { source: '/projects', destination: '/', permanent: true },
+      { source: '/projects/:slug', destination: '/', permanent: true },
     ];
   },
 };

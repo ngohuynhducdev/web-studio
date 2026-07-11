@@ -36,7 +36,6 @@ import {
 
 import { DEFAULT_CONTACT } from "../src/data/lien-he";
 import { DEFAULT_TEMPLATES_PAGE } from "../src/data/templates-page";
-import { FALLBACK_PAGE as DU_AN_PAGE } from "../src/data/du-an";
 
 dotenv.config({ path: ".env.local" });
 
@@ -108,13 +107,6 @@ const documents = [
     _id:   "templatesPage",
     _type: "templatesPage",
     ...DEFAULT_TEMPLATES_PAGE,
-  },
-
-  // ── duAnPage ───────────────────────────────────────────────────────────────
-  {
-    _id:   "duAnPage",
-    _type: "duAnPage",
-    ...DU_AN_PAGE,
   },
 
 ];

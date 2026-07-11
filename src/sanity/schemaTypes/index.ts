@@ -7,8 +7,6 @@ import { siteFooterSchema } from './siteFooter'
 import { aboutPageSchema } from './aboutPage'
 import { contactPageSchema } from './contactPage'
 import { templatesPageSchema } from './templatesPage'
-import { duAnPageSchema } from './duAnPage'
-import { projectSchema } from './project'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -18,9 +16,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutPageSchema,
     contactPageSchema,
     templatesPageSchema,
-    duAnPageSchema,
     templateSchema,
-    projectSchema,
     siteSchema,
   ],
 }

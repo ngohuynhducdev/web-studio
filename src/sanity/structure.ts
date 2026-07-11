@@ -25,14 +25,6 @@ export const structure: StructureResolver = (S) =>
       S.listItem().title('🗂️ Template Library').child(
         S.document().schemaType('templatesPage').documentId('templatesPage')
       ),
-      S.listItem().title('📁 Projects').child(
-        S.list().title('Projects').items([
-          S.listItem().title('📄 Page Content').child(
-            S.document().schemaType('duAnPage').documentId('duAnPage')
-          ),
-          S.documentTypeListItem('project').title('🖼️ Project List'),
-        ])
-      ),
       S.divider(),
       // Document lists
       S.documentTypeListItem('template').title('📋 Templates'),

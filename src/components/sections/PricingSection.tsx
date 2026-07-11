@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DEFAULT_PRICING_PLANS, DEFAULT_PRICING_HEADINGS, DEFAULT_FAQ_ITEMS } from "@/data/homepage";
+import { DEFAULT_PRICING_PLANS, DEFAULT_PRICING_HEADINGS } from "@/data/homepage";
 import type { PricingCms } from "@/types/cms";
 import type { PricingPlan } from "@/types";
 import { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal";
@@ -97,23 +97,6 @@ export default function PricingSection({ cms }: { cms?: PricingCms }) {
           </Link>
         </div>
 
-        {/* FAQ */}
-        <div className={styles.faqWrap}>
-          <h3 className={styles.faqHeading}>frequently asked questions</h3>
-          <dl className={styles.faqList}>
-            {DEFAULT_FAQ_ITEMS.map((item) => (
-              <details key={item._key} className={styles.faqItem}>
-                <summary className={styles.faqQ}>
-                  {item.q}
-                  <svg className={styles.faqChevron} width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </summary>
-                <dd className={styles.faqA}>{item.a}</dd>
-              </details>
-            ))}
-          </dl>
-        </div>
       </div>
     </section>
   );
