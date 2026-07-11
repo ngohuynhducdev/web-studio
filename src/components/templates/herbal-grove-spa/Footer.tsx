@@ -1,4 +1,4 @@
-import styles from './BachThao.module.css';
+import styles from './HerbalGroveSpa.module.css';
 import { NAV_LINKS } from './navLinks';
 import { FacebookIcon, InstagramIcon, ZaloIcon, PhoneIcon, MapPinIcon, MailIcon, LeafIcon, BotanicalSprigIcon } from './icons';
 

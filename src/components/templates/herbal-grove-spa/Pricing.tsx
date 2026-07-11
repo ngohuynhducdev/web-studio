@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import Image from 'next/image';
 import { useInView } from '@/hooks/useInView';
-import styles from './BachThao.module.css';
+import styles from './HerbalGroveSpa.module.css';
 import type { PricingSection, ServicesSection } from '@/types';
 
 // Arched feature photo (verified spa massage) — reference shows candles + foot massage.

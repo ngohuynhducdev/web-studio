@@ -3,8 +3,8 @@
 // To add new template: add one line here, then register component in templateRegistry.ts.
 export const TEMPLATE_MANIFEST = [
   { slug: "thai-spa", label: "Thai Spa", tagline: "Thai spa & massage" },
-  { slug: "bach-thao", label: "Herbal Grove Spa", tagline: "Herbal spa" },
-  { slug: "suoi-may", label: "Mist Spring Spa", tagline: "Spa / Private onsen" },
+  { slug: "herbal-grove-spa", label: "Herbal Grove Spa", tagline: "Herbal spa" },
+  { slug: "mist-spring-spa", label: "Mist Spring Spa", tagline: "Spa / Private onsen" },
 ] as const;
 
 export type TemplateSlug = (typeof TEMPLATE_MANIFEST)[number]["slug"];

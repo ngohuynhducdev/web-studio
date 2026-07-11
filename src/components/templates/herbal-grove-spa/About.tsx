@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useInView } from '@/hooks/useInView';
-import styles from './BachThao.module.css';
+import styles from './HerbalGroveSpa.module.css';
 import type { AboutSection } from '@/types';
 import { ArrowUpRightIcon, PhoneIcon, CalendarIcon, LotusIcon } from './icons';
 

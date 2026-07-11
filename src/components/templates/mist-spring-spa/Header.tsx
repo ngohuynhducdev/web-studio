@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from './SuoiMay.module.css';
+import styles from './MistSpringSpa.module.css';
 import { NAV_LINKS, BOOKING_LINK, SOCIAL_LINKS, CONTACT_EMAIL } from './navLinks';
 import { PhoneIcon, MailIcon, ClockIcon } from './icons';
 import type { BookingSection } from '@/types';

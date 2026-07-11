@@ -44,7 +44,7 @@ test.describe("templates catalog", () => {
   });
 
   test("template detail page renders its business name", async ({ page }) => {
-    await page.goto("/templates/suoi-may");
+    await page.goto("/templates/mist-spring-spa");
     await expect(
       page.locator("body")
     ).toContainText("Mist Spring Spa");

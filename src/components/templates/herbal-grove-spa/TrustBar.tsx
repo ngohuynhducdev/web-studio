@@ -1,4 +1,4 @@
-import styles from './BachThao.module.css';
+import styles from './HerbalGroveSpa.module.css';
 import { LeafIcon, ShieldIcon, HandsIcon, SparkleIcon } from './icons';
 
 // Velura trust strip — code-only (identity, not CMS-driven).

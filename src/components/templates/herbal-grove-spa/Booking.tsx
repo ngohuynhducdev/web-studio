@@ -1,7 +1,7 @@
 'use client';
 
 import { useInView } from '@/hooks/useInView';
-import styles from './BachThao.module.css';
+import styles from './HerbalGroveSpa.module.css';
 import type { BookingSection } from '@/types';
 import { ClockIcon, ZaloIcon, PhoneIcon, ArrowRightIcon, BotanicalSprigIcon } from './icons';
 

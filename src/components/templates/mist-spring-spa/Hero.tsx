@@ -8,7 +8,7 @@ import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import styles from './SuoiMay.module.css';
+import styles from './MistSpringSpa.module.css';
 import type { HeroSection } from '@/types';
 
 interface Props {

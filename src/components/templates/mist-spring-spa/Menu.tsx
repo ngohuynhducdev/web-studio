@@ -1,7 +1,7 @@
 'use client';
 
 import { useInView } from '@/hooks/useInView';
-import styles from './SuoiMay.module.css';
+import styles from './MistSpringSpa.module.css';
 import type { MenuSection } from '@/types';
 
 export default function Menu({ s }: { s: MenuSection }) {

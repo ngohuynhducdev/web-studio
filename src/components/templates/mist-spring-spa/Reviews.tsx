@@ -1,7 +1,7 @@
 'use client';
 
 import { useInView } from '@/hooks/useInView';
-import styles from './SuoiMay.module.css';
+import styles from './MistSpringSpa.module.css';
 import type { ReviewsSection } from '@/types';
 
 function Stars() {

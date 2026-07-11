@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import styles from './SuoiMay.module.css';
+import styles from './MistSpringSpa.module.css';
 import { ChatIcon } from './icons';
 
 interface Props {

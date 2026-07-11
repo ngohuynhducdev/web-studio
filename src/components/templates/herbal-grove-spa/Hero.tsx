@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from './BachThao.module.css';
+import styles from './HerbalGroveSpa.module.css';
 import type { HeroSection } from '@/types';
 import { ChevronLeftIcon, ChevronRightIcon, SparkleIcon } from './icons';
 
