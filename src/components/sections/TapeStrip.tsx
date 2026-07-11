@@ -20,7 +20,7 @@ function MarqueeRow({ items }: { items: string[] }) {
 export default function TapeStrip({ items }: { items?: string[] }) {
   const list = items?.length ? items : DEFAULT_TAPE_ITEMS;
   return (
-    <div className={styles.tape} aria-label="Các ngành nghề phục vụ">
+    <div className={styles.tape} aria-label="Industries we serve">
       <span className="sr-only">{list.join(", ")}</span>
       <div className={styles.marqueeTrack} aria-hidden="true">
         <MarqueeRow items={list} />

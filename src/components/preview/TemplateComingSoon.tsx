@@ -17,16 +17,16 @@ interface TemplateComingSoonProps {
 const industryLabel: Record<string, string> = {
   nail: "Nail salon",
   spa: "Spa / Massage",
-  cafe: "Cà phê",
+  cafe: "Cafe",
   gym: "Gym / Fitness",
   barber: "Barber",
-  bakery: "Tiệm bánh",
+  bakery: "Bakery",
   studio: "Studio",
-  other: "Khác",
+  other: "Other",
 };
 
 function formatPrice(price: number) {
-  return new Intl.NumberFormat("vi-VN").format(price) + "đ";
+  return `$${new Intl.NumberFormat("en-US").format(price)}`;
 }
 
 export default function TemplateComingSoon({
@@ -38,7 +38,7 @@ export default function TemplateComingSoon({
   thumbnailUrl,
 }: TemplateComingSoonProps) {
   const zaloMsg = encodeURIComponent(
-    `Chào bạn, mình muốn đặt trước mẫu "${title}" — khi nào mẫu này xong vậy?`
+    `Hi, I'd like to pre-order the "${title}" template — when will it be ready?`
   );
 
   return (
@@ -53,7 +53,7 @@ export default function TemplateComingSoon({
             <line x1="19" y1="12" x2="5" y2="12" />
             <polyline points="12 19 5 12 12 5" />
           </svg>
-          Tất cả mẫu
+          All templates
         </Link>
 
         <div className={styles.tcsGrid}>
@@ -64,14 +64,14 @@ export default function TemplateComingSoon({
               <div className={styles.tcsThumbnailWrap}>
                 <Image
                   src={thumbnailUrl}
-                  alt={`Mẫu ${title}`}
+                  alt={`${title} template`}
                   fill
                   sizes="(max-width: 1023px) 100vw, 50vw"
                   className={styles.tcsThumbnailImg}
                   priority
                 />
                 <div className={styles.tcsOverlay}>
-                  <span className={styles.tcsOverlayLabel}>preview sắp có</span>
+                  <span className={styles.tcsOverlayLabel}>preview coming soon</span>
                 </div>
               </div>
             ) : (
@@ -85,7 +85,7 @@ export default function TemplateComingSoon({
           <div className={styles.tcsInfo}>
             <div className={styles.tcsBadges}>
               <span className={styles.tcsBadgeIndustry}>{industryLabel[industry] ?? industry}</span>
-              <span className={styles.tcsBadgeSoon}>Đang hoàn thiện</span>
+              <span className={styles.tcsBadgeSoon}>In progress</span>
             </div>
 
             <h1 className={styles.tcsTitle}>{title}</h1>
@@ -93,7 +93,7 @@ export default function TemplateComingSoon({
 
             <div className={styles.tcsPriceRow}>
               <span className={styles.tcsPrice}>{formatPrice(price)}</span>
-              <span className={styles.tcsPriceUnit}>/tháng</span>
+              <span className={styles.tcsPriceUnit}>/mo</span>
             </div>
 
             {/* Notice */}
@@ -104,17 +104,17 @@ export default function TemplateComingSoon({
                 <line x1="12" y1="16" x2="12.01" y2="16" />
               </svg>
               <p>
-                Mẫu này đang được hoàn thiện. Bạn vẫn có thể <strong>đặt trước</strong> —
-                mình sẽ báo ngay khi preview live và ưu tiên làm cho bạn trước.
+                This template is still being finished. You can still <strong>pre-order</strong> —
+                I&apos;ll let you know as soon as the preview is live and give you priority.
               </p>
             </div>
 
             <div className={styles.tcsActions}>
               <Link
-                href={`/lien-he?template=${slug}`}
+                href={`/contact?template=${slug}`}
                 className="btn btn-primary btn-lg"
               >
-                Đặt trước mẫu này
+                Pre-order this template
                 <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
@@ -126,12 +126,12 @@ export default function TemplateComingSoon({
                 rel="noopener noreferrer"
                 className="btn btn-outline btn-lg"
               >
-                💬 Hỏi qua Zalo
+                💬 Ask on Zalo
               </a>
             </div>
 
             <p className={styles.tcsReassure}>
-              Tư vấn miễn phí · Trả lời trong 1–2 giờ
+              Free consultation · Reply within 1–2 hours
             </p>
           </div>
 

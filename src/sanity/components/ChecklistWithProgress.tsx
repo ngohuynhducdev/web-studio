@@ -19,7 +19,7 @@ export function ChecklistWithProgress(props: ArrayOfPrimitivesInputProps) {
           letterSpacing: '0.02em',
         }}>
           <span style={{ color: done ? '#43d675' : '#999' }}>
-            {done ? '✓ Hoàn thành' : `${checked} / ${total} mục`}
+            {done ? '✓ Done' : `${checked} / ${total} items`}
           </span>
           <span style={{ color: done ? '#43d675' : '#888' }}>{pct}%</span>
         </div>

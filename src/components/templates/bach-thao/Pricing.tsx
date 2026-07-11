@@ -11,12 +11,12 @@ const PRICING_IMAGE =
   'https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=900&q=85&fit=crop&auto=format';
 
 // Code-only category map (identity, not CMS) — keyed by default _key.
-const ALL = 'Tất cả';
+const ALL = 'All';
 const CAT_BY_KEY: Record<string, string> = {
-  sv1: 'Ngâm chân',
+  sv1: 'Foot Soak',
   sv2: 'Massage',
-  sv3: 'Lăn đá',
-  sv4: 'Ấm bụng',
+  sv3: 'Stone Roll',
+  sv4: 'Belly Warming',
   sv5: 'Combo',
   pk1: 'Combo',
   pk2: 'Combo',
@@ -28,7 +28,7 @@ const THUMB_BY_KEY: Record<string, string> = {
   pk2: 'https://images.unsplash.com/photo-1559185590-879c66a55254?w=200&q=80&fit=crop&auto=format',
   pk3: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=200&q=80&fit=crop&auto=format',
 };
-const TAB_ORDER = [ALL, 'Combo', 'Ngâm chân', 'Massage', 'Lăn đá', 'Ấm bụng'];
+const TAB_ORDER = [ALL, 'Combo', 'Foot Soak', 'Massage', 'Stone Roll', 'Belly Warming'];
 
 type MenuItem = {
   key: string;
@@ -65,8 +65,8 @@ export default function Pricing({ s, serviceItems }: Props) {
       desc: sv.desc,
       price: sv.price,
       thumb: sv.imageUrl,
-      featured: sv.tag === 'Phổ biến' || sv.tag === 'Bestseller',
-      category: CAT_BY_KEY[sv._key] ?? 'Khác',
+      featured: sv.tag === 'Popular' || sv.tag === 'Bestseller',
+      category: CAT_BY_KEY[sv._key] ?? 'Other',
     }));
     return [...fromPackages, ...fromServices];
   }, [s.packages, serviceItems]);
@@ -103,7 +103,7 @@ export default function Pricing({ s, serviceItems }: Props) {
         </div>
 
         {/* Category tabs */}
-        <div className={`${styles.revealElem} ${styles.rd2} ${styles.priceTabs}`} role="tablist" aria-label="Danh mục bảng giá">
+        <div className={`${styles.revealElem} ${styles.rd2} ${styles.priceTabs}`} role="tablist" aria-label="Pricing categories">
           {tabs.map((t) => (
             <button
               key={t}
@@ -133,7 +133,7 @@ export default function Pricing({ s, serviceItems }: Props) {
                   </span>
                 )}
                 <div className="min-w-0 flex-1">
-                  {it.featured && <span className={styles.priceBadge}>Phổ biến nhất</span>}
+                  {it.featured && <span className={styles.priceBadge}>Most Popular</span>}
                   <div className={styles.priceLeader}>
                     <h3 className={styles.priceName}>{it.name}</h3>
                     <span className={styles.priceDots} aria-hidden="true" />
@@ -149,7 +149,7 @@ export default function Pricing({ s, serviceItems }: Props) {
           <div className={`${styles.revealElem} ${styles.rd3} ${styles.archedPhoto} relative mx-auto aspect-[3/4] w-full max-w-[430px]`}>
             <Image
               src={PRICING_IMAGE}
-              alt="Không gian trị liệu Bách Thảo"
+              alt="Herbal Grove Spa treatment space"
               fill
               sizes="(min-width: 1024px) 430px, 100vw"
               className={`${styles.archedPhotoImg} object-cover`}
@@ -159,9 +159,9 @@ export default function Pricing({ s, serviceItems }: Props) {
 
         {/* Footer — centered CTA + note */}
         <div className={`${styles.revealElem} ${styles.rd4} mt-12 flex flex-col items-center gap-4 text-center md:mt-14`}>
-          <a href="#booking" className={styles.btnOutlineRectDark}>Đặt lịch ngay</a>
+          <a href="#booking" className={styles.btnOutlineRectDark}>Book Now</a>
           <p className="m-0 text-[12.5px] text-[var(--bt-ink-mid)]">
-            Tất cả gói đều dùng thảo mộc tươi, hái trong ngày.
+            All packages use fresh herbs, picked the same day.
           </p>
         </div>
       </div>

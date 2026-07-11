@@ -2,11 +2,11 @@ import { defineField, defineType } from "sanity";
 
 export const duAnPageSchema = defineType({
   name: "duAnPage",
-  title: "Trang Dự Án",
+  title: "Projects Page",
   type: "document",
   groups: [
     { name: "hero", title: "Hero" },
-    { name: "cta", title: "CTA cuối trang" },
+    { name: "cta", title: "End-of-page CTA" },
   ],
   fields: [
     // ── Hero ──────────────────────────────────────────
@@ -15,37 +15,37 @@ export const duAnPageSchema = defineType({
       title: "Eyebrow",
       type: "string",
       group: "hero",
-      initialValue: "DỰ ÁN ĐÃ LÀM",
+      initialValue: "PROJECTS WE'VE SHIPPED",
     }),
     defineField({
       name: "heroTitle",
-      title: "Tiêu đề",
+      title: "Heading",
       type: "string",
       group: "hero",
-      initialValue: "thực tế — không phải",
+      initialValue: "real work — not",
     }),
     defineField({
       name: "heroTitleItal",
-      title: "Tiêu đề (chữ nghiêng)",
+      title: "Heading (italic)",
       type: "string",
       group: "hero",
-      initialValue: "mock-up.",
+      initialValue: "mockups.",
     }),
     defineField({
       name: "heroSub",
-      title: "Mô tả",
+      title: "Description",
       type: "text",
       rows: 3,
       group: "hero",
       initialValue:
-        "Mỗi trang web ở đây đã đi qua tay mình — từ lúc chọn màu đến lúc gắn tên miền cho tiệm. Không có dự án nào giống dự án nào.",
+        "Every site here passed through our hands — from picking colors to connecting the domain. No two projects look alike.",
     }),
     defineField({
       name: "metaLocation",
-      title: "Meta — địa điểm",
+      title: "Meta — location",
       type: "string",
       group: "hero",
-      initialValue: "tất cả tại TP.HCM",
+      initialValue: "all in HCMC",
     }),
 
     // ── CTA ───────────────────────────────────────────
@@ -54,30 +54,30 @@ export const duAnPageSchema = defineType({
       title: "CTA Eyebrow",
       type: "string",
       group: "cta",
-      initialValue: "TIẾP THEO",
+      initialValue: "WHAT'S NEXT",
     }),
     defineField({
       name: "ctaTitle",
-      title: "CTA Tiêu đề",
+      title: "CTA heading",
       type: "string",
       group: "cta",
-      initialValue: "tiệm của bạn có thể là",
+      initialValue: "your business could be",
     }),
     defineField({
       name: "ctaTitleItal",
-      title: "CTA Tiêu đề (chữ nghiêng)",
+      title: "CTA heading (italic)",
       type: "string",
       group: "cta",
-      initialValue: "dự án tiếp theo.",
+      initialValue: "the next project.",
     }),
     defineField({
       name: "ctaBody",
-      title: "CTA Mô tả",
+      title: "CTA description",
       type: "text",
       rows: 3,
       group: "cta",
       initialValue:
-        "Mỗi tiệm một câu chuyện khác nhau — mình sẽ lắng nghe và làm một trang web đúng với tiệm bạn, không copy-paste.",
+        "Every business has a different story — we'll listen and build a site that actually fits yours, no copy-paste.",
     }),
   ],
 });

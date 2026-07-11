@@ -18,7 +18,7 @@ export default async function CTASection() {
   const hours      = cms?.ctaHours       ?? DEFAULT_CTA.ctaHours;
 
   return (
-    <section className={styles.ctaMocha} id="lien-he">
+    <section className={styles.ctaMocha} id="contact">
       <div aria-hidden="true" className={styles.ctaGradientDecoration} />
       <div className={`container-site ${styles.ctaContainer}`}>
         <div className={styles.ctaLayout}>
@@ -30,15 +30,15 @@ export default async function CTASection() {
             <p className={styles.ctaBody}>{body}</p>
           </Reveal>
           <Reveal className={styles.ctaActions} delay={0.12}>
-            <PostmarkStamp ring="· tư vấn miễn phí · zalo " top="1–2" bottom="giờ" className={styles.ctaPostmark} />
+            <PostmarkStamp ring="· free consult · zalo " top="1–2" bottom="hrs" className={styles.ctaPostmark} />
             <a href={zaloUrl} target="_blank" rel="noopener noreferrer" className={styles.ctaZaloBtn}>
-              💬 Nhắn Zalo ngay
+              💬 message us on zalo
               <svg className="btn-arrow" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
             <p className={styles.ctaNote}>
-              hoặc gọi <span className={styles.ctaPhone}>{phone}</span><br />{hours}
+              or call <span className={styles.ctaPhone}>{phone}</span><br />{hours}
             </p>
           </Reveal>
         </div>

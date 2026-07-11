@@ -8,32 +8,32 @@ import { IsActiveInput } from '@/sanity/components/IsActiveInput'
 
 export const siteSchema = defineType({
   name: 'site',
-  title: 'Đơn hàng',
+  title: 'Order',
   type: 'document',
   groups: [
-    { name: 'info', title: 'Thông tin đơn' },
-    { name: 'workflow', title: 'Quy trình & thanh toán' },
-    { name: 'content', title: 'Nội dung landing page' },
+    { name: 'info', title: 'Order info' },
+    { name: 'workflow', title: 'Workflow & billing' },
+    { name: 'content', title: 'Landing page content' },
   ],
   fields: [
-    // ── Thông tin đơn hàng ────────────────────────────
+    // ── Order info ────────────────────────────
     defineField({
       name: 'clientName',
-      title: 'Tên khách hàng',
+      title: 'Client name',
       type: 'string',
       group: 'info',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'businessName',
-      title: 'Tên tiệm',
+      title: 'Business name',
       type: 'string',
       group: 'info',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'phone',
-      title: 'Số điện thoại / Zalo',
+      title: 'Phone / Zalo',
       type: 'string',
       group: 'info',
       validation: (Rule) => Rule.required(),
@@ -46,44 +46,44 @@ export const siteSchema = defineType({
     }),
     defineField({
       name: 'businessType',
-      title: 'Loại hình kinh doanh',
+      title: 'Business type',
       type: 'string',
       group: 'info',
       options: { list: [...INDUSTRY_OPTIONS] },
     }),
     defineField({
       name: 'chosenTemplate',
-      title: 'Template đã chọn',
+      title: 'Chosen template',
       type: 'reference',
       group: 'info',
       to: [{ type: 'template' }],
     }),
     defineField({
       name: 'status',
-      title: 'Trạng thái',
+      title: 'Status',
       type: 'string',
       group: 'info',
       initialValue: 'in_progress',
       options: {
         list: [
-          { title: '🆕 Mới', value: 'new' },
-          { title: '⚙️ Đang làm', value: 'in_progress' },
-          { title: '✅ Chờ duyệt', value: 'review' },
-          { title: '🎉 Đã bàn giao', value: 'delivered' },
-          { title: '❌ Hủy', value: 'cancelled' },
+          { title: '🆕 New', value: 'new' },
+          { title: '⚙️ In progress', value: 'in_progress' },
+          { title: '✅ Awaiting review', value: 'review' },
+          { title: '🎉 Delivered', value: 'delivered' },
+          { title: '❌ Cancelled', value: 'cancelled' },
         ],
       },
     }),
     defineField({
       name: 'orderDate',
-      title: 'Ngày đặt',
+      title: 'Order date',
       type: 'date',
       group: 'info',
       initialValue: () => new Date().toISOString().split('T')[0],
     }),
     defineField({
       name: 'deliveryDate',
-      title: 'Ngày bàn giao (dự kiến)',
+      title: 'Delivery date (expected)',
       type: 'date',
       group: 'info',
       initialValue: () => {
@@ -94,155 +94,155 @@ export const siteSchema = defineType({
     }),
     defineField({
       name: 'previewSlug',
-      title: 'Slug preview (URL demo)',
+      title: 'Preview slug (demo URL)',
       type: 'slug',
       group: 'info',
-      description: 'Link demo: tiemwebnho.vercel.app/preview/[slug]',
+      description: 'Demo link: web-studio.vercel.app/preview/[slug]',
       options: { source: 'businessName' },
     }),
     defineField({
       name: 'customDomain',
-      title: 'Domain riêng của khách',
+      title: 'Client custom domain',
       type: 'string',
       group: 'info',
-      description: 'Ví dụ: tiemnailcuanam.com — không có https://',
+      description: 'Example: tiemnailcuanam.com — no https://',
     }),
     defineField({
       name: 'domainStatus',
-      title: 'Tình trạng domain',
+      title: 'Domain status',
       type: 'string',
       group: 'info',
       initialValue: 'none',
       options: {
         list: [
-          { title: '— Chưa có', value: 'none' },
-          { title: '🔧 Đang setup', value: 'setting_up' },
+          { title: '— None yet', value: 'none' },
+          { title: '🔧 Setting up', value: 'setting_up' },
           { title: '🟢 Live', value: 'live' },
         ],
       },
     }),
-    defineField({ name: 'dnsNote', title: 'Ghi chú DNS / nhà cung cấp domain', type: 'text', rows: 2, group: 'info' }),
+    defineField({ name: 'dnsNote', title: 'DNS / domain provider notes', type: 'text', rows: 2, group: 'info' }),
     defineField({
       name: 'seoTitle',
-      title: 'Tiêu đề SEO',
+      title: 'SEO title',
       type: 'string',
       group: 'info',
-      description: 'Tiêu đề hiển thị trên Google. Để trống sẽ dùng tên tiệm.',
+      description: 'Title shown on Google. Leave blank to use the business name.',
     }),
     defineField({
       name: 'seoDescription',
-      title: 'Mô tả SEO',
+      title: 'SEO description',
       type: 'text',
       rows: 2,
       group: 'info',
-      description: 'Mô tả ngắn hiển thị trên Google (120–160 ký tự).',
-      validation: (Rule) => Rule.max(160).warning('Nên dưới 160 ký tự để hiển thị đầy đủ trên Google.'),
+      description: 'Short description shown on Google (120–160 characters).',
+      validation: (Rule) => Rule.max(160).warning('Keep it under 160 characters so it displays fully on Google.'),
     }),
-    defineField({ name: 'notes', title: 'Ghi chú nội bộ', type: 'text', rows: 3, group: 'info' }),
+    defineField({ name: 'notes', title: 'Internal notes', type: 'text', rows: 3, group: 'info' }),
 
-    // ── Quy trình & thanh toán ─────────────────────────
+    // ── Workflow & billing ─────────────────────────
     defineField({
       name: 'isActive',
-      title: 'Site đang hoạt động',
+      title: 'Site is active',
       type: 'boolean',
       group: 'workflow',
       initialValue: false,
-      description: 'Tắt thủ công để khoá site ngay lập tức. Khi renewalDate qua, site cũng tự tắt dù đang bật.',
+      description: 'Turn off manually to lock the site immediately. Once renewalDate passes, the site also turns off automatically even if this is on.',
       components: { input: IsActiveInput },
     }),
     defineField({
       name: 'renewalDate',
-      title: 'Ngày gia hạn tiếp theo',
+      title: 'Next renewal date',
       type: 'date',
       group: 'workflow',
-      description: 'Dùng bộ tính bên trên để tự động điền, hoặc chọn thủ công nếu cần.',
+      description: 'Use the calculator above to auto-fill, or set it manually if needed.',
       components: { input: RenewalDateInput },
     }),
     defineField({
       name: 'servicePlan',
-      title: 'Gói dịch vụ',
+      title: 'Service plan',
       type: 'string',
       group: 'workflow',
       options: {
         list: [
-          { title: 'Cơ bản — 399k/tháng', value: 'basic' },
-          { title: 'Nâng cao — 699k/tháng', value: 'premium' },
+          { title: 'Basic — 399k/month', value: 'basic' },
+          { title: 'Premium — 699k/month', value: 'premium' },
         ],
       },
     }),
     defineField({
       name: 'setupFee',
-      title: 'Phí setup đã thu (VNĐ)',
+      title: 'Setup fee collected (VND)',
       type: 'number',
       group: 'workflow',
-      description: 'Gói Cơ bản: 500k. Gói Nâng cao: 500k + tiền domain thực tế.',
+      description: 'Basic plan: 500k. Premium plan: 500k + actual domain cost.',
     }),
     defineField({
       name: 'intakeReceived',
-      title: 'Đã nhận nội dung từ khách',
+      title: 'Content received from client',
       type: 'array',
       group: 'workflow',
       of: [{ type: 'string' }],
-      description: 'Tích những gì khách đã gửi — checklist để không sót khi build.',
+      description: 'Check off what the client has sent — a checklist so nothing is missed during build.',
       components: { input: ChecklistWithProgress },
       options: {
         layout: 'grid',
         list: [
-          { title: 'Logo / nhận diện', value: 'logo' },
-          { title: 'Ảnh không gian / sản phẩm', value: 'photos' },
-          { title: 'Danh sách dịch vụ / menu + giá', value: 'services' },
-          { title: 'Thông tin liên hệ (địa chỉ, SĐT, Zalo)', value: 'contact' },
-          { title: 'Giờ mở cửa', value: 'hours' },
-          { title: 'Nội dung giới thiệu / câu chuyện', value: 'about' },
-          { title: 'Đánh giá khách hàng', value: 'reviews' },
+          { title: 'Logo / brand identity', value: 'logo' },
+          { title: 'Photos of space / products', value: 'photos' },
+          { title: 'Service list / menu + prices', value: 'services' },
+          { title: 'Contact info (address, phone, Zalo)', value: 'contact' },
+          { title: 'Opening hours', value: 'hours' },
+          { title: 'About content / story', value: 'about' },
+          { title: 'Customer reviews', value: 'reviews' },
         ],
       },
     }),
     defineField({
       name: 'qaChecks',
-      title: 'QA trước bàn giao',
+      title: 'QA before delivery',
       type: 'array',
       group: 'workflow',
       of: [{ type: 'string' }],
-      description: 'Tích đủ 5 mục trước khi chuyển sang "Chờ duyệt".',
+      description: 'Check all 5 items before moving to "Awaiting review".',
       components: { input: ChecklistWithProgress },
       options: {
         layout: 'grid',
         list: [
-          { title: 'Nội dung đúng (tên tiệm, giá...)', value: 'content' },
-          { title: 'Ảnh hiển thị đầy đủ', value: 'images' },
-          { title: 'Link Zalo / SĐT bấm đúng', value: 'contact' },
-          { title: 'Form hoạt động (gửi nhận được)', value: 'form' },
-          { title: 'Hiển thị tốt trên mobile', value: 'mobile' },
+          { title: 'Content is correct (business name, prices...)', value: 'content' },
+          { title: 'All images display correctly', value: 'images' },
+          { title: 'Zalo link / phone number work correctly', value: 'contact' },
+          { title: 'Form works (submissions received)', value: 'form' },
+          { title: 'Displays well on mobile', value: 'mobile' },
         ],
       },
     }),
 
-    // ── Tùy chỉnh giao diện ────────────────────────────
+    // ── Appearance customization ────────────────────────────
     defineField({
       name: 'brandColor',
-      title: 'Màu thương hiệu',
+      title: 'Brand color',
       type: 'string',
       group: 'content',
-      description: 'Mã màu hex — ví dụ: #d4a373. Để trống sẽ dùng màu mặc định của template.',
+      description: 'Hex color code — e.g. #d4a373. Leave blank to use the template default color.',
       validation: (Rule) =>
         Rule.custom((val) => {
           if (!val) return true;
           return /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(val)
             ? true
-            : 'Nhập mã hex hợp lệ, ví dụ: #d4a373';
+            : 'Enter a valid hex code, e.g. #d4a373';
         }),
     }),
 
-    // ── Nội dung landing page ─────────────────────────
+    // ── Landing page content ─────────────────────────
     defineField({
       name: 'sections',
-      title: 'Nội dung các section',
+      title: 'Section content',
       type: 'array',
       group: 'content',
       description:
-        'Tự động điền khi chọn "Template đã chọn". ' +
-        'Thứ tự & layout cố định trong code — chỉ sửa nội dung tại đây.',
+        'Auto-filled when "Chosen template" is selected. ' +
+        'Order & layout are fixed in code — only edit content here.',
       of: sectionTypes,
       options: { sortable: false },
       components: { input: AutoSeedSiteInput },
@@ -272,10 +272,10 @@ export const siteSchema = defineType({
       const statusIcon = statusLabel[status as string] ?? status
       const parts = [`${clientName} · ${statusIcon}`, `📋${intake}/7`, `✅${qa}/5`]
       if (domIcon) parts.push(domIcon)
-      if (isExpired) parts.push('🔴 Hết hạn')
-      else if (suspended) parts.push('💤 Tạm ngưng')
+      if (isExpired) parts.push('🔴 Expired')
+      else if (suspended) parts.push('💤 Suspended')
       return {
-        title: title || 'Chưa đặt tên',
+        title: title || 'Untitled',
         subtitle: parts.join(' · '),
       }
     },

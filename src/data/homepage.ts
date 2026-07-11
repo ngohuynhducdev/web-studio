@@ -6,115 +6,115 @@ export type { Step, TestimonialItem, PricingFeature, PricingPlan };
 // ── TapeStrip ────────────────────────────────────────────────────────────────
 
 export const DEFAULT_TAPE_ITEMS = [
-  "Tiệm Nail", "Spa & Massage", "Café & Quán", "Phòng Gym",
-  "Salon Tóc", "Nha Khoa", "Nhà Hàng", "Studio Chụp Ảnh",
+  "Nail Salons", "Spa & Massage", "Cafes", "Gyms",
+  "Hair Salons", "Dental Clinics", "Restaurants", "Photo Studios",
 ];
 
 // ── Hero ─────────────────────────────────────────────────────────────────────
 
 export const DEFAULT_HERO = {
-  heroEyebrow:      "TIỆM WEB NHỎ · KỂ TỪ 2024",
-  heroHeading:      "chọn mẫu — đo may —",
-  heroHeadingItal:  "trong 5 ngày.",
-  heroLede:         "tiệm web nhỏ có sẵn 15+ mẫu website đẹp cho tiệm nail, spa, café, gym. bạn chọn mẫu, mình customize theo tiệm bạn — không vội, không qua loa.",
-  heroBadge:        "bàn giao trong 5 ngày",
-  heroCtaPrimary:   "xem mẫu",
-  heroCtaSecondary: "về chúng mình",
-  heroMeta: ["không phí phát sinh", "chỉnh sửa 30 ngày miễn phí", "domain & hosting năm đầu"],
+  heroEyebrow:      "WEB STUDIO · SINCE 2024",
+  heroHeading:      "pick a template — tailor it —",
+  heroHeadingItal:  "in 5 days.",
+  heroLede:         "web studio has 15+ beautiful ready-made templates for nail salons, spas, cafes, gyms. you pick a template, we customize it for your business — no rush, no shortcuts.",
+  heroBadge:        "delivered in 5 days",
+  heroCtaPrimary:   "browse templates",
+  heroCtaSecondary: "about us",
+  heroMeta: ["no hidden fees", "30 days of free edits", "domain & hosting for year one"],
 };
 
 // ── HowItWorks ───────────────────────────────────────────────────────────────
 
 export const DEFAULT_HIW_HEADINGS = {
-  hiwEyebrow:    "CÁCH HOẠT ĐỘNG",
-  hiwHeading:    "ba bước,",
-  hiwHeadingItal: "từ tốn",
+  hiwEyebrow:    "HOW IT WORKS",
+  hiwHeading:    "three steps,",
+  hiwHeadingItal: "nice and slow.",
 };
 
 export const DEFAULT_STEPS: Step[] = [
-  { _key: "h1", title: "chọn mẫu",           icon: "grid",  desc: "xem 15+ mẫu thiết kế đã có sẵn. chọn cái hợp với tiệm — màu sắc, không khí, kiểu chữ. nếu chưa chắc, tụi em gợi ý." },
-  { _key: "h2", title: "gửi thông tin",       icon: "chat",  desc: "logo, ảnh, nội dung, bảng giá — anh chị gửi qua zalo. tụi em lo phần còn lại: layout, viết lại câu chữ, sắp ảnh." },
-  { _key: "h3", title: "có web trong 5 ngày", icon: "pulse", desc: "tụi em deploy, gắn tên miền của tiệm, bàn giao tài khoản. có hướng dẫn nhỏ để anh chị tự cập nhật sau này." },
+  { _key: "h1", title: "pick a template",     icon: "grid",  desc: "browse 15+ ready-made designs. pick the one that fits your business — colors, mood, typography. not sure yet? we'll help you decide." },
+  { _key: "h2", title: "send us your info",   icon: "chat",  desc: "logo, photos, copy, pricing — just send it over on zalo. we'll handle the rest: layout, copywriting, image placement." },
+  { _key: "h3", title: "your site, in 5 days", icon: "pulse", desc: "we deploy it, connect your domain, and hand over the accounts. plus a quick guide so you can make updates yourself later." },
 ];
 
 // ── TemplatesSection ─────────────────────────────────────────────────────────
 
 export const DEFAULT_TEMPLATES_SECTION = {
-  tplEyebrow:     "MẪU NỔI BẬT",
-  tplHeading:     "bốn mẫu được chọn",
-  tplHeadingItal: "nhiều nhất tháng này.",
+  tplEyebrow:     "FEATURED TEMPLATES",
+  tplHeading:     "four templates,",
+  tplHeadingItal: "picked the most this month.",
 };
 
 // ── Testimonials ─────────────────────────────────────────────────────────────
 
 export const DEFAULT_TESTI_HEADINGS = {
-  testiEyebrow: "KHÁCH HÀNG NÓI GÌ",
-  testiHeading: "không phải mình tự khen.",
+  testiEyebrow: "WHAT CLIENTS SAY",
+  testiHeading: "don't just take our word for it.",
 };
 
 export const FALLBACK_TESTIMONIALS: TestimonialItem[] = [
-  { _key: "t1", clientName: "Chị Hương", shopName: "Lily Nail Studio", content: "Tiệm làm nail đẹp nhất mình từng đến. Web xong là khách tự vào đặt lịch, không cần hỏi inbox nữa — tiết kiệm cả tiếng mỗi ngày.", rating: 5, date: "Tháng 4, 2025" },
-  { _key: "t2", clientName: "Anh Nam",   shopName: "Zen Spa",           content: "Không gian thư giãn, web đẹp đúng vibe. Nhìn vào là thấy spa mình chuyên nghiệp hơn hẳn. Khách mới book nhiều hơn từ khi có web.", rating: 5, date: "Tháng 3, 2025" },
-  { _key: "t3", clientName: "Chị Lan",   shopName: "Moonlight Café",    content: "Khách vào web đặt bàn online nhiều hơn hẳn. 5 ngày là có web, đúng hẹn, không một đồng phụ phí. Làm việc tử tế, mình giới thiệu nhiều bạn rồi.", rating: 5, date: "Tháng 2, 2025" },
+  { _key: "t1", clientName: "Ms. Huong", shopName: "Lily Nail Studio", content: "The best-looking nail salon I've ever been to. Once the site launched, clients started booking themselves — no more back-and-forth in the inbox. Saves me an hour a day.", rating: 5, date: "April 2025" },
+  { _key: "t2", clientName: "Mr. Nam",   shopName: "Zen Spa",           content: "A calming space, and the site nails the vibe. It makes my spa look so much more professional. New clients have been booking a lot more since we launched.", rating: 5, date: "March 2025" },
+  { _key: "t3", clientName: "Ms. Lan",   shopName: "Moonlight Cafe",    content: "Way more customers reserving tables online now. The site was ready in 5 days, right on schedule, no extra fees. They're great to work with — I've already referred several friends.", rating: 5, date: "February 2025" },
 ];
 
 // ── Pricing ──────────────────────────────────────────────────────────────────
 
 export const DEFAULT_PRICING_HEADINGS = {
-  pricingEyebrow:     "BẢNG GIÁ",
-  pricingHeading:     "ba gói —",
-  pricingHeadingItal: "đủ dùng cho tiệm nhỏ,",
+  pricingEyebrow:     "PRICING",
+  pricingHeading:     "three plans —",
+  pricingHeadingItal: "plenty for small businesses,",
 };
 
 export const DEFAULT_PRICING_PLANS: PricingPlan[] = [
   {
     _key: "basic",
-    name: "cơ bản",
-    description: "một trang, đủ điều cần kể về tiệm.",
-    price: 299000,
+    name: "basic",
+    description: "one page, everything you need to tell your story.",
+    price: 19,
     features: [
-      { _key: "f1", text: "1 trang landing đầy đủ",       included: true  },
-      { _key: "f2", text: "nút gọi · zalo · chỉ đường",   included: true  },
-      { _key: "f3", text: "tên miền .vn năm đầu",         included: true  },
-      { _key: "f4", text: "chỉnh sửa miễn phí 30 ngày",   included: true  },
-      { _key: "f5", text: "đặt lịch online",               included: false },
-      { _key: "f6", text: "gallery ảnh & bảng giá động",  included: false },
+      { _key: "f1", text: "1 full landing page",          included: true  },
+      { _key: "f2", text: "call · zalo · directions buttons", included: true  },
+      { _key: "f3", text: ".vn domain, first year",       included: true  },
+      { _key: "f4", text: "30 days of free edits",        included: true  },
+      { _key: "f5", text: "online booking",                included: false },
+      { _key: "f6", text: "photo gallery & dynamic pricing", included: false },
     ],
-    cta: "chọn gói cơ bản",
-    footnote: "phù hợp tiệm mới mở",
+    cta: "choose basic",
+    footnote: "great for new businesses",
   },
   {
     _key: "standard",
-    name: "tiêu chuẩn",
-    description: "3 trang — landing, dịch vụ, liên hệ. đủ cho 90% tiệm.",
-    price: 499000,
+    name: "standard",
+    description: "3 pages — landing, services, contact. plenty for 90% of businesses.",
+    price: 39,
     features: [
-      { _key: "f1", text: "3 trang tuỳ chỉnh",            included: true  },
-      { _key: "f2", text: "đặt lịch online / zalo",        included: true  },
-      { _key: "f3", text: "gallery ảnh & bảng giá động",  included: true  },
-      { _key: "f4", text: "tên miền + hosting năm đầu",   included: true  },
-      { _key: "f5", text: "chỉnh sửa miễn phí 60 ngày",   included: true  },
-      { _key: "f6", text: "blog · SEO cơ bản",             included: false },
+      { _key: "f1", text: "3 custom pages",               included: true  },
+      { _key: "f2", text: "online booking / zalo",         included: true  },
+      { _key: "f3", text: "photo gallery & dynamic pricing", included: true  },
+      { _key: "f4", text: "domain + hosting for year one", included: true  },
+      { _key: "f5", text: "60 days of free edits",        included: true  },
+      { _key: "f6", text: "blog · basic SEO",              included: false },
     ],
-    cta: "chọn gói tiêu chuẩn",
-    footnote: "8/10 khách chọn gói này",
+    cta: "choose standard",
+    footnote: "8 out of 10 clients pick this plan",
     featured: true,
   },
   {
     _key: "pro",
     name: "pro",
-    description: "5 trang trở lên, blog, đa ngôn ngữ — cho tiệm đã quen khách.",
-    price: 799000,
+    description: "5+ pages, blog, multiple languages — for businesses with an established customer base.",
+    price: 59,
     features: [
-      { _key: "f1", text: "5+ trang, tuỳ chỉnh sâu",              included: true },
-      { _key: "f2", text: "blog · SEO cơ bản",                     included: true },
-      { _key: "f3", text: "tiếng Việt + tiếng Anh",                included: true },
-      { _key: "f4", text: "tích hợp google maps · zalo OA",        included: true },
-      { _key: "f5", text: "chỉnh sửa miễn phí 90 ngày",            included: true },
-      { _key: "f6", text: "ưu tiên hỗ trợ",                        included: true },
+      { _key: "f1", text: "5+ pages, deep customization",         included: true },
+      { _key: "f2", text: "blog · basic SEO",                      included: true },
+      { _key: "f3", text: "Vietnamese + English",                  included: true },
+      { _key: "f4", text: "google maps · zalo OA integration",     included: true },
+      { _key: "f5", text: "90 days of free edits",                 included: true },
+      { _key: "f6", text: "priority support",                      included: true },
     ],
-    cta: "chọn gói pro",
-    footnote: "cho tiệm có chi nhánh",
+    cta: "choose pro",
+    footnote: "for businesses with multiple locations",
   },
 ];
 
@@ -123,56 +123,56 @@ export const DEFAULT_PRICING_PLANS: PricingPlan[] = [
 export const DEFAULT_FAQ_ITEMS = [
   {
     _key: "faq1",
-    q: "Bao lâu thì có web?",
-    a: "Thường 5 ngày làm việc kể từ khi bạn gửi đủ thông tin (logo, ảnh, nội dung). Nếu cần gấp hơn, nhắn Zalo để mình sắp xếp.",
+    q: "How long until my site is ready?",
+    a: "Usually 5 business days from when you send us everything we need (logo, photos, copy). Need it faster? Message us on Zalo and we'll work something out.",
   },
   {
     _key: "faq2",
-    q: "Giá đã bao gồm những gì?",
-    a: "Bao gồm thiết kế, lập trình, hosting, tên miền .vn năm đầu và chỉnh sửa miễn phí 30 ngày sau bàn giao. Không có phí ẩn.",
+    q: "What's included in the price?",
+    a: "Design, development, hosting, a .vn domain for the first year, and 30 days of free edits after launch. No hidden fees.",
   },
   {
     _key: "faq3",
-    q: "Tôi có thể thay đổi màu sắc, logo, nội dung không?",
-    a: "Hoàn toàn được. Tất cả màu sắc, font chữ, logo, ảnh và nội dung đều tùy chỉnh theo tiệm của bạn.",
+    q: "Can I change the colors, logo, or content?",
+    a: "Absolutely. Colors, fonts, logo, photos, and content are all customized to fit your business.",
   },
   {
     _key: "faq4",
-    q: "Sau khi bàn giao, tôi có thể tự cập nhật không?",
-    a: "Có. Mình sẽ hướng dẫn bạn chỉnh sửa nội dung cơ bản qua Sanity Studio — đơn giản như dùng Google Docs, không cần biết code.",
+    q: "Can I update the site myself after launch?",
+    a: "Yes. We'll walk you through making basic edits in Sanity Studio — as easy as using Google Docs, no coding needed.",
   },
   {
     _key: "faq5",
-    q: "Nếu tôi không hài lòng với kết quả thì sao?",
-    a: "Mình chỉnh sửa miễn phí trong 30 ngày đầu cho đến khi bạn ưng ý. Trước khi bàn giao, mình luôn xin feedback để sửa trước.",
+    q: "What if I'm not happy with the result?",
+    a: "We'll make free revisions for the first 30 days until you're happy with it. And before launch, we always ask for your feedback so we can fix things upfront.",
   },
 ];
 
 // ── CTA ──────────────────────────────────────────────────────────────────────
 
 export const DEFAULT_CTA = {
-  ctaEyebrow:     "BẮT ĐẦU THÔI",
-  ctaHeading:     "tiệm bạn xứng đáng có",
-  ctaHeadingItal: "một web tử tế.",
-  ctaBody:        "không cần biết mình muốn gì — cứ nhắn, mình tư vấn miễn phí.",
+  ctaEyebrow:     "LET'S GET STARTED",
+  ctaHeading:     "your business deserves",
+  ctaHeadingItal: "a website done right.",
+  ctaBody:        "not sure what you need? just reach out — we'll walk you through it for free.",
   ctaZaloUrl:     STUDIO_ZALO_URL,
   ctaPhone:       "0901 234 567",
-  ctaHours:       "Thứ 2 – Thứ 7, 9h–18h",
+  ctaHours:       "Mon – Sat, 9am–6pm",
 };
 
-// ── HomeTemplateGrid (fallback khi CMS trống) ────────────────────────────────
+// ── HomeTemplateGrid (fallback when CMS is empty) ────────────────────────────
 
 export const FALLBACK_TEMPLATES: Template[] = [
   {
     _id: "1",
     title: "Pink Luxury",
     slug: "pink-luxury",
-    description: "Thiết kế sang trọng, tông hồng pastel — phù hợp tiệm nail cao cấp muốn ghi dấu ấn từ cái nhìn đầu tiên.",
+    description: "An elegant design in soft pastel pink — perfect for upscale nail salons that want to make an impression from the first glance.",
     industry: "nail",
-    price: 499000,
+    price: 39,
     demoUrl: "#",
     thumbnailUrl: "/images/nail-polish-wall.jpg",
-    features: ["đặt lịch online", "gallery ảnh", "bảng giá"],
+    features: ["online booking", "photo gallery", "pricing"],
     isFeatured: true,
     isActive: true,
   },
@@ -180,12 +180,12 @@ export const FALLBACK_TEMPLATES: Template[] = [
     _id: "2",
     title: "Zen Wellness",
     slug: "zen-wellness",
-    description: "Tone xanh sage nhẹ nhàng, bố cục thoáng — tạo cảm giác thư thái ngay từ trang chủ cho spa & massage.",
+    description: "A soft sage-green palette with an airy layout — creating a sense of calm from the homepage on, for spas and massage studios.",
     industry: "spa",
-    price: 499000,
+    price: 39,
     demoUrl: "#",
     thumbnailUrl: "/images/spa-flowers.jpg",
-    features: ["đặt hẹn", "liệu trình", "gói dịch vụ"],
+    features: ["appointment booking", "treatments", "service packages"],
     isFeatured: true,
     isActive: true,
   },
@@ -193,12 +193,12 @@ export const FALLBACK_TEMPLATES: Template[] = [
     _id: "3",
     title: "Vintage Cozy",
     slug: "vintage-cozy",
-    description: "Màu nâu ấm, font serif nhẹ nhàng — đúng không khí quán cà phê specialty chậm rãi, tử tế.",
+    description: "Warm browns and a gentle serif typeface — capturing the slow, thoughtful atmosphere of a specialty coffee shop.",
     industry: "cafe",
-    price: 499000,
+    price: 39,
     demoUrl: "#",
     thumbnailUrl: "/images/cafe-interior-01.jpg",
-    features: ["menu", "câu chuyện thương hiệu", "đặt bàn"],
+    features: ["menu", "brand story", "table reservations"],
     isFeatured: true,
     isActive: true,
   },
@@ -206,12 +206,12 @@ export const FALLBACK_TEMPLATES: Template[] = [
     _id: "4",
     title: "Bold Energy",
     slug: "bold-energy",
-    description: "Tối, mạnh, dứt khoát — dành cho gym & fitness studio muốn truyền năng lượng ngay từ trang web.",
+    description: "Dark, bold, and decisive — for gyms and fitness studios that want to radiate energy straight from the homepage.",
     industry: "gym",
-    price: 499000,
+    price: 39,
     demoUrl: "#",
     thumbnailUrl: "/images/gym-fitness.jpg",
-    features: ["lớp học", "đăng ký thử", "huấn luyện viên"],
+    features: ["class schedule", "trial signup", "trainers"],
     isFeatured: false,
     isActive: true,
   },

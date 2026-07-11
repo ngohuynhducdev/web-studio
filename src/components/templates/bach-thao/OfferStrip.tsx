@@ -10,7 +10,7 @@ const MARQUEE = Array.from({ length: 6 }, (_, i) => i);
 
 export default function OfferStrip() {
   return (
-    <section aria-label="Ưu đãi" className="bg-[var(--bt-bg)] py-12 md:py-16">
+    <section aria-label="Offer" className="bg-[var(--bt-bg)] py-12 md:py-16">
       <div className="mx-auto max-w-container px-5 md:px-10">
         <div className={styles.offerFrame}>
         <div className={styles.offerBand}>
@@ -24,7 +24,7 @@ export default function OfferStrip() {
             <div className="flex items-center gap-5 text-center md:text-left">
               <StoneStackIcon className="hidden h-14 w-14 flex-shrink-0 text-[var(--bt-light)] opacity-90 sm:block" />
               <h2 className={`${styles.serif} m-0 text-[28px] leading-[1.15] text-[var(--bt-light)] md:text-[34px]`}>
-                Ưu đãi đặc biệt<br />cho mọi dịch vụ
+                Special Offer<br />on every treatment
               </h2>
             </div>
 
@@ -36,7 +36,7 @@ export default function OfferStrip() {
 
             {/* Right — CTA */}
             <a href="#pricing" className={styles.btnOutlineRectLight}>
-              Xem gói ưu đãi <ArrowRightIcon />
+              View Offer Packages <ArrowRightIcon />
             </a>
           </div>
 
@@ -44,10 +44,10 @@ export default function OfferStrip() {
           <div className={`relative ${styles.marquee}`} aria-hidden="true">
             <div className={styles.marqueeTrack}>
               {MARQUEE.map((i) => (
-                <span key={`a${i}`} className={styles.marqueeItem}>Ưu đãi sắp kết thúc ·</span>
+                <span key={`a${i}`} className={styles.marqueeItem}>Offer ending soon ·</span>
               ))}
               {MARQUEE.map((i) => (
-                <span key={`b${i}`} className={styles.marqueeItem}>Ưu đãi sắp kết thúc ·</span>
+                <span key={`b${i}`} className={styles.marqueeItem}>Offer ending soon ·</span>
               ))}
             </div>
           </div>

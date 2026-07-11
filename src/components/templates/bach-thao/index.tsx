@@ -43,7 +43,7 @@ const mulish = Mulish({
 export default function BachThaoTemplate({
   sections,
   brandColor,
-  businessName = 'Bách Thảo Spa',
+  businessName = 'Herbal Grove Spa',
 }: TemplateProps = {}) {
   const active = sections && sections.length > 0 ? sections : DEFAULT_SECTIONS;
 

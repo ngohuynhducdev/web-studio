@@ -39,14 +39,14 @@ export default function Hero({
               href="#journey"
               className="inline-flex items-center gap-2.5 rounded-full bg-[var(--zw-accent)] px-7 py-[0.9375rem] text-[0.85rem] font-semibold text-white no-underline transition-[background,transform] duration-200 hover:bg-[var(--zw-accent-deep)] active:scale-[0.98]"
             >
-              {s.ctaPrimary ?? 'Khám phá hành trình'}
+              {s.ctaPrimary ?? 'Explore your journey'}
               <ArrowIcon />
             </a>
             <a
               href="#membership"
               className="inline-flex items-center rounded-full border border-[var(--zw-line)] bg-white px-7 py-[0.9375rem] text-[0.85rem] font-semibold text-[var(--zw-ink)] no-underline transition-[border-color,transform] duration-200 hover:border-[var(--zw-accent)] active:scale-[0.98]"
             >
-              {s.ctaSecondary ?? 'Xem membership'}
+              {s.ctaSecondary ?? 'View membership'}
             </a>
           </div>
 
@@ -73,13 +73,13 @@ export default function Hero({
           <div className="relative flex flex-col gap-4">
             {/* Widget — next appointment (decorative app mock) */}
             <div className={`${styles.widget} ${styles.widgetFloat1} p-5 md:p-6`} aria-hidden="true">
-              <p className="m-0 text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-[var(--zw-mut)]">Lịch hẹn tiếp theo</p>
+              <p className="m-0 text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-[var(--zw-mut)]">Next appointment</p>
               <div className="mt-3 flex items-center justify-between gap-4">
                 <div>
                   <p className="m-0 font-[family-name:var(--zw-font-display)] font-bold text-[1.05rem] tracking-[-0.02em] text-[var(--zw-ink)]">Hot Stone Deep Recovery</p>
-                  <p className={`${styles.num} m-0 mt-1 text-[0.8rem] text-[var(--zw-mut)]`}>Thứ 5 · 18:30 · Phòng 04</p>
+                  <p className={`${styles.num} m-0 mt-1 text-[0.8rem] text-[var(--zw-mut)]`}>Thu · 6:30 PM · Room 04</p>
                 </div>
-                <span className="shrink-0 rounded-full bg-[var(--zw-lime)] px-3 py-1 text-[0.68rem] font-bold text-[var(--zw-ink)]">Đã xác nhận</span>
+                <span className="shrink-0 rounded-full bg-[var(--zw-lime)] px-3 py-1 text-[0.68rem] font-bold text-[var(--zw-ink)]">Confirmed</span>
               </div>
             </div>
 
@@ -93,8 +93,8 @@ export default function Hero({
                 <p className="m-0 flex items-center gap-2 text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-[var(--zw-mut)]">
                   <span className="text-[var(--zw-accent)]"><MoonIcon /></span> Sleep Journey
                 </p>
-                <p className={`${styles.num} m-0 mt-1.5 font-[family-name:var(--zw-font-display)] font-bold text-[1.35rem] tracking-[-0.02em] text-[var(--zw-ink)]`}>Tuần 6/12</p>
-                <p className="m-0 mt-0.5 text-[0.78rem] text-[var(--zw-mut)]">Giấc ngủ sâu +38% so với tuần 1</p>
+                <p className={`${styles.num} m-0 mt-1.5 font-[family-name:var(--zw-font-display)] font-bold text-[1.35rem] tracking-[-0.02em] text-[var(--zw-ink)]`}>Week 6/12</p>
+                <p className="m-0 mt-0.5 text-[0.78rem] text-[var(--zw-mut)]">Deep sleep +38% vs. week 1</p>
               </div>
             </div>
 

@@ -1,5 +1,5 @@
 // Circular postmark / rubber-stamp mark — warm-tactile craft motif.
-// Ring text wraps a serif center (e.g. "5 / ngày"). Decorative.
+// Ring text wraps a serif center (e.g. "5 / days"). Decorative.
 export default function PostmarkStamp({
   ring,
   top,

@@ -37,8 +37,8 @@ const sourceSans = Source_Sans_3({
   weight: ['300', '400', '500', '600'],
 });
 
-// Thứ tự & layout cố định trong code. CMS chỉ sửa nội dung + bật/tắt (enabled).
-// Lấy section theo _key (không dùng find theo type vì có 2 block aboutSection).
+// Order & layout are fixed in code. CMS only edits content + toggles visibility (enabled).
+// Sections are picked by `_key` (not by type lookup, since there are 2 aboutSection blocks).
 export default function ThaiSpaTemplate({ sections, brandColor, businessName = 'LOTUS THAI' }: TemplateProps = {}) {
   const data = sections?.length ? sections : DEFAULT_SECTIONS;
 

@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: '/pricing', destination: '/#bang-gia', permanent: false },
+      { source: '/pricing', destination: '/#pricing', permanent: false },
     ];
   },
 };

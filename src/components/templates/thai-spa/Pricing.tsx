@@ -5,7 +5,7 @@ import styles from './ThaiSpa.module.css';
 interface Props { data?: PricingSection }
 
 export default function Pricing({ data }: Props = {}) {
-  const heading  = [data?.headingMain, data?.headingItalic].filter(Boolean).join(' ') || 'Liệu Trình Phù Hợp Với Mọi Nhu Cầu';
+  const heading  = [data?.headingMain, data?.headingItalic].filter(Boolean).join(' ') || 'Treatments For Every Need';
   const packages = data?.packages ?? [];
 
   return (
@@ -29,7 +29,7 @@ export default function Pricing({ data }: Props = {}) {
               <div className="flex justify-center pt-1">
                 <a href="#offer" className={styles.btn}>
                   <span className={styles.btnDot}><ArrowIcon /></span>
-                  Đặt Lịch Ngay
+                  Book Now
                 </a>
               </div>
             </article>

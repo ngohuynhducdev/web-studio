@@ -8,9 +8,9 @@ const HERO_IMAGE =
 
 // Hero info bar — kept in code (identity, not CMS).
 const INFO = [
-  { label: 'Vị trí', lines: ['128 Cao Thắng, Quận 3', 'TP. Hồ Chí Minh'] },
-  { label: 'Giờ mở cửa', lines: ['T2–T6 · 10:00 – 22:00', 'T7–CN · 09:00 – 22:30'] },
-  { label: 'Liên hệ', lines: ['0901 234 567', 'bachthao.spa@gmail.com'] },
+  { label: 'Location', lines: ['128 Cao Thang, District 3', 'Ho Chi Minh City'] },
+  { label: 'Opening Hours', lines: ['Mon–Fri · 10:00 – 22:00', 'Sat–Sun · 09:00 – 22:30'] },
+  { label: 'Contact', lines: ['0901 234 567', 'bachthao.spa@gmail.com'] },
 ];
 
 export default function Hero({ s, businessName }: { s: HeroSection; businessName: string }) {
@@ -22,7 +22,7 @@ export default function Hero({ s, businessName }: { s: HeroSection; businessName
       {/* Full-bleed background photo */}
       <Image
         src={HERO_IMAGE}
-        alt={`${businessName} — spa thảo mộc truyền thống`}
+        alt={`${businessName} — traditional herbal spa`}
         fill
         sizes="100vw"
         className="object-cover"
@@ -60,11 +60,11 @@ export default function Hero({ s, businessName }: { s: HeroSection; businessName
           {/* CTA — single outline button + offer line */}
           <div className={`${styles.heroAnim} ${styles.hd4} mt-2 flex flex-col items-center gap-4`}>
             <a href="#services" className={styles.btnOutlineRectLight}>
-              {s.ctaPrimary ?? 'Xem dịch vụ'}
+              {s.ctaPrimary ?? 'View Services'}
             </a>
             <span className="flex items-center gap-2 text-[12px] tracking-[0.04em] text-[var(--bt-light)]/85">
               <SparkleIcon className="h-3.5 w-3.5 text-[var(--bt-amber-light)]" />
-              Ưu đãi 20% cho khách lần đầu
+              20% off for first-time guests
             </span>
           </div>
         </div>

@@ -21,7 +21,7 @@ export default function BackToTop() {
     <button
       onClick={scrollToTop}
       className={`back-to-top${visible ? " back-to-top--visible" : ""}`}
-      aria-label="Lên đầu trang"
+      aria-label="Back to top"
     >
       <svg
         width={16}

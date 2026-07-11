@@ -23,7 +23,7 @@ export async function proxy(request: NextRequest) {
       const url = request.nextUrl.clone()
       url.pathname = `/preview/${slug}`
       // Mark the request as coming from the client's own domain so the
-      // preview page skips the "bản xem trước" banner.
+      // preview page skips the "this is a preview" banner.
       const headers = new Headers(request.headers)
       headers.set('x-live-domain', '1')
       return NextResponse.rewrite(url, { request: { headers } })

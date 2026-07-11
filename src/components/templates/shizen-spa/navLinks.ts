@@ -1,10 +1,10 @@
-// Single source of truth cho nav links của Shizen Spa — dùng chung Header + Footer.
+// Single source of truth for Shizen Spa nav links — shared by Header + Footer.
 export const NAV_LINKS = [
-  { href: '#services', label: 'Dịch vụ' },
-  { href: '#pricing',  label: 'Bảng giá' },
-  { href: '#team',     label: 'Đội ngũ' },
-  { href: '#gallery',  label: 'Không gian' },
+  { href: '#services', label: 'Services' },
+  { href: '#pricing',  label: 'Pricing' },
+  { href: '#team',     label: 'Team' },
+  { href: '#gallery',  label: 'Spaces' },
 ];
 
-// CTA đặt lịch — tách riêng vì dùng style khác và xuất hiện trong Footer thay cho "Không gian".
-export const BOOKING_LINK = { href: '#booking', label: 'Đặt lịch' };
+// Booking CTA — kept separate since it uses a different style and appears in the Footer instead of "Spaces".
+export const BOOKING_LINK = { href: '#booking', label: 'Book Now' };

@@ -3,21 +3,21 @@ import { NAV_LINKS } from './navLinks';
 import { FacebookIcon, InstagramIcon, ZaloIcon, PhoneIcon, MapPinIcon, MailIcon, LeafIcon, BotanicalSprigIcon } from './icons';
 
 const SERVICES = [
-  'Ngâm chân thảo mộc',
-  'Massage cổ chân',
-  'Bài lăn đá nóng',
-  'Ấm bụng thảo dược',
-  'Gói trị liệu trọn buổi',
+  'Herbal Foot Soak',
+  'Ankle Massage',
+  'Hot Stone Roll',
+  'Warm Herbal Belly',
+  'Full Therapy Package',
 ];
 
 const PHONE = '0901 234 567';
 const EMAIL = 'bachthao.spa@gmail.com';
-const ADDRESS = '128 Cao Thắng, Quận 3, TP.HCM';
+const ADDRESS = '128 Cao Thang, District 3, HCMC';
 
 const CONTACTS = [
-  { icon: <PhoneIcon />, label: 'Gọi đặt lịch', value: PHONE },
+  { icon: <PhoneIcon />, label: 'Call to Book', value: PHONE },
   { icon: <MailIcon />, label: 'Email', value: EMAIL },
-  { icon: <MapPinIcon />, label: 'Địa chỉ', value: ADDRESS },
+  { icon: <MapPinIcon />, label: 'Address', value: ADDRESS },
 ];
 
 export default function Footer({ displayName, zaloUrl }: { displayName: string; zaloUrl?: string }) {
@@ -53,30 +53,30 @@ export default function Footer({ displayName, zaloUrl }: { displayName: string; 
               <LeafIcon className="h-6 w-6 text-[var(--bt-light)]" />
               <span className="flex flex-col leading-none">
                 <span className={`${styles.serif} text-[26px] font-medium tracking-[0.04em] text-[var(--bt-light)]`}>{displayName}</span>
-                <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.34em] text-[var(--bt-light)]/70">Spa Thảo Mộc</span>
+                <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.34em] text-[var(--bt-light)]/70">Herbal Foot Spa</span>
               </span>
             </span>
 
-            <h3 className={`${styles.serif} m-0 mt-2 text-[30px] leading-tight text-[var(--bt-light)]`}>Bản tin ưu đãi</h3>
+            <h3 className={`${styles.serif} m-0 mt-2 text-[30px] leading-tight text-[var(--bt-light)]`}>Special Offers</h3>
             <p className="m-0 max-w-[40ch] text-[14px] leading-[1.7] text-[var(--bt-light)]/60">
-              Đăng ký nhận ưu đãi & tin mới từ Bách Thảo — thảo mộc tươi mỗi sáng.
+              Sign up for offers & news from Herbal Grove Spa — fresh herbs every morning.
             </p>
 
-            <form className={styles.newsletter} aria-label="Đăng ký nhận ưu đãi">
+            <form className={styles.newsletter} aria-label="Sign up for offers">
               <input
                 type="email"
-                placeholder="Email của bạn"
+                placeholder="Your email"
                 aria-label="Email"
                 className={styles.newsletterInput}
               />
               {/* Demo template: no backend — button is non-submitting to avoid a reload */}
-              <button type="button" className={styles.newsletterBtn}>Đăng ký</button>
+              <button type="button" className={styles.newsletterBtn}>Sign Up</button>
             </form>
           </div>
 
           {/* Quick links */}
           <div className="flex flex-col gap-3.5">
-            <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--bt-light)]/90">Liên kết</span>
+            <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--bt-light)]/90">Quick Links</span>
             <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
               {NAV_LINKS.map((l) => (
                 <li key={l.href}>
@@ -90,7 +90,7 @@ export default function Footer({ displayName, zaloUrl }: { displayName: string; 
 
           {/* Services */}
           <div className="flex flex-col gap-3.5">
-            <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--bt-light)]/90">Dịch vụ</span>
+            <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--bt-light)]/90">Services</span>
             <ul className="m-0 flex list-none flex-col gap-2.5 p-0 text-[14px] leading-[1.5] text-[var(--bt-light)]/65">
               {SERVICES.map((sv) => <li key={sv}>{sv}</li>)}
             </ul>
@@ -106,9 +106,9 @@ export default function Footer({ displayName, zaloUrl }: { displayName: string; 
               <a href={zaloUrl} target="_blank" rel="noopener noreferrer" aria-label="Zalo" className={styles.footSocial}><ZaloIcon /></a>
             )}
           </div>
-          <span className="text-[12px] text-[var(--bt-light)]/50">© {new Date().getFullYear()} {displayName}. Đã đăng ký bản quyền.</span>
+          <span className="text-[12px] text-[var(--bt-light)]/50">© {new Date().getFullYear()} {displayName}. All rights reserved.</span>
           <span className="text-[12px] text-[var(--bt-light)]/50">
-            Thiết kế bởi <span className="text-[var(--bt-light)]/75">Tiệm Web Nhỏ</span>
+            Designed by <span className="text-[var(--bt-light)]/75">Web Studio</span>
           </span>
         </div>
       </div>

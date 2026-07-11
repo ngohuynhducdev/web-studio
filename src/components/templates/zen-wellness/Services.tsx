@@ -72,7 +72,7 @@ export default function Services({ s }: { s: ServicesSection }) {
                     href="#book"
                     className="inline-flex items-center gap-2 rounded-full border border-[var(--zw-line)] px-4 py-2 text-[0.78rem] font-semibold text-[var(--zw-accent)] no-underline transition-[background,border-color] duration-200 hover:bg-[var(--zw-tint)] hover:border-[var(--zw-accent)]"
                   >
-                    Đặt thử <ArrowIcon />
+                    Book trial <ArrowIcon />
                   </a>
                 </div>
               </div>

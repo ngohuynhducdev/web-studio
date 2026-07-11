@@ -10,8 +10,8 @@ const BENEFITS = [
         <path d="M10 17V10M10 10C10 6 7 3 3 4c1 3.5 4 6 7 6zM10 10C10 6 13 3 17 4c-1 3.5-4 6-7 6z" />
       </svg>
     ),
-    title: 'Kỹ thuật Nhật Bản',
-    desc: 'Phương pháp trị liệu truyền thống Nhật Bản, nghiên cứu chuyên biệt và chọn lọc kỹ lưỡng cho từng liệu trình.',
+    title: 'Japanese Technique',
+    desc: 'Traditional Japanese therapeutic methods, carefully researched and selected for every treatment.',
   },
   {
     icon: (
@@ -20,8 +20,8 @@ const BENEFITS = [
         <path d="M7 12l-2 6 5-1.8 5 1.8-2-6" />
       </svg>
     ),
-    title: 'Chuyên viên chứng chỉ',
-    desc: 'Đội ngũ đào tạo chuyên sâu, chứng nhận quốc tế — tận tâm với sức khỏe và trải nghiệm của từng khách.',
+    title: 'Certified Therapists',
+    desc: 'An extensively trained team with international certification — dedicated to every guest\'s health and experience.',
   },
   {
     icon: (
@@ -30,8 +30,8 @@ const BENEFITS = [
         <path d="M10 16.5V13" strokeOpacity="0.5" />
       </svg>
     ),
-    title: 'Nguyên liệu tinh khiết',
-    desc: 'Tinh dầu và sản phẩm chọn lọc nhập từ Nhật Bản — thuần thiên nhiên, an toàn cho mọi loại da.',
+    title: 'Pure Ingredients',
+    desc: 'Essential oils and select products imported from Japan — all-natural, safe for every skin type.',
   },
   {
     icon: (
@@ -41,8 +41,8 @@ const BENEFITS = [
         <circle cx="10" cy="10" r="1" fill="currentColor" stroke="none" />
       </svg>
     ),
-    title: 'Không gian tĩnh lặng',
-    desc: 'Môi trường thiết kế tỉ mỉ để tâm trí bạn trở về bình yên — ngay từ khoảnh khắc bước vào.',
+    title: 'Quiet Spaces',
+    desc: 'An environment designed with care so your mind settles into calm — from the moment you walk in.',
   },
 ] as const;
 
@@ -56,13 +56,13 @@ export default function Benefits() {
         {/* Section head — left aligned, side note on the right */}
         <div className={`${styles.sectionHead} pb-12 md:pb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-10`}>
           <div>
-            <p className={styles.eyebrow}>Tại sao chọn chúng tôi</p>
+            <p className={styles.eyebrow}>Why Choose Us</p>
             <h2 className={styles.h2}>
-              Khác biệt trong <em>từng chi tiết</em>
+              A difference in <em>every detail</em>
             </h2>
           </div>
           <p className="hidden md:block text-[0.875rem] leading-[1.75] text-[var(--sz-muted)] max-w-[17rem] pb-2">
-            Bốn nguyên tắc chúng tôi giữ từ ngày đầu — và không thỏa hiệp.
+            Four principles we&apos;ve held since day one — and never compromise on.
           </p>
         </div>
 

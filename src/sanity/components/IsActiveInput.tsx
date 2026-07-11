@@ -60,10 +60,10 @@ export function IsActiveInput(props: BooleanInputProps) {
       {/* Label */}
       <div style={{ flex: 1 }}>
         <div style={{ fontSize: 13, fontWeight: 500, color: '#ddd' }}>
-          Site đang hoạt động
+          Site is active
         </div>
         <div style={{ fontSize: 11, color: '#555', marginTop: 2 }}>
-          Tắt thủ công để khoá site ngay lập tức
+          Turn off to lock the site immediately
         </div>
       </div>
 
@@ -75,7 +75,7 @@ export function IsActiveInput(props: BooleanInputProps) {
           boxShadow: `0 0 5px ${isOn ? '#43d675' : '#ff6b6b'}`,
         }} />
         <span style={{ fontSize: 12, fontWeight: 600, color: isOn ? '#43d675' : '#ff6b6b' }}>
-          {isOn ? 'Đang chạy' : 'Tạm ngưng'}
+          {isOn ? 'Active' : 'Paused'}
         </span>
       </div>
     </button>

@@ -15,7 +15,7 @@ export default function Footer({ displayName }: { displayName: string }) {
         </a>
         <p className="text-[0.75rem] text-[var(--zw-mut)] m-0">
           © {new Date().getFullYear()} {displayName} · Website by{' '}
-          <Link href="/" className="text-[var(--zw-mut)] underline">tiệm web nhỏ</Link>
+          <Link href="/" className="text-[var(--zw-mut)] underline">web studio</Link>
         </p>
         <nav className="flex gap-5 flex-wrap justify-center" aria-label="Footer links">
           {NAV_LINKS.map(({ href, label }) => (

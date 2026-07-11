@@ -64,7 +64,7 @@ export default function Services({ s }: { s: ServicesSection }) {
                     href="#booking"
                     className="ml-auto inline-flex items-center gap-[0.375rem] text-[0.75rem] font-medium text-[var(--sz-earth)] no-underline tracking-[0.05em] border-b border-[rgba(138,111,87,0.3)] pb-px transition-[gap,border-color] duration-200 hover:gap-[0.625rem] hover:border-[var(--sz-earth)]"
                   >
-                    Đặt <ArrowIcon />
+                    Book <ArrowIcon />
                   </a>
                 </div>
               </article>

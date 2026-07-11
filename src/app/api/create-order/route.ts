@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
     "unknown";
   if (isRateLimited(ip)) {
     return NextResponse.json(
-      { error: "Bạn đã gửi quá nhiều yêu cầu. Vui lòng thử lại sau 1 giờ." },
+      { error: "You've sent too many requests. Please try again in 1 hour." },
       { status: 429 }
     );
   }
@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
     };
 
     if (!clientName || !phone || !businessName) {
-      return NextResponse.json({ error: "Thiếu thông tin bắt buộc" }, { status: 400 });
+      return NextResponse.json({ error: "Missing required information" }, { status: 400 });
     }
 
     // Server-side validation (defense-in-depth — client validates too).
@@ -65,13 +65,13 @@ export async function POST(req: NextRequest) {
       (templateSlug && templateSlug.length > 60) ||
       (message && message.length > 2000)
     ) {
-      return NextResponse.json({ error: "Dữ liệu vượt quá độ dài cho phép." }, { status: 400 });
+      return NextResponse.json({ error: "Data exceeds the maximum allowed length." }, { status: 400 });
     }
     if (!/^[0-9+\-\s().]{8,20}$/.test(phone)) {
-      return NextResponse.json({ error: "Số điện thoại không hợp lệ." }, { status: 400 });
+      return NextResponse.json({ error: "Invalid phone number." }, { status: 400 });
     }
 
-    const base = slugify(businessName) || "don-hang";
+    const base = slugify(businessName) || "order";
     const suffix = Math.random().toString(36).substring(2, 6);
     const previewSlug = `${base}-${suffix}`;
     const orderDate = new Date().toISOString().split("T")[0];
@@ -109,6 +109,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true, orderId: order._id, previewSlug });
   } catch (err) {
     console.error("[create-order]", err);
-    return NextResponse.json({ error: "Tạo đơn thất bại, vui lòng thử lại." }, { status: 500 });
+    return NextResponse.json({ error: "Failed to create order, please try again." }, { status: 500 });
   }
 }

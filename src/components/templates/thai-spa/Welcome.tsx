@@ -34,7 +34,7 @@ export default function Welcome({ data }: { data: StepsSection }) {
             {data.headingItalic && <em className="italic text-[var(--ts-bark)]">{data.headingItalic}</em>}
           </h2>
           <p className="m-0 max-w-[52ch] text-[15px] leading-[1.75] text-[var(--ts-bark)] md:text-[16px]">
-            Mỗi khách bước vào tiệm đều được đón theo nghi thức Thái truyền thống — không vội, không hời hợt.
+            Every guest who walks in is welcomed with a traditional Thai ritual — unhurried, never perfunctory.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export default function Welcome({ data }: { data: StepsSection }) {
         {/* Footer ornament — Thai pattern hint */}
         <div className="mt-14 flex items-center justify-center gap-3 text-[12px] italic text-[var(--ts-clay)]">
           <span className="block h-px w-12 bg-[var(--ts-border)]" />
-          <span>nghi thức ~ 10 phút trước khi bắt đầu</span>
+          <span>ritual ~ 10 minutes before treatment begins</span>
           <span className="block h-px w-12 bg-[var(--ts-border)]" />
         </div>
       </div>

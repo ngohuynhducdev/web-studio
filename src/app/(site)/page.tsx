@@ -4,10 +4,10 @@ import { homepageQuery } from "@/lib/queries";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Tiệm Web Nhỏ — Website đẹp cho tiệm nhỏ Việt Nam",
+    absolute: "Web Studio — Beautiful websites for small Vietnamese businesses",
   },
   description:
-    "Thiết kế website chuyên nghiệp cho tiệm nail, spa, cà phê, gym. Chọn mẫu có sẵn, nhận web trong 5 ngày, từ 299k/tháng.",
+    "Professional website design for nail salons, spas, cafes, gyms. Pick a ready-made template, get your site in 5 days, starting at $19/month.",
 };
 import HeroSection from "@/components/sections/HeroSection";
 import TapeStrip from "@/components/sections/TapeStrip";

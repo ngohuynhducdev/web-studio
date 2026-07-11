@@ -32,7 +32,7 @@ export default function Testimonials({
     <section className="section section-paper">
       <div className="container-site">
         <div className="section-head">
-          <h2 className="h2-heading">{heading ?? "khách hàng nói gì."}</h2>
+          <h2 className="h2-heading">{heading ?? "what clients say."}</h2>
         </div>
         <RevealStagger className={styles.testiGrid}>
           {list.map((t, i) => (

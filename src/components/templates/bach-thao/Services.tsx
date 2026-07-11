@@ -58,9 +58,9 @@ export default function Services({ s }: { s: ServicesSection }) {
                     />
                   </span>
                 )}
-                <a href="#booking" className={styles.velCircle} aria-label={`Đặt ${sv.name}`}>
-                  <span>Khám phá</span>
-                  <span>dịch vụ</span>
+                <a href="#booking" className={styles.velCircle} aria-label={`Book ${sv.name}`}>
+                  <span>Explore</span>
+                  <span>Service</span>
                 </a>
               </div>
             </article>

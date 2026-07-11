@@ -1,10 +1,10 @@
 /**
  * seed-cms.ts
  *
- * Tạo nội dung khởi đầu cho tất cả singleton documents trong Sanity.
- * Dùng createIfNotExists — chạy nhiều lần vẫn an toàn (idempotent).
+ * Creates initial content for all singleton documents in Sanity.
+ * Uses createIfNotExists — safe to run multiple times (idempotent).
  *
- * Cách chạy:
+ * How to run:
  *   pnpm seed
  */
 
@@ -125,17 +125,17 @@ const documents = [
 
 async function seed() {
   if (!process.env.SANITY_API_WRITE_TOKEN) {
-    console.error("❌  Thiếu SANITY_API_WRITE_TOKEN trong .env.local");
-    console.error("   → Vào sanity.io/manage → project → API → Tokens → Add token (Editor)");
+    console.error("❌  Missing SANITY_API_WRITE_TOKEN in .env.local");
+    console.error("   → Go to sanity.io/manage → project → API → Tokens → Add token (Editor)");
     process.exit(1);
   }
 
-  console.log(`\n🌱  Seeding ${documents.length} documents vào Sanity...\n`);
+  console.log(`\n🌱  Seeding ${documents.length} documents to Sanity...\n`);
 
   for (const doc of documents) {
     try {
       const result = await client.createIfNotExists(doc as Parameters<typeof client.createIfNotExists>[0]);
-      console.log(`  ✅  ${doc._id}  ${result._createdAt ? "(mới tạo)" : "(đã tồn tại, bỏ qua)"}`);
+      console.log(`  ✅  ${doc._id}  ${result._createdAt ? "(created)" : "(already exists, skipped)"}`);
     } catch (err) {
       console.error(`  ❌  ${doc._id}:`, err);
     }

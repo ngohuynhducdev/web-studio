@@ -18,7 +18,7 @@ export default function Hero({ s, businessName }: Props) {
     <section className="bg-[var(--sz-off)] relative overflow-hidden">
       {/* Vertical kanji accent — decorative, desktop only */}
       <span className={styles.heroVertical} aria-hidden="true">
-        自然 · shizen · tự nhiên
+        自然 · shizen · nature
       </span>
 
       <div className="relative max-w-[85rem] mx-auto w-full px-6 md:px-10">
@@ -47,11 +47,11 @@ export default function Hero({ s, businessName }: Props) {
               {s.subtitle && <p className={styles.heroSub}>{s.subtitle}</p>}
               <div className={styles.heroActions}>
                 <a href="#booking" className={styles.heroCta}>
-                  {s.ctaPrimary ?? 'Đặt lịch ngay'}
+                  {s.ctaPrimary ?? 'Book Now'}
                   <span className={styles.heroCtaArrow} aria-hidden="true">→</span>
                 </a>
                 <a href="#services" className={styles.heroLearn}>
-                  {s.ctaSecondary ?? 'Xem dịch vụ'}
+                  {s.ctaSecondary ?? 'Explore Services'}
                 </a>
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function Hero({ s, businessName }: Props) {
               <div ref={parallaxRef} className="absolute -inset-y-12 inset-x-0">
                 <Image
                   src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1400&q=85&fit=crop&auto=format"
-                  alt={`Không gian trị liệu tại ${businessName}`}
+                  alt={`Treatment space at ${businessName}`}
                   fill
                   sizes="(max-width: 767px) 100vw, 42rem"
                   className={styles.heroPhotoImg}

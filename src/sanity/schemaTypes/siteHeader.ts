@@ -5,21 +5,21 @@ export const siteHeaderSchema = defineType({
   title: 'Header',
   type: 'document',
   fields: [
-    defineField({ name: 'brandName', title: 'Tên thương hiệu (logo text)', type: 'string' }),
-    defineField({ name: 'logo', title: 'Logo (ảnh — ưu tiên hơn text)', type: 'image', options: { hotspot: true } }),
+    defineField({ name: 'brandName', title: 'Brand name (logo text)', type: 'string' }),
+    defineField({ name: 'logo', title: 'Logo (image — takes priority over text)', type: 'image', options: { hotspot: true } }),
     defineField({
       name: 'navLinks', title: 'Nav links', type: 'array',
       of: [defineArrayMember({
         type: 'object', name: 'navLink',
         fields: [
           defineField({ name: 'label', title: 'Label', type: 'string' }),
-          defineField({ name: 'href',  title: 'Đường dẫn (vd: /templates)', type: 'string' }),
+          defineField({ name: 'href',  title: 'Path (e.g. /templates)', type: 'string' }),
         ],
         preview: { select: { title: 'label', subtitle: 'href' } },
       })],
     }),
-    defineField({ name: 'ctaLabel', title: 'Nút CTA — label', type: 'string' }),
-    defineField({ name: 'ctaHref',  title: 'Nút CTA — link',  type: 'string' }),
+    defineField({ name: 'ctaLabel', title: 'CTA button — label', type: 'string' }),
+    defineField({ name: 'ctaHref',  title: 'CTA button — link',  type: 'string' }),
   ],
   preview: { prepare: () => ({ title: '🧭 Header' }) },
 })

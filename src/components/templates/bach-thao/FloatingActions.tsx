@@ -35,13 +35,13 @@ export default function FloatingActions({ zaloUrl }: Props) {
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener noreferrer' : undefined}
         className="group relative inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--bt-amber)] text-[var(--bt-light)] no-underline transition-[filter,transform] duration-[220ms] hover:brightness-110 hover:-translate-y-0.5"
-        aria-label="Nhắn Zalo đặt lịch"
+        aria-label="Message on Zalo to book"
       >
         <span className={styles.floatZaloRing} aria-hidden="true" />
         <span className="relative z-[1]"><ChatIcon /></span>
         {/* Tooltip */}
         <span className="absolute right-[calc(100%+0.625rem)] top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-[var(--bt-ink)] px-[0.625rem] py-[0.3125rem] text-[0.72rem] font-semibold tracking-[0.04em] text-[var(--bt-light)] opacity-0 transition-opacity duration-200 pointer-events-none group-hover:opacity-100 after:absolute after:left-full after:top-1/2 after:-translate-y-1/2 after:border-[5px] after:border-transparent after:border-l-[var(--bt-ink)] after:content-['']">
-          Nhắn Zalo
+          Message on Zalo
         </span>
       </a>
 
@@ -53,7 +53,7 @@ export default function FloatingActions({ zaloUrl }: Props) {
             : 'pointer-events-none translate-y-2 opacity-0'
         }`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        aria-label="Về đầu trang"
+        aria-label="Back to top"
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <polyline points="3 9 7 5 11 9" />

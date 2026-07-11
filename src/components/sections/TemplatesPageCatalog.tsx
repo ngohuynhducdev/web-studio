@@ -9,13 +9,13 @@ import styles from "./TemplatesPageCatalog.module.css";
 type FilterKey = "all" | Industry;
 
 const FILTERS: { key: FilterKey; label: string }[] = [
-  { key: "all", label: "tất cả" },
+  { key: "all", label: "all" },
   { key: "nail", label: "nail" },
   { key: "spa", label: "spa" },
-  { key: "cafe", label: "cà phê" },
+  { key: "cafe", label: "cafe" },
   { key: "gym", label: "gym" },
   { key: "barber", label: "barber" },
-  { key: "bakery", label: "tiệm bánh" },
+  { key: "bakery", label: "bakery" },
   { key: "studio", label: "studio" },
 ];
 
@@ -40,7 +40,7 @@ export default function TemplatesPageCatalog({ initialTemplates }: TemplatesPage
     <section className={styles.templatesCatalog}>
       <div className="container-site">
         <div className={styles.filterBarWrapper}>
-        <div className={styles.templatesFilterBar} role="group" aria-label="Lọc theo ngành">
+        <div className={styles.templatesFilterBar} role="group" aria-label="Filter by industry">
           {FILTERS.map((f) => {
             const count = countByIndustry(f.key);
             if (count === 0) return null;
@@ -69,7 +69,7 @@ export default function TemplatesPageCatalog({ initialTemplates }: TemplatesPage
           </RevealStagger>
         ) : (
           <div className={styles.templatesEmpty}>
-            <p className={styles.templatesEmptyText}>chưa có mẫu cho ngành này.</p>
+            <p className={styles.templatesEmptyText}>no templates for this industry yet.</p>
           </div>
         )}
       </div>

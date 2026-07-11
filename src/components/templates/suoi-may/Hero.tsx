@@ -29,7 +29,7 @@ export default function Hero({ s, businessName }: Props) {
 
   const defaultImg = 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=2000&q=85&fit=crop&auto=format';
 
-  // Slides lấy từ CMS (heroSection.slides). Trống → 1 slide tĩnh từ nội dung hero.
+  // Slides come from the CMS (heroSection.slides). Empty → 1 static slide from the hero content.
   const cmsSlides = s.slides ?? [];
   const slides = cmsSlides.length > 0
     ? cmsSlides.map((sl) => ({
@@ -42,19 +42,19 @@ export default function Hero({ s, businessName }: Props) {
     : [{
         img: defaultImg,
         eyebrow: s.eyebrow ?? `${businessName} · spa & wellness`,
-        main: s.headingMain ?? 'Thư giãn,\nhồi phục,\ncân bằng.',
+        main: s.headingMain ?? 'Relax,\nrestore,\nbalance.',
         italic: s.headingItalic,
         sub: s.subtitle,
       }];
 
-  const ctaPrimary = s.ctaPrimary ?? 'Đặt lịch ngay';
-  const ctaSecondary = s.ctaSecondary ?? 'Xem dịch vụ';
+  const ctaPrimary = s.ctaPrimary ?? 'Book Now';
+  const ctaSecondary = s.ctaSecondary ?? 'View Services';
 
-  // Chỉ bật điều khiển carousel khi có từ 2 slide trở lên; 1 slide = hero tĩnh.
+  // Only enable carousel controls with 2+ slides; 1 slide = static hero.
   const multi = slides.length > 1;
 
   return (
-    <section className={styles.heroWrap} aria-label="Giới thiệu">
+    <section className={styles.heroWrap} aria-label="Introduction">
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
@@ -72,7 +72,7 @@ export default function Hero({ s, businessName }: Props) {
             <div className={styles.heroSlide}>
               <Image
                 src={sl.img}
-                alt={sl.eyebrow || `Không gian thư giãn tại ${businessName}`}
+                alt={sl.eyebrow || `A relaxing space at ${businessName}`}
                 fill
                 sizes="100vw"
                 className={styles.heroPhoto}
@@ -111,10 +111,10 @@ export default function Hero({ s, businessName }: Props) {
 
       {multi && (
         <>
-          <button className={`${styles.heroArrow} ${styles.heroArrowPrev}`} onClick={() => swiper?.slidePrev()} aria-label="Slide trước">
+          <button className={`${styles.heroArrow} ${styles.heroArrowPrev}`} onClick={() => swiper?.slidePrev()} aria-label="Previous slide">
             <Chevron dir="left" />
           </button>
-          <button className={`${styles.heroArrow} ${styles.heroArrowNext}`} onClick={() => swiper?.slideNext()} aria-label="Slide tiếp">
+          <button className={`${styles.heroArrow} ${styles.heroArrowNext}`} onClick={() => swiper?.slideNext()} aria-label="Next slide">
             <Chevron dir="right" />
           </button>
         </>

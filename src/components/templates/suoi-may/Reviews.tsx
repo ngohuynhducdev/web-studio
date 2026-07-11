@@ -6,7 +6,7 @@ import type { ReviewsSection } from '@/types';
 
 function Stars() {
   return (
-    <div className="flex gap-1" aria-label="5 trên 5 sao">
+    <div className="flex gap-1" aria-label="5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
         <svg key={i} width="14" height="14" viewBox="0 0 16 16" fill="var(--sm-accent)" aria-hidden="true">
           <path d="M8 1.5l1.8 3.9 4.2.5-3.1 2.9.8 4.2L8 11.4 4.3 13.4l.8-4.2L2 6.3l4.2-.5z" />

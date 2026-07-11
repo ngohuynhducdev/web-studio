@@ -6,7 +6,7 @@ import BackToTop from "@/components/ui/BackToTop";
 import styles from "./not-found.module.css";
 
 export const metadata = {
-  title: "404 — Không tìm thấy trang",
+  title: "404 — Page not found",
 };
 
 function ArrowIcon() {
@@ -24,27 +24,27 @@ export default async function NotFound() {
       <Navbar />
       <main className={`${styles.page} grain`}>
         <div className={`container-site ${styles.inner}`}>
-          <span className="eyebrow">lạc đường rồi</span>
+          <span className="eyebrow">lost your way</span>
 
           <div className={styles.num} aria-hidden="true">404</div>
 
           <h1 className={styles.heading}>
-            trang này không<br />
-            <em className={styles.headingItal}>tồn tại</em> nữa.
+            this page doesn&rsquo;t<br />
+            <em className={styles.headingItal}>exist</em> anymore.
           </h1>
 
           <p className={styles.sub}>
-            Có thể đường link bị sai, hoặc trang đã được di chuyển.<br />
-            Thử quay về trang chủ hoặc xem danh sách mẫu nhé.
+            The link might be broken, or the page has moved.<br />
+            Try heading back home or browse our templates.
           </p>
 
           <div className={styles.actions}>
             <Link href="/" className="btn btn-primary btn-lg">
-              về trang chủ
+              back home
               <ArrowIcon />
             </Link>
             <Link href="/templates" className="btn btn-outline btn-lg">
-              xem mẫu website
+              view templates
             </Link>
           </div>
         </div>

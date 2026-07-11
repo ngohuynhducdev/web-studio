@@ -6,7 +6,7 @@ import styles from './SuoiMay.module.css';
 import type { BookingSection } from '@/types';
 import { ChatIcon, PhoneIcon, CheckIcon } from './icons';
 
-const PERKS = ['Không cần đặt cọc trước', 'Phản hồi nhanh trong ngày', 'Ưu đãi 10% cho lần đầu'];
+const PERKS = ['No deposit required', 'Same-day response', '10% off your first visit'];
 
 export default function Booking({ s, businessName = 'Spa' }: { s: BookingSection; businessName?: string }) {
   const [ref, inView] = useInView<HTMLElement>();
@@ -33,7 +33,7 @@ export default function Booking({ s, businessName = 'Spa' }: { s: BookingSection
                 rel={isExternal ? 'noopener noreferrer' : undefined}
                 className="inline-flex items-center justify-center gap-3 text-[0.9rem] font-semibold tracking-[0.04em] text-[var(--sm-light)] bg-[var(--sm-accent)] rounded-full no-underline px-8 py-4 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
               >
-                <ChatIcon /> Nhắn Zalo giữ chỗ
+                <ChatIcon /> Message on Zalo
               </a>
               {s.phone && (
                 <a
@@ -59,7 +59,7 @@ export default function Booking({ s, businessName = 'Spa' }: { s: BookingSection
           <div className={styles.bkMedia}>
             <Image
               src="https://images.unsplash.com/photo-1552395166-ab340cc8935b?w=1400&q=85&fit=crop&auto=format"
-              alt={`Không gian thư giãn tại ${businessName}`}
+              alt={`A relaxing space at ${businessName}`}
               fill
               sizes="(max-width: 767px) 100vw, 40vw"
               className="object-cover"

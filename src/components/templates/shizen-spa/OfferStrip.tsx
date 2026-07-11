@@ -1,12 +1,12 @@
 import styles from './ShizenSpa.module.css';
 
-const OFFER_TEXT = 'Khách mới — giảm 15% liệu trình đầu tiên';
+const OFFER_TEXT = 'New clients — 15% off your first treatment';
 
 export default function OfferStrip() {
   return (
     <div className="bg-[var(--sz-earth)] py-8 md:py-10 overflow-hidden">
       {/* Scrolling marquee — decorative; real text lives in the sr-only paragraph */}
-      <p className="sr-only">Ưu đãi có hạn: {OFFER_TEXT}.</p>
+      <p className="sr-only">Limited-time offer: {OFFER_TEXT}.</p>
       <div className={styles.marquee} aria-hidden="true">
         <div className={styles.marqueeTrack}>
           {[0, 1].map((half) => (
@@ -29,7 +29,7 @@ export default function OfferStrip() {
           href="#booking"
           className="inline-flex items-center gap-[0.625rem] text-[0.85rem] font-semibold tracking-[0.06em] text-[var(--sz-earth)] bg-white/92 no-underline px-7 py-[0.875rem] whitespace-nowrap transition-[background,gap] duration-[220ms] hover:bg-white hover:gap-[0.875rem] active:translate-y-px"
         >
-          Đặt lịch ngay
+          Book Now
           <span aria-hidden="true">→</span>
         </a>
       </div>

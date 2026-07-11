@@ -24,7 +24,7 @@ export default function Team({ s }: { s: TeamSection }) {
                   ? <Image src={m.imageUrl} alt={m.name} fill sizes="(max-width: 767px) 100vw, 33vw" className={styles.teamAvatarImg} />
                   : <span className={styles.teamMonogram} aria-hidden="true">{m.name.charAt(0)}</span>
                 }
-                <div className={styles.teamExpTag}>{m.exp} kinh nghiệm</div>
+                <div className={styles.teamExpTag}>{m.exp} experience</div>
               </div>
               <div className={styles.teamBody}>
                 <h3 className={styles.teamName}>{m.name}</h3>

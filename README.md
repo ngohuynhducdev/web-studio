@@ -1,17 +1,17 @@
-# Tiệm Web Nhỏ — a mini website platform for Vietnamese small businesses
+# Web Studio — a mini website platform for Vietnamese small businesses
 
-**Tiệm Web Nhỏ** ("Little Web Shop") is a template-based landing page platform for small Vietnamese businesses — nail salons, spas, cafés, bakeries. A client picks a template, the studio customizes the content through a CMS, and the client's site is served on their own domain — all from a single Next.js codebase.
+**Web Studio** is a template-based landing page platform for small Vietnamese businesses — nail salons, spas, cafes, bakeries. A client picks a template, the studio customizes the content through a CMS, and the client's site is served on their own domain — all from a single Next.js codebase.
 
-This repository is a **portfolio project**: it contains the full marketing site, nine production-quality landing page templates, an embedded CMS, and the order/delivery pipeline that would run the business end-to-end. All business data is fictional; photography is from Unsplash.
+This repository is a **portfolio project**: it contains the full marketing site, five production-quality landing page templates, an embedded CMS, and the order/delivery pipeline that would run the business end-to-end. All business data is fictional; photography is from Unsplash.
 
 **Live demo:** [web-studio-chi.vercel.app](https://web-studio-chi.vercel.app)
 
-![Homepage — Tiệm Web Nhỏ](docs/screenshots/homepage.webp)
+![Homepage — Web Studio](docs/screenshots/homepage.webp)
 
 ## What's inside
 
 - **Marketing site** (Vietnamese) — homepage, template catalog with industry filter, projects, about, contact
-- **9 landing page templates**, each with its own deliberate art direction (see below)
+- **5 landing page templates**, each with its own deliberate art direction (see below)
 - **Embedded Sanity Studio** at `/studio` for editing every page and template
 - **Order pipeline** — contact form → rate-limited API → Sanity order document → email notification (Resend) → admin dashboard behind HTTP Basic Auth
 - **Multi-tenant domain routing** — a customer's own domain is mapped through Vercel Edge Config and rewritten to their site in `proxy.ts`
@@ -27,15 +27,11 @@ Each template locks in its own archetype — typography system, color world, sig
 | `suoi-may` | Premium day spa | Elegant western spa — copper/cream, layered-image intro, menu-style price list, dark booking panel |
 | `zen-wellness` | Wellness studio | Calm-tech "wellness OS" — all-sans Space Grotesk, app-like widgets, floating pill nav |
 | `thai-spa` | Thai massage | Classic symmetric formality — deep red and turmeric gold |
-| `bach-thao` | Herbal spa | Vietnamese folk craft — dó-paper texture, herbal SVG illustrations |
-| `lua-nail` | Nail studio | Editorial nail salon |
-| `sweet-corner` | Bakery & café | Playful pastry shop — Pacifico + Nunito |
-| `urban-brew` | City café | Urban coffee house |
-| `tsuki-coffee` | Japanese café | Quiet Japanese coffee bar |
+| `bach-thao` | Herbal spa | Vietnamese folk craft — handmade paper texture, herbal SVG illustrations |
 
-| [Shizen Spa](https://web-studio-chi.vercel.app/templates/shizen-spa) | [Suối Mây](https://web-studio-chi.vercel.app/templates/suoi-may) |
+| [Shizen Spa](https://web-studio-chi.vercel.app/templates/shizen-spa) | [Mist Spring Spa](https://web-studio-chi.vercel.app/templates/suoi-may) |
 |---|---|
-| ![Shizen Spa](docs/screenshots/shizen-spa.webp) | ![Suối Mây](docs/screenshots/suoi-may.webp) |
+| ![Shizen Spa](docs/screenshots/shizen-spa.webp) | ![Mist Spring Spa](docs/screenshots/suoi-may.webp) |
 | [**Zen Wellness**](https://web-studio-chi.vercel.app/templates/zen-wellness) | [**Template catalog**](https://web-studio-chi.vercel.app/templates) |
 | ![Zen Wellness](docs/screenshots/zen-wellness.webp) | ![Template catalog](docs/screenshots/catalog.webp) |
 
@@ -94,12 +90,12 @@ src/
 │   ├── (site)/            # marketing pages (navbar + footer chrome)
 │   ├── templates/[slug]/  # fullscreen template demos
 │   ├── preview/[slug]/    # client site previews (domain-routed)
-│   ├── admin/don-hang/    # order dashboard (Basic Auth)
+│   ├── admin/orders/      # order dashboard (Basic Auth)
 │   ├── api/               # order creation, seeding, domain sync
 │   └── studio/            # embedded Sanity Studio
 ├── components/
 │   ├── sections/          # homepage sections
-│   ├── templates/         # 9 templates, folder-based, co-located CSS Modules
+│   ├── templates/         # 5 templates, folder-based, co-located CSS Modules
 │   └── layout/ ui/ preview/
 ├── data/                  # DEFAULT_* content — single source of truth for fallbacks
 ├── lib/                   # template manifest/registry, GROQ queries, helpers
@@ -109,4 +105,4 @@ src/
 
 ---
 
-Built by [Đức Ngô](https://github.com/ngohuynhducdev). UI copy is intentionally Vietnamese — the product's audience is Vietnamese small business owners.
+Built by [Duc Ngo](https://github.com/ngohuynhducdev). UI copy is intentionally Vietnamese — the product's audience is Vietnamese small business owners.

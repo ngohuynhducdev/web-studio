@@ -1,7 +1,7 @@
 export const NAV_LINKS = [
-  { href: '#journey',     label: 'Hành trình' },
-  { href: '#services',    label: 'Liệu trình' },
+  { href: '#journey',     label: 'Journey' },
+  { href: '#services',    label: 'Treatments' },
   { href: '#membership',  label: 'Membership' },
-  { href: '#team',        label: 'Đội ngũ' },
-  { href: '#book',        label: 'Đặt chỗ' },
+  { href: '#team',        label: 'Team' },
+  { href: '#book',        label: 'Book' },
 ];

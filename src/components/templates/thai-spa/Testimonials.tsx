@@ -12,7 +12,7 @@ const GRADIENTS = [
 interface Props { data?: ReviewsSection }
 
 export default function Testimonials({ data }: Props = {}) {
-  const heading = [data?.headingMain, data?.headingItalic].filter(Boolean).join(' ') || 'Khách Hàng Nói Gì';
+  const heading = [data?.headingMain, data?.headingItalic].filter(Boolean).join(' ') || 'What Our Guests Say';
   const reviews = data?.reviews ?? [];
 
   return (

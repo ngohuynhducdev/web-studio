@@ -1,42 +1,42 @@
 // ── AboutPage (Sanity document) ──────────────────────────────────────────────
 
 export const DEFAULT_ABOUT_HERO = {
-  heroEyebrow:   "VỀ CHÚNG MÌNH",
-  heroTitle:     "một tiệm nhỏ —",
-  heroTitleItal: "không phải agency.",
-  heroSub:       "Tiệm Web Nhỏ làm website cho tiệm nail, spa, cà phê, gym — những nơi mà một trang web tử tế có thể thay đổi cả tháng doanh thu, nhưng thuê agency thì quá đắt mà tự làm thì không biết bắt đầu từ đâu.",
+  heroEyebrow:   "ABOUT US",
+  heroTitle:     "a small studio —",
+  heroTitleItal: "not an agency.",
+  heroSub:       "Web Studio builds websites for nail salons, spas, cafes, and gyms — places where a decent website can change a month's revenue, but hiring an agency is too expensive and DIY feels impossible to start.",
 };
 
 export const DEFAULT_STORY = {
-  storyTitle:       "tại sao có tiệm này",
-  storyQuote:       "làm từng cái, tử tế từng cái.",
-  storyQuoteSource: "— nguyên tắc của tiệm",
+  storyTitle:       "why this studio exists",
+  storyQuote:       "one at a time, done right.",
+  storyQuoteSource: "— our studio's principle",
 };
 
 export const DEFAULT_STORY_PARAGRAPHS = [
-  "Mình có người thân làm nail. Tiệm nhỏ, khách quen nhiều, nhưng mỗi lần khách mới tìm thì chỉ thấy một trang Facebook nhạt nhẽo — không có giờ mở cửa, không có bảng giá, không có cách nào đặt lịch online.",
-  "Thuê agency làm web thì báo giá 15–30 triệu, kèm theo 3 buổi họp và một bản hợp đồng dày. Với tiệm nhỏ, đó là tiền thuê mặt bằng cả tháng.",
-  "Tiệm Web Nhỏ ra đời để giải bài toán đó. Thiết kế sẵn, làm nhanh, giá vừa phải — nhưng vẫn được làm kỹ, không qua loa.",
+  "I have a relative who runs a nail salon. Small shop, loyal regulars — but whenever a new client looked them up, all they found was a bland Facebook page. No hours, no price list, no way to book online.",
+  "Hiring an agency quoted $1,000–$2,000, plus three meetings and a thick contract. For a small business, that's a month's rent.",
+  "Web Studio exists to solve that. Ready-made designs, fast turnaround, fair prices — but still built with care, never rushed.",
 ];
 
 export const DEFAULT_VALUES = [
   {
     _key: "v1",
     num: "01",
-    title: "làm từng cái, tử tế từng cái.",
-    body: "Mình không nhận 10 project cùng lúc để chạy deadline. Mỗi tiệm được làm kỹ — từ màu sắc đến cách đặt nút đặt lịch sao cho khách nhấn vào.",
+    title: "one at a time, done right.",
+    body: "We don't take on 10 projects at once just to hit deadlines. Every business gets full attention — from color choices to where the booking button sits so clients actually click it.",
   },
   {
     _key: "v2",
     num: "02",
-    title: "đơn giản hơn, tốt hơn.",
-    body: "Web đẹp không cần phức tạp. Mình bỏ những thứ không cần thiết, giữ lại những gì giúp khách tìm được thông tin và gọi điện cho tiệm bạn.",
+    title: "simpler is better.",
+    body: "A beautiful site doesn't need to be complicated. We cut what's unnecessary and keep what actually helps clients find your info and call your business.",
   },
   {
     _key: "v3",
     num: "03",
-    title: "bạn hiểu tiệm của bạn, mình hiểu web.",
-    body: "Mình không áp đặt thiết kế — mình hỏi nhiều, lắng nghe nhiều, rồi dịch những gì bạn kể thành một trang web mà khách nhìn vào là muốn ghé.",
+    title: "you know your business, we know the web.",
+    body: "We don't force a design on you — we ask questions, listen closely, then turn what you tell us into a site that makes visitors want to walk in.",
   },
 ];
 

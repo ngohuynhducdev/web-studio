@@ -34,13 +34,13 @@ export default function CookieBanner() {
   if (!visible) return null;
 
   return (
-    <div className={styles.banner} role="region" aria-label="Đồng ý sử dụng cookie">
+    <div className={styles.banner} role="region" aria-label="Cookie consent">
       <p className={styles.text}>
-        Trang này dùng cookie phân tích để cải thiện trải nghiệm. Bạn có đồng ý không?
+        This site uses analytics cookies to improve your experience. Do you agree?
       </p>
       <div className={styles.actions}>
-        <button onClick={deny} className={styles.btnDeny}>Từ chối</button>
-        <button onClick={accept} className={styles.btnAccept}>Đồng ý</button>
+        <button onClick={deny} className={styles.btnDeny}>Decline</button>
+        <button onClick={accept} className={styles.btnAccept}>Accept</button>
       </div>
     </div>
   );

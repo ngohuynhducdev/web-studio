@@ -17,15 +17,15 @@ export default function GlobalError({
   // global-error replaces the root layout entirely, so it must render
   // <html>/<body> itself and cannot rely on globals.css or loaded fonts.
   return (
-    <html lang="vi">
+    <html lang="en">
       <body className={styles.body}>
         <main className={styles.page}>
-          <h1 className={styles.heading}>Có lỗi xảy ra</h1>
+          <h1 className={styles.heading}>Something went wrong</h1>
           <p className={styles.sub}>
-            Trang web đang gặp trục trặc tạm thời. Vui lòng thử lại sau ít phút.
+            The site is having a temporary hiccup. Please try again in a few minutes.
           </p>
           <button type="button" onClick={reset} className={styles.btn}>
-            Thử lại
+            Try again
           </button>
         </main>
       </body>

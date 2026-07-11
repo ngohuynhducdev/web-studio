@@ -4,8 +4,8 @@ import styles from './ThaiSpa.module.css';
 interface Props { data?: AboutSection }
 
 export default function HarmonyIntro({ data }: Props = {}) {
-  const headingMain   = data?.headingMain   ?? 'Nơi Căng Thẳng Tan Biến\nVà Sự';
-  const headingItalic = data?.headingItalic ?? 'Hài Hòa Bắt Đầu';
+  const headingMain   = data?.headingMain   ?? 'Where Stress Dissolves\nAnd';
+  const headingItalic = data?.headingItalic ?? 'Harmony Begins';
   const body          = data?.paragraphs?.[0] ?? '';
   const lines = headingMain.split('\n');
 

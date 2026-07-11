@@ -53,10 +53,10 @@ export default function Header({ businessName, s }: Props) {
 
   return (
     <>
-      {/* Top contact bar (Lumera-style): liên hệ trái · social phải */}
+      {/* Top contact bar (Lumera-style): contact info left · social right */}
       <div className="bg-[var(--sm-bg0)] text-[var(--sm-light)]/80">
         <div className="max-w-[78rem] mx-auto px-5 md:px-10 h-10 flex items-center justify-between gap-4 text-[0.72rem] tracking-[0.02em]">
-          {/* Liên hệ */}
+          {/* Contact info */}
           <div className="flex items-center gap-5 lg:gap-7 min-w-0 flex-1 overflow-hidden">
             {s?.phone && (
               <a
@@ -112,7 +112,7 @@ export default function Header({ businessName, s }: Props) {
           </a>
 
           {/* Desktop nav links */}
-          <nav className="hidden lg:flex flex-1 justify-center" aria-label="Menu chính">
+          <nav className="hidden lg:flex flex-1 justify-center" aria-label="Main menu">
             <ul className="flex gap-8 list-none m-0 p-0">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
@@ -134,7 +134,7 @@ export default function Header({ businessName, s }: Props) {
           <button
             className="flex lg:hidden flex-col justify-center gap-[0.3125rem] w-11 h-11 bg-transparent border-none cursor-pointer p-2 shrink-0"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >
             <span className={`${styles.hamburgerLine} ${menuOpen ? styles.hamburgerLineTop : ''}`} />

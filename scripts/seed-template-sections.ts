@@ -1,17 +1,15 @@
 /**
  * seed-template-sections.ts
  *
- * Patch DEFAULT_SECTIONS vào các template documents đang thiếu sections.
- * Idempotent — chỉ patch nếu sections hiện tại rỗng hoặc null.
+ * Patches DEFAULT_SECTIONS onto template documents that are missing sections.
+ * Idempotent — only patches if the current sections are empty or null.
  *
- * Cách chạy:
+ * How to run:
  *   pnpm tsx scripts/seed-template-sections.ts
  */
 
 import * as dotenv from "dotenv";
 import { createClient } from "@sanity/client";
-import { DEFAULT_SECTIONS as SWEET_CORNER_SECTIONS } from "../src/data/templates/sweet-corner";
-import { DEFAULT_SECTIONS as URBAN_BREW_SECTIONS } from "../src/data/templates/urban-brew";
 import { DEFAULT_SECTIONS as ZEN_WELLNESS_SECTIONS } from "../src/data/templates/zen-wellness";
 
 dotenv.config({ path: ".env.local" });
@@ -25,14 +23,12 @@ const client = createClient({
 });
 
 const TARGETS = [
-  { id: "sydQkTivUNpklI3giKtQ5L", componentKey: "sweet-corner", sections: SWEET_CORNER_SECTIONS },
-  { id: "9SqAZx1N8m9IspGhM9Za9c", componentKey: "urban-brew",   sections: URBAN_BREW_SECTIONS   },
   { id: "sydQkTivUNpklI3giKtPYX", componentKey: "zen-wellness",  sections: ZEN_WELLNESS_SECTIONS  },
 ];
 
 async function run() {
   if (!process.env.SANITY_API_WRITE_TOKEN) {
-    console.error("❌  Thiếu SANITY_API_WRITE_TOKEN trong .env.local");
+    console.error("❌  Missing SANITY_API_WRITE_TOKEN in .env.local");
     process.exit(1);
   }
 
@@ -47,7 +43,7 @@ async function run() {
       );
 
       if (doc?.sectionCount && doc.sectionCount > 0) {
-        console.log(`  ⏭️   ${target.componentKey} — đã có ${doc.sectionCount} sections, bỏ qua`);
+        console.log(`  ⏭️   ${target.componentKey} — already has ${doc.sectionCount} sections, skipping`);
         continue;
       }
 

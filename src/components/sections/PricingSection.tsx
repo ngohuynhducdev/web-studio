@@ -6,7 +6,7 @@ import { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal";
 import styles from "./PricingSection.module.css";
 
 function formatPrice(price: number) {
-  return new Intl.NumberFormat("vi-VN").format(price);
+  return `$${new Intl.NumberFormat("en-US").format(price)}`;
 }
 
 function CheckIcon() {
@@ -53,14 +53,14 @@ export default function PricingSection({ cms }: { cms?: PricingCms }) {
   const plans      = cms?.pricingPlans?.length ? cms.pricingPlans : DEFAULT_PRICING_PLANS;
 
   return (
-    <section className="section" id="bang-gia">
+    <section className="section" id="pricing">
       <div className="container-site">
         <div className={styles.pricingSectionHead}>
           <h2 className="h2-heading">
             {heading}{" "}
             <span className="italic-acc">{headingItal}</span>
             <br />
-            đủ chỗ để lớn lên.
+            room to grow.
           </h2>
         </div>
 
@@ -79,8 +79,8 @@ export default function PricingSection({ cms }: { cms?: PricingCms }) {
 
         {/* Footer link */}
         <div className={styles.pricingFoot}>
-          <Link href="/lien-he" className="btn-link">
-            xem chi tiết bảng giá
+          <Link href="/contact" className="btn-link">
+            see full pricing
             <svg
               width={14}
               height={14}
@@ -100,7 +100,7 @@ export default function PricingSection({ cms }: { cms?: PricingCms }) {
 
         {/* FAQ */}
         <div className={styles.faqWrap}>
-          <h3 className={styles.faqHeading}>câu hỏi thường gặp</h3>
+          <h3 className={styles.faqHeading}>frequently asked questions</h3>
           <dl className={styles.faqList}>
             {DEFAULT_FAQ_ITEMS.map((item) => (
               <details key={item._key} className={styles.faqItem}>
@@ -132,7 +132,7 @@ function RegularCard({ plan }: { plan: PricingPlan }) {
       {/* Price */}
       <div className={styles.priceAmtRow}>
         <span className={styles.priceAmt}>{formatPrice(plan.price)}</span>
-        <span className={styles.priceUnit}>đ/tháng</span>
+        <span className={styles.priceUnit}>/mo</span>
       </div>
 
       {/* Features */}
@@ -154,7 +154,7 @@ function RegularCard({ plan }: { plan: PricingPlan }) {
       </ul>
 
       {/* CTA */}
-      <a href="/lien-he" className="btn btn-outline btn-full">
+      <a href="/contact" className="btn btn-outline btn-full">
         {plan.cta}
       </a>
 
@@ -168,7 +168,7 @@ function FeaturedCard({ plan }: { plan: PricingPlan }) {
   return (
     <article className={`${styles.priceCardFeatured} rounded-2xl p-8 flex flex-col relative -translate-y-3`}>
       {/* Badge */}
-      <span className={styles.priceFlag}>PHỔ BIẾN NHẤT</span>
+      <span className={styles.priceFlag}>MOST POPULAR</span>
 
       {/* Name + description */}
       <div>
@@ -179,7 +179,7 @@ function FeaturedCard({ plan }: { plan: PricingPlan }) {
       {/* Price */}
       <div className={styles.priceAmtRow}>
         <span className={styles.priceAmt}>{formatPrice(plan.price)}</span>
-        <span className={styles.priceUnit}>đ/tháng</span>
+        <span className={styles.priceUnit}>/mo</span>
       </div>
 
       {/* Features */}
@@ -195,7 +195,7 @@ function FeaturedCard({ plan }: { plan: PricingPlan }) {
       </ul>
 
       {/* CTA */}
-      <a href="/lien-he" className="btn btn-accent btn-full">
+      <a href="/contact" className="btn btn-accent btn-full">
         {plan.cta}
       </a>
 

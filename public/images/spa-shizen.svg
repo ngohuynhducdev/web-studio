@@ -49,11 +49,11 @@
   <rect x="32" y="86" width="28" height="1" fill="#8c6e54"/>
   <rect x="68" y="82" width="130" height="8" rx="3" fill="#8c6e54" opacity="0.4"/>
 
-  <!-- Headline "trở về với" — thin Fraunces style -->
+  <!-- Headline "return to" — thin Fraunces style -->
   <rect x="32" y="104" width="200" height="32" rx="3" fill="#1a1816" opacity="0.82"/>
-  <!-- "khoảng lặng" -->
+  <!-- "a moment of stillness" -->
   <rect x="32" y="144" width="260" height="32" rx="3" fill="#1a1816" opacity="0.82"/>
-  <!-- "của bạn." italic + earth -->
+  <!-- "that's yours." italic + earth -->
   <rect x="32" y="184" width="180" height="32" rx="3" fill="#8c6e54" opacity="0.75"/>
 
   <!-- Sub text -->
