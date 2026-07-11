@@ -39,24 +39,6 @@ const TARGETS = [
     },
   },
   {
-    slug: "shizen-spa",
-    expectedTitle: "Shizen Spa",
-    patch: {
-      title: "Shizen Spa",
-      description: "Bright Japandi-style spa — warm paper tones, headline overlaid on imagery, hover-preview services.",
-      features: ["Hover-preview services", "Space gallery", "Booking via Zalo & phone"],
-    },
-  },
-  {
-    slug: "zen-wellness",
-    expectedTitle: "Zen Wellness",
-    patch: {
-      title: "Zen Wellness",
-      description: "Modern calm-tech wellness sanctuary — appointment widget, membership plans.",
-      features: ["Hero widget app", "Membership plans", "Team & journey"],
-    },
-  },
-  {
     slug: "bach-thao",
     expectedTitle: "Bách Thảo Spa",
     patch: {

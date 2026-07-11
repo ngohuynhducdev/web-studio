@@ -26,13 +26,11 @@ test.describe("homepage", () => {
 });
 
 test.describe("templates catalog", () => {
-  test("lists exactly the 5 spa templates", async ({ page }) => {
+  test("lists exactly the 3 spa templates", async ({ page }) => {
     await page.goto("/templates");
 
     for (const name of [
       "Thai Spa",
-      "Shizen Spa",
-      "Zen Wellness",
       "Herbal Grove Spa",
       "Mist Spring Spa",
     ]) {
@@ -40,7 +38,7 @@ test.describe("templates catalog", () => {
     }
 
     // None of the deleted templates leak back in
-    for (const gone of ["Urban Brew", "Sweet Corner", "Tsuki"]) {
+    for (const gone of ["Urban Brew", "Sweet Corner", "Tsuki", "Shizen Spa", "Zen Wellness"]) {
       await expect(page.locator("body")).not.toContainText(gone);
     }
   });

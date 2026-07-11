@@ -58,25 +58,6 @@
   background: rgba(201, 149, 108, 0.18);
 }
 
-.templateCardPlaceholder[data-tpl="shizen-spa"] {
-  background: linear-gradient(160deg, #f2ede6 0%, #e8e0d5 100%);
-}
-.templateCardPlaceholder[data-tpl="shizen-spa"]::before {
-  background: rgba(107, 124, 94, 0.12);
-}
-.templateCardPlaceholder[data-tpl="shizen-spa"]::after {
-  background: rgba(107, 124, 94, 0.08);
-}
-
-.templateCardPlaceholder[data-tpl="zen-wellness"] {
-  background: linear-gradient(160deg, #eef2eb 0%, #dde8d8 100%);
-}
-.templateCardPlaceholder[data-tpl="zen-wellness"]::before {
-  background: rgba(107, 143, 94, 0.10);
-}
-.templateCardPlaceholder[data-tpl="zen-wellness"]::after {
-  background: rgba(107, 143, 94, 0.08);
-}
 .templateCardBadgeFeatured {
   position: absolute;
   top: 14px;

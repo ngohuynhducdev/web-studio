@@ -23,9 +23,9 @@ const INDUSTRY_LABELS: Record<string, string> = {
 };
 
 const TEMPLATE_LABELS: Record<string, string> = {
-  "thai-spa":     "Thai Spa",
-  "shizen-spa":   "Shizen Spa",
-  "zen-wellness": "Zen Wellness",
+  "thai-spa":  "Thai Spa",
+  "bach-thao": "Herbal Grove Spa",
+  "suoi-may":  "Mist Spring Spa",
 };
 
 // Returns false (silently) when env vars are missing — order creation still succeeds.

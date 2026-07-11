@@ -1,7 +1,5 @@
 import type { PageSection } from "@/types";
 import type { TemplateSlug } from "@/lib/templates";
-import ShizenSpaTemplate from "@/components/templates/shizen-spa";
-import ZenWellnessTemplate from "@/components/templates/zen-wellness";
 import ThaiSpaTemplate from "@/components/templates/thai-spa";
 import BachThaoTemplate from "@/components/templates/bach-thao";
 import SuoiMayTemplate from "@/components/templates/suoi-may";
@@ -22,8 +20,6 @@ export type TemplateProps = {
 // (a missing/extra key fails the build), while still allowing string-based lookup.
 
 export const TEMPLATE_COMPONENTS: Record<string, React.ComponentType<TemplateProps>> = {
-  "shizen-spa":   ShizenSpaTemplate,
-  "zen-wellness": ZenWellnessTemplate,
   "thai-spa":     ThaiSpaTemplate,
   "bach-thao":    BachThaoTemplate,
   "suoi-may":     SuoiMayTemplate,
