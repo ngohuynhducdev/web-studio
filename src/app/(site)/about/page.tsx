@@ -8,7 +8,7 @@ import {
   DEFAULT_STORY,
   DEFAULT_STORY_PARAGRAPHS,
   DEFAULT_VALUES,
-} from "@/data/ve-chung-toi";
+} from "@/data/about";
 import type { AboutCms } from "@/types/cms";
 import Reveal, { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal";
 import styles from "./page.module.css";

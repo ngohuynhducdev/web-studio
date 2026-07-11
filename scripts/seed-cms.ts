@@ -32,9 +32,9 @@ import {
   DEFAULT_STORY_PARAGRAPHS,
   DEFAULT_VALUES,
   DEFAULT_STATS,
-} from "../src/data/ve-chung-toi";
+} from "../src/data/about";
 
-import { DEFAULT_CONTACT } from "../src/data/lien-he";
+import { DEFAULT_CONTACT } from "../src/data/contact";
 import { DEFAULT_TEMPLATES_PAGE } from "../src/data/templates-page";
 
 dotenv.config({ path: ".env.local" });

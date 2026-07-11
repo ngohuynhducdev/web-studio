@@ -30,9 +30,9 @@ function postReq(body: Body, ip = "1.1.1.1"): NextRequest {
 }
 
 const valid = {
-  clientName: "Nguyễn Văn A",
+  clientName: "Jane Doe",
   phone: "0909123456",
-  businessName: "Tiệm Nail Hoa Mai",
+  businessName: "Hoa Mai Nail Salon",
 };
 
 beforeEach(() => {

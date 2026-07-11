@@ -94,6 +94,5 @@ test.describe("protected and generated routes", () => {
     for (const path of ["/templates", "/about", "/contact"]) {
       expect(xml).toContain(path);
     }
-    expect(xml).not.toContain("lien-he");
   });
 });

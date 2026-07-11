@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/sections/ContactForm";
 import { client } from "@/sanity/lib/client";
 import { contactPageQuery, siteFooterQuery } from "@/lib/queries";
-import { DEFAULT_CONTACT } from "@/data/lien-he";
+import { DEFAULT_CONTACT } from "@/data/contact";
 import { DEFAULT_FOOTER } from "@/data/layout";
 import type { ContactCms, SiteFooterCms } from "@/types/cms";
 import Reveal from "@/components/ui/motion/Reveal";

@@ -168,8 +168,8 @@ lib/
 data/                     — Single source of truth for default/fallback content
 ├── homepage.ts
 ├── layout.ts             — DEFAULT_NAV, DEFAULT_HEADER, DEFAULT_FOOTER
-├── lien-he.ts
-├── ve-chung-toi.ts
+├── contact.ts
+├── about.ts
 ├── templates-page.ts
 └── templates/
     ├── thai-spa.ts       — DEFAULT_SECTIONS
@@ -277,32 +277,32 @@ Credentials: `.env.local` (see `.env.example` for the full list of env vars — 
 
 ## Communication Rules
 
-Khi làm bất kỳ task nào, Claude phải:
+For every task, Claude must:
 
-1. THÔNG BÁO TRƯỚC KHI LÀM
-   Nói rõ sắp làm gì bằng tiếng Việt
+1. ANNOUNCE BEFORE STARTING
+   State clearly what is about to be done, in Vietnamese
 
-2. GIẢI THÍCH TỪNG BƯỚC
-   Mỗi khi tạo/sửa file, giải thích ngắn gọn:
-   - Đang làm gì
-   - Tại sao làm vậy
-   - Có gì đặc biệt cần lưu ý
+2. EXPLAIN EACH STEP
+   When creating/editing a file, briefly explain:
+   - What is being done
+   - Why
+   - Anything special to watch out for
 
-3. TÓM TẮT SAU KHI XONG
-   Sau mỗi task, tóm tắt:
-   - Đã tạo/sửa file nào
-   - Component có gì
-   - Bước tiếp theo nên làm gì
+3. SUMMARIZE WHEN DONE
+   After each task, summarize:
+   - Which files were created/changed
+   - What the component contains
+   - Suggested next steps
 
-4. BÁO LỖI RÕ RÀNG
-   Nếu gặp vấn đề, giải thích:
-   - Lỗi gì
-   - Nguyên nhân
-   - Cách fix
+4. REPORT ERRORS CLEARLY
+   When something goes wrong, explain:
+   - What the error is
+   - The cause
+   - How to fix it
 
-5. HỎI KHI KHÔNG CHẮC
-   Nếu yêu cầu không rõ, hỏi lại
-   trước khi làm — không tự đoán
+5. ASK WHEN UNSURE
+   If the request is unclear, ask first —
+   do not guess
 
-Toàn bộ giải thích dùng tiếng Việt.
-Code comments dùng tiếng Anh.
+All explanations in Vietnamese.
+Code comments in English.
