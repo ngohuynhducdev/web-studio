@@ -11,9 +11,9 @@ export default function SiteLayout({
   return (
     <>
       <Navbar />
-      <div id="main-content" tabIndex={-1} className="outline-none">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         {children}
-      </div>
+      </main>
       <Footer />
       <ZaloBubble />
       <BackToTop />
