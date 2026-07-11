@@ -39,9 +39,7 @@ Site-wide (loaded in `app/layout.tsx`):
 
 Template-specific (loaded in each template component):
 - ThaiSpa: Playfair Display + Source Sans 3 (loaded in `thai-spa/index.tsx`)
-- ShizenSpa: Fraunces + Be Vietnam Pro (loaded in `shizen-spa/index.tsx`, exposed via `--sz-font-display`/`--sz-font-body`)
 - SuoiMay: Cormorant Garamond + Manrope (loaded in `suoi-may/index.tsx`, exposed via `--sm-font-display`/`--sm-font-body`)
-- ZenWellness: Space Grotesk + Archivo (loaded in `zen-wellness/index.tsx`, exposed via `--zw-font-display`/`--zw-font-body`)
 
 ## Architecture
 
@@ -114,12 +112,6 @@ components/
 │   │   ├── Header / Hero / LovingTouch / Benefits / HarmonyIntro /
 │   │   │   AfterMassage / Founder / Testimonials / Pricing / Offer / Footer
 │   │   └── icons.tsx
-│   ├── shizen-spa/         — ✅ CMS-driven, folder-based
-│   │   ├── index.tsx + ShizenSpa.module.css + navLinks.ts
-│   │   ├── Header / Hero / Benefits / Services / Pricing / Team /
-│   │   │   Gallery / Reviews / Process / OfferStrip / Booking / Footer
-│   │   ├── FloatingActions.tsx + icons.tsx
-│   ├── zen-wellness/       — ✅ CMS-driven, folder-based
 │   ├── bach-thao/          — ✅ CMS-driven, folder-based (Herbal Grove Spa)
 │   ├── suoi-may/           — ✅ CMS-driven, folder-based (Mist Spring Spa — bright spa, Lumera-style)
 │   └── BannerCarousel.tsx + BannerCarousel.module.css  — shared across templates
@@ -132,13 +124,13 @@ components/
     ├── ZaloBubble.tsx
 ```
 
-**Template architecture note:** all 5 templates are CMS-driven — they read content
+**Template architecture note:** all 3 templates are CMS-driven — they read content
 via the `sections` prop and fall back to `DEFAULT_SECTIONS` in code.
-`DEFAULT_SECTIONS_MAP` has all 5 entries. All are folder-based with `index.tsx` as the entry point.
+`DEFAULT_SECTIONS_MAP` has all 3 entries. All are folder-based with `index.tsx` as the entry point.
 - The section picker helper (`pickType`/`pick`/`shown`) lives in `lib/sections.ts` — do NOT copy it into each template
-- Use `pick` by `_key` when a template has multiple sections of the same `_type`: thai-spa (2 `aboutSection`), zen-wellness (2 `featuresSection`), bach-thao (2 `servicesSection`)
-- Use `pickType` by `_type` when the section type is unique: shizen-spa, suoi-may
-- Templates with multiple nav links: extract them into `navLinks.ts` in the same folder — single source of truth for both Header and Footer (applies to all 5 templates)
+- Use `pick` by `_key` when a template has multiple sections of the same `_type`: thai-spa (2 `aboutSection`), bach-thao (2 `servicesSection`)
+- Use `pickType` by `_type` when the section type is unique: suoi-may
+- Templates with multiple nav links: extract them into `navLinks.ts` in the same folder — single source of truth for both Header and Footer (applies to all 3 templates)
 
 ### Template Identity (each template's own archetype)
 
@@ -152,22 +144,13 @@ into a shared "house style" (serif + italicized accent-colored words + hairlines
 
 | Template | Archetype | Status |
 |---|---|---|
-| shizen-spa | Bright Japandi — warm paper, headline over image, mask reveal, hover-preview services | done |
 | suoi-may | Elegant bright spa (based on Lumera) → now a **mini-website**: hero **carousel** (swiper, CMS slides) + layered-image intro + **Services = 3 signature cards** (price + steps shown upfront) + **Pricing** (dedicated `menuSection`, menu-style dotted leader) + **Gallery** + 5-star Reviews + **Booking** (dark CTA panel: Zalo + call + 3 perks) + 4-column footer (hours, address links to Maps). Booking is Zalo-only by design. Deliberately NO "team"/"stats" section (Vietnamese spas rarely show faces; fake numbers feel off for a small shop) | done |
-| zen-wellness | Calm-tech (wellness OS) — all-sans Space Grotesk, bone + moss + matcha, floating pill nav, app widget, SaaS panel, "breathing" dot | done |
 | thai-spa | Formal symmetric classic — deep red + turmeric gold, Thai pattern border | not started |
 | bach-thao | Vietnamese folk/handcrafted — traditional handmade paper texture, herbal-leaf SVG illustrations, old-book type | not started |
 
-Code-only "signature" sections (suoi-may's layered-image intro + dark Booking panel,
-zen-wellness's hero widgets, shizen-spa's Benefits/Process) belong to identity —
-clients do NOT edit these via CMS, by design. Each template uses its own Unsplash image set, never shared across templates.
-
-> ⚠️ **Overlap note:** suoi-may was reworked from "dark onsen" → "bright spa with an onsen touch" →
-> (2026-06) **cloned the Lumera layout, dropping ALL onsen/Japanese motifs** (the 湯 seal, hot–cold ritual,
-> "Private Onsen" rail, Gallery, Pricing) per client request. It now OVERLAPS with the bright-world
-> shizen-spa (bright Japandi) — a deliberate call by the project owner. Differentiation: suoi-may = upscale
-> Western-style spa (copper/cream, layered intro); shizen-spa = warm-paper Japandi,
-> mask reveal, hover-preview. If tighter differentiation is needed later, this is the pair to revisit.
+Code-only "signature" sections (suoi-may's layered-image intro + dark Booking panel)
+belong to identity — clients do NOT edit these via CMS, by design. Each template uses
+its own Unsplash image set, never shared across templates.
 
 ### Other
 
@@ -190,8 +173,6 @@ data/                     — Single source of truth for default/fallback conten
 ├── templates-page.ts
 └── templates/
     ├── thai-spa.ts       — DEFAULT_SECTIONS
-    ├── shizen-spa.ts     — DEFAULT_SECTIONS
-    ├── zen-wellness.ts   — DEFAULT_SECTIONS
     ├── bach-thao.ts      — DEFAULT_SECTIONS
     ├── suoi-may.ts       — DEFAULT_SECTIONS
     └── index.ts          — DEFAULT_SECTIONS_MAP (data-only, used by Studio + registry)
@@ -263,7 +244,7 @@ Content types: `template`, `site`, `homepage`, `sections`,
 - Render fallback chain: `site.sections` → `template.sections` → `DEFAULT_SECTIONS` (code)
 - API: `POST /api/seed-order` copies DEFAULT_SECTIONS onto a site (header `x-seed-secret`);
   `POST /api/admin/seed-order` does the same for the admin UI
-- The CMS flow applies to all 5 templates (see `TEMPLATE_MANIFEST` in `lib/templates.ts`)
+- The CMS flow applies to all 3 templates (see `TEMPLATE_MANIFEST` in `lib/templates.ts`)
 
 ### Template Registry
 
@@ -271,7 +252,6 @@ Content types: `template`, `site`, `homepage`, `sections`,
 ```ts
 export const TEMPLATE_MANIFEST = [
   { slug: "thai-spa",     label: "Thai Spa",     tagline: "Thai spa & massage" },
-  { slug: "shizen-spa",   label: "Shizen Spa",   tagline: "Japanese-style spa" },
   // ... (see lib/templates.ts)
 ] as const
 ```

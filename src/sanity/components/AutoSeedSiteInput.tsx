@@ -10,7 +10,7 @@ import type { PageSection } from '@/types'
 // - New template's section ORDER is preserved
 // - Existing content is matched by _key first, then by _type — each existing
 //   section is consumed at most once, so templates with duplicate _type
-//   (thai-spa, zen-wellness, bach-thao) merge correctly
+//   (thai-spa, bach-thao) merge correctly
 // - Matched sections adopt the new template's _key so pick-by-_key lookups resolve
 // - Sections in new template with no match → use new template's default
 // - Leftover sections → appended at end with enabled:false (hidden but preserved)

@@ -148,8 +148,8 @@ export const FALLBACK_TEMPLATES: Template[] = [
   },
   {
     _id: "2",
-    title: "Zen Wellness",
-    slug: "zen-wellness",
+    title: "Mist Spring Spa",
+    slug: "suoi-may",
     description: "A soft sage-green palette with an airy layout — creating a sense of calm from the homepage on, for spas and massage studios.",
     industry: "spa",
     price: 39,

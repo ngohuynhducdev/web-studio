@@ -23,17 +23,13 @@ Each template locks in its own archetype — typography system, color world, sig
 
 | Template | Business | Art direction |
 |---|---|---|
-| `shizen-spa` | Japanese-style spa | Bright Japandi — warm paper tones, headlines over imagery, mask reveals, hover-preview services |
 | `suoi-may` | Premium day spa | Elegant western spa — copper/cream, layered-image intro, menu-style price list, dark booking panel |
-| `zen-wellness` | Wellness studio | Calm-tech "wellness OS" — all-sans Space Grotesk, app-like widgets, floating pill nav |
 | `thai-spa` | Thai massage | Classic symmetric formality — deep red and turmeric gold |
 | `bach-thao` | Herbal spa | Vietnamese folk craft — handmade paper texture, herbal SVG illustrations |
 
-| [Shizen Spa](https://web-studio-chi.vercel.app/templates/shizen-spa) | [Mist Spring Spa](https://web-studio-chi.vercel.app/templates/suoi-may) |
+| [Mist Spring Spa](https://web-studio-chi.vercel.app/templates/suoi-may) | [Template catalog](https://web-studio-chi.vercel.app/templates) |
 |---|---|
-| ![Shizen Spa](docs/screenshots/shizen-spa.webp) | ![Mist Spring Spa](docs/screenshots/suoi-may.webp) |
-| [**Zen Wellness**](https://web-studio-chi.vercel.app/templates/zen-wellness) | [**Template catalog**](https://web-studio-chi.vercel.app/templates) |
-| ![Zen Wellness](docs/screenshots/zen-wellness.webp) | ![Template catalog](docs/screenshots/catalog.webp) |
+| ![Mist Spring Spa](docs/screenshots/suoi-may.webp) | ![Template catalog](docs/screenshots/catalog.webp) |
 
 ## Architecture highlights
 
