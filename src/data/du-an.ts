@@ -66,7 +66,7 @@ export const FALLBACK_PROJECTS: Project[] = [
     _id: "3",
     shopName: "Brown Coffee",
     industry: "cafe",
-    industryLabel: "Café",
+    industryLabel: "Cafe",
     location: "District 1, HCMC",
     templateUsed: "Vintage Cozy",
     imageUrl: "/images/cafe-interior-01.jpg",

@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid phone number." }, { status: 400 });
     }
 
-    const base = slugify(businessName) || "don-hang";
+    const base = slugify(businessName) || "order";
     const suffix = Math.random().toString(36).substring(2, 6);
     const previewSlug = `${base}-${suffix}`;
     const orderDate = new Date().toISOString().split("T")[0];

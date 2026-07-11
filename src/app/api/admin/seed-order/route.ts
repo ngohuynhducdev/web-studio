@@ -18,12 +18,12 @@ export async function POST(req: NextRequest) {
     };
 
     if (!orderId || !templateSlug) {
-      return NextResponse.json({ error: "orderId và templateSlug là bắt buộc" }, { status: 400 });
+      return NextResponse.json({ error: "orderId and templateSlug are required" }, { status: 400 });
     }
 
     const sections = DEFAULT_SECTIONS_MAP[templateSlug];
     if (!sections) {
-      return NextResponse.json({ error: `Không có DEFAULT_SECTIONS cho template: ${templateSlug}` }, { status: 400 });
+      return NextResponse.json({ error: `No DEFAULT_SECTIONS for template: ${templateSlug}` }, { status: 400 });
     }
 
     await writeClient.patch(orderId).set({ sections }).commit();
@@ -31,6 +31,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true, seededSections: sections.length });
   } catch (err) {
     console.error("[admin/seed-order]", err);
-    return NextResponse.json({ error: "Seed thất bại" }, { status: 500 });
+    return NextResponse.json({ error: "Seeding failed" }, { status: 500 });
   }
 }

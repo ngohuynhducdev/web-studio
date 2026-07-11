@@ -6,7 +6,7 @@ export type { Step, TestimonialItem, PricingFeature, PricingPlan };
 // ── TapeStrip ────────────────────────────────────────────────────────────────
 
 export const DEFAULT_TAPE_ITEMS = [
-  "Nail Salons", "Spa & Massage", "Cafés", "Gyms",
+  "Nail Salons", "Spa & Massage", "Cafes", "Gyms",
   "Hair Salons", "Dental Clinics", "Restaurants", "Photo Studios",
 ];
 
@@ -16,7 +16,7 @@ export const DEFAULT_HERO = {
   heroEyebrow:      "WEB STUDIO · SINCE 2024",
   heroHeading:      "pick a template — tailor it —",
   heroHeadingItal:  "in 5 days.",
-  heroLede:         "web studio has 15+ beautiful ready-made templates for nail salons, spas, cafés, gyms. you pick a template, we customize it for your business — no rush, no shortcuts.",
+  heroLede:         "web studio has 15+ beautiful ready-made templates for nail salons, spas, cafes, gyms. you pick a template, we customize it for your business — no rush, no shortcuts.",
   heroBadge:        "delivered in 5 days",
   heroCtaPrimary:   "browse templates",
   heroCtaSecondary: "about us",
@@ -55,7 +55,7 @@ export const DEFAULT_TESTI_HEADINGS = {
 export const FALLBACK_TESTIMONIALS: TestimonialItem[] = [
   { _key: "t1", clientName: "Ms. Huong", shopName: "Lily Nail Studio", content: "The best-looking nail salon I've ever been to. Once the site launched, clients started booking themselves — no more back-and-forth in the inbox. Saves me an hour a day.", rating: 5, date: "April 2025" },
   { _key: "t2", clientName: "Mr. Nam",   shopName: "Zen Spa",           content: "A calming space, and the site nails the vibe. It makes my spa look so much more professional. New clients have been booking a lot more since we launched.", rating: 5, date: "March 2025" },
-  { _key: "t3", clientName: "Ms. Lan",   shopName: "Moonlight Café",    content: "Way more customers reserving tables online now. The site was ready in 5 days, right on schedule, no extra fees. They're great to work with — I've already referred several friends.", rating: 5, date: "February 2025" },
+  { _key: "t3", clientName: "Ms. Lan",   shopName: "Moonlight Cafe",    content: "Way more customers reserving tables online now. The site was ready in 5 days, right on schedule, no extra fees. They're great to work with — I've already referred several friends.", rating: 5, date: "February 2025" },
 ];
 
 // ── Pricing ──────────────────────────────────────────────────────────────────

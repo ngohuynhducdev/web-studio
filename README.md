@@ -90,7 +90,7 @@ src/
 │   ├── (site)/            # marketing pages (navbar + footer chrome)
 │   ├── templates/[slug]/  # fullscreen template demos
 │   ├── preview/[slug]/    # client site previews (domain-routed)
-│   ├── admin/don-hang/    # order dashboard (Basic Auth)
+│   ├── admin/orders/      # order dashboard (Basic Auth)
 │   ├── api/               # order creation, seeding, domain sync
 │   └── studio/            # embedded Sanity Studio
 ├── components/

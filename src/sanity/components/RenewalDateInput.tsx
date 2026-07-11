@@ -25,10 +25,10 @@ function getDaysLeft(renewalDate: string): number {
 }
 
 function statusConfig(days: number): { bg: string; border: string; text: string; badge: string; badgeBg: string } {
-  if (days < 0)   return { bg: '#1a0a0a', border: '#5a1a1a', text: '#ff6b6b', badge: `Hết hạn ${Math.abs(days)} ngày trước`, badgeBg: '#5a1a1a' }
-  if (days <= 7)  return { bg: '#1a1400', border: '#5a4a00', text: '#ffd43b', badge: `Còn ${days} ngày`, badgeBg: '#5a4a00' }
-  if (days <= 14) return { bg: '#0d1a0d', border: '#2a4a1a', text: '#69db7c', badge: `Còn ${days} ngày`, badgeBg: '#1a4a1a' }
-  return { bg: '#0d1a0d', border: '#1a4a2e', text: '#43d675', badge: `Còn ${days} ngày`, badgeBg: '#0d2b1a' }
+  if (days < 0)   return { bg: '#1a0a0a', border: '#5a1a1a', text: '#ff6b6b', badge: `Expired ${Math.abs(days)} days ago`, badgeBg: '#5a1a1a' }
+  if (days <= 7)  return { bg: '#1a1400', border: '#5a4a00', text: '#ffd43b', badge: `${days} days left`, badgeBg: '#5a4a00' }
+  if (days <= 14) return { bg: '#0d1a0d', border: '#2a4a1a', text: '#69db7c', badge: `${days} days left`, badgeBg: '#1a4a1a' }
+  return { bg: '#0d1a0d', border: '#1a4a2e', text: '#43d675', badge: `${days} days left`, badgeBg: '#0d2b1a' }
 }
 
 export function RenewalDateInput(props: StringInputProps) {
@@ -62,7 +62,7 @@ export function RenewalDateInput(props: StringInputProps) {
           background: status.bg, border: `1px solid ${status.border}`,
         }}>
           <div>
-            <div style={{ fontSize: 11, color: '#666', marginBottom: 2 }}>Ngày gia hạn hiện tại</div>
+            <div style={{ fontSize: 11, color: '#666', marginBottom: 2 }}>Current renewal date</div>
             <div style={{ fontSize: 15, fontWeight: 700, color: status.text }}>{fmt(current)}</div>
           </div>
           <div style={{
@@ -78,7 +78,7 @@ export function RenewalDateInput(props: StringInputProps) {
           background: '#1a1a1a', border: '1px solid #333',
           fontSize: 13, color: '#666', fontStyle: 'italic',
         }}>
-          Chưa có ngày gia hạn — điền bên dưới để thiết lập.
+          No renewal date yet — fill in below to set one.
         </div>
       )}
 
@@ -88,12 +88,12 @@ export function RenewalDateInput(props: StringInputProps) {
         background: '#111', border: '1px solid #2a2a2a',
       }}>
         <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', color: '#555', marginBottom: 10, textTransform: 'uppercase' }}>
-          {current ? 'Gia hạn thêm' : 'Thiết lập lần đầu'}
+          {current ? 'Extend renewal' : 'Set initial date'}
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: 8, alignItems: 'end', marginBottom: 10 }}>
           <div>
-            <div style={{ fontSize: 11, color: '#777', marginBottom: 4 }}>Từ ngày</div>
+            <div style={{ fontSize: 11, color: '#777', marginBottom: 4 }}>From date</div>
             <input
               type="date"
               value={startDate}
@@ -107,7 +107,7 @@ export function RenewalDateInput(props: StringInputProps) {
           </div>
           <div style={{ fontSize: 18, color: '#444', paddingBottom: 6, textAlign: 'center' }}>+</div>
           <div>
-            <div style={{ fontSize: 11, color: '#777', marginBottom: 4 }}>Số tháng</div>
+            <div style={{ fontSize: 11, color: '#777', marginBottom: 4 }}>Number of months</div>
             <input
               type="number"
               min="1"
@@ -132,7 +132,7 @@ export function RenewalDateInput(props: StringInputProps) {
             color: calculated ? '#43d675' : '#444',
             fontWeight: calculated ? 600 : 400,
           }}>
-            {calculated ? `→ Gia hạn đến ${fmt(calculated)}` : '→ …'}
+            {calculated ? `→ Renews until ${fmt(calculated)}` : '→ …'}
           </div>
           <button
             type="button"
@@ -146,7 +146,7 @@ export function RenewalDateInput(props: StringInputProps) {
               fontWeight: 700, fontSize: 13, whiteSpace: 'nowrap',
             }}
           >
-            Áp dụng
+            Apply
           </button>
         </div>
       </div>

@@ -17,9 +17,9 @@ export type TemplateProps = {
   brandColor?: string;
 };
 
-// Thêm template mới: thêm slug vào TEMPLATE_MANIFEST (lib/templates.ts), rồi map
-// component ở đây. `satisfies` đảm bảo mọi slug trong manifest đều có component
-// (thiếu/thừa key đều báo lỗi compile), nhưng kiểu vẫn cho tra cứu bằng string.
+// To add a new template: add the slug to TEMPLATE_MANIFEST (lib/templates.ts), then map
+// the component here. `satisfies` ensures every slug in the manifest has a component
+// (a missing/extra key fails the build), while still allowing string-based lookup.
 
 export const TEMPLATE_COMPONENTS: Record<string, React.ComponentType<TemplateProps>> = {
   "shizen-spa":   ShizenSpaTemplate,

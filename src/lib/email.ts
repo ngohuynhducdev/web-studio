@@ -14,7 +14,7 @@ export type NewOrderData = {
 const INDUSTRY_LABELS: Record<string, string> = {
   nail:   "Nail salon",
   spa:    "Spa / Massage",
-  cafe:   "Café / Bubble tea",
+  cafe:   "Cafe / Bubble tea",
   gym:    "Gym / Yoga / Fitness",
   bakery: "Bakery",
   barber: "Barber / Hair salon",
@@ -79,7 +79,7 @@ function buildHtml(
   d: NewOrderData & { industryLabel: string; templateLabel: string }
 ): string {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://webstudio.com";
-  const adminUrl = `${siteUrl}/admin/don-hang`;
+  const adminUrl = `${siteUrl}/admin/orders`;
 
   return `<!DOCTYPE html>
 <html lang="en">

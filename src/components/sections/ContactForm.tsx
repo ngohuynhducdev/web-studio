@@ -12,7 +12,7 @@ const INDUSTRY_OPTIONS = [
   { value: "",        label: "— Select business type —" },
   { value: "nail",    label: "Nail salon" },
   { value: "spa",     label: "Spa / Massage" },
-  { value: "cafe",    label: "Café / Bubble tea" },
+  { value: "cafe",    label: "Cafe / Bubble tea" },
   { value: "gym",     label: "Gym / Yoga / Fitness" },
   { value: "bakery",  label: "Bakery" },
   { value: "barber",  label: "Barber / Hair salon" },

@@ -1,10 +1,10 @@
 /**
  * seed-template-sections.ts
  *
- * Patch DEFAULT_SECTIONS vào các template documents đang thiếu sections.
- * Idempotent — chỉ patch nếu sections hiện tại rỗng hoặc null.
+ * Patches DEFAULT_SECTIONS onto template documents that are missing sections.
+ * Idempotent — only patches if the current sections are empty or null.
  *
- * Cách chạy:
+ * How to run:
  *   pnpm tsx scripts/seed-template-sections.ts
  */
 
@@ -28,7 +28,7 @@ const TARGETS = [
 
 async function run() {
   if (!process.env.SANITY_API_WRITE_TOKEN) {
-    console.error("❌  Thiếu SANITY_API_WRITE_TOKEN trong .env.local");
+    console.error("❌  Missing SANITY_API_WRITE_TOKEN in .env.local");
     process.exit(1);
   }
 
@@ -43,7 +43,7 @@ async function run() {
       );
 
       if (doc?.sectionCount && doc.sectionCount > 0) {
-        console.log(`  ⏭️   ${target.componentKey} — đã có ${doc.sectionCount} sections, bỏ qua`);
+        console.log(`  ⏭️   ${target.componentKey} — already has ${doc.sectionCount} sections, skipping`);
         continue;
       }
 

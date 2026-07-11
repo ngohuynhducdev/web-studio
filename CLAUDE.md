@@ -2,9 +2,9 @@
 
 ## Overview
 
-Vietnamese web design studio. Template-based
+Web design studio. Template-based
 landing pages for small businesses (nail, spa,
-café, gym). Client chooses template → we customize.
+cafe, gym). Client chooses template → we customize.
 
 ## Tech Stack
 
@@ -12,14 +12,14 @@ café, gym). Client chooses template → we customize.
 - TypeScript
 - Tailwind CSS v4
 - next-sanity (Sanity CMS)
-- swiper (carousel), resend (email đơn hàng)
-- Icon: SVG tự định nghĩa trong từng `icons.tsx` (không dùng icon lib)
-- Ảnh: `next/image` + full URL (remotePatterns: cdn.sanity.io, images.unsplash.com)
+- swiper (carousel), resend (order email)
+- Icons: custom SVG defined in each `icons.tsx` (no icon library)
+- Images: `next/image` + full URL (remotePatterns: cdn.sanity.io, images.unsplash.com)
 - pnpm (package manager)
 
 ## Brand Colors
 
-Định nghĩa trong `globals.css` — single source of truth là `@theme`:
+Defined in `globals.css` — single source of truth is `@theme`:
 
 - Mocha Brown: #6F4E37 (primary, CTAs)
 - Terracotta: #D97757 (accent)
@@ -28,25 +28,25 @@ café, gym). Client chooses template → we customize.
 - Sage Green: #87976A (secondary)
 - Beige: #E8DDD0 (borders)
 
-Dùng qua Tailwind class: `bg-brand-mocha`, `text-brand-cream`...
-Dùng trong CSS module: `var(--color-brand-mocha)`, `var(--color-brand-cream)`...
+Used via Tailwind class: `bg-brand-mocha`, `text-brand-cream`...
+Used in CSS module: `var(--color-brand-mocha)`, `var(--color-brand-cream)`...
 
 ## Fonts
 
-Site-wide (load trong `app/layout.tsx`):
+Site-wide (loaded in `app/layout.tsx`):
 - Display/Headlines: Fraunces → `var(--font-serif)`
 - Body: Inter → `var(--font-body)`
 
-Template-specific (load trong từng template component):
-- ThaiSpa: Playfair Display + Source Sans 3 (load trong `thai-spa/index.tsx`)
-- ShizenSpa: Fraunces + Be Vietnam Pro (load trong `shizen-spa/index.tsx`, expose qua `--sz-font-display`/`--sz-font-body`)
-- SuoiMay: Cormorant Garamond + Manrope (load trong `suoi-may/index.tsx`, expose qua `--sm-font-display`/`--sm-font-body`)
-- ZenWellness: Space Grotesk + Archivo (load trong `zen-wellness/index.tsx`, expose qua `--zw-font-display`/`--zw-font-body`)
+Template-specific (loaded in each template component):
+- ThaiSpa: Playfair Display + Source Sans 3 (loaded in `thai-spa/index.tsx`)
+- ShizenSpa: Fraunces + Be Vietnam Pro (loaded in `shizen-spa/index.tsx`, exposed via `--sz-font-display`/`--sz-font-body`)
+- SuoiMay: Cormorant Garamond + Manrope (loaded in `suoi-may/index.tsx`, exposed via `--sm-font-display`/`--sm-font-body`)
+- ZenWellness: Space Grotesk + Archivo (loaded in `zen-wellness/index.tsx`, exposed via `--zw-font-display`/`--zw-font-body`)
 
 ## Architecture
 
-> Toàn bộ source nằm trong `src/` (import alias `@/` → `src/`).
-> Các cây thư mục dưới đây bỏ prefix `src/` cho gọn (vd. `app/` = `src/app/`).
+> All source lives in `src/` (import alias `@/` → `src/`).
+> The directory trees below drop the `src/` prefix for brevity (e.g. `app/` = `src/app/`).
 
 ### Route Groups
 
@@ -54,13 +54,13 @@ Template-specific (load trong từng template component):
 app/
 ├── layout.tsx              — Root: fonts, globals.css, metadata + OG defaults
 ├── not-found.tsx           — Custom 404 (+ .module.css)
-├── global-error.tsx        — Error boundary cuối cùng, thay cả root layout (+ .module.css, style tự chứa)
+├── global-error.tsx        — Final error boundary, replaces the entire root layout (+ .module.css, self-contained style)
 ├── opengraph-image.tsx     — Default branded OG image (1200×630)
 ├── sitemap.ts              — Dynamic /sitemap.xml (static + template slugs)
 ├── robots.ts               — /robots.txt
 ├── (site)/
 │   ├── layout.tsx          — Site layout: Navbar + Footer + ZaloBubble + BackToTop
-│   ├── error.tsx           — Error boundary cho các trang site (+ .module.css)
+│   ├── error.tsx           — Error boundary for site pages (+ .module.css)
 │   ├── page.tsx            — Homepage (/)
 │   ├── templates/          — /templates
 │   │   ├── page.tsx
@@ -79,18 +79,18 @@ app/
 │   └── page.tsx
 ├── preview/[slug]/         — /preview/:slug (preview mode)
 │   └── page.tsx
-├── admin/don-hang/         — /admin/don-hang (read-only order overview; HTTP Basic Auth via proxy)
+├── admin/orders/           — /admin/orders (read-only order overview; HTTP Basic Auth via proxy)
 │   ├── page.tsx
 │   └── OrderList.tsx
 ├── api/
-│   ├── create-order/       — POST: tạo site document từ form liên hệ
+│   ├── create-order/       — POST: creates a site document from the contact form
 │   ├── seed-order/         — POST: copy DEFAULT_SECTIONS (header x-seed-secret)
 │   ├── admin/seed-order/   — POST: copy DEFAULT_SECTIONS (admin UI, no secret)
-│   └── sync-domain/        — POST: đồng bộ domain → Vercel Edge Config
+│   └── sync-domain/        — POST: syncs domain → Vercel Edge Config
 └── studio/[[...tool]]/     — Sanity Studio
     └── page.tsx
 
-proxy.ts                    — (convention Next 16, trước là middleware.ts) Basic Auth cho /admin (ADMIN_PASSWORD) + domain khách → rewrite /preview/[slug] (Edge Config)
+proxy.ts                    — (Next 16 convention, formerly middleware.ts) Basic Auth for /admin (ADMIN_PASSWORD) + customer domain → rewrite to /preview/[slug] (Edge Config)
 ```
 
 ### Components
@@ -104,13 +104,13 @@ components/
 ├── sections/               — Each has co-located .module.css
 │   ├── HeroSection.tsx
 │   ├── HowItWorks.tsx
-│   ├── HomeTemplateGrid.tsx      — grid teaser template trên trang chủ
-│   ├── TemplatesPageCatalog.tsx  — catalog đầy đủ + filter trên /templates
+│   ├── HomeTemplateGrid.tsx      — template teaser grid on the homepage
+│   ├── TemplatesPageCatalog.tsx  — full catalog + filter on /templates
 │   ├── TapeStrip.tsx
 │   ├── Testimonials.tsx
 │   ├── PricingSection.tsx
 │   ├── CTASection.tsx
-│   └── ContactForm.tsx     — nhận prop defaultTemplate (từ ?template= URL param)
+│   └── ContactForm.tsx     — receives defaultTemplate prop (from the ?template= URL param)
 ├── templates/              — Each template is folder-based
 │   ├── thai-spa/           — ✅ CMS-driven, folder-based
 │   │   ├── index.tsx + ThaiSpa.module.css + navLinks.ts
@@ -123,10 +123,10 @@ components/
 │   │   │   Gallery / Reviews / Process / OfferStrip / Booking / Footer
 │   │   ├── FloatingActions.tsx + icons.tsx
 │   ├── zen-wellness/       — ✅ CMS-driven, folder-based
-│   ├── bach-thao/          — ✅ CMS-driven, folder-based (Bách Thảo Spa)
-│   ├── suoi-may/           — ✅ CMS-driven, folder-based (Suối Mây — spa sáng, Lumera-style)
+│   ├── bach-thao/          — ✅ CMS-driven, folder-based (Herbal Grove Spa)
+│   ├── suoi-may/           — ✅ CMS-driven, folder-based (Mist Spring Spa — bright spa, Lumera-style)
 │   └── BannerCarousel.tsx + BannerCarousel.module.css  — shared across templates
-├── preview/                — Site chrome phủ lên trang template (KHÔNG phải template giao khách)
+├── preview/                — Site chrome layered over the template page (NOT the template delivered to the client)
 │   ├── TemplatePreviewBar.tsx + .module.css
 │   └── TemplateComingSoon.tsx + .module.css
 └── ui/
@@ -135,42 +135,42 @@ components/
     ├── ZaloBubble.tsx
 ```
 
-**Lưu ý kiến trúc template:** tất cả 5 template đều CMS-driven — đọc nội dung
-qua `sections` prop và fallback về `DEFAULT_SECTIONS` trong code.
-`DEFAULT_SECTIONS_MAP` có đủ 5 entry. Tất cả đều folder-based với `index.tsx` là entry point.
-- Helper chọn section (`pickType`/`pick`/`shown`) nằm trong `lib/sections.ts` — KHÔNG copy vào từng template
-- Dùng `pick` theo `_key` khi template có nhiều section cùng `_type`: thai-spa (2 `aboutSection`), zen-wellness (2 `featuresSection`), bach-thao (2 `servicesSection`)
-- Dùng `pickType` theo `_type` khi section type là duy nhất: shizen-spa, suoi-may
-- Template có nhiều nav link: extract ra `navLinks.ts` trong cùng folder — single source of truth cho cả Header lẫn Footer (áp dụng cho cả 5 template)
+**Template architecture note:** all 5 templates are CMS-driven — they read content
+via the `sections` prop and fall back to `DEFAULT_SECTIONS` in code.
+`DEFAULT_SECTIONS_MAP` has all 5 entries. All are folder-based with `index.tsx` as the entry point.
+- The section picker helper (`pickType`/`pick`/`shown`) lives in `lib/sections.ts` — do NOT copy it into each template
+- Use `pick` by `_key` when a template has multiple sections of the same `_type`: thai-spa (2 `aboutSection`), zen-wellness (2 `featuresSection`), bach-thao (2 `servicesSection`)
+- Use `pickType` by `_type` when the section type is unique: shizen-spa, suoi-may
+- Templates with multiple nav links: extract them into `navLinks.ts` in the same folder — single source of truth for both Header and Footer (applies to all 5 templates)
 
-### Template Identity (archetype riêng từng template)
+### Template Identity (each template's own archetype)
 
-Nguyên tắc: **identity sống ở component/CSS — data dùng chung.** Section type là hợp đồng
-nội dung (semantic), không phải mô tả giao diện; cùng một `servicesSection` mỗi template
-render một kiểu khác hẳn. Khi cần loại nội dung mới: thêm type vào thư viện chung
-(`sections.ts` + `types/index.ts` + projection ảnh trong `queries.ts`) — KHÔNG fork schema theo template.
+Principle: **identity lives in the component/CSS — data is shared.** A section type is a content
+contract (semantic), not a description of appearance; the same `servicesSection` renders
+completely differently per template. When new content types are needed: add the type to the shared
+library (`sections.ts` + `types/index.ts` + image projection in `queries.ts`) — do NOT fork the schema per template.
 
-Mỗi template khóa một archetype riêng (hệ chữ, thế giới màu, tương tác chữ ký) — tránh trượt
-về "house style" chung (serif + từ nghiêng màu accent + hairline + ảnh trùng nhau):
+Each template locks in its own archetype (typography system, color world, signature interaction) — to avoid drifting
+into a shared "house style" (serif + italicized accent-colored words + hairlines + repeated imagery):
 
-| Template | Archetype | Trạng thái |
+| Template | Archetype | Status |
 |---|---|---|
-| shizen-spa | Japandi sáng — giấy ấm, headline đè ảnh, mask reveal, hover-preview services | ✅ |
-| suoi-may | Spa sáng thanh lịch (gốc Lumera) → nay là **mini-website**: hero **carousel** (swiper, CMS slides) + intro xếp lớp ảnh + **Dịch vụ = 3 card signature** (giá + các bước hiện sẵn) + **Bảng giá** (`menuSection` riêng, kiểu thực đơn in dotted leader) + **Gallery** + Reviews 5 sao + **Booking** (panel tối CTA: Zalo + gọi + 3 perk) + footer 4 cột (có giờ, địa chỉ bấm → Maps). Đặt lịch CHỈ qua Zalo. Cố ý KHÔNG có "đội ngũ"/"số liệu" (spa VN ít show mặt; số liệu giả phản cảm shop nhỏ) | ✅ |
-| zen-wellness | Calm-tech (wellness OS) — toàn sans Space Grotesk, bone + moss + matcha, pill nav nổi, widget app, panel SaaS, chấm "thở" | ✅ |
-| thai-spa | Cổ điển đối xứng trang trọng — đỏ trầm + vàng nghệ, viền hoa văn Thái | 📋 chưa làm |
-| bach-thao | Dân gian VN thủ công — giấy dó, minh họa lá thuốc SVG, chữ in sách cũ | 📋 chưa làm |
+| shizen-spa | Bright Japandi — warm paper, headline over image, mask reveal, hover-preview services | done |
+| suoi-may | Elegant bright spa (based on Lumera) → now a **mini-website**: hero **carousel** (swiper, CMS slides) + layered-image intro + **Services = 3 signature cards** (price + steps shown upfront) + **Pricing** (dedicated `menuSection`, menu-style dotted leader) + **Gallery** + 5-star Reviews + **Booking** (dark CTA panel: Zalo + call + 3 perks) + 4-column footer (hours, address links to Maps). Booking is Zalo-only by design. Deliberately NO "team"/"stats" section (Vietnamese spas rarely show faces; fake numbers feel off for a small shop) | done |
+| zen-wellness | Calm-tech (wellness OS) — all-sans Space Grotesk, bone + moss + matcha, floating pill nav, app widget, SaaS panel, "breathing" dot | done |
+| thai-spa | Formal symmetric classic — deep red + turmeric gold, Thai pattern border | not started |
+| bach-thao | Vietnamese folk/handcrafted — traditional handmade paper texture, herbal-leaf SVG illustrations, old-book type | not started |
 
-Section "chữ ký" code-only (intro xếp lớp ảnh + Booking panel tối
-của suoi-may, hero widgets của zen-wellness, Benefits/Process của shizen-spa) thuộc về identity —
-khách KHÔNG sửa qua CMS, đó là chủ đích. Mỗi template dùng một bộ ảnh Unsplash riêng, không trùng template khác.
+Code-only "signature" sections (suoi-may's layered-image intro + dark Booking panel,
+zen-wellness's hero widgets, shizen-spa's Benefits/Process) belong to identity —
+clients do NOT edit these via CMS, by design. Each template uses its own Unsplash image set, never shared across templates.
 
-> ⚠️ **Lưu ý overlap:** suoi-may đã được làm lại từ "onsen tối" → "spa sáng có nét onsen" →
-> (2026-06) **clone bố cục Lumera, bỏ HẲN mọi motif onsen/Nhật** (con dấu 湯, Ritual nóng–lạnh,
-> rail "Private Onsen", Gallery, Pricing) theo yêu cầu khách. Hiện CHỒNG LẤN thế giới sáng với
-> shizen-spa (Japandi sáng) — quyết định có chủ đích của chủ dự án. Phân hoá: suoi-may = spa
-> phương Tây cao cấp (đồng/kem, intro xếp lớp); shizen-spa = Japandi giấy ấm,
-> mask reveal, hover-preview. Nếu cần tách bạch hơn, đây là cặp cần phân hoá.
+> ⚠️ **Overlap note:** suoi-may was reworked from "dark onsen" → "bright spa with an onsen touch" →
+> (2026-06) **cloned the Lumera layout, dropping ALL onsen/Japanese motifs** (the 湯 seal, hot–cold ritual,
+> "Private Onsen" rail, Gallery, Pricing) per client request. It now OVERLAPS with the bright-world
+> shizen-spa (bright Japandi) — a deliberate call by the project owner. Differentiation: suoi-may = upscale
+> Western-style spa (copper/cream, layered intro); shizen-spa = warm-paper Japandi,
+> mask reveal, hover-preview. If tighter differentiation is needed later, this is the pair to revisit.
 
 ### Other
 
@@ -179,13 +179,13 @@ lib/
 ├── queries.ts            — GROQ queries
 ├── templates.ts          — TEMPLATE_MANIFEST (slug + label + tagline) + TemplateSlug type (single source of truth)
 ├── templateRegistry.ts   — TEMPLATE_COMPONENTS + DEFAULT_SECTIONS_MAP
-├── sections.ts           — pickType / pick / shown — helper chọn section dùng chung cho mọi template
-├── adminAuth.ts          — Basic Auth helpers (constant-time, dùng ở proxy + API route)
-├── email.ts              — gửi email đơn hàng qua Resend
-├── env.ts                — IS_PRODUCTION / DEPLOY_ENV (theo VERCEL_ENV)
-└── og.tsx                — helper render OG image
+├── sections.ts           — pickType / pick / shown — shared section picker helper for all templates
+├── adminAuth.ts          — Basic Auth helpers (constant-time, used in proxy + API route)
+├── email.ts              — sends order email via Resend
+├── env.ts                — IS_PRODUCTION / DEPLOY_ENV (based on VERCEL_ENV)
+└── og.tsx                — OG image render helper
 
-data/                     — Single source of truth cho default/fallback content
+data/                     — Single source of truth for default/fallback content
 ├── homepage.ts
 ├── layout.ts             — DEFAULT_NAV, DEFAULT_HEADER, DEFAULT_FOOTER
 ├── du-an.ts
@@ -198,22 +198,22 @@ data/                     — Single source of truth cho default/fallback conten
     ├── zen-wellness.ts   — DEFAULT_SECTIONS
     ├── bach-thao.ts      — DEFAULT_SECTIONS
     ├── suoi-may.ts       — DEFAULT_SECTIONS
-    └── index.ts          — DEFAULT_SECTIONS_MAP (data-only, dùng cho Studio + registry)
+    └── index.ts          — DEFAULT_SECTIONS_MAP (data-only, used by Studio + registry)
 
 sanity/
 ├── env.ts
-├── structure.ts          — Studio sidebar: singletons + template list + đơn hàng (lọc theo status)
+├── structure.ts          — Studio sidebar: singletons + template list + orders (filtered by status)
 ├── lib/
 │   ├── client.ts
 │   ├── live.ts
 │   └── writeClient.ts    — write client (uses SANITY_API_WRITE_TOKEN)
 ├── components/
-│   ├── AutoSeedSectionsInput.tsx  — auto-seed sections khi chọn componentKey (dùng trong template schema)
-│   └── AutoSeedSiteInput.tsx      — auto-seed sections khi chọn chosenTemplate (dùng trong site schema)
+│   ├── AutoSeedSectionsInput.tsx  — auto-seeds sections when componentKey is chosen (used in template schema)
+│   └── AutoSeedSiteInput.tsx      — auto-seeds sections when chosenTemplate is chosen (used in site schema)
 └── schemaTypes/
     ├── index.ts
-    ├── template.ts       — có field componentKey (dropdown chọn component render)
-    ├── site.ts           — đơn hàng khách (trước tên là clientOrder.ts)
+    ├── template.ts       — has a componentKey field (dropdown to pick the rendering component)
+    ├── site.ts           — client order (formerly named clientOrder.ts)
     ├── homepage.ts
     ├── sections.ts
     ├── project.ts
@@ -226,27 +226,27 @@ sanity/
 
 types/
 ├── index.ts              — domain types + PageSection union
-└── cms.ts                — CMS prop types cho page/section components
+└── cms.ts                — CMS prop types for page/section components
 ```
 
 ## Design System (`globals.css`)
 
-File chứa design tokens, base styles, và **global reusable component classes** (trong `@layer components` — vd. `.btn`, `.section`, `.eyebrow`). Style **riêng cho từng component/page** thì KHÔNG để ở đây — đặt trong `.module.css` co-located cạnh component đó.
+File containing design tokens, base styles, and **global reusable component classes** (in `@layer components` — e.g. `.btn`, `.section`, `.eyebrow`). Styles **specific to one component/page** do NOT go here — put them in the co-located `.module.css` next to that component.
 
-### Cấu trúc
+### Structure
 
-- `@theme` — Tailwind v4 tokens: `--color-brand-*`, `--shadow-*`, `--radius-*`, `--max-width-*` → sinh ra utility classes (`bg-brand-mocha`, `max-w-container`...)
-- `:root` — CSS custom properties không phải utility: `--bg-page`, `--fg-*`, `--font-serif`, `--ease-*`, `--dur-*`
+- `@theme` — Tailwind v4 tokens: `--color-brand-*`, `--shadow-*`, `--radius-*`, `--max-width-*` → generate utility classes (`bg-brand-mocha`, `max-w-container`...)
+- `:root` — CSS custom properties that aren't utilities: `--bg-page`, `--fg-*`, `--font-serif`, `--ease-*`, `--dur-*`
 - `@layer base` — Resets, html/body, focus-visible
 - `@layer components` — Global classes: `.container-site`, `.btn*`, `.section*`, `.eyebrow`, `.h2-heading`, `.lede`, `.grain`, `.zalo-bubble*`, `.back-to-top*`
 
 ### Template CSS Independence
 
-Templates **KHÔNG dùng** site design tokens (`--color-brand-*`).
-Templates chỉ dùng:
+Templates **do NOT use** site design tokens (`--color-brand-*`).
+Templates only use:
 - Tailwind utility classes (breakpoints `md:`, spacing `p-4`, container `max-w-container`...)
-- CSS variables tự định nghĩa trong `.page { --own-token: value }`
-- Font names dạng literal string (`"Playfair Display"`, `"Nunito"`)
+- CSS variables defined locally in `.page { --own-token: value }`
+- Font names as literal strings (`"Playfair Display"`, `"Nunito"`)
 
 ## Sanity CMS
 
@@ -255,51 +255,51 @@ Content types: `template`, `site`, `homepage`, `sections`, `project`,
 
 ### Template Schema
 
-- `slug` — URL của trang demo, tự tạo từ tên (free field, không validate với manifest)
-- `componentKey` — dropdown chọn component render (`TEMPLATE_MANIFEST` options); để trống = Coming Soon
-- `sections[]` — CMS-editable content; **tự động điền DEFAULT_SECTIONS** khi chọn `componentKey`
-  (qua `AutoSeedSectionsInput`; re-seed khi đổi componentKey)
+- `slug` — URL of the demo page, auto-generated from the name (free field, not validated against the manifest)
+- `componentKey` — dropdown to pick the rendering component (`TEMPLATE_MANIFEST` options); empty = Coming Soon
+- `sections[]` — CMS-editable content; **auto-fills DEFAULT_SECTIONS** when `componentKey` is chosen
+  (via `AutoSeedSectionsInput`; re-seeds when componentKey changes)
 
 ### CMS Flow
 
-- `template.sections[]` — nội dung demo CMS-editable cho từng template
+- `template.sections[]` — CMS-editable demo content for each template
 - `site.sections[]` + `brandColor` — per-client customization
-- **Auto-seed:** khi chọn `chosenTemplate` trong site document, sections tự điền từ
-  template's CMS sections (nếu có) → fallback về `DEFAULT_SECTIONS` trong code
-- Fallback render: `site.sections` → `template.sections` → `DEFAULT_SECTIONS` (code)
-- API: `POST /api/seed-order` copy DEFAULT_SECTIONS vào site (header `x-seed-secret`);
-  `POST /api/admin/seed-order` tương tự cho admin UI
-- CMS flow áp dụng cho tất cả 5 template (xem `TEMPLATE_MANIFEST` trong `lib/templates.ts`)
+- **Auto-seed:** when `chosenTemplate` is picked on a site document, sections auto-fill from
+  the template's CMS sections (if any) → fall back to `DEFAULT_SECTIONS` in code
+- Render fallback chain: `site.sections` → `template.sections` → `DEFAULT_SECTIONS` (code)
+- API: `POST /api/seed-order` copies DEFAULT_SECTIONS onto a site (header `x-seed-secret`);
+  `POST /api/admin/seed-order` does the same for the admin UI
+- The CMS flow applies to all 5 templates (see `TEMPLATE_MANIFEST` in `lib/templates.ts`)
 
 ### Template Registry
 
-`lib/templates.ts` là **single source of truth** cho danh sách template:
+`lib/templates.ts` is the **single source of truth** for the template list:
 ```ts
 export const TEMPLATE_MANIFEST = [
-  { slug: "thai-spa",     label: "Thai Spa",     tagline: "Spa / Massage Thái" },
-  { slug: "shizen-spa",   label: "Shizen Spa",   tagline: "Spa / Phong cách Nhật" },
-  // ... (xem lib/templates.ts)
+  { slug: "thai-spa",     label: "Thai Spa",     tagline: "Thai spa & massage" },
+  { slug: "shizen-spa",   label: "Shizen Spa",   tagline: "Japanese-style spa" },
+  // ... (see lib/templates.ts)
 ] as const
 ```
 
-Dropdown template trong `ContactForm.tsx` derive từ manifest (label + tagline) — thêm template mới KHÔNG cần sửa form.
+The template dropdown in `ContactForm.tsx` derives from the manifest (label + tagline) — adding a new template does NOT require editing the form.
 
-`templateRegistry.ts` map `componentKey → React component` và `componentKey → DEFAULT_SECTIONS`.
-Thêm template mới: thêm vào `TEMPLATE_MANIFEST` → thêm vào registry.
+`templateRegistry.ts` maps `componentKey → React component` and `componentKey → DEFAULT_SECTIONS`.
+Adding a new template: add it to `TEMPLATE_MANIFEST` → add it to the registry.
 
-Credentials: `.env.local` (xem `.env.example` để biết đủ danh sách env var — gồm Sanity, Resend, GA4, `ADMIN_PASSWORD` cho admin, và Edge Config cho domain routing)
+Credentials: `.env.local` (see `.env.example` for the full list of env vars — Sanity, Resend, GA4, `ADMIN_PASSWORD` for admin, and Edge Config for domain routing)
 
 ## Coding Rules
 
 1. Server components by default
 2. `'use client'` only when needed (interactivity, hooks)
-3. No inline styles — dùng Tailwind class hoặc CSS module class. Ngoại lệ duy nhất: dynamic CSS variable qua `style={{ '--token': value }}`
+3. No inline styles — use a Tailwind class or CSS module class. Sole exception: dynamic CSS variables via `style={{ '--token': value }}`
 4. All props typed with TypeScript interfaces
-5. No UI component library — dùng Tailwind utility thuần cho tất cả component
+5. No UI component library — use plain Tailwind utilities for every component
 6. English text in UI
-7. Mobile-first responsive — base styles = mobile, `@media (min-width: X)` cho desktop. Không dùng `max-width` query
-8. Component styles in co-located `.module.css` — không để trong `globals.css`
-9. External links: `target="_blank"` + `rel="noopener noreferrer"` chỉ khi URL thực sự là external (không phải `#anchor` hay fallback `'#'`)
+7. Mobile-first responsive — base styles = mobile, `@media (min-width: X)` for desktop. Do not use `max-width` queries
+8. Component styles in co-located `.module.css` — not in `globals.css`
+9. External links: `target="_blank"` + `rel="noopener noreferrer"` only when the URL is actually external (not a `#anchor` or a `'#'` fallback)
 
 ## Communication Rules
 

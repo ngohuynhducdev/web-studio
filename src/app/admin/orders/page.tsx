@@ -6,7 +6,7 @@ import OrderList from './OrderList'
 
 export const dynamic = 'force-dynamic'
 
-export default async function DonHangPage() {
+export default async function OrdersPage() {
   const orders: Site[] = await client.fetch(sitesQuery)
 
   const stats = {

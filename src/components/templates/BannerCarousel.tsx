@@ -6,7 +6,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
-// swiper/css/navigation không import — dùng custom arrow button thay thế
+// swiper/css/navigation not imported — using custom arrow buttons instead
 import styles from './BannerCarousel.module.css';
 import type { BannerCarouselSection } from '@/types';
 
@@ -41,7 +41,7 @@ export default function BannerCarousel({ slides, brandColor }: Props) {
   const multi = slides.length > 1;
 
   return (
-    <section className={styles.carousel} aria-label="Banner khuyến mãi">
+    <section className={styles.carousel} aria-label="Promo banner">
       <Swiper
         modules={[Autoplay, Pagination]}
         onSwiper={setSwiper}
@@ -86,14 +86,14 @@ export default function BannerCarousel({ slides, brandColor }: Props) {
           <button
             className={`${styles.arrow} ${styles.arrowPrev}`}
             onClick={() => swiper?.slidePrev()}
-            aria-label="Slide trước"
+            aria-label="Previous slide"
           >
             <ChevronLeft />
           </button>
           <button
             className={`${styles.arrow} ${styles.arrowNext}`}
             onClick={() => swiper?.slideNext()}
-            aria-label="Slide tiếp"
+            aria-label="Next slide"
           >
             <ChevronRight />
           </button>

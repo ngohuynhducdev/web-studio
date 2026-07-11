@@ -177,7 +177,7 @@
   font-size: 14px;
   padding: 11px 16px;
 }
-/* "Xem mẫu" secondary — don't stretch as much when alone */
+/* "View template" secondary — don't stretch as much when alone */
 .templateCardActions .btn-ghost {
   flex: 0 0 auto;
   padding: 11px 20px;
