@@ -44,3 +44,7 @@ next-env.d.ts
 # local Claude Code tooling (skills, worktrees) — not project source
 .claude/
 .github/skills/
+
+# playwright
+/test-results/
+/playwright-report/
