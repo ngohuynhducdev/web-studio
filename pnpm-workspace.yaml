@@ -4,7 +4,6 @@ overrides:
 allowBuilds:
   esbuild: true
   msw: true
-  puppeteer: set this to true or false
   sharp: true
   unrs-resolver: true
 ignoredBuiltDependencies:
