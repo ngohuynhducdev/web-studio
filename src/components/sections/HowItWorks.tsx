@@ -24,7 +24,6 @@ function StepIcon({ type }: { type: StepIcon }) {
 }
 
 export default function HowItWorks({ cms }: { cms?: HiwCms }) {
-  const eyebrow    = cms?.hiwEyebrow     ?? DEFAULT_HIW_HEADINGS.hiwEyebrow;
   const heading    = cms?.hiwHeading     ?? DEFAULT_HIW_HEADINGS.hiwHeading;
   const headingItal= cms?.hiwHeadingItal ?? DEFAULT_HIW_HEADINGS.hiwHeadingItal;
   const steps      = cms?.hiwSteps?.length ? cms.hiwSteps : DEFAULT_STEPS;

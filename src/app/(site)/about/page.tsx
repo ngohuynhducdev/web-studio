@@ -14,7 +14,7 @@ import Reveal, { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "About us — Web Studio",
+  title: "About us",
   description:
     "Who Web Studio is, what we do, and why this studio exists — the story of a small studio in Saigon.",
 };

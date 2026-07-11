@@ -43,12 +43,12 @@ export async function generateMetadata({
   if (!template) {
     const entry = manifestEntry(slug);
     if (!entry) return {};
-    return { title: `${entry.label} — Web Studio` };
+    return { title: entry.label };
   }
   const isLive = !!(template?.componentKey && template.componentKey in TEMPLATE_COMPONENTS);
   const title = isLive
-    ? `${template.title} — Web Studio`
-    : `${template.title} (coming soon) — Web Studio`;
+    ? template.title
+    : `${template.title} (coming soon)`;
   return {
     title,
     description: template.description,

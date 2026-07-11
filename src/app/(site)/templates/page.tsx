@@ -10,7 +10,7 @@ import Reveal from "@/components/ui/motion/Reveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Website Templates | Web Studio",
+  title: "Website Templates",
   description:
     "Ready-made website templates for nail salons, spas, cafes, gyms, barbershops. Pick a template — we handle the rest.",
 };

@@ -20,9 +20,8 @@ function getInitials(name: string) {
 }
 
 export default function Testimonials({
-  eyebrow, heading, items,
+  heading, items,
 }: {
-  eyebrow?: string;
   heading?: string;
   items?: TestimonialItem[];
 }) {

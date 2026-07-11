@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = projects.find((p) => slugify(p.shopName) === slug);
   if (!project) return {};
   return {
-    title: `${project.shopName} — Project | Web Studio`,
+    title: `${project.shopName} — Project`,
     description: project.highlight,
   };
 }
