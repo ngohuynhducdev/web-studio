@@ -65,9 +65,6 @@ app/
 │   ├── templates/          — /templates
 │   │   ├── page.tsx
 │   │   └── page.module.css
-│   ├── projects/            — /projects
-│   │   ├── page.tsx
-│   │   └── page.module.css
 │   ├── contact/            — /contact?template=<slug> pre-selects template dropdown
 │   │   ├── page.tsx
 │   │   └── page.module.css
@@ -188,7 +185,6 @@ lib/
 data/                     — Single source of truth for default/fallback content
 ├── homepage.ts
 ├── layout.ts             — DEFAULT_NAV, DEFAULT_HEADER, DEFAULT_FOOTER
-├── du-an.ts
 ├── lien-he.ts
 ├── ve-chung-toi.ts
 ├── templates-page.ts
@@ -216,11 +212,9 @@ sanity/
     ├── site.ts           — client order (formerly named clientOrder.ts)
     ├── homepage.ts
     ├── sections.ts
-    ├── project.ts
     ├── aboutPage.ts
     ├── contactPage.ts
     ├── templatesPage.ts
-    ├── duAnPage.ts
     ├── siteHeader.ts
     └── siteFooter.ts
 
@@ -250,7 +244,7 @@ Templates only use:
 
 ## Sanity CMS
 
-Content types: `template`, `site`, `homepage`, `sections`, `project`,
+Content types: `template`, `site`, `homepage`, `sections`,
 `aboutPage`, `contactPage`, `templatesPage`, `siteHeader`, `siteFooter`
 
 ### Template Schema

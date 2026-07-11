@@ -118,36 +118,6 @@ export const DEFAULT_PRICING_PLANS: PricingPlan[] = [
   },
 ];
 
-// ── FAQ ──────────────────────────────────────────────────────────────────────
-
-export const DEFAULT_FAQ_ITEMS = [
-  {
-    _key: "faq1",
-    q: "How long until my site is ready?",
-    a: "Usually 5 business days from when you send us everything we need (logo, photos, copy). Need it faster? Message us on Zalo and we'll work something out.",
-  },
-  {
-    _key: "faq2",
-    q: "What's included in the price?",
-    a: "Design, development, hosting, a .vn domain for the first year, and 30 days of free edits after launch. No hidden fees.",
-  },
-  {
-    _key: "faq3",
-    q: "Can I change the colors, logo, or content?",
-    a: "Absolutely. Colors, fonts, logo, photos, and content are all customized to fit your business.",
-  },
-  {
-    _key: "faq4",
-    q: "Can I update the site myself after launch?",
-    a: "Yes. We'll walk you through making basic edits in Sanity Studio — as easy as using Google Docs, no coding needed.",
-  },
-  {
-    _key: "faq5",
-    q: "What if I'm not happy with the result?",
-    a: "We'll make free revisions for the first 30 days until you're happy with it. And before launch, we always ask for your feedback so we can fix things upfront.",
-  },
-];
-
 // ── CTA ──────────────────────────────────────────────────────────────────────
 
 export const DEFAULT_CTA = {

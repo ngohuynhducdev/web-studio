@@ -19,7 +19,7 @@ test.describe("homepage", () => {
 
     // Primary nav routes
     const nav = page.getByRole("navigation").first();
-    for (const href of ["/templates", "/projects", "/about", "/contact"]) {
+    for (const href of ["/templates", "/about", "/contact"]) {
       await expect(nav.locator(`a[href="${href}"]`).first()).toBeVisible();
     }
   });
@@ -93,7 +93,7 @@ test.describe("protected and generated routes", () => {
     const response = await request.get("/sitemap.xml");
     expect(response.status()).toBe(200);
     const xml = await response.text();
-    for (const path of ["/templates", "/projects", "/about", "/contact"]) {
+    for (const path of ["/templates", "/about", "/contact"]) {
       expect(xml).toContain(path);
     }
     expect(xml).not.toContain("lien-he");

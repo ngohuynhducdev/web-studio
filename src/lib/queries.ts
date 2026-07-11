@@ -109,27 +109,6 @@ export const aboutPageQuery = groq`
   }
 `;
 
-export const duAnPageQuery = groq`
-  *[_type == "duAnPage" && _id == "duAnPage"][0] {
-    heroEyebrow, heroTitle, heroTitleItal, heroSub, metaLocation,
-    ctaEyebrow, ctaTitle, ctaTitleItal, ctaBody
-  }
-`;
-
-export const allProjectsQuery = groq`
-  *[_type == "project"] | order(order asc, _createdAt desc) {
-    _id,
-    shopName,
-    industry,
-    industryLabel,
-    location,
-    templateUsed,
-    "imageUrl": image.asset->url,
-    liveUrl,
-    highlight
-  }
-`;
-
 export const siteBySlugQuery = groq`
   *[_type == "site" && previewSlug.current == $slug][0] {
     _id,
