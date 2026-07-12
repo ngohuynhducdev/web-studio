@@ -17,8 +17,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v4
-        with:
-          version: 11
 
       - uses: actions/setup-node@v4
         with:
@@ -33,3 +31,27 @@ jobs:
       # Note: `next build` is intentionally NOT run here — Vercel builds every
       # push (preview for staging, production for main). CI covers what Vercel
       # does not: lint, type-check, and unit tests (no Sanity env required).
+
+  e2e:
+    runs-on: ubuntu-latest
+    env:
+      # NEXT_PUBLIC_* values ship in the client bundle, so they are public by
+      # definition — safe to hardcode. E2E reads published content only (no token).
+      NEXT_PUBLIC_SANITY_PROJECT_ID: yhc13wn5
+      NEXT_PUBLIC_SANITY_DATASET: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm exec playwright install --with-deps chromium
+
+      # playwright.config.ts starts its own dev server on port 3100.
+      - run: pnpm test:e2e
