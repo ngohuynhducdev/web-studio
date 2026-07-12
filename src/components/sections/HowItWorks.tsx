@@ -18,17 +18,18 @@ export default function HowItWorks({ cms }: { cms?: HiwCms }) {
           </h2>
         </div>
 
-        {/* Quiet index: three hairline rows, nothing else */}
-        <RevealStagger className={styles.index}>
+        {/* Three manila folders in a drawer — each step is one folder,
+            tabs die-cut at different positions like a real file set */}
+        <RevealStagger className={styles.drawer}>
           {steps.map((step, i) => (
             <RevealItem key={step._key} className="grid">
-              <div className={styles.row}>
-                <span className={styles.rowNo} aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
+              <article className={`${styles.folder} lift`}>
+                <span className={styles.folderTab} aria-hidden="true">
+                  nº {i + 1}
                 </span>
-                <h3 className={styles.rowTitle}>{step.title}</h3>
-                <p className={styles.rowDesc}>{step.desc}</p>
-              </div>
+                <h3 className={styles.folderTitle}>{step.title}</h3>
+                <p className={styles.folderDesc}>{step.desc}</p>
+              </article>
             </RevealItem>
           ))}
         </RevealStagger>
