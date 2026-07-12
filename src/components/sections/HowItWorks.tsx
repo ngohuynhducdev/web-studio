@@ -21,7 +21,6 @@ export default function HowItWorks({ cms }: { cms?: HiwCms }) {
           {steps.map((step, i) => (
             <RevealItem key={step._key} className="grid">
               <article className={`${styles.stepCard} note lift`}>
-                <span className={`pin ${styles.stepPin}`} aria-hidden="true" />
                 <div className={styles.stepTop}>
                   <div className={styles.stepNum}>{String(i + 1).padStart(2, "0")}</div>
                 </div>

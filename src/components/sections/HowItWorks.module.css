@@ -24,13 +24,6 @@
   padding-bottom: 16px;
   border-bottom: 1.5px dashed var(--color-brand-line);
 }
-.stepPin {
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
 .stepNum {
   font-family: var(--font-serif);
   font-weight: 300;
