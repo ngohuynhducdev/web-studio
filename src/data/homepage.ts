@@ -31,9 +31,9 @@ export const DEFAULT_HIW_HEADINGS = {
 };
 
 export const DEFAULT_STEPS: Step[] = [
-  { _key: "h1", title: "pick a template",     icon: "grid",  desc: "browse our ready-made designs. pick the one that fits your business — colors, mood, typography. not sure yet? we'll help you decide." },
-  { _key: "h2", title: "send us your info",   icon: "chat",  desc: "logo, photos, copy, pricing — just send it over on zalo. we'll handle the rest: layout, copywriting, image placement." },
-  { _key: "h3", title: "your site, in 5 days", icon: "pulse", desc: "we deploy it, connect your domain, and hand over the accounts. plus a quick guide so you can make updates yourself later." },
+  { _key: "h1", title: "pick a template",     icon: "grid",  desc: "browse our designs and pick the one that fits — not sure yet? we'll help you decide." },
+  { _key: "h2", title: "send us your info",   icon: "chat",  desc: "logo, photos, pricing — send it over on zalo and we'll handle the rest." },
+  { _key: "h3", title: "your site, in 5 days", icon: "pulse", desc: "we deploy, connect your domain, and hand everything over with a quick guide." },
 ];
 
 // ── TemplatesSection ─────────────────────────────────────────────────────────
