@@ -109,7 +109,6 @@ export const homepageSchema = defineType({
     }),
 
     // ── CTA ───────────────────────────────────────────────────────────────
-    defineField({ name: 'ctaEyebrow',     title: 'Eyebrow',           type: 'string', group: 'cta' }),
     defineField({ name: 'ctaHeading',     title: 'Heading',           type: 'string', group: 'cta' }),
     defineField({ name: 'ctaHeadingItal', title: 'Heading (italic)', type: 'string', group: 'cta' }),
     defineField({ name: 'ctaBody',        title: 'Description',             type: 'text', rows: 2, group: 'cta' }),

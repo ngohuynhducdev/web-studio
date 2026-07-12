@@ -29,7 +29,6 @@ export interface PricingCms {
 }
 
 export interface CtaCms {
-  ctaEyebrow?: string;
   ctaHeading?: string;
   ctaHeadingItal?: string;
   ctaBody?: string;
