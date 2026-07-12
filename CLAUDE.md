@@ -101,7 +101,6 @@ components/
 │   ├── HowItWorks.tsx
 │   ├── HomeTemplateGrid.tsx      — template teaser grid on the homepage
 │   ├── TemplatesPageCatalog.tsx  — full catalog + filter on /templates
-│   ├── TapeStrip.tsx
 │   ├── Testimonials.tsx
 │   ├── PricingSection.tsx
 │   ├── CTASection.tsx

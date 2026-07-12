@@ -3,12 +3,6 @@ import { STUDIO_ZALO_URL } from "@/data/layout";
 
 export type { Step, TestimonialItem, PricingFeature, PricingPlan };
 
-// ── TapeStrip ────────────────────────────────────────────────────────────────
-
-export const DEFAULT_TAPE_ITEMS = [
-  "Nail Salons", "Spa & Massage", "Cafes", "Gyms", "Hair Salons",
-];
-
 // ── Hero ─────────────────────────────────────────────────────────────────────
 
 export const DEFAULT_HERO = {

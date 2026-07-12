@@ -6,7 +6,6 @@ export const homepageSchema = defineType({
   type: 'document',
   groups: [
     { name: 'hero',          title: 'Hero' },
-    { name: 'tape',          title: 'Tape Strip' },
     { name: 'howItWorks',    title: 'How It Works' },
     { name: 'templates',     title: 'Templates' },
     { name: 'testimonials',  title: 'Testimonials' },
@@ -29,12 +28,6 @@ export const homepageSchema = defineType({
     }),
     defineField({ name: 'heroImage', title: 'Hero image', type: 'image', group: 'hero',
       options: { hotspot: true },
-    }),
-
-    // ── Tape Strip ────────────────────────────────────────────────────────
-    defineField({
-      name: 'tapeItems', title: 'Industry list', type: 'array', group: 'tape',
-      of: [{ type: 'string' }],
     }),
 
     // ── How It Works ──────────────────────────────────────────────────────

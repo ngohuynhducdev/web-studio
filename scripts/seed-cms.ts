@@ -13,7 +13,6 @@ import { createClient } from "@sanity/client";
 
 import {
   DEFAULT_HERO,
-  DEFAULT_TAPE_ITEMS,
   DEFAULT_HIW_HEADINGS,
   DEFAULT_STEPS,
   DEFAULT_TEMPLATES_SECTION,
@@ -73,7 +72,6 @@ const documents = [
     _type: "homepage",
 
     ...DEFAULT_HERO,
-    tapeItems: DEFAULT_TAPE_ITEMS,
     ...DEFAULT_HIW_HEADINGS,
     hiwSteps: DEFAULT_STEPS,
     ...DEFAULT_TEMPLATES_SECTION,
