@@ -25,7 +25,7 @@
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
 }
 .priceCard:hover {
-  transform: translateY(-4px) rotate(-0.5deg);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
 .priceCardFeatured {
@@ -35,7 +35,6 @@
   box-shadow: var(--shadow-lg);
 }
 .priceCardFeatured:hover {
-  transform: translateY(-4px) rotate(0.5deg);
   box-shadow: var(--shadow-xl);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -43,17 +42,13 @@
 }
 .priceFlag {
   position: absolute;
-  top: -14px;
-  left: 28px;
-  background: var(--color-brand-terracotta-text);
-  color: #fffbf4;
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 999px;
+  top: -28px;
+  left: 32px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--color-brand-terracotta-text);
 }
 .priceName {
   font-family: var(--font-serif);
@@ -115,27 +110,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-.priceList li {
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--fg-2);
-  line-height: 1.5;
-  padding-left: 16px;
-  position: relative;
-}
-.priceCardFeatured .priceList li {
-  color: rgba(250, 246, 240, 0.85);
-}
-.priceList li::before {
-  content: "·";
-  color: var(--color-brand-terracotta);
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 0.5;
-  position: absolute;
-  left: 4px;
-  top: 9px;
 }
 .priceFoot {
   margin-top: auto;

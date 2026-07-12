@@ -104,7 +104,7 @@ export default function PricingSection({ cms }: { cms?: PricingCms }) {
 
 function RegularCard({ plan }: { plan: PricingPlan }) {
   return (
-    <article className="bg-white border border-brand-beige rounded-2xl p-8 flex flex-col relative">
+    <article className={styles.priceCard}>
       {/* Name + description */}
       <div>
         <div className={styles.priceName}>{plan.name}</div>
@@ -148,9 +148,9 @@ function RegularCard({ plan }: { plan: PricingPlan }) {
 
 function FeaturedCard({ plan }: { plan: PricingPlan }) {
   return (
-    <article className={`${styles.priceCardFeatured} rounded-2xl p-8 flex flex-col relative -translate-y-3`}>
+    <article className={`${styles.priceCard} ${styles.priceCardFeatured}`}>
       {/* Badge */}
-      <span className={styles.priceFlag}>MOST POPULAR</span>
+      <span className={styles.priceFlag}>most popular</span>
 
       {/* Name + description */}
       <div>
