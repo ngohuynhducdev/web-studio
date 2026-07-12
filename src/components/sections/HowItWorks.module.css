@@ -1,85 +1,55 @@
-/* ─ How it works — one typographic flow, no cards ─ */
-.flow {
-  display: flex;
-  flex-direction: column;
-  margin-top: 8px;
+/* ─ How it works — quiet index: hairline rows, no ornament ─ */
+.index {
+  border-top: 1px solid var(--color-brand-line);
+  max-width: 980px;
 }
 
-.verse {
-  max-width: 900px;
+.row {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 6px 20px;
+  padding: 26px 4px 28px;
+  border-bottom: 1px solid var(--color-brand-line);
 }
 
-.verseTitle {
-  position: relative;
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(34px, 5vw, 62px);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
-  text-transform: lowercase;
-  color: var(--color-brand-ink);
-  text-wrap: balance;
-  margin: 0;
-}
-
-.verseNo {
+.rowNo {
+  grid-row: 1 / span 2;
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  font-size: 0.32em;
-  letter-spacing: 0;
+  font-size: 15px;
+  line-height: 1.9;
   color: var(--color-brand-terracotta-text);
-  margin-right: 0.6em;
-  vertical-align: 0.9em;
 }
 
-.verseNote {
-  margin: 14px 0 0;
+.rowTitle {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  text-transform: lowercase;
+  color: var(--color-brand-ink);
+  margin: 0;
+}
+
+.rowDesc {
+  margin: 0;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--fg-2);
-  max-width: 40ch;
-}
-
-.arrow {
-  display: none;
-  color: var(--color-brand-terracotta-text);
-  opacity: 0.65;
-  margin: 10px 0 12px;
-}
-
-/* Mobile: verses stack with breathing room; order reads top-down without arrows */
-.flow > * + * {
-  margin-top: 40px;
+  max-width: 52ch;
 }
 
 @media (min-width: 768px) {
-  .flow > * + * { margin-top: 0; }
-  .arrow { display: block; }
-
-  /* staircase: each verse steps further in, the sentence flows down-right */
-  .flow > *:nth-child(1) .verse { margin-left: 0; }
-  .flow > *:nth-child(2) .arrow { margin-left: clamp(40px, 9vw, 150px); }
-  .flow > *:nth-child(3) .verse { margin-left: clamp(48px, 11vw, 170px); }
-  .flow > *:nth-child(4) .arrow { margin-left: clamp(140px, 22vw, 340px); }
-  .flow > *:nth-child(5) .verse { margin-left: clamp(110px, 22vw, 350px); }
-
-  /* annotation rides beside the verb, not under it */
-  .verse {
-    display: flex;
+  .row {
+    grid-template-columns: 64px 300px 1fr;
+    gap: 32px;
     align-items: baseline;
-    gap: 36px;
+    padding: 32px 6px;
   }
-  .verseNote {
-    margin-top: 0;
-    max-width: 32ch;
-    flex-shrink: 1;
-    font-size: 14.5px;
-    padding-bottom: 6px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .verse { gap: 48px; }
+  .rowNo { grid-row: auto; line-height: inherit; }
+  .rowTitle { font-size: 29px; }
+  .rowDesc { font-size: 14.5px; }
 }
