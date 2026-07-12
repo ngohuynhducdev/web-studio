@@ -12,7 +12,6 @@
 }
 
 /* ── Copy ── */
-.heroCopy > .kraft-label { margin-bottom: 24px; }
 .heroHeading {
   font-family: var(--font-serif);
   font-weight: 300;
@@ -39,31 +38,13 @@
   max-width: 52ch;
 }
 .heroCta {
-  margin-top: 34px;
+  margin-top: 38px;
   display: flex;
   gap: 14px;
   align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
 }
-.heroMeta {
-  margin: 34px 0 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  gap: 10px 28px;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-.heroMetaItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  color: var(--color-brand-ink-soft);
-}
-.heroMetaItem svg { color: var(--color-brand-sage); flex-shrink: 0; }
 
 /* ── Stage: back paper + taped polaroid + postmark ── */
 .heroStage {
@@ -139,7 +120,6 @@
   .hero { padding: 64px 0 88px; }
   .heroLede { font-size: 17px; }
   .heroCta { flex-direction: row; align-items: center; }
-  .heroMeta { flex-direction: row; align-items: center; }
   .heroPostmark { left: -14px; width: 112px; height: 112px; }
 }
 

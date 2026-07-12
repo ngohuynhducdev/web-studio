@@ -7,15 +7,13 @@ import PostmarkStamp from "@/components/ui/PostmarkStamp";
 import styles from "./HeroSection.module.css";
 
 export default function HeroSection({ cms }: { cms?: HeroCms }) {
+  // Distilled hero: type + photo + one CTA carry the message. The CMS still
+  // stores eyebrow/meta/secondary-CTA fields; this section just doesn't render them.
   const d = {
-    eyebrow:     cms?.heroEyebrow      ?? DEFAULT_HERO.heroEyebrow,
     heading:     cms?.heroHeading      ?? DEFAULT_HERO.heroHeading,
     headingItal: cms?.heroHeadingItal  ?? DEFAULT_HERO.heroHeadingItal,
     lede:        cms?.heroLede         ?? DEFAULT_HERO.heroLede,
-    badge:       cms?.heroBadge        ?? DEFAULT_HERO.heroBadge,
     ctaPrimary:  cms?.heroCtaPrimary   ?? DEFAULT_HERO.heroCtaPrimary,
-    ctaSecondary:cms?.heroCtaSecondary ?? DEFAULT_HERO.heroCtaSecondary,
-    meta:        cms?.heroMeta?.length ? cms.heroMeta : DEFAULT_HERO.heroMeta,
   };
 
   return (
@@ -24,7 +22,6 @@ export default function HeroSection({ cms }: { cms?: HeroCms }) {
 
         {/* ── Copy ── */}
         <Reveal immediate className={styles.heroCopy}>
-          <span className="kraft-label">{d.eyebrow}</span>
           <h1 className={styles.heroHeading}>
             {d.heading}<br />
             get a beautiful site{" "}
@@ -38,20 +35,7 @@ export default function HeroSection({ cms }: { cms?: HeroCms }) {
                 <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
               </svg>
             </Link>
-            <Link href="/about" className="btn btn-outline btn-lg">
-              {d.ctaSecondary}
-            </Link>
           </div>
-          <ul className={styles.heroMeta}>
-            {d.meta.map((item) => (
-              <li key={item} className={styles.heroMetaItem}>
-                <svg width={15} height={15} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {item}
-              </li>
-            ))}
-          </ul>
         </Reveal>
 
         {/* ── Taped polaroid + postmark ── */}
