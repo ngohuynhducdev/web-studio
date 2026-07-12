@@ -37,7 +37,6 @@ export default function Testimonials({
           {list.map((t, i) => (
             <RevealItem key={t._key ?? i} className="grid">
               <article className={`${styles.testiCard} note lift`}>
-                <span className={`pin ${styles.testiPin}`} aria-hidden="true" />
                 <StarRating rating={t.rating} />
                 <div aria-hidden="true" className={styles.testiQuoteMark}>&ldquo;</div>
                 <p className={styles.testiQuote}>{t.content}</p>
