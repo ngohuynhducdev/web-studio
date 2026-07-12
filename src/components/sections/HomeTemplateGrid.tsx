@@ -24,8 +24,8 @@ export default async function HomeTemplateGrid({
   const templates = fetched.length > 0 ? fetched.slice(0, 3) : FALLBACK_TEMPLATES;
 
   return (
-    <section className="section" id="templates">
-      <div className="container-site">
+    <section className={`section ${styles.board}`} id="templates">
+      <div className={`container-site ${styles.boardInner}`}>
         <div className="section-head">
           <h2 className="h2-heading">
             {heading ?? title}{headingItal && <> <span className="italic-acc">{headingItal}</span></>}

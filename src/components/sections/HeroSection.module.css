@@ -16,8 +16,8 @@
 .heroHeading {
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: clamp(36px, 7vw, 84px);
-  line-height: 1;
+  font-size: clamp(38px, 7vw, 88px);
+  line-height: 0.98;
   letter-spacing: -0.035em;
   text-transform: lowercase;
   color: var(--color-brand-ink);
@@ -88,7 +88,7 @@
   width: 100%;
   max-width: 420px;
   padding: 13px 13px 0;
-  transform: rotate(-2deg);
+  transform: rotate(-2.6deg);
   --lift-rot: -1.4deg;
 }
 .tapeA { top: -12px; left: 26px; transform: rotate(-6deg); }
@@ -140,7 +140,7 @@
   .heroLede { font-size: 17px; }
   .heroCta { flex-direction: row; align-items: center; }
   .heroMeta { flex-direction: row; align-items: center; }
-  .heroPostmark { left: -14px; width: 100px; height: 100px; }
+  .heroPostmark { left: -14px; width: 112px; height: 112px; }
 }
 
 @media (min-width: 1024px) {
@@ -148,5 +148,5 @@
   .heroGrid { grid-template-columns: 1.04fr 0.96fr; gap: 72px; }
   .heroHeading br { display: initial; }
   .heroStage { padding: 24px 20px 36px; justify-content: flex-end; }
-  .polaroid { max-width: 440px; }
+  .polaroid { max-width: 460px; }
 }
