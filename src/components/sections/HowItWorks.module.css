@@ -1,96 +1,73 @@
-/* ─ How it works — three manila folders, tabs die-cut at different spots ─ */
-.drawer {
+/* ─ How it works — pinned tickets ─ */
+.stepsGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 44px;
-  margin-top: 16px;
+  gap: 36px;
+  margin-top: 28px;
 }
 
-.folder {
+.stepCard {
   position: relative;
+  padding: 38px 32px 32px;
   background: var(--color-brand-cream-light);
-  border: 1px solid var(--color-brand-line);
-  border-radius: 3px 10px 10px 10px;
-  padding: 30px 28px 30px;
-  margin-top: 30px; /* room for the tab */
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   --lift-rot: 0deg;
 }
-
-/* the die-cut tab — same paper, cut from the folder's own silhouette */
-.folderTab {
-  position: absolute;
-  top: -29px;
-  left: 16px;
-  height: 30px;
-  display: inline-flex;
+/* perforation rule under the number row (voucher tear) */
+.stepTop {
+  display: flex;
   align-items: center;
-  padding: 0 18px;
-  background: var(--color-brand-cream-light);
-  border: 1px solid var(--color-brand-line);
-  border-bottom: none;
-  border-radius: 8px 8px 0 0;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1.5px dashed var(--color-brand-line);
+}
+.stepPin {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.stepNum {
   font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 300;
+  font-size: 72px;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
   color: var(--color-brand-terracotta-text);
 }
-/* mask the folder's top border where the tab sits */
-.folderTab::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 2px;
-  background: var(--color-brand-cream-light);
-}
-
-.folderTitle {
+.stepTitle {
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: 25px;
-  line-height: 1.12;
-  letter-spacing: -0.015em;
+  line-height: 1.15;
   text-transform: lowercase;
   color: var(--color-brand-ink);
+  margin: 4px 0 0;
+}
+.stepDesc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--fg-2);
   margin: 0;
 }
 
-.folderDesc {
-  margin: 12px 0 0;
-  font-family: var(--font-body);
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--fg-2);
-  max-width: 44ch;
-}
-
+/* Tablet & up: one straight, evenly aligned row */
 @media (min-width: 768px) {
-  .drawer {
+  .stepsGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 26px;
-    align-items: start;
+    align-items: stretch;
   }
-  .drawer > * { min-width: 0; }
-
-  /* a real file set: each folder's tab is cut at a different position */
-  .drawer > *:nth-child(1) .folderTab { left: 16px; right: auto; }
-  .drawer > *:nth-child(2) .folderTab { left: 50%; transform: translateX(-50%); }
-  .drawer > *:nth-child(3) .folderTab { left: auto; right: 16px; }
-  .drawer > *:nth-child(2) .folder { border-radius: 10px; }
-  .drawer > *:nth-child(3) .folder { border-radius: 10px 3px 10px 10px; }
-
-  /* hand-placed in the drawer: slight settle, not a perfect row */
-  .drawer > *:nth-child(1) .folder { transform: rotate(-0.7deg); --lift-rot: -0.5deg; }
-  .drawer > *:nth-child(2) .folder { transform: rotate(0.4deg); margin-top: 44px; --lift-rot: 0.3deg; }
-  .drawer > *:nth-child(3) .folder { transform: rotate(-0.3deg); margin-top: 34px; --lift-rot: -0.2deg; }
+  .stepsGrid > * { min-width: 0; }
+  .stepsGrid > * .stepCard { height: 100%; }
 }
 
 @media (min-width: 1024px) {
-  .folder { padding: 36px 32px 34px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .drawer > * .folder { transform: none; }
+  .stepsGrid { gap: 30px; }
+  .stepCard { padding: 42px 38px 36px; }
 }

@@ -17,18 +17,16 @@ export default function HowItWorks({ cms }: { cms?: HiwCms }) {
             not three meetings.
           </h2>
         </div>
-
-        {/* Three manila folders in a drawer — each step is one folder,
-            tabs die-cut at different positions like a real file set */}
-        <RevealStagger className={styles.drawer}>
+        <RevealStagger className={styles.stepsGrid}>
           {steps.map((step, i) => (
             <RevealItem key={step._key} className="grid">
-              <article className={`${styles.folder} lift`}>
-                <span className={styles.folderTab} aria-hidden="true">
-                  nº {i + 1}
-                </span>
-                <h3 className={styles.folderTitle}>{step.title}</h3>
-                <p className={styles.folderDesc}>{step.desc}</p>
+              <article className={`${styles.stepCard} note lift`}>
+                <span className={`pin ${styles.stepPin}`} aria-hidden="true" />
+                <div className={styles.stepTop}>
+                  <div className={styles.stepNum}>{String(i + 1).padStart(2, "0")}</div>
+                </div>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDesc}>{step.desc}</p>
               </article>
             </RevealItem>
           ))}
