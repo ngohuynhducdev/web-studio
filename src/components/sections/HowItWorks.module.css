@@ -1,86 +1,85 @@
-/* ─ How it works — pinned tickets ─ */
-.stepsGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 36px;
-  margin-top: 28px;
-}
-
-.stepCard {
-  position: relative;
-  padding: 38px 32px 32px;
-  background: var(--color-brand-cream-light);
-  border-radius: 4px;
+/* ─ How it works — one typographic flow, no cards ─ */
+.flow {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  --lift-rot: 0deg;
+  margin-top: 8px;
 }
-/* perforation rule under the number row (voucher tear) */
-.stepTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 16px;
-  border-bottom: 1.5px dashed var(--color-brand-line);
+
+.verse {
+  max-width: 900px;
 }
-.stepPin {
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-.stepNum {
+
+.verseTitle {
+  position: relative;
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: 72px;
-  line-height: 0.8;
-  letter-spacing: -0.04em;
-  color: var(--color-brand-terracotta-text);
-}
-.stepTitle {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: 25px;
-  line-height: 1.15;
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
   text-transform: lowercase;
   color: var(--color-brand-ink);
-  margin: 4px 0 0;
+  text-wrap: balance;
+  margin: 0;
 }
-.stepDesc {
+
+.verseNo {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.32em;
+  letter-spacing: 0;
+  color: var(--color-brand-terracotta-text);
+  margin-right: 0.6em;
+  vertical-align: 0.9em;
+}
+
+.verseNote {
+  margin: 14px 0 0;
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.6;
   color: var(--fg-2);
-  margin: 0;
+  max-width: 40ch;
 }
 
-/* Tablet & up: tickets zig-zag down the board instead of three equal columns */
+.arrow {
+  display: none;
+  color: var(--color-brand-terracotta-text);
+  opacity: 0.65;
+  margin: 10px 0 12px;
+}
+
+/* Mobile: verses stack with breathing room; order reads top-down without arrows */
+.flow > * + * {
+  margin-top: 40px;
+}
+
 @media (min-width: 768px) {
-  .stepsGrid {
-    grid-template-columns: repeat(12, 1fr);
-    gap: 0;
-    row-gap: 32px;
+  .flow > * + * { margin-top: 0; }
+  .arrow { display: block; }
+
+  /* staircase: each verse steps further in, the sentence flows down-right */
+  .flow > *:nth-child(1) .verse { margin-left: 0; }
+  .flow > *:nth-child(2) .arrow { margin-left: clamp(40px, 9vw, 150px); }
+  .flow > *:nth-child(3) .verse { margin-left: clamp(48px, 11vw, 170px); }
+  .flow > *:nth-child(4) .arrow { margin-left: clamp(140px, 22vw, 340px); }
+  .flow > *:nth-child(5) .verse { margin-left: clamp(110px, 22vw, 350px); }
+
+  /* annotation rides beside the verb, not under it */
+  .verse {
+    display: flex;
+    align-items: baseline;
+    gap: 36px;
   }
-  .stepsGrid > * { min-width: 0; }
-  .stepsGrid > *:nth-child(1) { grid-column: 1 / 8; }
-  .stepsGrid > *:nth-child(2) { grid-column: 6 / 13; }
-  .stepsGrid > *:nth-child(3) { grid-column: 3 / 10; }
-  /* hand-placed: each ticket sits at a slightly different angle */
-  .stepsGrid > *:nth-child(1) .stepCard { transform: rotate(-1.2deg); --lift-rot: -0.8deg; }
-  .stepsGrid > *:nth-child(2) .stepCard { transform: rotate(0.9deg); --lift-rot: 0.6deg; }
-  .stepsGrid > *:nth-child(3) .stepCard { transform: rotate(-0.5deg); --lift-rot: -0.4deg; }
+  .verseNote {
+    margin-top: 0;
+    max-width: 32ch;
+    flex-shrink: 1;
+    font-size: 14.5px;
+    padding-bottom: 6px;
+  }
 }
 
 @media (min-width: 1024px) {
-  .stepsGrid { row-gap: 20px; }
-  .stepsGrid > *:nth-child(1) { grid-column: 1 / 7; }
-  .stepsGrid > *:nth-child(2) { grid-column: 6 / 12; margin-top: -28px; }
-  .stepsGrid > *:nth-child(3) { grid-column: 3 / 9; margin-top: -16px; }
-  .stepCard { padding: 42px 38px 36px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .stepsGrid > * .stepCard { transform: none; }
+  .verse { gap: 48px; }
 }

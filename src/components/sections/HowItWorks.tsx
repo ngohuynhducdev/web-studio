@@ -1,7 +1,37 @@
+import { Fragment } from "react";
 import { DEFAULT_STEPS, DEFAULT_HIW_HEADINGS } from "@/data/homepage";
 import type { HiwCms } from "@/types/cms";
 import { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal";
 import styles from "./HowItWorks.module.css";
+
+// Hand-drawn dashed arrow connecting one step to the next (decorative).
+function FlowArrow({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 150 70"
+      width={150}
+      height={70}
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M 8 6 C 30 48, 90 62, 136 52"
+        stroke="currentColor"
+        strokeWidth={1.6}
+        strokeDasharray="5 8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 126 46 l 12 6 l -9 9"
+        stroke="currentColor"
+        strokeWidth={1.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export default function HowItWorks({ cms }: { cms?: HiwCms }) {
   const heading    = cms?.hiwHeading     ?? DEFAULT_HIW_HEADINGS.hiwHeading;
@@ -17,18 +47,26 @@ export default function HowItWorks({ cms }: { cms?: HiwCms }) {
             not three meetings.
           </h2>
         </div>
-        <RevealStagger className={styles.stepsGrid}>
+
+        {/* One flowing sentence down the page: verb → annotation → arrow → verb */}
+        <RevealStagger className={styles.flow}>
           {steps.map((step, i) => (
-            <RevealItem key={step._key} className="grid">
-              <article className={`${styles.stepCard} note lift`}>
-                <span className={`pin ${styles.stepPin}`} aria-hidden="true" />
-                <div className={styles.stepTop}>
-                  <div className={styles.stepNum}>{String(i + 1).padStart(2, "0")}</div>
+            <Fragment key={step._key}>
+              <RevealItem className="grid">
+                <div className={styles.verse}>
+                  <h3 className={styles.verseTitle}>
+                    <span className={styles.verseNo} aria-hidden="true">nº{i + 1}</span>
+                    {step.title}
+                  </h3>
+                  <p className={styles.verseNote}>{step.desc}</p>
                 </div>
-                <h3 className={styles.stepTitle}>{step.title}</h3>
-                <p className={styles.stepDesc}>{step.desc}</p>
-              </article>
-            </RevealItem>
+              </RevealItem>
+              {i < steps.length - 1 && (
+                <RevealItem className="grid">
+                  <FlowArrow className={styles.arrow} />
+                </RevealItem>
+              )}
+            </Fragment>
           ))}
         </RevealStagger>
       </div>

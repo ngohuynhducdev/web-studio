@@ -32,10 +32,7 @@ export default async function HomePage() {
         heading={cms?.tplHeading}
         headingItal={cms?.tplHeadingItal}
       />
-      <Testimonials
-        heading={cms?.testiHeading}
-        items={cms?.testiItems}
-      />
+      <Testimonials heading={cms?.testiHeading} items={cms?.testiItems} />
       <PricingSection cms={cms} />
       <CTASection />
     </>
