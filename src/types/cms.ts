@@ -40,7 +40,6 @@ export interface CtaCms {
 // ── Page CMS props ────────────────────────────────────────────────────────────
 
 export interface AboutCms {
-  heroEyebrow?: string;
   heroTitle?: string;
   heroTitleItal?: string;
   heroSub?: string;
@@ -50,7 +49,6 @@ export interface AboutCms {
   storyQuoteSource?: string;
   storyImageUrl?: string;
   values?: Array<{ _key?: string; num: string; title: string; body: string }>;
-  stats?: Array<{ _key?: string; value: string; label: string }>;
 }
 
 export interface TemplatesPageCms {

@@ -28,10 +28,9 @@ function ArrowIcon() {
   );
 }
 
-export default async function VeChungToiPage() {
+export default async function AboutPage() {
   const cms = await client.fetch<AboutCms>(aboutPageQuery, {}, { next: { revalidate: 60 } });
 
-  const heroEyebrow  = cms?.heroEyebrow      ?? DEFAULT_ABOUT_HERO.heroEyebrow;
   const heroTitle    = cms?.heroTitle        ?? DEFAULT_ABOUT_HERO.heroTitle;
   const heroTitleItal= cms?.heroTitleItal    ?? DEFAULT_ABOUT_HERO.heroTitleItal;
   const heroSub      = cms?.heroSub          ?? DEFAULT_ABOUT_HERO.heroSub;
@@ -49,7 +48,6 @@ export default async function VeChungToiPage() {
       <section className={`${styles.aboutHero} grain`}>
         <div className="container-site">
           <Reveal immediate>
-            <span className="eyebrow">{heroEyebrow}</span>
             <h1 className={styles.aboutHeroTitle}>
               {heroTitle}<br />
               <em className={styles.aboutHeroItal}>{heroTitleItal}</em>
@@ -89,7 +87,7 @@ export default async function VeChungToiPage() {
               />
             </div>
             <div className={styles.aboutImageCaption}>
-              <span className="dot-terracotta">·</span>&nbsp; where we sit and build every one
+              <span className="dot-terracotta">·</span>&nbsp; where every project gets built
             </div>
           </Reveal>
 
@@ -105,13 +103,12 @@ export default async function VeChungToiPage() {
             </h2>
           </div>
 
-          <RevealStagger className={styles.aboutValuesGrid}>
+          <RevealStagger className={styles.aboutValuesList}>
             {values.map((v, i) => (
-              <RevealItem key={v.num ?? i} className="grid">
-                <article className={styles.aboutValueCard}>
-                  <h3 className={styles.aboutValueTitle}>{v.title}</h3>
-                  <p className={styles.aboutValueBody}>{v.body}</p>
-                </article>
+              <RevealItem key={v.num ?? i} className={styles.aboutValueRow}>
+                <span className={styles.aboutValueNum} aria-hidden="true">{v.num ?? String(i + 1).padStart(2, "0")}</span>
+                <h3 className={styles.aboutValueTitle}>{v.title}</h3>
+                <p className={styles.aboutValueBody}>{v.body}</p>
               </RevealItem>
             ))}
           </RevealStagger>
@@ -133,9 +130,6 @@ export default async function VeChungToiPage() {
               <Link href="/contact" className="btn btn-primary btn-lg">
                 order now
                 <ArrowIcon />
-              </Link>
-              <Link href="/templates" className="btn btn-outline btn-lg">
-                browse templates first
               </Link>
             </div>
           </Reveal>

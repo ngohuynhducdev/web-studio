@@ -119,30 +119,30 @@
   color: var(--fg-3);
   text-align: center;
 }
-.aboutValuesGrid {
+.aboutValuesList {
+  border-top: 1px solid var(--color-brand-line);
+  margin-top: 8px;
+}
+.aboutValueRow {
+  padding: 30px 2px 28px;
+  border-bottom: 1px solid var(--color-brand-line);
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
+  grid-template-columns: 40px 1fr;
+  column-gap: 20px;
+  row-gap: 8px;
 }
-.aboutValueCard {
-  padding: 36px 32px;
-  background: var(--bg-surface);
-  border: 1px solid var(--color-brand-line);
-  border-radius: var(--radius-lg);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: transform var(--dur-base) var(--ease-soft),
-              box-shadow var(--dur-base) var(--ease-soft);
-}
-.aboutValueCard:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+.aboutValueNum {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--color-brand-terracotta-text);
+  padding-top: 3px;
 }
 .aboutValueTitle {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1.2;
   text-transform: lowercase;
   color: var(--color-brand-ink);
@@ -150,11 +150,23 @@
   letter-spacing: -0.01em;
 }
 .aboutValueBody {
+  grid-column: 2;
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.65;
   color: var(--fg-2);
   margin: 0;
+  max-width: 62ch;
+}
+
+@media (min-width: 768px) {
+  .aboutValueRow {
+    grid-template-columns: 64px 260px 1fr;
+    align-items: baseline;
+    column-gap: 32px;
+    padding: 32px 4px;
+  }
+  .aboutValueBody { grid-column: 3; }
 }
 .aboutCta {
   max-width: 760px;
@@ -198,12 +210,10 @@
 @media (min-width: 768px) {
   .aboutHero { padding: 96px 0 80px; }
   .aboutHeroSub { font-size: 18px; }
-  .aboutValuesGrid { grid-template-columns: repeat(2, 1fr); }
   .aboutCtaActions { flex-direction: row; justify-content: center; }
 }
 
 @media (min-width: 1024px) {
   .aboutStoryGrid { grid-template-columns: 1fr 1fr; gap: 80px; }
   .aboutImageCol { position: sticky; top: 100px; }
-  .aboutValuesGrid { grid-template-columns: repeat(3, 1fr); }
 }

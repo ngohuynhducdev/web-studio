@@ -8,17 +8,9 @@ export const aboutPageSchema = defineType({
     { name: "hero",   title: "Hero" },
     { name: "story",  title: "Story" },
     { name: "values", title: "Values" },
-    { name: "stats",  title: "Statistics" },
   ],
   fields: [
     // Hero
-    defineField({
-      name: "heroEyebrow",
-      title: "Eyebrow",
-      type: "string",
-      group: "hero",
-      initialValue: "ABOUT US",
-    }),
     defineField({
       name: "heroTitle",
       title: "Heading",
@@ -92,24 +84,6 @@ export const aboutPageSchema = defineType({
             defineField({ name: "body",  title: "Body",  type: "text", rows: 3 }),
           ],
           preview: { select: { title: "title", subtitle: "num" } },
-        }),
-      ],
-    }),
-
-    // Stats
-    defineField({
-      name: "stats",
-      title: "Key stats",
-      type: "array",
-      group: "stats",
-      of: [
-        defineArrayMember({
-          type: "object",
-          fields: [
-            defineField({ name: "value", title: "Value", type: "string", description: 'Example: "15+" or "5"' }),
-            defineField({ name: "label", title: "Label",    type: "string" }),
-          ],
-          preview: { select: { title: "value", subtitle: "label" } },
         }),
       ],
     }),

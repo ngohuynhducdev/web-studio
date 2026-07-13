@@ -30,7 +30,6 @@ import {
   DEFAULT_STORY,
   DEFAULT_STORY_PARAGRAPHS,
   DEFAULT_VALUES,
-  DEFAULT_STATS,
 } from "../src/data/about";
 
 import { DEFAULT_CONTACT } from "../src/data/contact";
@@ -90,7 +89,6 @@ const documents = [
     ...DEFAULT_STORY,
     storyParagraphs: DEFAULT_STORY_PARAGRAPHS,
     values: DEFAULT_VALUES,
-    stats:  DEFAULT_STATS,
   },
 
   // ── contactPage ────────────────────────────────────────────────────────────
