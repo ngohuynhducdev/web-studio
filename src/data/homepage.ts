@@ -15,7 +15,7 @@ export const DEFAULT_HERO = {
   heroEyebrow:      "WEB STUDIO · SINCE 2024",
   heroHeading:      "pick a template — tailor it —",
   heroHeadingItal:  "in 5 days.",
-  heroLede:         "web studio makes beautiful ready-made templates for nail salons, spas, cafes, gyms. you pick one, we customize it for your business — no rush, no shortcuts.",
+  heroLede:         "web studio makes beautiful ready-made templates for nail salons, spas, cafes, gyms.",
   heroBadge:        "delivered in 5 days",
   heroCtaPrimary:   "browse templates",
   heroCtaSecondary: "about us",
