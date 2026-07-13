@@ -32,11 +32,18 @@
   font-family: var(--font-serif);
 }
 
-/* A strip of masking tape laid across the page */
+/* A strip of masking tape laid across the page — slightly askew, like a real hand stuck it on */
+.tapeWrap {
+  overflow: hidden;
+  padding: 14px 0;
+}
 .tape {
   position: relative;
-  padding: 16px 0;
+  padding: 18px 0;
   overflow: hidden;
+  width: 104%;
+  margin-left: -2%;
+  transform: rotate(-1.1deg);
   background:
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.09) 0 7px, transparent 7px 14px),
     linear-gradient(180deg, #e7d8c4 0%, #dcc9b1 100%);

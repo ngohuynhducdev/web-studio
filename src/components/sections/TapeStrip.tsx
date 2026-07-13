@@ -20,11 +20,13 @@ function MarqueeRow({ items }: { items: string[] }) {
 export default function TapeStrip({ items }: { items?: string[] }) {
   const list = items?.length ? items : DEFAULT_TAPE_ITEMS;
   return (
-    <div className={styles.tape} aria-label="Industries we serve">
+    <div className={styles.tapeWrap} aria-label="Industries we serve">
       <span className="sr-only">{list.join(", ")}</span>
-      <div className={styles.marqueeTrack} aria-hidden="true">
-        <MarqueeRow items={list} />
-        <MarqueeRow items={list} />
+      <div className={styles.tape} aria-hidden="true">
+        <div className={styles.marqueeTrack}>
+          <MarqueeRow items={list} />
+          <MarqueeRow items={list} />
+        </div>
       </div>
     </div>
   );
