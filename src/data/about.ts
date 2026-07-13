@@ -1,7 +1,6 @@
 // ── AboutPage (Sanity document) ──────────────────────────────────────────────
 
 export const DEFAULT_ABOUT_HERO = {
-  heroEyebrow:   "ABOUT US",
   heroTitle:     "a small studio —",
   heroTitleItal: "not an agency.",
   heroSub:       "Web Studio builds websites for nail salons, spas, cafes, and gyms — places where a decent website can change a month's revenue, but hiring an agency is too expensive and DIY feels impossible to start.",

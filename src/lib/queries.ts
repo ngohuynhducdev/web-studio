@@ -79,7 +79,7 @@ export const zaloUrlQuery = groq`
 
 export const ctaSectionQuery = groq`
   *[_type == "homepage" && _id == "homepage"][0] {
-    ctaEyebrow, ctaHeading, ctaHeadingItal, ctaBody, ctaZaloUrl, ctaPhone, ctaHours
+    ctaHeading, ctaHeadingItal, ctaBody, ctaZaloUrl, ctaPhone, ctaHours
   }
 `;
 
@@ -101,11 +101,10 @@ export const contactPageQuery = groq`
 
 export const aboutPageQuery = groq`
   *[_type == "aboutPage" && _id == "aboutPage"][0] {
-    heroEyebrow, heroTitle, heroTitleItal, heroSub,
+    heroTitle, heroTitleItal, heroSub,
     storyTitle, storyParagraphs, storyQuote, storyQuoteSource,
     "storyImageUrl": storyImage.asset->url,
-    values[] { num, title, body },
-    stats[] { value, label }
+    values[] { num, title, body }
   }
 `;
 

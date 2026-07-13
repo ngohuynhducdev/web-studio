@@ -5,18 +5,14 @@ import type { TestimonialItem } from "@/types";
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className={styles.testiStars}>
+    <div className={styles.stars}>
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} width={14} height={14} viewBox="0 0 24 24" fill={i < rating ? "currentColor" : "none"} stroke="currentColor" strokeWidth={i < rating ? 0 : 1.5} aria-hidden="true">
+        <svg key={i} width={12} height={12} viewBox="0 0 24 24" fill={i < rating ? "currentColor" : "none"} stroke="currentColor" strokeWidth={i < rating ? 0 : 1.5} aria-hidden="true">
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26" />
         </svg>
       ))}
     </div>
   );
-}
-
-function getInitials(name: string) {
-  return name.split(" ").map((w) => w[0]).join("").toUpperCase().slice(0, 2);
 }
 
 export default function Testimonials({
@@ -33,24 +29,21 @@ export default function Testimonials({
         <div className="section-head">
           <h2 className="h2-heading">{heading ?? "what clients say."}</h2>
         </div>
-        <RevealStagger className={styles.testiGrid}>
-          {list.map((t, i) => (
-            <RevealItem key={t._key ?? i} className="grid">
-              <article className={`${styles.testiCard} note lift`}>
+
+        {/* An interview ledger: every voice sits at equal weight, no one
+            quote elevated above the others. */}
+        <RevealStagger className={styles.ledger}>
+          {list.map((t) => (
+            <RevealItem key={t._key} className={styles.row}>
+              <div className={styles.rowHead}>
+                <span className={styles.rowShop}>{t.shopName}</span>
                 <StarRating rating={t.rating} />
-                <div aria-hidden="true" className={styles.testiQuoteMark}>&ldquo;</div>
-                <p className={styles.testiQuote}>{t.content}</p>
-                <div className={styles.testiWho}>
-                  <div className={`${styles.testiAvatarInitials} bg-brand-beige`}>{getInitials(t.clientName)}</div>
-                  <div>
-                    <div className={styles.testiName}>{t.clientName}</div>
-                    <div className={styles.testiRole}>
-                      {t.shopName}
-                      {t.date && <span className={styles.testiDate}> · {t.date}</span>}
-                    </div>
-                  </div>
-                </div>
-              </article>
+              </div>
+              <blockquote className={styles.rowQuote}>{t.content}</blockquote>
+              <p className={styles.rowWho}>
+                {t.clientName}
+                {t.date && <> · {t.date}</>}
+              </p>
             </RevealItem>
           ))}
         </RevealStagger>

@@ -114,7 +114,6 @@ export const DEFAULT_PRICING_PLANS: PricingPlan[] = [
 // ── CTA ──────────────────────────────────────────────────────────────────────
 
 export const DEFAULT_CTA = {
-  ctaEyebrow:     "LET'S GET STARTED",
   ctaHeading:     "your business deserves",
   ctaHeadingItal: "a website done right.",
   ctaBody:        "not sure what you need? just reach out — we'll walk you through it for free.",

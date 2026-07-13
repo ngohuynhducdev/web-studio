@@ -14,7 +14,6 @@
     radial-gradient(50% 60% at 6% 82%, rgba(45, 36, 25, 0.22) 0%, transparent 60%);
   pointer-events: none;
 }
-.ctaGradientDecoration { display: none; }
 .ctaLayout {
   position: relative;
   z-index: 1;
@@ -46,12 +45,6 @@
   transform: rotate(-11deg);
   margin-bottom: 4px;
 }
-.ctaEyebrow {
-  color: rgba(250, 246, 240, 0.55);
-}
-.ctaEyebrow::before {
-  background: rgba(250, 246, 240, 0.25);
-}
 .ctaHeading {
   font-family: var(--font-serif);
   font-weight: 300;
@@ -76,12 +69,6 @@
   color: rgba(250, 246, 240, 0.9);
   max-width: 48ch;
   margin: 0;
-}
-.ctaButtons {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: flex-start;
 }
 .ctaNote {
   font-family: var(--font-serif);
@@ -117,15 +104,6 @@
   text-decoration: none;
   transform: translateY(-1px);
 }
-.ctaInner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 56px;
-  align-items: center;
-}
-
 @media (min-width: 768px) {
   .ctaMocha { padding: 120px 0; }
   .ctaLayout {
@@ -136,6 +114,5 @@
   .ctaActions { align-items: flex-end; }
   .ctaHeading { margin: 22px 0 18px; }
   .ctaHeading br { display: initial; }
-  .ctaButtons { align-items: flex-end; }
   .ctaNote { text-align: right; }
 }
