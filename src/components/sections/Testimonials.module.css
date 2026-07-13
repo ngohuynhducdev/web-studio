@@ -29,18 +29,12 @@
 }
 .testiCard {
   position: relative;
+  height: 100%;
   padding: 30px 28px 26px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   --lift-rot: 0deg;
-}
-.testiPin {
-  position: absolute;
-  top: 13px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
 }
 .testiStars {
   display: inline-flex;
@@ -64,15 +58,6 @@
   padding-top: 18px;
   border-top: 1px solid var(--color-brand-line);
 }
-.testiAvatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--color-brand-paper);
-  flex-shrink: 0;
-}
 .testiName {
   font-family: var(--font-body);
   font-weight: 600;
@@ -95,13 +80,5 @@
 }
 
 @media (min-width: 1024px) {
-  /* hand-pinned: natural heights, staggered downward like notes on a board */
-  .testiGrid { grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
-  .testiGrid > *:nth-child(1) .testiCard { transform: rotate(-1.2deg); margin-top: 14px; --lift-rot: -0.8deg; }
-  .testiGrid > *:nth-child(2) .testiCard { transform: rotate(0.9deg); margin-top: 44px; --lift-rot: 0.6deg; }
-  .testiGrid > *:nth-child(3) .testiCard { transform: rotate(-0.5deg); --lift-rot: -0.4deg; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .testiGrid > * .testiCard { transform: none; }
+  .testiGrid { grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch; }
 }

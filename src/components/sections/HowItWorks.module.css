@@ -24,13 +24,6 @@
   padding-bottom: 16px;
   border-bottom: 1.5px dashed var(--color-brand-line);
 }
-.stepPin {
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
 .stepNum {
   font-family: var(--font-serif);
   font-weight: 300;
@@ -38,18 +31,6 @@
   line-height: 0.8;
   letter-spacing: -0.04em;
   color: var(--color-brand-terracotta-text);
-}
-.stepMark {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--color-brand-paper);
-  border: 1px solid var(--color-brand-line);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-brand-mocha);
-  flex-shrink: 0;
 }
 .stepTitle {
   font-family: var(--font-serif);
@@ -68,31 +49,18 @@
   margin: 0;
 }
 
-/* Tablet & up: tickets zig-zag down the board instead of three equal columns */
+/* Tablet & up: one straight, evenly aligned row */
 @media (min-width: 768px) {
   .stepsGrid {
-    grid-template-columns: repeat(12, 1fr);
-    gap: 0;
-    row-gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    align-items: stretch;
   }
   .stepsGrid > * { min-width: 0; }
-  .stepsGrid > *:nth-child(1) { grid-column: 1 / 8; }
-  .stepsGrid > *:nth-child(2) { grid-column: 6 / 13; }
-  .stepsGrid > *:nth-child(3) { grid-column: 3 / 10; }
-  /* hand-placed: each ticket sits at a slightly different angle */
-  .stepsGrid > *:nth-child(1) .stepCard { transform: rotate(-1.2deg); --lift-rot: -0.8deg; }
-  .stepsGrid > *:nth-child(2) .stepCard { transform: rotate(0.9deg); --lift-rot: 0.6deg; }
-  .stepsGrid > *:nth-child(3) .stepCard { transform: rotate(-0.5deg); --lift-rot: -0.4deg; }
+  .stepsGrid > * .stepCard { height: 100%; }
 }
 
 @media (min-width: 1024px) {
-  .stepsGrid { row-gap: 20px; }
-  .stepsGrid > *:nth-child(1) { grid-column: 1 / 7; }
-  .stepsGrid > *:nth-child(2) { grid-column: 6 / 12; margin-top: -28px; }
-  .stepsGrid > *:nth-child(3) { grid-column: 3 / 9; margin-top: -16px; }
+  .stepsGrid { gap: 30px; }
   .stepCard { padding: 42px 38px 36px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .stepsGrid > * .stepCard { transform: none; }
 }

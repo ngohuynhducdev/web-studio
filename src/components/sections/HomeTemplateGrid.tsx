@@ -35,7 +35,7 @@ export default async function HomeTemplateGrid({
         <RevealStagger className={styles.templateGrid}>
           {templates.map((template) => (
             <RevealItem key={template._id} className="grid">
-              <TemplateCard template={template} />
+              <TemplateCard template={template} compact />
             </RevealItem>
           ))}
         </RevealStagger>

@@ -19,9 +19,11 @@ function formatPrice(price: number) {
 
 interface TemplateCardProps {
   template: Template;
+  /** Homepage variant: single View action, no industry badge */
+  compact?: boolean;
 }
 
-export default function TemplateCard({ template }: TemplateCardProps) {
+export default function TemplateCard({ template, compact = false }: TemplateCardProps) {
   const {
     title,
     slug,
@@ -54,9 +56,11 @@ export default function TemplateCard({ template }: TemplateCardProps) {
         {isFeatured && (
           <span className={styles.templateCardBadgeFeatured}>FEATURED</span>
         )}
-        <span className={styles.templateCardBadgeIndustry}>
-          {industryLabel[industry]}
-        </span>
+        {!compact && (
+          <span className={styles.templateCardBadgeIndustry}>
+            {industryLabel[industry]}
+          </span>
+        )}
       </a>
 
       {/* Content */}
@@ -77,7 +81,7 @@ export default function TemplateCard({ template }: TemplateCardProps) {
           <a href={href} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
             View template
           </a>
-          {componentKey && (
+          {!compact && componentKey && (
             <a href={`/contact?template=${componentKey}`} className="btn btn-primary">
               Order this template
               <svg

@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     "Professional website design for nail salons, spas, cafes, gyms. Pick a ready-made template, get your site in 5 days, starting at $19/month.",
 };
 import HeroSection from "@/components/sections/HeroSection";
-import TapeStrip from "@/components/sections/TapeStrip";
 import HowItWorks from "@/components/sections/HowItWorks";
 import HomeTemplateGrid from "@/components/sections/HomeTemplateGrid";
 import Testimonials from "@/components/sections/Testimonials";
@@ -25,17 +24,13 @@ export default async function HomePage() {
   return (
     <>
       <HeroSection cms={cms} />
-      <TapeStrip items={cms?.tapeItems} />
       <HowItWorks cms={cms} />
       <HomeTemplateGrid
         showViewAll={true}
         heading={cms?.tplHeading}
         headingItal={cms?.tplHeadingItal}
       />
-      <Testimonials
-        heading={cms?.testiHeading}
-        items={cms?.testiItems}
-      />
+      <Testimonials heading={cms?.testiHeading} items={cms?.testiItems} />
       <PricingSection cms={cms} />
       <CTASection />
     </>
