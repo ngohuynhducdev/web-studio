@@ -1,90 +1,76 @@
-/* ─ Testimonials — an editorial quote wall, no cards ─ */
-.wall {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
+/* ─ Testimonials — an interview ledger, every voice at equal weight ─ */
+.ledger {
+  border-top: 1px solid var(--color-brand-line);
   margin-top: 8px;
 }
 
-.stars {
-  display: inline-flex;
-  gap: 3px;
-  color: var(--color-brand-terracotta-text);
-}
-
-/* ── Featured quote: the one clear focal point ── */
-.featured {
+.row {
+  padding: 30px 2px 28px;
+  border-bottom: 1px solid var(--color-brand-line);
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-.featuredQuote {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(22px, 3.2vw, 32px);
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-  color: var(--color-brand-ink);
-  text-wrap: pretty;
-  max-width: 34ch;
+  gap: 14px;
 }
 
-/* ── Minor quotes: quieter, ride alongside ── */
-.minorCol {
+.rowHead {
   display: flex;
-  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
 }
-.minor {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 26px 0;
-  border-top: 1px solid var(--color-brand-line);
-}
-.minor:last-child { padding-bottom: 0; }
-.minorQuote {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-style: italic;
-  font-size: 16px;
-  line-height: 1.55;
-  color: var(--color-brand-ink-soft);
-  max-width: 42ch;
-}
-
-/* ── Attribution ── */
-.who { display: flex; flex-direction: column; gap: 2px; }
-.whoName {
+.rowShop {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 13.5px;
   color: var(--color-brand-ink);
 }
-.whoRole {
+.stars {
+  display: inline-flex;
+  gap: 2px;
+  flex-shrink: 0;
+  color: var(--color-brand-terracotta-text);
+}
+
+.rowQuote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(18px, 2.4vw, 22px);
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  color: var(--color-brand-ink);
+  max-width: 66ch;
+  text-wrap: pretty;
+}
+
+.rowWho {
+  margin: 0;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--fg-3);
 }
 
-@media (min-width: 900px) {
-  .wall {
-    grid-template-columns: 1.2fr 1px 1fr;
-    column-gap: 56px;
-    align-items: start;
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 40px;
+    padding: 34px 4px;
   }
-  /* a single structural rule between columns — not a colored accent, just a column break */
-  .wall::before {
-    content: "";
-    grid-column: 2;
-    grid-row: 1;
-    align-self: stretch;
-    width: 1px;
-    background: var(--color-brand-line);
+  .rowHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 180px;
+    flex-shrink: 0;
   }
-  .featured { grid-column: 1; }
-  .minorCol { grid-column: 3; }
-  .featuredQuote { font-size: clamp(26px, 2.4vw, 34px); }
+  .rowQuote { flex: 1; }
+  .rowWho { width: 180px; flex-shrink: 0; text-align: right; order: 3; }
+}
+
+@media (min-width: 1024px) {
+  .row { gap: 56px; }
+  .rowHead { width: 220px; }
+  .rowWho { width: 220px; }
 }
