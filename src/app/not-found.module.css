@@ -38,7 +38,7 @@
 
 .headingItal {
   font-style: italic;
-  color: var(--color-brand-terracotta);
+  color: var(--color-brand-terracotta-text);
   font-weight: 400;
 }
 

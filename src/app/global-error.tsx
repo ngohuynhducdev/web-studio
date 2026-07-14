@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import styles from "./global-error.module.css";
 
 export default function GlobalError({
@@ -24,9 +25,14 @@ export default function GlobalError({
           <p className={styles.sub}>
             The site is having a temporary hiccup. Please try again in a few minutes.
           </p>
-          <button type="button" onClick={reset} className={styles.btn}>
-            Try again
-          </button>
+          <div className={styles.actions}>
+            <button type="button" onClick={reset} className={styles.btn}>
+              Try again
+            </button>
+            <Link href="/" className={styles.btnOutline}>
+              Back home
+            </Link>
+          </div>
         </main>
       </body>
     </html>
