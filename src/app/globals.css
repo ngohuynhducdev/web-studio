@@ -30,6 +30,19 @@
   --color-brand-line:            #d9cdbc;
   --color-brand-line-soft:       #e6ddcf;
 
+  /* ── Status colors (form/contact feedback) → bg-success, text-error, etc ── */
+  --color-success-bg:            #effaf3;
+  --color-success-border:        #b7e5c8;
+  --color-success-text:          #1a5c30;
+  --color-success-text-soft:     #2d7a50;
+  --color-error:                 #c0392b;
+  --color-error-bg:              #fdf0ee;
+  --color-error-border:          #f5c6c0;
+
+  /* ── Zalo brand green (official color, for the Zalo CTA button only) ── */
+  --color-zalo:                  #06c755;
+  --color-zalo-deep:             #05b34c;
+
   /* ── Shadcn/Radix semantic tokens (bg-primary, text-muted-foreground…) */
   --color-background:            var(--color-brand-cream);
   --color-foreground:            var(--color-brand-ink);

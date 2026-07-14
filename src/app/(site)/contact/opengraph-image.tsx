@@ -12,7 +12,7 @@ export default function Image() {
       eyebrow: "ORDER NOW · FREE CONSULTATION",
       heading: "a beautiful site\nin 5 days",
       sub: "Send a request — we reply within 1–2 hours",
-      watermark: "L",
+      watermark: "C",
     }),
     { ...OG_SIZE }
   );

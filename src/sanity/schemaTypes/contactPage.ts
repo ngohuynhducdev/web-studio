@@ -12,13 +12,6 @@ export const contactPageSchema = defineType({
   fields: [
     // Hero
     defineField({
-      name: "heroEyebrow",
-      title: "Eyebrow",
-      type: "string",
-      group: "hero",
-      initialValue: "CONTACT & ORDER A TEMPLATE",
-    }),
-    defineField({
       name: "heroTitle",
       title: "Heading",
       type: "string",
@@ -84,7 +77,7 @@ export const contactPageSchema = defineType({
       initialValue: [
         "Free advice, no pressure to buy",
         "Reply within 1–2 hours (business hours)",
-        "Site ready in 3–5 business days",
+        "Site ready in 5 business days",
         "Unlimited support after handoff",
       ],
     }),

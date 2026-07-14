@@ -92,7 +92,7 @@ export const templatesPageQuery = groq`
 
 export const contactPageQuery = groq`
   *[_type == "contactPage" && _id == "contactPage"][0] {
-    heroEyebrow, heroTitle, heroSub,
+    heroTitle, heroSub,
     formCardTitle, formCardDesc,
     zaloCardLabel, zaloCardNote,
     promisesTitle, promises

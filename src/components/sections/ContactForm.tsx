@@ -23,7 +23,7 @@ const INDUSTRY_OPTIONS = [
 const TEMPLATE_OPTIONS = [
   { value: "", label: "— Select a template —" },
   ...TEMPLATE_MANIFEST.map((t) => ({ value: t.slug, label: `${t.label} (${t.tagline})` })),
-  { value: "chua-biet", label: "Not sure yet — need advice" },
+  { value: "not-sure", label: "Not sure yet — need advice" },
 ];
 
 export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTemplate?: string; zaloUrl?: string }) {
@@ -73,7 +73,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
           phone:        data.phone,
           businessName: data.businessName,
           businessType: data.industry || undefined,
-          templateSlug: data.template && data.template !== "chua-biet" ? data.template : undefined,
+          templateSlug: data.template && data.template !== "not-sure" ? data.template : undefined,
           message:      data.message || undefined,
         }),
       });
@@ -105,7 +105,10 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
           </p>
         )}
         <a href={zaloUrl ?? STUDIO_ZALO_URL} target="_blank" rel="noopener noreferrer" className="btn btn-accent">
-          💬 Message on Zalo for a faster reply
+          <svg width={17} height={17} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z" />
+          </svg>
+          Message on Zalo for a faster reply
         </a>
         <button onClick={() => setState("idle")} className={styles.contactResetBtn}>
           Send another request
