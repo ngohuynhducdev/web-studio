@@ -24,7 +24,7 @@
   color: var(--color-brand-cream);
 }
 .board :global(.italic-acc) {
-  color: var(--color-brand-terracotta);
+  color: inherit;
 }
 .board :global(.btn-link) {
   color: var(--color-brand-cream);

@@ -25,7 +25,7 @@
 
 .headingItal {
   font-style: italic;
-  color: var(--color-brand-terracotta-text);
+  color: inherit;
   font-weight: 400;
 }
 

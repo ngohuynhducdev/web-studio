@@ -18,7 +18,7 @@
 }
 .templatesHeroHeading em {
   font-style: italic;
-  color: var(--color-brand-terracotta-soft);
+  color: inherit;
   font-weight: 400;
 }
 .templatesHeroHeading br { display: none; }
