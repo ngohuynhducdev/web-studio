@@ -21,14 +21,10 @@ export default async function TemplatesPage() {
     client.fetch<TemplatesPageCms>(templatesPageQuery, {}, { next: { revalidate: 60 } }),
   ]);
 
-  const count            = templates.length;
-  const heroEyebrow      = cms?.heroEyebrow      ?? DEFAULT_TEMPLATES_PAGE.heroEyebrow;
   const heroHeadingLine1 = cms?.heroHeadingLine1 ?? DEFAULT_TEMPLATES_PAGE.heroHeadingLine1;
   const heroHeadingItal  = cms?.heroHeadingItal  ?? DEFAULT_TEMPLATES_PAGE.heroHeadingItal;
   const heroHeadingLine3 = cms?.heroHeadingLine3 ?? DEFAULT_TEMPLATES_PAGE.heroHeadingLine3;
   const heroDesc         = cms?.heroDesc         ?? DEFAULT_TEMPLATES_PAGE.heroDesc;
-  const metaUpdateNote   = cms?.metaUpdateNote   ?? DEFAULT_TEMPLATES_PAGE.metaUpdateNote;
-  const metaStartingPrice= cms?.metaStartingPrice?? DEFAULT_TEMPLATES_PAGE.metaStartingPrice;
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://webstudio.com";
   const breadcrumb = {
@@ -47,35 +43,12 @@ export default async function TemplatesPage() {
       <section className={styles.templatesHero}>
         <div className="container-site">
           <Reveal immediate>
-            <span className={`eyebrow ${styles.templatesHeroEyebrow}`}>{heroEyebrow}</span>
-          </Reveal>
-
-          <div className={styles.templatesHeroInner}>
-            {/* Left — large display number */}
-            <Reveal immediate delay={0.08} className={styles.templatesHeroLeft}>
-              <div className={styles.templatesHeroNum}>
-                {count}<span className={styles.templatesHeroPlus}>+</span>
-              </div>
-            </Reveal>
-
-            {/* Right — heading + desc */}
-            <Reveal immediate delay={0.16} className={styles.templatesHeroRight}>
-              <h1 className={styles.templatesHeroHeading}>
-                {heroHeadingLine1}<br />
-                <em>{heroHeadingItal}</em><br />
-                {heroHeadingLine3}
-              </h1>
-              <p className={styles.templatesHeroDesc}>{heroDesc}</p>
-            </Reveal>
-          </div>
-
-          {/* Bottom meta strip */}
-          <Reveal className={styles.templatesHeroMeta}>
-            <span className={styles.templatesHeroMetaItem}>{count} templates available</span>
-            <span className={styles.templatesHeroMetaDot} aria-hidden="true">·</span>
-            <span className={styles.templatesHeroMetaItem}>{metaUpdateNote}</span>
-            <span className={styles.templatesHeroMetaDot} aria-hidden="true">·</span>
-            <span className={styles.templatesHeroMetaItem}>{metaStartingPrice}</span>
+            <h1 className={styles.templatesHeroHeading}>
+              {heroHeadingLine1}{" "}<br />
+              <em>{heroHeadingItal}</em>{" "}<br />
+              {heroHeadingLine3}
+            </h1>
+            <p className={styles.templatesHeroDesc}>{heroDesc}</p>
           </Reveal>
         </div>
       </section>
