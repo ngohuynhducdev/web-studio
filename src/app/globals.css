@@ -201,9 +201,9 @@
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
-    color: var(--color-brand-terracotta);
+    color: inherit;
   }
-  .dot-terracotta { color: var(--color-brand-terracotta); }
+  .dot-terracotta { color: inherit; }
 
   /* ─ Buttons ─────────────────────────────────────────────────── */
   .btn {

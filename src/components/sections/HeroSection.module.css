@@ -49,7 +49,7 @@
 }
 .heroHeading br { display: none; }
 .heroHeadingItal {
-  color: var(--color-brand-terracotta-soft);
+  color: inherit;
   font-style: italic;
   font-weight: 400;
 }

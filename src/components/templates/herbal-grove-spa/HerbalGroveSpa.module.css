@@ -53,15 +53,15 @@
   margin: 0;
   text-wrap: balance;
 }
-/* Gold italic accent on headings */
-.h2 em { font-style: italic; color: var(--bt-amber); }
+/* Italic accent on headings — no color shift, same ink as heading */
+.h2 em { font-style: italic; color: inherit; }
 
 /* Plain heading — uniform ink, no italic/gold accent */
 .h2Plain em { font-style: normal; color: var(--bt-ink); }
 
 /* Headings on dark forest-green sections */
 .h2OnDark { color: var(--bt-light); }
-.h2OnDark em { color: var(--bt-amber-light); }
+.h2OnDark em { color: inherit; }
 
 /* Uniform cream heading on dark (no italic/gold accent) */
 .h2OnDarkPlain em { font-style: normal; color: var(--bt-light); }
