@@ -6,16 +6,8 @@ export const templatesPageSchema = defineType({
   type: "document",
   groups: [
     { name: "hero", title: "Hero" },
-    { name: "meta", title: "Meta strip" },
   ],
   fields: [
-    defineField({
-      name: "heroEyebrow",
-      title: "Eyebrow",
-      type: "string",
-      group: "hero",
-      initialValue: "TEMPLATE LIBRARY",
-    }),
     defineField({
       name: "heroHeadingLine1",
       title: "Heading line 1",
@@ -44,21 +36,6 @@ export const templatesPageSchema = defineType({
       rows: 3,
       group: "hero",
       initialValue: "we don't just sell you a theme and walk away — every template is customized with your colors, content, and photos. pick the one that fits, message us on zalo, get your site in 5 days.",
-    }),
-    defineField({
-      name: "metaUpdateNote",
-      title: "Meta — update note",
-      type: "string",
-      group: "meta",
-      initialValue: "updated regularly",
-    }),
-    defineField({
-      name: "metaStartingPrice",
-      title: "Meta — starting price",
-      type: "string",
-      group: "meta",
-      description: 'Example: "starting at $19/month"',
-      initialValue: "starting at $19/month",
     }),
   ],
 });

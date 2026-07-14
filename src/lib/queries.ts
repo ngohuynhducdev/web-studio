@@ -85,8 +85,7 @@ export const ctaSectionQuery = groq`
 
 export const templatesPageQuery = groq`
   *[_type == "templatesPage" && _id == "templatesPage"][0] {
-    heroEyebrow, heroHeadingLine1, heroHeadingItal, heroHeadingLine3,
-    heroDesc, metaUpdateNote, metaStartingPrice
+    heroHeadingLine1, heroHeadingItal, heroHeadingLine3, heroDesc
   }
 `;
 

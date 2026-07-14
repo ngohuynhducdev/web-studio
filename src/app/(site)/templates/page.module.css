@@ -5,48 +5,6 @@
   padding: 56px 0 48px;
   overflow: hidden;
 }
-.templatesHeroEyebrow {
-  color: rgba(250, 246, 240, 0.4);
-}
-.templatesHeroEyebrow::before {
-  background: rgba(250, 246, 240, 0.18);
-}
-.templatesHeroInner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
-  align-items: center;
-  padding-bottom: 36px;
-  border-bottom: 1px solid rgba(250, 246, 240, 0.08);
-  margin-bottom: 28px;
-}
-.templatesHeroLeft {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  flex-shrink: 0;
-}
-.templatesHeroNum {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: 80px;
-  line-height: 0.9;
-  letter-spacing: -0.045em;
-  color: var(--color-brand-cream);
-  display: flex;
-  align-items: flex-start;
-  gap: 4px;
-}
-.templatesHeroPlus {
-  color: var(--color-brand-terracotta);
-  font-size: 38px;
-  line-height: 1;
-  margin-top: 10px;
-}
-.templatesHeroRight {
-  display: flex;
-  flex-direction: column;
-}
 .templatesHeroHeading {
   font-family: var(--font-serif);
   font-weight: 300;
@@ -68,39 +26,14 @@
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.65;
-  color: rgba(250, 246, 240, 0.52);
+  color: rgba(250, 246, 240, 0.68);
   margin: 20px 0 0;
-  max-width: 44ch;
-}
-.templatesHeroMeta {
-  display: none;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.templatesHeroMetaItem {
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: rgba(250, 246, 240, 0.38);
-  display: inline-flex;
-  align-items: center;
-}
-.templatesHeroMetaDot {
-  color: var(--color-brand-terracotta);
-  opacity: 0.4;
-  padding: 0 14px;
+  max-width: 52ch;
 }
 
 @media (min-width: 768px) {
   .templatesHero { padding: 80px 0 64px; }
-  .templatesHeroInner {
-    grid-template-columns: auto 1fr;
-    gap: 64px;
-    padding-bottom: 48px;
-    margin-bottom: 36px;
-  }
-  .templatesHeroNum { font-size: 140px; }
-  .templatesHeroPlus { font-size: 64px; margin-top: 18px; }
   .templatesHeroHeading { font-size: 52px; }
   .templatesHeroHeading br { display: initial; }
-  .templatesHeroMeta { display: flex; }
+  .templatesHeroDesc { font-size: 17px; }
 }

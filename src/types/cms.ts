@@ -52,13 +52,10 @@ export interface AboutCms {
 }
 
 export interface TemplatesPageCms {
-  heroEyebrow?: string;
   heroHeadingLine1?: string;
   heroHeadingItal?: string;
   heroHeadingLine3?: string;
   heroDesc?: string;
-  metaUpdateNote?: string;
-  metaStartingPrice?: string;
 }
 
 export interface ContactCms {
