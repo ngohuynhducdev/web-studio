@@ -53,12 +53,14 @@ function ProgressCell({ o }: { o: Site }) {
 
 function SeedButton({ orderId, templateSlug }: { orderId: string; templateSlug?: string }) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'ok' | 'err'>('idle')
+  const [errMsg, setErrMsg] = useState<string | null>(null)
 
   async function handleSeed() {
-    if (!templateSlug) return alert('This order has no template selected.')
+    if (!templateSlug) return
     if (!confirm(`Seed sections from template "${templateSlug}" into this order?`)) return
 
     setStatus('loading')
+    setErrMsg(null)
     try {
       const res = await fetch('/api/admin/seed-order', {
         method: 'POST',
@@ -70,6 +72,7 @@ function SeedButton({ orderId, templateSlug }: { orderId: string; templateSlug?:
       setStatus('ok')
     } catch (err) {
       console.error(err)
+      setErrMsg(err instanceof Error ? err.message : 'Seeding failed')
       setStatus('err')
     }
   }
@@ -77,15 +80,40 @@ function SeedButton({ orderId, templateSlug }: { orderId: string; templateSlug?:
   return (
     <button
       onClick={handleSeed}
-      disabled={status === 'loading'}
-      title="Copy DEFAULT_SECTIONS into this order"
-      className={`text-xs px-2 py-1 rounded border transition-colors ${
+      disabled={status === 'loading' || !templateSlug}
+      title={!templateSlug ? 'No template selected' : status === 'err' && errMsg ? errMsg : 'Copy DEFAULT_SECTIONS into this order'}
+      className={`text-xs px-2 py-1 rounded border transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${
         status === 'ok'  ? 'border-green-400 text-green-700 bg-green-50' :
         status === 'err' ? 'border-red-400 text-red-700 bg-red-50' :
         'border-[var(--color-brand-beige)] text-[var(--color-brand-ink)]/60 hover:border-[var(--color-brand-mocha)] hover:text-[var(--color-brand-mocha)]'
       }`}
     >
       {status === 'loading' ? '...' : status === 'ok' ? '✓ Seeded' : status === 'err' ? '✗ Error' : '⚡ Seed'}
+    </button>
+  )
+}
+
+function CopyLinkButton({ previewSlug }: { previewSlug: string }) {
+  const [copied, setCopied] = useState(false)
+
+  async function handleCopy() {
+    try {
+      await navigator.clipboard.writeText(`${window.location.origin}/preview/${previewSlug}`)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1500)
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  return (
+    <button
+      onClick={handleCopy}
+      title={copied ? 'Copied!' : 'Copy link'}
+      aria-label={copied ? 'Link copied' : 'Copy preview link'}
+      className="text-xs text-[var(--color-brand-ink)]/40 hover:text-[var(--color-brand-mocha)]"
+    >
+      {copied ? '✓' : '📋'}
     </button>
   )
 }
@@ -135,6 +163,7 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
       {/* Search */}
       <input
         type="text"
+        aria-label="Search orders by shop name, client name, or phone"
         placeholder="Search by shop name, client name, phone..."
         value={search}
         onChange={(e) => { setSearch(e.target.value); setPage(1); }}
@@ -233,13 +262,7 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
                           >
                             View preview ↗
                           </a>
-                          <button
-                            onClick={() => navigator.clipboard.writeText(`${window.location.origin}/preview/${o.previewSlug}`)}
-                            title="Copy link"
-                            className="text-xs text-[var(--color-brand-ink)]/40 hover:text-[var(--color-brand-mocha)]"
-                          >
-                            📋
-                          </button>
+                          <CopyLinkButton previewSlug={o.previewSlug} />
                         </div>
                       ) : (
                         <span className="text-xs text-[var(--color-brand-ink)]/30">None yet</span>
