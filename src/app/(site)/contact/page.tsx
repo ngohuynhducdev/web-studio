@@ -56,7 +56,7 @@ function CheckIcon() {
   );
 }
 
-export default async function LienHePage({
+export default async function ContactPage({
   searchParams,
 }: {
   searchParams: Promise<{ template?: string }>
@@ -67,7 +67,6 @@ export default async function LienHePage({
     client.fetch<SiteFooterCms>(siteFooterQuery, {}, { next: { revalidate: 60 } }),
   ]);
 
-  const heroEyebrow   = cms?.heroEyebrow   ?? DEFAULT_CONTACT.heroEyebrow;
   const heroTitle     = cms?.heroTitle     ?? DEFAULT_CONTACT.heroTitle;
   const heroSub       = cms?.heroSub       ?? DEFAULT_CONTACT.heroSub;
   const formCardTitle = cms?.formCardTitle ?? DEFAULT_CONTACT.formCardTitle;
@@ -89,7 +88,6 @@ export default async function LienHePage({
       <section className={styles.contactHero}>
         <div className="container-site">
           <Reveal immediate>
-            <span className="eyebrow">{heroEyebrow}</span>
             <h1 className={styles.contactHeroTitle}>
               {heroTitle}<span className="dot-terracotta">.</span>
             </h1>

@@ -62,8 +62,8 @@
   position: static;
 }
 .contactZaloCard {
-  background: #effaf3;
-  border: 1px solid #b7e5c8;
+  background: var(--color-success-bg);
+  border: 1px solid var(--color-success-border);
   border-radius: var(--radius-lg);
   padding: 24px 24px 20px;
   display: flex;
@@ -74,14 +74,14 @@
 .contactZaloLabel {
   font-family: var(--font-body);
   font-size: 14px;
-  color: #1a5c30;
+  color: var(--color-success-text);
   margin: 0;
 }
 .contactZaloBtn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #06c755;
+  background: var(--color-zalo);
   color: #fff;
   border-radius: var(--radius-md);
   padding: 12px 20px;
@@ -93,7 +93,7 @@
               transform var(--dur-base) var(--ease-soft);
 }
 .contactZaloBtn:hover {
-  background: #05b34c;
+  background: var(--color-zalo-deep);
   color: #fff;
   text-decoration: none;
   transform: translateY(-1px);
@@ -101,7 +101,7 @@
 .contactZaloNote {
   font-family: var(--font-body);
   font-size: 12px;
-  color: #2d7a50;
+  color: var(--color-success-text-soft);
   margin: 0;
 }
 .contactInfoCard {

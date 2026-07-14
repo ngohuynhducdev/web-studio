@@ -62,7 +62,6 @@ export interface TemplatesPageCms {
 }
 
 export interface ContactCms {
-  heroEyebrow?: string;
   heroTitle?: string;
   heroSub?: string;
   formCardTitle?: string;
