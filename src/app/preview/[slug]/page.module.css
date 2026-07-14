@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   background: #18181b;
   border-bottom: 1px solid #27272a;
   font-size: 13px;
@@ -17,10 +17,74 @@
   font-family: system-ui, sans-serif;
   pointer-events: none;
 }
+.previewBannerIcon {
+  flex-shrink: 0;
+}
 .previewBannerChip {
   background: #27272a;
   padding: 2px 10px;
   border-radius: 99px;
   font-size: 11px;
   color: #71717a;
+}
+
+/* ─ Full-page states: inactive site / template not assigned yet ─
+   Branded, not raw Tailwind gray — these can render on a client's own
+   live domain (via proxy.ts) when their subscription lapses, so they
+   need to look intentional, not like an unstyled error page. */
+.stateScreen {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px;
+  background: var(--bg-page);
+}
+.stateCard {
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.stateIcon {
+  color: var(--color-brand-ink-faint);
+  background: var(--color-brand-paper);
+  border: 1px solid var(--color-brand-line);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.stateBusinessName {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 26px;
+  color: var(--color-brand-ink);
+  margin: 0;
+}
+.stateBody {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--fg-2);
+  margin: 0;
+}
+.stateActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.stateNote {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--fg-3);
+  margin: 0;
 }
