@@ -1,14 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { writeClient } from "@/sanity/lib/writeClient";
 import { DEFAULT_SECTIONS_MAP } from "@/lib/templateRegistry";
+import { safeEqual } from "@/lib/adminAuth";
 
 // POST /api/seed-order
 // Body: { orderId: string; templateSlug: string }
 // Copies the template's DEFAULT_SECTIONS into the site so editors can
 // start from real content instead of a blank array.
 export async function POST(req: NextRequest) {
+  const seedSecret = process.env.SEED_SECRET;
   const secret = req.headers.get("x-seed-secret");
-  if (secret !== process.env.SEED_SECRET) {
+  if (!seedSecret || !secret || !safeEqual(secret, seedSecret)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
