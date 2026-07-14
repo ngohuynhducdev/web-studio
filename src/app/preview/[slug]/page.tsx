@@ -6,6 +6,7 @@ import { client } from "@/sanity/lib/client";
 import { siteBySlugQuery } from "@/lib/queries";
 import type { PageSection } from "@/types";
 import { TEMPLATE_COMPONENTS } from "@/lib/templateRegistry";
+import { STUDIO_ZALO_URL, DEFAULT_FOOTER } from "@/data/layout";
 import styles from "./page.module.css";
 
 export const dynamic = "force-dynamic";
@@ -55,12 +56,22 @@ export default async function PreviewPage({ params }: Props) {
     new Date(order.renewalDate).getTime() < todayStart.getTime();
   if (order.isActive === false || isExpired) {
     return (
-      <div className="min-h-screen flex items-center justify-center text-center p-8 bg-gray-50">
-        <div>
-          <p className="text-5xl mb-4">🔒</p>
-          <p className="text-xl font-semibold text-gray-800 mb-2">{order.businessName}</p>
-          <p className="text-gray-500">This site is temporarily inactive.</p>
-          <p className="text-sm text-gray-400 mt-2">Please contact us to renew.</p>
+      <div className={styles.stateScreen}>
+        <div className={styles.stateCard}>
+          <span className={styles.stateIcon} aria-hidden="true">
+            <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+          </span>
+          <h1 className={styles.stateBusinessName}>{order.businessName}</h1>
+          <p className={styles.stateBody}>This site is temporarily inactive.</p>
+          <div className={styles.stateActions}>
+            <a href={STUDIO_ZALO_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              Message us on Zalo to renew
+            </a>
+          </div>
+          <p className={styles.stateNote}>or call {DEFAULT_FOOTER.phone}</p>
         </div>
       </div>
     );
@@ -68,10 +79,16 @@ export default async function PreviewPage({ params }: Props) {
 
   if (!TemplateComponent) {
     return (
-      <div className="min-h-screen flex items-center justify-center text-center p-8">
-        <div>
-          <p className="text-2xl font-bold mb-2">Template not ready yet</p>
-          <p className="text-gray-500">This order hasn&apos;t been assigned a template yet.</p>
+      <div className={styles.stateScreen}>
+        <div className={styles.stateCard}>
+          <span className={styles.stateIcon} aria-hidden="true">
+            <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </span>
+          <h1 className={styles.stateBusinessName}>{order.businessName}</h1>
+          <p className={styles.stateBody}>This order hasn&apos;t been assigned a template yet.</p>
         </div>
       </div>
     );
@@ -83,7 +100,10 @@ export default async function PreviewPage({ params }: Props) {
         <>
           {/* Preview banner — fixed, z-index above all template elements */}
           <div className={styles.previewBanner}>
-            <span>🔍</span>
+            <svg className={styles.previewBannerIcon} width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
             <span>This is a preview — not the live site yet</span>
             <span className={styles.previewBannerChip}>{order.businessName}</span>
           </div>
