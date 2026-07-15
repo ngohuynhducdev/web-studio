@@ -79,19 +79,21 @@ export default function MistSpringSpaTemplate({
       style={themeStyle}
     >
       <Header businessName={businessName} s={booking} />
-      {shown(carousel) && (
-        <BannerCarousel
-          slides={carousel.slides ?? []}
-          brandColor={brandColor}
-        />
-      )}
-      {shown(hero) && <Hero s={hero} businessName={businessName} />}
-      <Intro businessName={businessName} />
-      {shown(services) && <Springs s={services} />}
-      {shown(menu) && <Menu s={menu} />}
-      {shown(gallery) && <Gallery s={gallery} />}
-      {shown(reviews) && <Reviews s={reviews} />}
-      {shown(booking) && <Booking s={booking} businessName={businessName} />}
+      <main>
+        {shown(carousel) && (
+          <BannerCarousel
+            slides={carousel.slides ?? []}
+            brandColor={brandColor}
+          />
+        )}
+        {shown(hero) && <Hero s={hero} businessName={businessName} />}
+        <Intro businessName={businessName} />
+        {shown(services) && <Springs s={services} />}
+        {shown(menu) && <Menu s={menu} />}
+        {shown(gallery) && <Gallery s={gallery} />}
+        {shown(reviews) && <Reviews s={reviews} />}
+        {shown(booking) && <Booking s={booking} businessName={businessName} />}
+      </main>
       <Footer businessName={businessName} s={booking} />
       <FloatingActions zaloUrl={booking?.zaloUrl} />
     </div>

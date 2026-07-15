@@ -75,7 +75,7 @@ export default function Footer({ businessName, s }: { businessName: string; s?: 
                 <div className="flex flex-col gap-1">
                   {s!.hours!.map((h) => (
                     <div key={h._key} className="flex flex-wrap gap-x-2">
-                      <span className="text-[var(--sm-light)]/50">{h.day}</span>
+                      <span className="text-[var(--sm-light)]/65">{h.day}</span>
                       <span>{h.time}</span>
                     </div>
                   ))}
@@ -88,7 +88,7 @@ export default function Footer({ businessName, s }: { businessName: string; s?: 
               href={s.zaloUrl}
               target={isExternal ? '_blank' : undefined}
               rel={isExternal ? 'noopener noreferrer' : undefined}
-              className="inline-flex items-center gap-2.5 mt-6 text-[0.82rem] font-semibold tracking-[0.04em] text-[var(--sm-light)] bg-[var(--sm-accent)] rounded-full no-underline px-6 py-3 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
+              className="inline-flex items-center gap-2.5 mt-6 text-[0.82rem] font-semibold tracking-[0.04em] text-[var(--sm-light)] bg-[var(--sm-accent-btn)] rounded-full no-underline px-6 py-3 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
             >
               <ChatIcon /> Message on Zalo
             </a>

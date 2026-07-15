@@ -31,7 +31,7 @@ export default function Booking({ s, businessName = 'Spa' }: { s: BookingSection
                 href={s.zaloUrl ?? '#'}
                 target={isExternal ? '_blank' : undefined}
                 rel={isExternal ? 'noopener noreferrer' : undefined}
-                className="inline-flex items-center justify-center gap-3 text-[0.9rem] font-semibold tracking-[0.04em] text-[var(--sm-light)] bg-[var(--sm-accent)] rounded-full no-underline px-8 py-4 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
+                className="inline-flex items-center justify-center gap-3 text-[0.9rem] font-semibold tracking-[0.04em] text-[var(--sm-light)] bg-[var(--sm-accent-btn)] rounded-full no-underline px-8 py-4 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
               >
                 <ChatIcon /> Message on Zalo
               </a>

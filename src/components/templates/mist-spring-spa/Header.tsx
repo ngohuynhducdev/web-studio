@@ -108,7 +108,7 @@ export default function Header({ businessName, s }: Props) {
             className="font-[family-name:var(--sm-serif)] font-normal text-[1.15rem] tracking-[0.16em] uppercase text-[var(--sm-ivory)] no-underline whitespace-nowrap shrink-0"
           >
             {businessName}
-            <span className="font-sans font-normal text-[0.58rem] tracking-[0.16em] text-[var(--sm-accent)] ml-2 normal-case">spa & wellness</span>
+            <span className="font-sans font-normal text-[0.58rem] tracking-[0.16em] text-[var(--sm-accent-dark)] ml-2 normal-case">spa & wellness</span>
           </a>
 
           {/* Desktop nav links */}
@@ -125,7 +125,7 @@ export default function Header({ businessName, s }: Props) {
           {/* Desktop CTA */}
           <a
             href={BOOKING_LINK.href}
-            className="hidden lg:inline-flex items-center text-[0.76rem] font-semibold tracking-[0.07em] text-[var(--sm-light)] bg-[var(--sm-accent)] rounded-full no-underline px-[1.5rem] py-[0.625rem] shrink-0 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
+            className="hidden lg:inline-flex items-center text-[0.76rem] font-semibold tracking-[0.07em] text-[var(--sm-light)] bg-[var(--sm-accent-btn)] rounded-full no-underline px-[1.5rem] py-[0.625rem] shrink-0 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
           >
             {BOOKING_LINK.label}
           </a>
@@ -158,7 +158,7 @@ export default function Header({ businessName, s }: Props) {
             ))}
             <a
               href={BOOKING_LINK.href}
-              className="block mt-3 text-center bg-[var(--sm-accent)] text-[var(--sm-light)] rounded-full text-[0.85rem] font-semibold tracking-[0.07em] no-underline py-[0.875rem] px-5 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
+              className="block mt-3 text-center bg-[var(--sm-accent-btn)] text-[var(--sm-light)] rounded-full text-[0.85rem] font-semibold tracking-[0.07em] no-underline py-[0.875rem] px-5 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
               onClick={() => setMenuOpen(false)}
             >
               {BOOKING_LINK.label}

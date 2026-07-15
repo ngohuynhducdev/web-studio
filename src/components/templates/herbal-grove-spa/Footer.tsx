@@ -107,8 +107,8 @@ export default function Footer({ displayName, zaloUrl }: { displayName: string; 
               <a href={zaloUrl} target="_blank" rel="noopener noreferrer" aria-label="Zalo" className={styles.footSocial}><ZaloIcon /></a>
             )}
           </div>
-          <span className="text-[12px] text-[var(--bt-light)]/50">© {new Date().getFullYear()} {displayName}. All rights reserved.</span>
-          <span className="text-[12px] text-[var(--bt-light)]/50">
+          <span className="text-[12px] text-[var(--bt-light)]/60">© {new Date().getFullYear()} {displayName}. All rights reserved.</span>
+          <span className="text-[12px] text-[var(--bt-light)]/60">
             Designed by <span className="text-[var(--bt-light)]/75">Web Studio</span>
           </span>
         </div>

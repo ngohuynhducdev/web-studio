@@ -65,17 +65,19 @@ export default function ThaiSpaTemplate({ sections, brandColor, businessName = '
       style={themeStyle}
     >
       <Header businessName={businessName} />
-      {shown(carousel)     && <BannerCarousel slides={carousel!.slides ?? []} brandColor={brandColor} />}
-      {shown(hero)         && <Hero         data={hero} />}
-      {shown(lovingTouch)  && <LovingTouch  data={lovingTouch} />}
-      {shown(benefits)     && <Benefits     data={benefits} />}
-      {shown(welcome)      && <Welcome      data={welcome!} />}
-      {shown(harmony)      && <HarmonyIntro data={harmony} />}
-      {shown(afterMassage) && <AfterMassage data={afterMassage} />}
-      {shown(founder)      && <Founder      data={founder} />}
-      {shown(reviews)      && <Testimonials data={reviews} />}
-      {shown(pricing)      && <Pricing      data={pricing} />}
-      {shown(offer)        && <Offer        data={offer} />}
+      <main>
+        {shown(carousel)     && <BannerCarousel slides={carousel!.slides ?? []} brandColor={brandColor} />}
+        {shown(hero)         && <Hero         data={hero} />}
+        {shown(lovingTouch)  && <LovingTouch  data={lovingTouch} />}
+        {shown(benefits)     && <Benefits     data={benefits} />}
+        {shown(welcome)      && <Welcome      data={welcome!} />}
+        {shown(harmony)      && <HarmonyIntro data={harmony} />}
+        {shown(afterMassage) && <AfterMassage data={afterMassage} />}
+        {shown(founder)      && <Founder      data={founder} />}
+        {shown(reviews)      && <Testimonials data={reviews} />}
+        {shown(pricing)      && <Pricing      data={pricing} />}
+        {shown(offer)        && <Offer        data={offer} />}
+      </main>
       <Footer data={booking} businessName={businessName} />
     </div>
   );

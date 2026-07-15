@@ -73,15 +73,17 @@ export default function HerbalGroveSpaTemplate({
         />
       </noscript>
       <Header displayName={businessName} />
-      {shown(hero)     && <Hero     s={hero} businessName={businessName} />}
-      <TrustBar />
-      {shown(services) && <Services s={services} />}
-      <OfferStrip />
-      {shown(pricing)  && <Pricing  s={pricing} serviceItems={services?.services} />}
-      {shown(about)    && <About    s={about} />}
-      {shown(gallery)  && <Gallery  s={gallery} />}
-      {shown(reviews)  && <Reviews  s={reviews} />}
-      {shown(booking)  && <Booking  s={booking} />}
+      <main>
+        {shown(hero)     && <Hero     s={hero} businessName={businessName} />}
+        <TrustBar />
+        {shown(services) && <Services s={services} />}
+        <OfferStrip />
+        {shown(pricing)  && <Pricing  s={pricing} serviceItems={services?.services} />}
+        {shown(about)    && <About    s={about} />}
+        {shown(gallery)  && <Gallery  s={gallery} />}
+        {shown(reviews)  && <Reviews  s={reviews} />}
+        {shown(booking)  && <Booking  s={booking} />}
+      </main>
       <Footer displayName={businessName} zaloUrl={booking?.zaloUrl} />
       <FloatingActions zaloUrl={booking?.zaloUrl} />
     </div>

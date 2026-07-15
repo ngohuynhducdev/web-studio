@@ -15,10 +15,10 @@
   --ts-wine-hover:   #5C1717;
   --ts-gold:         #C9982F;
   --ts-gold-soft:    #E4C878;
-  --ts-gold-text:    #8C6A1E; /* AA-safe gold for small text on ivory (>=4.5:1) */
+  --ts-gold-text:    #7D5C18; /* AA-safe gold on ivory-soft, its lowest-contrast use (>=4.5:1) */
   --ts-espresso:     #1D110C;
   --ts-bark:         #5C453A;
-  --ts-clay:         #9E8472;
+  --ts-clay:         #7D6653; /* darkened for AA (4.5:1) on ivory/ivory-soft — was #9E8472 at ~3.3:1 */
   --ts-border:       rgba(35, 6, 11, 0.10);
   --ts-border-strong:rgba(35, 6, 11, 0.22);
   --ts-shadow-1:     0 1px 2px rgba(35,6,11,0.04), 0 1px 1px rgba(35,6,11,0.03);

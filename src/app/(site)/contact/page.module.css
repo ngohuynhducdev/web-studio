@@ -81,7 +81,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--color-zalo);
+  background: var(--color-zalo-text);
   color: #fff;
   border-radius: var(--radius-md);
   padding: 12px 20px;
@@ -93,7 +93,7 @@
               transform var(--dur-base) var(--ease-soft);
 }
 .contactZaloBtn:hover {
-  background: var(--color-zalo-deep);
+  background: var(--color-zalo-text-deep);
   color: #fff;
   text-decoration: none;
   transform: translateY(-1px);

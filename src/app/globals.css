@@ -26,7 +26,7 @@
   --color-brand-paper:           #f2ebe0;
   --color-brand-ink:             #2d2419;
   --color-brand-ink-soft:        #5c4a38;
-  --color-brand-ink-faint:       #7d6a52;
+  --color-brand-ink-faint:       #786550; /* darkened slightly for AA (4.5:1) on --color-brand-paper, its lowest-contrast use */
   --color-brand-line:            #d9cdbc;
   --color-brand-line-soft:       #e6ddcf;
 
@@ -42,6 +42,12 @@
   /* ── Zalo brand green (official color, for the Zalo CTA button only) ── */
   --color-zalo:                  #06c755;
   --color-zalo-deep:             #05b34c;
+  /* AA-safe darkened variants for white text on a Zalo-green button —
+     the official #06c755/#05b34c only measure 2.3:1 / 2.8:1 with white
+     text, both failing 4.5:1. Still reads as "Zalo green", just deep
+     enough for legible white text. */
+  --color-zalo-text:             #037a37;
+  --color-zalo-text-deep:        #026b30;
 
   /* ── Shadcn/Radix semantic tokens (bg-primary, text-muted-foreground…) */
   --color-background:            var(--color-brand-cream);
@@ -151,6 +157,17 @@
   a:hover {
     text-decoration-color: currentColor;
     color: var(--color-brand-mocha-deep);
+  }
+
+  /* Templates are visually independent from the site's own design system
+     (see CLAUDE.md "Template CSS Independence") — but the `a` reset above
+     still applies inside them, since they render in the same document.
+     Any template anchor that relies on inherited color (rather than its
+     own explicit color class) silently gets site-brand mocha + underline
+     instead of its own template color. Reset back to inherit here. */
+  [data-template-scope] a {
+    color: inherit;
+    text-decoration: none;
   }
 
   :focus-visible {
