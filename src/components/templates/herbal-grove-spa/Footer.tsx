@@ -1,6 +1,6 @@
 import styles from './HerbalGroveSpa.module.css';
 import { NAV_LINKS } from './navLinks';
-import { FacebookIcon, InstagramIcon, ZaloIcon, PhoneIcon, MapPinIcon, MailIcon, LeafIcon, BotanicalSprigIcon } from './icons';
+import { FacebookIcon, InstagramIcon, ZaloIcon, PhoneIcon, MapPinIcon, MailIcon, LeafIcon, BotanicalSprigIcon, LeafBorder } from './icons';
 
 const SERVICES = [
   'Herbal Foot Soak',
@@ -23,6 +23,7 @@ const CONTACTS = [
 export default function Footer({ displayName, zaloUrl }: { displayName: string; zaloUrl?: string }) {
   return (
     <footer className="relative overflow-hidden bg-[var(--bt-dark)] pt-14 md:pt-16">
+      <LeafBorder id="footer" className="absolute inset-x-0 top-0 opacity-70" color="var(--bt-amber-light)" />
       {/* Faint botanical backdrop */}
       <BotanicalSprigIcon
         aria-hidden="true"

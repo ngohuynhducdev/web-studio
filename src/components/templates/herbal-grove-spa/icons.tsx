@@ -200,6 +200,25 @@ export function HandsIcon({ className }: { className?: string }) {
   );
 }
 
+// Signature motif — repeating leaf-and-vine border, tiles at any width.
+// `id` must be unique per usage site (Header top edge, Footer top edge).
+export function LeafBorder({ id, className, color = 'var(--bt-amber)' }: { id: string; className?: string; color?: string }) {
+  const patternId = `bt-leaf-${id}`;
+  return (
+    <svg className={className} width="100%" height="16" preserveAspectRatio="none" viewBox="0 0 240 16" aria-hidden="true">
+      <defs>
+        <pattern id={patternId} width="40" height="16" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="8" x2="13" y2="8" stroke={color} strokeWidth="1" />
+          <line x1="27" y1="8" x2="40" y2="8" stroke={color} strokeWidth="1" />
+          <path d="M20 3c4 0 7 3 7 5s-3 5-7 5-7-3-7-5 3-5 7-5Z" fill="none" stroke={color} strokeWidth="1.1" />
+          <line x1="20" y1="3.2" x2="20" y2="12.8" stroke={color} strokeWidth="0.8" />
+        </pattern>
+      </defs>
+      <rect width="240" height="16" fill={`url(#${patternId})`} />
+    </svg>
+  );
+}
+
 export function BotanicalSprigIcon({ className }: { className?: string }) {
   return (
     <svg
