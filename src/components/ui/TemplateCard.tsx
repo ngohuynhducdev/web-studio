@@ -67,7 +67,7 @@ export default function TemplateCard({ template, compact = false }: TemplateCard
       <div className={styles.templateCardBody}>
         <div className={styles.templateCardInfo}>
           <a href={href} target="_blank" rel="noopener noreferrer" className={styles.templateCardTitleLink}>
-            <h3 className={styles.templateCardTitle}>{title}</h3>
+            <h2 className={styles.templateCardTitle}>{title}</h2>
           </a>
           <p className={styles.templateCardDesc}>{description}</p>
         </div>

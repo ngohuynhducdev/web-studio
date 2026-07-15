@@ -69,7 +69,7 @@ export default function Intro({ businessName }: { businessName: string }) {
 
           <a
             href="#services"
-            className="inline-flex items-center gap-2.5 mt-9 text-[0.85rem] font-semibold tracking-[0.04em] text-[var(--sm-light)] bg-[var(--sm-accent)] rounded-full no-underline px-7 py-3.5 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
+            className="inline-flex items-center gap-2.5 mt-9 text-[0.85rem] font-semibold tracking-[0.04em] text-[var(--sm-light)] bg-[var(--sm-accent-btn)] rounded-full no-underline px-7 py-3.5 transition-[filter] duration-200 hover:brightness-105 active:translate-y-px"
           >
             Explore Treatments <span aria-hidden="true">→</span>
           </a>

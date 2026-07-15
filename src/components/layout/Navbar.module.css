@@ -107,7 +107,7 @@
   display: none;
   align-items: center;
   gap: 8px;
-  background: var(--color-brand-terracotta);
+  background: var(--color-brand-terracotta-text);
   color: #fffbf4;
   border: 0;
   border-radius: var(--radius-md);

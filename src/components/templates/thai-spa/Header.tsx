@@ -54,6 +54,7 @@ export default function Header({ businessName = 'LOTUS THAI' }: Props = {}) {
       <div
         className={`fixed inset-0 z-[100] ${menuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
         aria-hidden={!menuOpen}
+        inert={!menuOpen}
       >
         <div
           className={`${styles.mobileBackdrop} ${menuOpen ? styles.mobileBackdropOpen : ''}`}

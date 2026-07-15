@@ -31,13 +31,13 @@ export default function FloatingActions({ zaloUrl }: Props) {
         href={href}
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener noreferrer' : undefined}
-        className="group relative inline-flex items-center justify-center w-[2.875rem] h-[2.875rem] md:w-12 md:h-12 rounded-full bg-[var(--sm-accent)] text-[var(--sm-light)] no-underline cursor-pointer transition-[filter,transform] duration-[220ms] hover:brightness-105 hover:-translate-y-0.5"
+        className="group relative inline-flex items-center justify-center w-[2.875rem] h-[2.875rem] md:w-12 md:h-12 rounded-full bg-[var(--sm-accent-btn)] text-[var(--sm-light)] no-underline cursor-pointer transition-[filter,transform] duration-[220ms] hover:brightness-105 hover:-translate-y-0.5"
         aria-label="Message on Zalo"
       >
         <span className={styles.floatZaloRing} aria-hidden="true" />
         <span className="relative z-[1]"><ChatIcon /></span>
         {/* Tooltip */}
-        <span className="absolute right-[calc(100%+0.625rem)] top-1/2 -translate-y-1/2 bg-[var(--sm-accent)] text-[var(--sm-bg)] text-[0.72rem] font-semibold tracking-[0.04em] whitespace-nowrap px-[0.625rem] py-[0.3125rem] rounded pointer-events-none opacity-0 transition-opacity duration-200 group-hover:opacity-100 after:content-[''] after:absolute after:left-full after:top-1/2 after:-translate-y-1/2 after:border-[5px] after:border-transparent after:border-l-[var(--sm-accent)]">
+        <span className="absolute right-[calc(100%+0.625rem)] top-1/2 -translate-y-1/2 bg-[var(--sm-accent-btn)] text-[var(--sm-light)] text-[0.72rem] font-semibold tracking-[0.04em] whitespace-nowrap px-[0.625rem] py-[0.3125rem] rounded pointer-events-none opacity-0 transition-opacity duration-200 group-hover:opacity-100 after:content-[''] after:absolute after:left-full after:top-1/2 after:-translate-y-1/2 after:border-[5px] after:border-transparent after:border-l-[var(--sm-accent-btn)]">
           Zalo
         </span>
       </a>

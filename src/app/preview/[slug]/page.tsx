@@ -127,11 +127,13 @@ export default async function PreviewPage({ params }: Props) {
           `}</Script>
         </>
       )}
-      <TemplateComponent
-        businessName={order.businessName}
-        brandColor={order.brandColor}
-        sections={order.sections}
-      />
+      <div data-template-scope>
+        <TemplateComponent
+          businessName={order.businessName}
+          brandColor={order.brandColor}
+          sections={order.sections}
+        />
+      </div>
     </>
   );
 }

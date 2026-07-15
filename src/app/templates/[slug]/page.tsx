@@ -83,7 +83,9 @@ export default async function TemplateDetailPage({
     return (
       <>
         <TemplatePreviewBar slug={slug} componentKey={entry.slug} title={entry.label} />
-        <Component businessName={entry.label} />
+        <div data-template-scope>
+          <Component businessName={entry.label} />
+        </div>
       </>
     );
   }
@@ -93,7 +95,9 @@ export default async function TemplateDetailPage({
     return (
       <>
         <TemplatePreviewBar slug={slug} componentKey={template.componentKey!} title={template.title} />
-        <Component sections={template.sections} businessName={template.title} />
+        <div data-template-scope>
+          <Component sections={template.sections} businessName={template.title} />
+        </div>
       </>
     );
   }
