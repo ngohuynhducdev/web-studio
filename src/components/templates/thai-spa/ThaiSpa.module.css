@@ -1,6 +1,8 @@
 /* ─────────────────────────────────────────────────────────────
    THAI SPA TEMPLATE — scoped design tokens
-   Palette: Ivory / Sand Beige / Deep Wine / Espresso
+   Archetype: Formal symmetric classic — deep temple red + turmeric
+   gold, gold fret-pattern border. Palette: Ivory / Sand / Deep Red /
+   Turmeric Gold / Espresso.
    ───────────────────────────────────────────────────────────── */
 
 /* ── Tokens ──────────────────────────────────────────────────── */
@@ -9,8 +11,11 @@
   --ts-ivory-soft:   #FBF1E5;
   --ts-sand:         #E3D4C5;
   --ts-sand-deep:    #D2BFAB;
-  --ts-wine:         #23060B;
-  --ts-wine-hover:   #350D14;
+  --ts-wine:         #7A1F1F;
+  --ts-wine-hover:   #5C1717;
+  --ts-gold:         #C9982F;
+  --ts-gold-soft:    #E4C878;
+  --ts-gold-text:    #8C6A1E; /* AA-safe gold for small text on ivory (>=4.5:1) */
   --ts-espresso:     #1D110C;
   --ts-bark:         #5C453A;
   --ts-clay:         #9E8472;
@@ -29,6 +34,18 @@
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
+
+/* ── Signature motif: gold fret/diamond-chain border ──────────
+   Repeating geometric strip — the template's one recurring
+   ornamental device (header top edge, footer top edge, hero frame).
+   Abstract diamond lattice, not a literal cultural/religious symbol. */
+.fretBorder {
+  display: block;
+  width: 100%;
+  height: 10px;
+  flex-shrink: 0;
+}
+.fretBorderRow { fill: none; stroke: var(--ts-gold); stroke-width: 1.4; }
 
 /* ── Button ──────────────────────────────────────────────────── */
 .btn {
@@ -71,9 +88,26 @@
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ts-bark);
+  color: var(--ts-gold-text);
   font-weight: 500;
 }
+
+/* Gold step numeral — used by Welcome (ritual) and AfterMassage (steps) */
+.stepNum {
+  font-family: var(--ts-font-display, "Playfair Display", serif);
+  font-weight: 500;
+  color: var(--ts-gold-text);
+}
+
+/* Thin gold rule — small formal divider between two stacked blocks */
+.goldRule {
+  height: 1px;
+  width: 64px;
+  background: var(--ts-gold);
+  border: 0;
+  margin: 0 0 20px;
+}
+.goldRule.center { margin: 0 auto 20px; }
 
 .sectionTitle {
   font-family: var(--ts-font-display, "Playfair Display", serif);
@@ -99,6 +133,27 @@
   text-wrap: balance;
 }
 .heroTitle em { font-style: italic; }
+
+.heroEyebrow {
+  font-family: var(--ts-font-body, "Source Sans 3", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ts-gold-text);
+  margin-bottom: 18px;
+}
+
+/* Ceremonial picture-frame border around the hero image — outer gold
+   line, small gap, inner gold line (a classic formal-frame device). */
+.heroFrame {
+  padding: 10px;
+  border: 1px solid var(--ts-gold);
+  border-radius: 10px;
+}
+.heroFrame > div {
+  border: 1px solid var(--ts-gold-soft);
+}
 
 .harmonyTitle {
   font-family: var(--ts-font-display, "Playfair Display", serif);
@@ -187,12 +242,15 @@
   border-radius: 0;
   overflow: hidden;
   box-shadow: var(--ts-shadow-2);
+  border-top: 1px solid var(--ts-gold);
+  border-bottom: 1px solid var(--ts-gold);
 }
 
 @media (min-width: 768px) {
   .lovingTouchWrap {
     height: 460px;
     border-radius: 36px;
+    border: 1px solid var(--ts-gold);
   }
 }
 
@@ -270,6 +328,28 @@
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 50% 50% 24px 24px / 60% 60% 24px 24px;
+  border: 1px solid var(--ts-gold);
+}
+
+/* ── Pricing — featured tier gets the gold treatment ──────────── */
+.pricingFeatured {
+  border: 1px solid var(--ts-gold) !important;
+  position: relative;
+}
+.pricingBadge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ts-gold);
+  color: var(--ts-espresso);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 /* ── Footer logo ──────────────────────────────────────────────── */

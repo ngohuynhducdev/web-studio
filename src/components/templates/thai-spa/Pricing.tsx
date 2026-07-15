@@ -14,7 +14,11 @@ export default function Pricing({ data }: Props = {}) {
         <h2 className={styles.sectionTitle}>{heading}</h2>
         <div className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(260px,1fr))]">
           {packages.map((p) => (
-            <article key={p._key} className="bg-[var(--ts-ivory)] rounded-[28px] p-7 shadow-[var(--ts-shadow-2)] flex flex-col">
+            <article
+              key={p._key}
+              className={`bg-[var(--ts-ivory)] rounded-[28px] p-7 shadow-[var(--ts-shadow-2)] flex flex-col relative ${p.featured ? styles.pricingFeatured : ''}`}
+            >
+              {p.featured && <span className={styles.pricingBadge}>Most Popular</span>}
               <div className="text-center text-[13px] text-[var(--ts-bark)] tracking-[0.04em] mb-1">{p.name}</div>
               <div className="text-center font-['Playfair_Display',serif] font-medium text-[32px] leading-none text-[var(--ts-espresso)] mb-4">{p.price}</div>
               <div className="h-px bg-[var(--ts-border)] mb-4" />

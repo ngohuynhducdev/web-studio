@@ -25,7 +25,7 @@ export default function AfterMassage({ data }: Props = {}) {
             />
             <div className="absolute left-[14px] right-[14px] bottom-[14px] z-[1]">
               <div className="rounded-[14px] p-[12px_14px] bg-[var(--ts-ivory)]">
-                <div className="font-['Playfair_Display',serif] font-medium text-[22px] leading-none text-[var(--ts-espresso)]">{steps[0]?.num}</div>
+                <div className={`${styles.stepNum} text-[22px] leading-none`}>{steps[0]?.num}</div>
                 <p className="text-[12px] leading-[1.4] text-[var(--ts-bark)] m-0 mt-1">{steps[0]?.title}</p>
               </div>
             </div>
@@ -34,7 +34,7 @@ export default function AfterMassage({ data }: Props = {}) {
           {/* Ivory tile (step 1) */}
           <div className="bg-[var(--ts-ivory)] rounded-[20px] p-5 flex items-start">
             <div>
-              <div className="font-['Playfair_Display',serif] font-medium text-[22px] leading-none text-[var(--ts-espresso)]">{steps[1]?.num}</div>
+              <div className={`${styles.stepNum} text-[22px] leading-none`}>{steps[1]?.num}</div>
               <p className="text-[12px] leading-[1.4] text-[var(--ts-bark)] m-0 mt-1">{steps[1]?.title}</p>
             </div>
           </div>
@@ -61,7 +61,7 @@ export default function AfterMassage({ data }: Props = {}) {
             />
             <div className="absolute left-[14px] right-[14px] top-[14px] z-[1]">
               <div className="rounded-[14px] p-[12px_14px] bg-[var(--ts-ivory)]">
-                <div className="font-['Playfair_Display',serif] font-medium text-[22px] leading-none text-[var(--ts-espresso)]">{steps[2]?.num}</div>
+                <div className={`${styles.stepNum} text-[22px] leading-none`}>{steps[2]?.num}</div>
                 <p className="text-[12px] leading-[1.4] text-[var(--ts-bark)] m-0 mt-1">{steps[2]?.title}</p>
               </div>
             </div>
@@ -70,7 +70,7 @@ export default function AfterMassage({ data }: Props = {}) {
           {/* Ivory tile (step 3) */}
           <div className="bg-[var(--ts-ivory)] rounded-[20px] p-5 flex items-start">
             <div>
-              <div className="font-['Playfair_Display',serif] font-medium text-[22px] leading-none text-[var(--ts-espresso)]">{steps[3]?.num}</div>
+              <div className={`${styles.stepNum} text-[22px] leading-none`}>{steps[3]?.num}</div>
               <p className="text-[12px] leading-[1.4] text-[var(--ts-bark)] m-0 mt-1">{steps[3]?.title}</p>
             </div>
           </div>

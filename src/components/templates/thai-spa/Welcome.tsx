@@ -3,6 +3,7 @@
 // reinforces the luxury Thai hospitality positioning unique to this template.
 
 import type { StepsSection } from '@/types';
+import styles from './ThaiSpa.module.css';
 
 export default function Welcome({ data }: { data: StepsSection }) {
   if (!data.steps || data.steps.length === 0) return null;
@@ -21,9 +22,9 @@ export default function Welcome({ data }: { data: StepsSection }) {
         <div className="mb-16 flex flex-col items-center gap-5 text-center md:mb-20">
           {data.eyebrow && (
             <span className="inline-flex items-center gap-4 text-[11px] font-semibold tracking-[0.28em] uppercase text-[var(--ts-wine)]">
-              <span className="block h-px w-10 bg-[var(--ts-bark)]" />
+              <span className="block h-px w-10 bg-[var(--ts-gold)]" />
               {data.eyebrow}
-              <span className="block h-px w-10 bg-[var(--ts-bark)]" />
+              <span className="block h-px w-10 bg-[var(--ts-gold)]" />
             </span>
           )}
           <h2
@@ -50,10 +51,7 @@ export default function Welcome({ data }: { data: StepsSection }) {
             >
               {/* Decorative serif number */}
               <div className="flex items-center gap-3">
-                <span
-                  className="text-[44px] font-light leading-none text-[var(--ts-bark)] opacity-60 md:text-[52px]"
-                  style={{ fontFamily: 'var(--ts-font-display, "Playfair Display", Georgia, serif)' }}
-                >
+                <span className={`${styles.stepNum} text-[44px] leading-none md:text-[52px]`}>
                   {step.num ?? `0${i + 1}`}
                 </span>
                 <span className="block h-px flex-1 bg-[var(--ts-border)]" />

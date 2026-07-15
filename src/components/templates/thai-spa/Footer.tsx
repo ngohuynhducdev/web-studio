@@ -2,6 +2,7 @@ import Image from 'next/image';
 import type { BookingSection } from '@/types';
 import styles from './ThaiSpa.module.css';
 import { NAV_LINKS } from './navLinks';
+import { FretBorder } from './icons';
 
 interface Props { data?: BookingSection; businessName?: string }
 
@@ -12,6 +13,7 @@ export default function Footer({ data, businessName = 'LOTUS THAI' }: Props = {}
 
   return (
     <footer className="relative isolate min-h-[320px] py-16 overflow-hidden" id="contact">
+      <FretBorder id="footer" className="absolute top-0 left-0 z-[1]" />
       <div className="absolute inset-0 -z-10">
         <Image
           src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1200&q=85&fit=crop&auto=format"
