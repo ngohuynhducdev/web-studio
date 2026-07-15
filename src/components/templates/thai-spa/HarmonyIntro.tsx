@@ -18,6 +18,7 @@ export default function HarmonyIntro({ data }: Props = {}) {
           ))}{' '}
           <em>{headingItalic}</em>
         </h2>
+        <div className={`${styles.goldRule} ml-auto`} />
         <p className="text-[16px] leading-[1.65] text-[var(--ts-bark)] max-w-[520px] ml-auto m-0">{body}</p>
       </div>
     </section>
