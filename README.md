@@ -2,7 +2,7 @@
 
 **Web Studio** is a template-based landing page platform for small Vietnamese businesses — nail salons, spas, cafes, bakeries. A client picks a template, the studio customizes the content through a CMS, and the client's site is served on their own domain — all from a single Next.js codebase.
 
-This repository is a **portfolio project**: it contains the full marketing site, five production-quality landing page templates, an embedded CMS, and the order/delivery pipeline that would run the business end-to-end. All business data is fictional; photography is from Unsplash.
+This repository is a **portfolio project**: it contains the full marketing site, three production-quality landing page templates, an embedded CMS, and the order/delivery pipeline that would run the business end-to-end. All business data is fictional; photography is from Unsplash.
 
 **Live demo:** [web-studio-chi.vercel.app](https://web-studio-chi.vercel.app)
 
@@ -11,7 +11,7 @@ This repository is a **portfolio project**: it contains the full marketing site,
 ## What's inside
 
 - **Marketing site** (Vietnamese) — homepage, template catalog with industry filter, projects, about, contact
-- **5 landing page templates**, each with its own deliberate art direction (see below)
+- **3 landing page templates**, each with its own deliberate art direction (see below)
 - **Embedded Sanity Studio** at `/studio` for editing every page and template
 - **Order pipeline** — contact form → rate-limited API → Sanity order document → email notification (Resend) → admin dashboard behind HTTP Basic Auth
 - **Multi-tenant domain routing** — a customer's own domain is mapped through Vercel Edge Config and rewritten to their site in `proxy.ts`
@@ -91,7 +91,7 @@ src/
 │   └── studio/            # embedded Sanity Studio
 ├── components/
 │   ├── sections/          # homepage sections
-│   ├── templates/         # 5 templates, folder-based, co-located CSS Modules
+│   ├── templates/         # 3 templates, folder-based, co-located CSS Modules
 │   └── layout/ ui/ preview/
 ├── data/                  # DEFAULT_* content — single source of truth for fallbacks
 ├── lib/                   # template manifest/registry, GROQ queries, helpers
