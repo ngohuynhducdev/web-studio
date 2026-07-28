@@ -2,7 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { writeClient } from "@/sanity/lib/writeClient";
 import { sendNewOrderNotification } from "@/lib/email";
 
-// In-memory rate limiter: 3 requests per IP per hour
+// In-memory rate limiter: 3 requests per IP per hour.
+//
+// Scope is one serverless instance: the counter resets on a cold start and is
+// not shared across concurrently running instances, so a determined attacker
+// can exceed 3/hour by spreading requests out. It is a burst/accident guard,
+// not an abuse guard — good enough here because the only cost of a spurious
+// order is a Sanity document plus one notification email.
+//
+// A real abuse guard needs a shared store (Redis/Upstash) keyed by IP; swap
+// `isRateLimited` for that and the rest of the route is unchanged.
 const rlMap = new Map<string, number[]>();
 const RL_MAX = 3;
 const RL_WINDOW_MS = 60 * 60 * 1000;

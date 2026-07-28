@@ -23,10 +23,14 @@ const inter = Inter({
 });
 
 
+// Canonical origin — shared by metadataBase and the JSON-LD below so
+// structured data never points at a different host than the pages do.
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://webstudio.com"
+).replace(/\/$/, "");
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://webstudio.com"
-  ),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Web Studio — Beautiful websites for small businesses",
     template: "%s | Web Studio",
@@ -49,7 +53,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Web Studio",
-  "url": "https://webstudio.com",
+  "url": SITE_URL,
   "description": "Professional website design for nail salons, spas, cafes, gyms. Pick a ready-made template, get your site in 5 days.",
   "telephone": "+84901234567",
   "email": "hello@webstudio.com",

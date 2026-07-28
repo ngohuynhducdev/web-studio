@@ -49,8 +49,10 @@ export async function POST(request: Request) {
   )
 
   if (!updateRes.ok) {
-    const err = await updateRes.text()
-    return NextResponse.json({ error: err }, { status: 500 })
+    // Keep the upstream body server-side — it can echo the Edge Config id and
+    // token-scope details back to whoever called the webhook.
+    console.error('[sync-domain] Edge Config update failed', updateRes.status, await updateRes.text())
+    return NextResponse.json({ error: 'Domain sync failed' }, { status: 500 })
   }
 
   return NextResponse.json({ ok: true, synced: Object.keys(items).length })

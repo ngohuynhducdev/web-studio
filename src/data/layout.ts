@@ -48,5 +48,5 @@ export const DEFAULT_FOOTER = {
   facebookUrl:  "https://facebook.com/webstudio",
   instagramUrl: "https://instagram.com/webstudio",
   tiktokUrl:    "https://tiktok.com/@webstudio",
-  copyright:    "© 2025 Web Studio",
+  copyright:    `© ${new Date().getFullYear()} Web Studio`,
 };

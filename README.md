@@ -10,7 +10,7 @@ This repository is a **portfolio project**: it contains the full marketing site,
 
 ## What's inside
 
-- **Marketing site** (Vietnamese) — homepage, template catalog with industry filter, projects, about, contact
+- **Marketing site** — homepage, template catalog with industry filter, about, contact
 - **3 landing page templates**, each with its own deliberate art direction (see below)
 - **Embedded Sanity Studio** at `/studio` for editing every page and template
 - **Order pipeline** — contact form → rate-limited API → Sanity order document → email notification (Resend) → admin dashboard behind HTTP Basic Auth
@@ -99,6 +99,12 @@ src/
 └── proxy.ts               # Basic Auth for /admin + customer-domain rewriting
 ```
 
+## Security posture and known limits
+
+`/admin` and `/api/admin/*` sit behind HTTP Basic Auth with a constant-time password comparison that fails closed when `ADMIN_PASSWORD` is unset; `/api/seed-order` takes a shared secret and `/api/sync-domain` verifies the Sanity webhook HMAC. Baseline security headers (`frame-ancestors`, `nosniff`, `Referrer-Policy`, HSTS, `Permissions-Policy`) are set in `next.config.ts`, which documents why a full CSP is not — Next's inline bootstrap and the embedded Studio would need per-request nonces, and those opt every page out of static rendering.
+
+The order form's rate limit (3/IP/hour) is an in-memory counter, so it is scoped to a single serverless instance and resets on cold starts. It stops accidental double-submits and casual bursts, not a determined attacker. Making it real means a shared store keyed by IP — the swap is confined to `isRateLimited` in `src/app/api/create-order/route.ts`.
+
 ---
 
-Built by [Duc Ngo](https://github.com/ngohuynhducdev). UI copy is intentionally Vietnamese — the product's audience is Vietnamese small business owners.
+Built by [Duc Ngo](https://github.com/ngohuynhducdev). UI copy is in English; the product's audience is Vietnamese small business owners.
