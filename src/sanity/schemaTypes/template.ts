@@ -43,9 +43,11 @@ export const templateSchema = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({ name: 'price', title: 'Price (USD)', type: 'number', group: 'info', validation: (Rule) => Rule.required().min(0) }),
-    defineField({ name: 'demoUrl', title: 'Demo link', type: 'url', group: 'info' }),
+    // No demoUrl or features fields: TemplateCard builds its link from the slug
+    // and renders title, description, price, industry and the featured flag.
+    // Both were editable here and shown nowhere — do not re-add without a
+    // component that renders them.
     defineField({ name: 'thumbnail', title: 'Thumbnail image', type: 'image', group: 'info', options: { hotspot: true } }),
-    defineField({ name: 'features', title: 'Key features', type: 'array', group: 'info', of: [{ type: 'string' }] }),
     defineField({ name: 'isFeatured', title: 'Featured', type: 'boolean', group: 'info', initialValue: false }),
     defineField({ name: 'isActive', title: 'Active', type: 'boolean', group: 'info', initialValue: true }),
     defineField({

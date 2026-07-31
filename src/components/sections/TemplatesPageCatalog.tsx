@@ -2,21 +2,19 @@
 
 import { useState } from "react";
 import TemplateCard from "@/components/ui/TemplateCard";
-import type { Template, Industry } from "@/types";
+import { INDUSTRY_OPTIONS, type Template, type Industry } from "@/types";
 import { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal";
 import styles from "./TemplatesPageCatalog.module.css";
 
 type FilterKey = "all" | Industry;
 
+// Derived from INDUSTRY_OPTIONS rather than restated, so an industry added
+// there cannot be missing a pill here. The previous hardcoded list had already
+// drifted — it was missing "other", leaving any template in that industry
+// filterable by nothing.
 const FILTERS: { key: FilterKey; label: string }[] = [
   { key: "all", label: "all" },
-  { key: "nail", label: "nail" },
-  { key: "spa", label: "spa" },
-  { key: "cafe", label: "cafe" },
-  { key: "gym", label: "gym" },
-  { key: "barber", label: "barber" },
-  { key: "bakery", label: "bakery" },
-  { key: "studio", label: "studio" },
+  ...INDUSTRY_OPTIONS.map((o) => ({ key: o.value as FilterKey, label: o.value })),
 ];
 
 interface TemplatesPageCatalogProps {
@@ -36,9 +34,15 @@ export default function TemplatesPageCatalog({ initialTemplates }: TemplatesPage
       ? initialTemplates
       : initialTemplates.filter((t) => t.industry === active);
 
+  // With every template in one industry the bar collapses to "all" plus that
+  // industry — two pills returning the same list. Nothing to filter, so the
+  // bar is hidden until a second industry exists.
+  const industriesPresent = new Set(initialTemplates.map((t) => t.industry)).size;
+
   return (
     <section className={styles.templatesCatalog}>
       <div className="container-site">
+        {industriesPresent > 1 && (
         <div className={styles.filterBarWrapper}>
         <div className={styles.templatesFilterBar} role="group" aria-label="Filter by industry">
           {FILTERS.map((f) => {
@@ -58,6 +62,7 @@ export default function TemplatesPageCatalog({ initialTemplates }: TemplatesPage
           })}
         </div>
         </div>
+        )}
 
         {visible.length > 0 ? (
           <RevealStagger key={active} className={styles.templatesCatalogGrid}>
@@ -68,8 +73,12 @@ export default function TemplatesPageCatalog({ initialTemplates }: TemplatesPage
             ))}
           </RevealStagger>
         ) : (
+          // Guard, not a live path: pills with a count of zero are never
+          // rendered, so no reachable filter empties the grid. It only shows if
+          // the catalog itself is empty, which is why the wording no longer
+          // blames the selected industry.
           <div className={styles.templatesEmpty}>
-            <p className={styles.templatesEmptyText}>no templates for this industry yet.</p>
+            <p className={styles.templatesEmptyText}>no templates to show yet.</p>
           </div>
         )}
       </div>
