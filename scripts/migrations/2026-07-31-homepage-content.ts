@@ -1,24 +1,33 @@
 /**
- * migrate-homepage.ts
+ * 2026-07-31-homepage-content.ts
  *
- * One-off migration for the homepage content audit. The rendered site reads
- * Sanity first and only falls back to src/data/homepage.ts, so editing the
- * code defaults alone changes nothing on a dataset that already holds values.
- * This brings the stored document in line with the code.
+ * APPLIED to the production dataset on 2026-07-31. Kept as the record of what
+ * was changed in Sanity and why: git tracks the code, but nothing else in this
+ * repo tracks a mutation to CMS content. Re-running it is safe — every step is
+ * conditional, so on an already-migrated dataset it reports "nothing to do".
  *
- * It does three things:
- *   1. Unsets fields no section renders, plus the three headings whose leading
+ * One-off migration accompanying the homepage content audit (commit 9a78718).
+ * The rendered site reads Sanity first and only falls back to
+ * src/data/homepage.ts, so editing the code defaults alone changed nothing on a
+ * dataset that already held values. This brought the stored document in line.
+ *
+ * It did three things:
+ *   1. Unset fields no section renders, plus the three headings whose leading
  *      count is now derived from the actual number of steps/plans/templates.
  *      A stored value would win over the derived default and re-introduce the
  *      stale count.
- *   2. Rewrites the two invented statistics on the "standard" plan.
- *   3. Refreshes the testimonial dates.
+ *   2. Rewrote the two invented statistics on the "standard" plan.
+ *   3. Refreshed the testimonial dates.
+ *
+ * Ordering mattered: it had to run AFTER the code was deployed. Against the old
+ * code a cleared tplHeading fell through to a default holding the whole
+ * sentence, which then rendered "each one built with care." twice.
  *
  * Dry run by default — prints what would change and writes nothing.
  *
  * How to run:
- *   pnpm tsx scripts/migrate-homepage.ts            # preview
- *   pnpm tsx scripts/migrate-homepage.ts --apply    # write
+ *   pnpm tsx scripts/migrations/2026-07-31-homepage-content.ts            # preview
+ *   pnpm tsx scripts/migrations/2026-07-31-homepage-content.ts --apply    # write
  */
 
 import * as dotenv from "dotenv";
