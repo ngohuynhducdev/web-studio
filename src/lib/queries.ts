@@ -86,6 +86,7 @@ export const aboutPageQuery = groq`
     heroTitle, heroTitleItal, heroSub,
     storyTitle, storyParagraphs, storyQuote, storyQuoteSource,
     "storyImageUrl": storyImage.asset->url,
+    "storyImageAlt": storyImage.alt,
     values[] { num, title, body }
   }
 `;

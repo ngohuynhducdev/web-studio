@@ -10,6 +10,7 @@ import {
   DEFAULT_VALUES,
 } from "@/data/about";
 import type { AboutCms } from "@/types/cms";
+import { numberWord } from "@/lib/numberWord";
 import Reveal, { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal";
 import styles from "./page.module.css";
 
@@ -38,8 +39,16 @@ export default async function AboutPage() {
   const paragraphs   = cms?.storyParagraphs?.length ? cms.storyParagraphs : DEFAULT_STORY_PARAGRAPHS;
   const storyQuote   = cms?.storyQuote       ?? DEFAULT_STORY.storyQuote;
   const storyQuoteSrc= cms?.storyQuoteSource ?? DEFAULT_STORY.storyQuoteSource;
-  const storyImage   = cms?.storyImageUrl    ?? "/images/workspace.jpg";
   const values       = cms?.values?.length ? cms.values : DEFAULT_VALUES;
+
+  // The stock fallback is a generic desk photo, not this studio's office, so it
+  // is described rather than claimed. An uploaded photo carries its own alt from
+  // the CMS; if the editor left that blank the image is treated as decorative,
+  // which is preferable to captioning their photo with a description of ours.
+  const storyImage    = cms?.storyImageUrl ?? "/images/workspace.jpg";
+  const storyImageAlt = cms?.storyImageUrl
+    ? cms.storyImageAlt ?? ""
+    : "An open laptop, a mug of black coffee and a handwritten notepad on a wooden desk beside a window";
 
   return (
     <main>
@@ -80,14 +89,14 @@ export default async function AboutPage() {
             <div className={styles.aboutImageWrap}>
               <Image
                 src={storyImage}
-                alt="Web Studio's workspace"
+                alt={storyImageAlt}
                 fill
                 sizes="(max-width: 1023px) 100vw, 50vw"
                 className={styles.aboutImage}
               />
             </div>
             <div className={styles.aboutImageCaption}>
-              <span className="dot-terracotta">·</span>&nbsp; where every project gets built
+              <span className="dot-terracotta">·</span>&nbsp; one project at a time
             </div>
           </Reveal>
 
@@ -98,8 +107,11 @@ export default async function AboutPage() {
       <section className="section">
         <div className="container-site">
           <div className="section-head">
+            {/* Counted from the values themselves — this heading is code-only,
+                so unlike the homepage there is no CMS string to override it. */}
             <h2 className="h2-heading">
-              three things we <span className="italic-acc">believe in</span>.
+              {numberWord(values.length)} thing{values.length === 1 ? "" : "s"} we{" "}
+              <span className="italic-acc">believe in</span>.
             </h2>
           </div>
 
