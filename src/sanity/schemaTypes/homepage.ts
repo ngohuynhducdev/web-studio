@@ -15,23 +15,18 @@ export const homepageSchema = defineType({
   fields: [
 
     // ── Hero ──────────────────────────────────────────────────────────────
-    defineField({ name: 'heroEyebrow',     title: 'Eyebrow',          type: 'string', group: 'hero' }),
+    // HeroSection renders heading + lede + one CTA over a full-bleed photo.
+    // Eyebrow, badge, secondary CTA and the highlight list are deliberately
+    // absent — do not re-add a field here unless the section renders it.
     defineField({ name: 'heroHeading',     title: 'Main heading',    type: 'string', group: 'hero' }),
     defineField({ name: 'heroHeadingItal', title: 'Heading (italic)',type: 'string', group: 'hero' }),
     defineField({ name: 'heroLede',        title: 'Description',            type: 'text', rows: 3, group: 'hero' }),
-    defineField({ name: 'heroBadge',       title: 'Badge (e.g. delivered in 5 days)', type: 'string', group: 'hero' }),
     defineField({ name: 'heroCtaPrimary',  title: 'Primary CTA button',    type: 'string', group: 'hero' }),
-    defineField({ name: 'heroCtaSecondary',title: 'Secondary CTA button',      type: 'string', group: 'hero' }),
-    defineField({
-      name: 'heroMeta', title: 'Highlights (✓ list)', type: 'array', group: 'hero',
-      of: [{ type: 'string' }],
-    }),
     defineField({ name: 'heroImage', title: 'Hero image', type: 'image', group: 'hero',
       options: { hotspot: true },
     }),
 
     // ── How It Works ──────────────────────────────────────────────────────
-    defineField({ name: 'hiwEyebrow',  title: 'Eyebrow',           type: 'string', group: 'howItWorks' }),
     defineField({ name: 'hiwHeading',  title: 'Main heading',     type: 'string', group: 'howItWorks' }),
     defineField({ name: 'hiwHeadingItal', title: 'Heading (italic)', type: 'string', group: 'howItWorks' }),
     defineField({
@@ -54,12 +49,10 @@ export const homepageSchema = defineType({
     }),
 
     // ── Templates section ─────────────────────────────────────────────────
-    defineField({ name: 'tplEyebrow',     title: 'Eyebrow',           type: 'string', group: 'templates' }),
     defineField({ name: 'tplHeading',     title: 'Heading',           type: 'string', group: 'templates' }),
     defineField({ name: 'tplHeadingItal', title: 'Heading (italic)', type: 'string', group: 'templates' }),
 
     // ── Testimonials ──────────────────────────────────────────────────────
-    defineField({ name: 'testiEyebrow', title: 'Eyebrow', type: 'string', group: 'testimonials' }),
     defineField({ name: 'testiHeading', title: 'Heading', type: 'string', group: 'testimonials' }),
     defineField({
       name: 'testiItems', title: 'Testimonials', type: 'array', group: 'testimonials',
@@ -72,13 +65,15 @@ export const homepageSchema = defineType({
           defineField({ name: 'rating',     title: 'Star rating (1–5)',  type: 'number', initialValue: 5,
             validation: (Rule) => Rule.min(1).max(5).integer(),
           }),
+          // Free text, not a date type — it renders verbatim next to the client
+          // name ("Ms. Huong · June 2026"), so the editor controls the wording.
+          defineField({ name: 'date',       title: 'Date (e.g. April 2026)', type: 'string' }),
         ],
         preview: { select: { title: 'clientName', subtitle: 'shopName' } },
       })],
     }),
 
     // ── Pricing ───────────────────────────────────────────────────────────
-    defineField({ name: 'pricingEyebrow',     title: 'Eyebrow',           type: 'string', group: 'pricing' }),
     defineField({ name: 'pricingHeading',     title: 'Heading',           type: 'string', group: 'pricing' }),
     defineField({ name: 'pricingHeadingItal', title: 'Heading (italic)', type: 'string', group: 'pricing' }),
     defineField({

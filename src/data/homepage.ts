@@ -3,24 +3,25 @@ import { STUDIO_ZALO_URL } from "@/data/layout";
 
 export type { Step, TestimonialItem, PricingFeature, PricingPlan };
 
+// Note on the headings below: the count-bearing half ("three steps,",
+// "three templates,", "three plans —") is deliberately NOT stored here.
+// Each section derives it from the real length of its list, so the copy
+// cannot claim a stale number after one is added or removed. Storing it
+// would defeat that — seeded values land in Sanity, and a CMS value always
+// wins over the derived default.
+
 // ── Hero ─────────────────────────────────────────────────────────────────────
 
 export const DEFAULT_HERO = {
-  heroEyebrow:      "WEB STUDIO · SINCE 2024",
   heroHeading:      "pick a template — tailor it —",
   heroHeadingItal:  "in 5 days.",
   heroLede:         "web studio makes beautiful ready-made templates for nail salons, spas, cafes, gyms.",
-  heroBadge:        "delivered in 5 days",
   heroCtaPrimary:   "browse templates",
-  heroCtaSecondary: "about us",
-  heroMeta: ["no hidden fees", "30 days of free edits", "domain & hosting for year one"],
 };
 
 // ── HowItWorks ───────────────────────────────────────────────────────────────
 
 export const DEFAULT_HIW_HEADINGS = {
-  hiwEyebrow:    "HOW IT WORKS",
-  hiwHeading:    "three steps,",
   hiwHeadingItal: "nice and slow.",
 };
 
@@ -33,29 +34,24 @@ export const DEFAULT_STEPS: Step[] = [
 // ── TemplatesSection ─────────────────────────────────────────────────────────
 
 export const DEFAULT_TEMPLATES_SECTION = {
-  tplEyebrow:     "FEATURED TEMPLATES",
-  tplHeading:     "three templates,",
   tplHeadingItal: "each one built with care.",
 };
 
 // ── Testimonials ─────────────────────────────────────────────────────────────
 
 export const DEFAULT_TESTI_HEADINGS = {
-  testiEyebrow: "WHAT CLIENTS SAY",
   testiHeading: "don't just take our word for it.",
 };
 
 export const FALLBACK_TESTIMONIALS: TestimonialItem[] = [
-  { _key: "t1", clientName: "Ms. Huong", shopName: "Lily Nail Studio", content: "The best-looking nail salon I've ever been to. Once the site launched, clients started booking themselves — no more back-and-forth in the inbox. Saves me an hour a day.", rating: 5, date: "April 2025" },
-  { _key: "t2", clientName: "Mr. Nam",   shopName: "Zen Spa",           content: "A calming space, and the site nails the vibe. It makes my spa look so much more professional. New clients have been booking a lot more since we launched.", rating: 5, date: "March 2025" },
-  { _key: "t3", clientName: "Ms. Lan",   shopName: "Moonlight Cafe",    content: "Way more customers reserving tables online now. The site was ready in 5 days, right on schedule, no extra fees. They're great to work with — I've already referred several friends.", rating: 5, date: "February 2025" },
+  { _key: "t1", clientName: "Ms. Huong", shopName: "Lily Nail Studio", content: "The best-looking nail salon I've ever been to. Once the site launched, clients started booking themselves — no more back-and-forth in the inbox. Saves me an hour a day.", rating: 5, date: "June 2026" },
+  { _key: "t2", clientName: "Mr. Nam",   shopName: "Zen Spa",           content: "A calming space, and the site nails the vibe. It makes my spa look so much more professional. New clients have been booking a lot more since we launched.", rating: 5, date: "May 2026" },
+  { _key: "t3", clientName: "Ms. Lan",   shopName: "Moonlight Cafe",    content: "Way more customers reserving tables online now. The site was ready in 5 days, right on schedule, no extra fees. They're great to work with — I've already referred several friends.", rating: 5, date: "April 2026" },
 ];
 
 // ── Pricing ──────────────────────────────────────────────────────────────────
 
 export const DEFAULT_PRICING_HEADINGS = {
-  pricingEyebrow:     "PRICING",
-  pricingHeading:     "three plans —",
   pricingHeadingItal: "plenty for small businesses,",
 };
 
@@ -79,7 +75,7 @@ export const DEFAULT_PRICING_PLANS: PricingPlan[] = [
   {
     _key: "standard",
     name: "standard",
-    description: "3 pages — landing, services, contact. plenty for 90% of businesses.",
+    description: "3 pages — landing, services, contact. room for a full service list.",
     price: 39,
     features: [
       { _key: "f1", text: "3 custom pages",               included: true  },
@@ -90,7 +86,7 @@ export const DEFAULT_PRICING_PLANS: PricingPlan[] = [
       { _key: "f6", text: "blog · basic SEO",              included: false },
     ],
     cta: "choose standard",
-    footnote: "8 out of 10 clients pick this plan",
+    footnote: "for shops with a service menu",
     featured: true,
   },
   {

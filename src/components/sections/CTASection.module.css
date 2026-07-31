@@ -76,9 +76,21 @@
   line-height: 1.65;
   color: rgba(250, 246, 240, 0.72);
 }
+/* Tap-to-call. Overrides the global `a` reset, which would paint mocha on
+   this mocha panel. The underline is kept — it is the only affordance
+   marking the number as tappable. */
 .ctaPhone {
   color: var(--color-brand-cream-light);
   font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(250, 246, 240, 0.45);
+  white-space: nowrap;
+}
+.ctaPhone:hover {
+  color: var(--color-brand-cream-light);
+  text-decoration-color: currentColor;
 }
 
 @media (min-width: 768px) {

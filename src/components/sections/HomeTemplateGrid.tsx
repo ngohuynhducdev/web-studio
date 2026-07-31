@@ -3,32 +3,35 @@ import TemplateCard from "@/components/ui/TemplateCard";
 import { client } from "@/sanity/lib/client";
 import { allTemplatesQuery } from "@/lib/queries";
 import type { Template } from "@/types";
+import { numberWord } from "@/lib/numberWord";
 import { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal";
 import styles from "./HomeTemplateGrid.module.css";
 import { FALLBACK_TEMPLATES } from "@/data/homepage";
 
 interface HomeTemplateGridProps {
-  title?: string;
   showViewAll?: boolean;
   heading?: string;
   headingItal?: string;
 }
 
 export default async function HomeTemplateGrid({
-  title = "three templates, each one built with care.",
   showViewAll = true,
   heading,
   headingItal,
 }: HomeTemplateGridProps) {
   const fetched = await client.fetch<Template[]>(allTemplatesQuery, {}, { next: { revalidate: 60 } });
   const templates = fetched.length > 0 ? fetched.slice(0, 3) : FALLBACK_TEMPLATES;
+  // Counts what this grid actually renders, which is capped at 3 — not the
+  // size of the catalog. That keeps the sentence true about what the reader
+  // sees; "view all" is what points at the rest.
+  const derivedHeading = `${numberWord(templates.length)} templates,`;
 
   return (
     <section className={`section ${styles.board}`} id="templates">
       <div className={`container-site ${styles.boardInner}`}>
         <div className="section-head">
           <h2 className="h2-heading">
-            {heading ?? title}{headingItal && <> <span className="italic-acc">{headingItal}</span></>}
+            {heading ?? derivedHeading}{headingItal && <> <span className="italic-acc">{headingItal}</span></>}
           </h2>
         </div>
 
