@@ -3,7 +3,6 @@
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import styles from "./MistSpringSpa.module.css";
 import type {
-  PageSection,
   HeroSection,
   ServicesSection,
   MenuSection,
@@ -12,6 +11,7 @@ import type {
   BookingSection,
   BannerCarouselSection,
 } from "@/types";
+import type { TemplateProps } from "@/lib/templateRegistry";
 import { DEFAULT_SECTIONS } from "@/data/templates/mist-spring-spa";
 import { pickType, shown } from "@/lib/sections";
 import BannerCarousel from "@/components/templates/BannerCarousel";
@@ -45,17 +45,11 @@ const manrope = Manrope({
   weight: ["300", "400", "500", "600"],
 });
 
-export interface MistSpringSpaProps {
-  businessName?: string;
-  brandColor?: string;
-  sections?: PageSection[];
-}
-
 export default function MistSpringSpaTemplate({
   businessName = "Mist Spring Spa",
   brandColor,
   sections,
-}: MistSpringSpaProps = {}) {
+}: TemplateProps = {}) {
   const active = sections && sections.length > 0 ? sections : DEFAULT_SECTIONS;
 
   const carousel = pickType<BannerCarouselSection>(

@@ -181,11 +181,11 @@ sanity/
 ├── structure.ts          — Studio sidebar: singletons + template list + orders (filtered by status)
 ├── lib/
 │   ├── client.ts
-│   ├── live.ts
 │   └── writeClient.ts    — write client (uses SANITY_API_WRITE_TOKEN)
 ├── components/
 │   ├── AutoSeedSectionsInput.tsx  — auto-seeds sections when componentKey is chosen (used in template schema)
-│   └── AutoSeedSiteInput.tsx      — auto-seeds sections when chosenTemplate is chosen (used in site schema)
+│   ├── AutoSeedSiteInput.tsx      — auto-seeds sections when chosenTemplate is chosen (used in site schema)
+│   └── IsActiveInput.tsx          — syncs isActive with renewalDate (used in site schema)
 └── schemaTypes/
     ├── index.ts
     ├── template.ts       — has a componentKey field (dropdown to pick the rendering component)

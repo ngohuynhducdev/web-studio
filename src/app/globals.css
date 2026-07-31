@@ -304,21 +304,7 @@
   .section-head { margin-bottom: 48px; max-width: 760px; }
   @media (min-width: 768px) { .section-head { margin-bottom: 64px; } }
 
-  .cta-container { position: relative; z-index: 1; }
-
   /* ─ Typography ───────────────────────────────────────────────── */
-  .display-heading {
-    font-family: var(--font-serif);
-    font-weight: 300;
-    font-size: clamp(40px, 7vw, 88px);
-    line-height: 1;
-    letter-spacing: -0.035em;
-    text-transform: lowercase;
-    color: var(--color-brand-ink);
-    text-wrap: balance;
-    margin: 0;
-  }
-
   .h2-heading {
     font-family: var(--font-serif);
     font-weight: 300;
@@ -356,17 +342,6 @@
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42  0 0 0 0 0.31  0 0 0 0 0.18  0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 
-  /* ─ Craft materials (warm-tactile: pin · postmark · paper) ── */
-  /* Thumbtack / pin head */
-  .pin {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background:
-      radial-gradient(circle at 34% 30%, #f0c4ad 0%, var(--color-brand-terracotta) 55%, var(--color-brand-terracotta-deep) 100%);
-    box-shadow: 0 3px 5px -1px rgba(45, 36, 25, 0.4), inset 0 -1px 1px rgba(45, 36, 25, 0.25);
-  }
-
   /* Paper note / pinned card — slightly lifted, hand-placed */
   .note {
     position: relative;
@@ -374,62 +349,6 @@
     box-shadow: var(--shadow-md);
     border-radius: 2px;
   }
-  .note-kraft { background: var(--color-brand-paper); }
-
-  /* Kraft label — small tag instead of the tracked eyebrow */
-  .kraft-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 6px 12px;
-    background: var(--color-brand-paper);
-    border: 1px solid var(--color-brand-line);
-    border-radius: var(--radius-pill);
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--color-brand-ink-soft);
-    box-shadow: var(--shadow-xs);
-  }
-  .kraft-label::before {
-    content: "";
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--color-brand-terracotta);
-    flex-shrink: 0;
-  }
-
-  /* Postmark stamp — circular text ring around a mark */
-  .postmark {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 92px; height: 92px;
-    color: var(--color-brand-terracotta-text);
-  }
-  .postmark svg { width: 100%; height: 100%; }
-  .postmark-ring {
-    fill: currentColor;
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 8.4px;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-  }
-  .postmark-mark {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: var(--font-serif);
-    line-height: 0.85;
-    text-align: center;
-    color: inherit;
-  }
-  .postmark-top { font-size: 26px; font-weight: 400; }
-  .postmark-bottom { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: lowercase; }
 
   /* "Lift off the board" hover for pinned cards */
   .lift {

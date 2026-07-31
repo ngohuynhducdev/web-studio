@@ -36,22 +36,8 @@ const templateFields = groq`
   isActive
 `;
 
-export const featuredTemplatesQuery = groq`
-  *[_type == "template" && isFeatured == true && isActive != false]
-  | order(_createdAt desc)[0...6] {
-    ${templateFields}
-  }
-`;
-
 export const allTemplatesQuery = groq`
   *[_type == "template" && isActive != false]
-  | order(isFeatured desc, _createdAt desc) {
-    ${templateFields}
-  }
-`;
-
-export const templatesByIndustryQuery = groq`
-  *[_type == "template" && industry == $industry && isActive != false]
   | order(isFeatured desc, _createdAt desc) {
     ${templateFields}
   }
@@ -71,7 +57,6 @@ export const templateBySlugQuery = groq`
     }
   }
 `;
-
 
 export const zaloUrlQuery = groq`
   *[_type == "siteFooter" && _id == "siteFooter"][0].zaloUrl
