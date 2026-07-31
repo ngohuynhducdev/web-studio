@@ -3,26 +3,20 @@ import type { StepIcon, PricingPlan } from "@/types";
 // ── Homepage section CMS props ────────────────────────────────────────────────
 
 export interface HeroCms {
-  heroEyebrow?: string;
   heroHeading?: string;
   heroHeadingItal?: string;
   heroLede?: string;
-  heroBadge?: string;
   heroCtaPrimary?: string;
-  heroCtaSecondary?: string;
-  heroMeta?: string[];
   heroImageUrl?: string;
 }
 
 export interface HiwCms {
-  hiwEyebrow?: string;
   hiwHeading?: string;
   hiwHeadingItal?: string;
   hiwSteps?: Array<{ _key: string; title: string; desc: string; icon: StepIcon }>;
 }
 
 export interface PricingCms {
-  pricingEyebrow?: string;
   pricingHeading?: string;
   pricingHeadingItal?: string;
   pricingPlans?: PricingPlan[];

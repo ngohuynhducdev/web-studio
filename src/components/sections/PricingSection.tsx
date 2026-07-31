@@ -2,6 +2,7 @@ import Link from "next/link";
 import { DEFAULT_PRICING_PLANS, DEFAULT_PRICING_HEADINGS } from "@/data/homepage";
 import type { PricingCms } from "@/types/cms";
 import type { PricingPlan } from "@/types";
+import { numberWord } from "@/lib/numberWord";
 import { RevealStagger, RevealItem } from "@/components/ui/motion/Reveal";
 import styles from "./PricingSection.module.css";
 
@@ -47,9 +48,10 @@ function CrossIcon() {
 }
 
 export default function PricingSection({ cms }: { cms?: PricingCms }) {
-  const heading    = cms?.pricingHeading     ?? DEFAULT_PRICING_HEADINGS.pricingHeading;
-  const headingItal= cms?.pricingHeadingItal ?? DEFAULT_PRICING_HEADINGS.pricingHeadingItal;
   const plans      = cms?.pricingPlans?.length ? cms.pricingPlans : DEFAULT_PRICING_PLANS;
+  // Derived so adding or removing a plan cannot leave the heading stale.
+  const heading    = cms?.pricingHeading     ?? `${numberWord(plans.length)} plans —`;
+  const headingItal= cms?.pricingHeadingItal ?? DEFAULT_PRICING_HEADINGS.pricingHeadingItal;
 
   return (
     <section className="section" id="pricing">

@@ -34,7 +34,11 @@ export default async function CTASection() {
           <p className={styles.ctaSub}>
             {body}
             <br />
-            or call <span className={styles.ctaPhone}>{phone}</span> · {hours}
+            or call{" "}
+            <a href={`tel:${phone.replace(/\s/g, "")}`} className={styles.ctaPhone}>
+              {phone}
+            </a>{" "}
+            · {hours}
           </p>
         </Reveal>
       </div>
