@@ -21,9 +21,7 @@ export interface Template {
   description: string;
   industry: Industry;
   price: number;
-  demoUrl: string;
   thumbnailUrl: string;
-  features: string[];
   isFeatured: boolean;
   isActive: boolean;
   sections?: PageSection[];

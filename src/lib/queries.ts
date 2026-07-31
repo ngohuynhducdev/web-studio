@@ -29,9 +29,7 @@ const templateFields = groq`
   description,
   industry,
   price,
-  demoUrl,
   "thumbnailUrl": thumbnail.asset->url,
-  features,
   isFeatured,
   isActive
 `;
