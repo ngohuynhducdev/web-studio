@@ -42,6 +42,7 @@ export interface AboutCms {
   storyQuote?: string;
   storyQuoteSource?: string;
   storyImageUrl?: string;
+  storyImageAlt?: string;
   values?: Array<{ _key?: string; num: string; title: string; body: string }>;
 }
 

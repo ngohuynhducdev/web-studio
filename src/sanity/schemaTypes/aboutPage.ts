@@ -67,6 +67,18 @@ export const aboutPageSchema = defineType({
       type: "image",
       group: "story",
       options: { hotspot: true },
+      fields: [
+        // Without this the page had one hardcoded alt covering both an uploaded
+        // photo and the stock fallback, so whichever was live got the other
+        // one's description. An uploaded photo has to carry its own.
+        defineField({
+          name: "alt",
+          title: "Alt text",
+          type: "string",
+          description:
+            "Describe what is in the photo, for screen readers. Leave empty only if the image is purely decorative.",
+        }),
+      ],
     }),
 
     // Values
