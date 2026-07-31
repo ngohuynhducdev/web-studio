@@ -29,17 +29,6 @@ export interface Template {
   sections?: PageSection[];
 }
 
-export interface Testimonial {
-  _id: string;
-  clientName: string;
-  shopName: string;
-  industry: Industry;
-  content: string;
-  rating: number;
-  avatarUrl?: string;
-}
-
-
 export type OrderStatus =
   | "new"
   | "in_progress"

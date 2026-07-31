@@ -8,5 +8,3 @@ export const TEMPLATE_MANIFEST = [
 ] as const;
 
 export type TemplateSlug = (typeof TEMPLATE_MANIFEST)[number]["slug"];
-
-export const TEMPLATE_SLUGS: readonly TemplateSlug[] = TEMPLATE_MANIFEST.map((t) => t.slug);

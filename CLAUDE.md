@@ -181,11 +181,11 @@ sanity/
 ├── structure.ts          — Studio sidebar: singletons + template list + orders (filtered by status)
 ├── lib/
 │   ├── client.ts
-│   ├── live.ts
 │   └── writeClient.ts    — write client (uses SANITY_API_WRITE_TOKEN)
 ├── components/
 │   ├── AutoSeedSectionsInput.tsx  — auto-seeds sections when componentKey is chosen (used in template schema)
-│   └── AutoSeedSiteInput.tsx      — auto-seeds sections when chosenTemplate is chosen (used in site schema)
+│   ├── AutoSeedSiteInput.tsx      — auto-seeds sections when chosenTemplate is chosen (used in site schema)
+│   └── IsActiveInput.tsx          — syncs isActive with renewalDate (used in site schema)
 └── schemaTypes/
     ├── index.ts
     ├── template.ts       — has a componentKey field (dropdown to pick the rendering component)
@@ -238,9 +238,19 @@ Content types: `template`, `site`, `homepage`, `sections`,
 
 - `template.sections[]` — CMS-editable demo content for each template
 - `site.sections[]` + `brandColor` — per-client customization
-- **Auto-seed:** when `chosenTemplate` is picked on a site document, sections auto-fill from
-  the template's CMS sections (if any) → fall back to `DEFAULT_SECTIONS` in code
-- Render fallback chain: `site.sections` → `template.sections` → `DEFAULT_SECTIONS` (code)
+- **Auto-seed (Studio, write-time):** when `chosenTemplate` is picked on a site document,
+  sections auto-fill from the template's CMS sections (if any) → fall back to
+  `DEFAULT_SECTIONS` in code. This is the *only* place the template→site hop happens.
+- **Render (read-time):** each page passes exactly one array to the template component,
+  which falls straight back to its own `DEFAULT_SECTIONS`:
+  - `/templates/[slug]` → `template.sections` → `DEFAULT_SECTIONS`
+  - `/preview/[slug]`   → `site.sections`     → `DEFAULT_SECTIONS`
+
+  There is **no** `site.sections` → `template.sections` step at render time — a site whose
+  sections are empty renders the coded defaults, not the template's CMS content.
+- Fallback is all-or-nothing per array, never a per-section merge: if `sections` is non-empty
+  but missing a type, `pickType`/`pick` returns undefined and that section simply does not
+  render. Keeping arrays complete is exactly what auto-seed is for.
 - API: `POST /api/seed-order` copies DEFAULT_SECTIONS onto a site (header `x-seed-secret`);
   `POST /api/admin/seed-order` does the same for the admin UI
 - The CMS flow applies to all 3 templates (see `TEMPLATE_MANIFEST` in `lib/templates.ts`)

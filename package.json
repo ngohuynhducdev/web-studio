@@ -11,6 +11,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "seed": "tsx scripts/seed-cms.ts",
+    "audit:assets": "tsx scripts/audit-assets.ts",
     "test:e2e": "playwright test"
   },
   "dependencies": {

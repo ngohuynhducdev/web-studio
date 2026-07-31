@@ -9,7 +9,9 @@
  */
 
 import * as dotenv from "dotenv";
-import { createClient } from "@sanity/client";
+// via next-sanity, not @sanity/client — the latter is only a transitive dep and
+// resolves purely by pnpm hoisting luck.
+import { createClient } from "next-sanity";
 
 import {
   DEFAULT_HERO,
