@@ -136,12 +136,14 @@ components/
 │   └── ContactForm.tsx     — receives defaultTemplate prop (from the ?template= URL param)
 ├── templates/              — Each template is folder-based
 │   ├── thai-spa/           — ✅ CMS-driven, folder-based
-│   │   ├── index.tsx + ThaiSpa.module.css + navLinks.ts
-│   │   ├── Header / Hero / LovingTouch / Benefits / HarmonyIntro /
+│   │   ├── index.tsx + ThaiSpa.module.css + navLinks.ts + DESIGN.md
+│   │   ├── Header / Hero / LovingTouch / Benefits / Welcome / HarmonyIntro /
 │   │   │   AfterMassage / Founder / Testimonials / Pricing / Offer / Footer
 │   │   └── icons.tsx
 │   ├── herbal-grove-spa/          — ✅ CMS-driven, folder-based (Herbal Grove Spa)
 │   ├── mist-spring-spa/           — ✅ CMS-driven, folder-based (Mist Spring Spa — bright spa, Lumera-style)
+│   │   (each template folder carries its own DESIGN.md — the visual contract for
+│   │    that template only, NOT the site design system)
 │   └── BannerCarousel.tsx + BannerCarousel.module.css  — shared across templates
 ├── preview/                — Site chrome layered over the template page (NOT the template delivered to the client)
 │   ├── TemplatePreviewBar.tsx + .module.css
