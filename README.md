@@ -1,6 +1,6 @@
 # Web Studio — a mini website platform for Vietnamese small businesses
 
-**Web Studio** is a template-based landing page platform for small Vietnamese businesses — nail salons, spas, cafes, bakeries. A client picks a template, the studio customizes the content through a CMS, and the client's site is served on their own domain — all from a single Next.js codebase.
+**Web Studio** is a template-based landing page platform for small Vietnamese businesses. A client picks a template, the studio customizes the content through a CMS, and the client's site is served on their own domain — all from a single Next.js codebase. The catalog is spa-only for now — cafes, barbershops and other small shops are next — and the site's copy deliberately names only the industries that have a template today.
 
 This repository is a **portfolio project**: it contains the full marketing site, three production-quality landing page templates, an embedded CMS, and the order/delivery pipeline that would run the business end-to-end. All business data is fictional; photography is from Unsplash.
 

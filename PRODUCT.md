@@ -6,11 +6,15 @@ brand
 
 ## Users
 
-Small business owners in Vietnam — mostly spas and nail salons, with cafes and gyms as a secondary segment. They aren't tech-savvy and tend to decide with their eyes ("if it looks good, I'll buy"), and need a fast, affordably priced website. Today they rely mainly on a Facebook page and want a landing page to look more "legit" when customers find them on Google or get referred through Zalo.
+Owners of small shops in Vietnam — cafes, barbershops, nail salons, gyms and the like. They aren't tech-savvy and tend to decide with their eyes ("if it looks good, I'll buy"), and need a fast, affordably priced website. Today they rely mainly on a Facebook page and want a landing page to look more "legit" when customers find them on Google or get referred through Zalo.
+
+**Spa first.** The long-term catalog covers many kinds of small shop, but every template shipped so far is a spa, and the studio is deliberately finishing that segment before opening the next. One industry done properly beats four done thinly — a spa template can be tuned to how a spa actually sells, which is the whole argument for buying from a studio instead of a marketplace.
+
+The practical rule that follows: **public copy describes the catalog as it is today, not the roadmap.** No page, template, metadata field or OG image may name an industry we have no template for — a cafe owner who lands on the site and finds only spas has been sold something that does not exist. Naming a new industry is part of shipping its template, not a thing done in advance. See the checklist in CLAUDE.md.
 
 ## Product Purpose
 
-Web Studio is a web design studio for small businesses in Vietnam. Clients pick a template → we customize it. Revenue comes from a monthly fee. The studio's own site is both the storefront (a showcase of templates) and proof of competence — if the studio's own site isn't beautiful, clients won't trust it to make their business look good. Lead capture via Zalo is the closing point of the entire funnel.
+Web Studio is a web design studio for small businesses in Vietnam, serving spas and massage studios first. Clients pick a template → we customize it. Revenue comes from a monthly fee. The studio's own site is both the storefront (a showcase of templates) and proof of competence — if the studio's own site isn't beautiful, clients won't trust it to make their business look good. Lead capture via Zalo is the closing point of the entire funnel.
 
 ## Brand Personality
 

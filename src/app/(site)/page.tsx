@@ -4,10 +4,13 @@ import { homepageQuery } from "@/lib/queries";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Web Studio — Beautiful websites for small Vietnamese businesses",
+    absolute: "Web Studio — Beautiful websites for Vietnamese spas",
   },
+  // Sits next to "pick a ready-made template", so any industry named here has
+  // to exist in the catalog today — spa only, for now. See the note on
+  // generateMetadata in (site)/templates/page.tsx.
   description:
-    "Professional website design for nail salons, spas, cafes, gyms. Pick a ready-made template, get your site in 5 days, starting at $19/month.",
+    "Professional website design for spas and massage studios in Vietnam. Pick a ready-made template, get your site in 5 days, starting at $19/month.",
 };
 import HeroSection from "@/components/sections/HeroSection";
 import HowItWorks from "@/components/sections/HowItWorks";

@@ -15,7 +15,10 @@ export type { Step, TestimonialItem, PricingFeature, PricingPlan };
 export const DEFAULT_HERO = {
   heroHeading:      "pick a template — tailor it —",
   heroHeadingItal:  "in 5 days.",
-  heroLede:         "web studio makes beautiful ready-made templates for nail salons, spas, cafes, gyms.",
+  // Names only what the catalog has. It previously advertised nail salons,
+  // cafes and gyms — roadmap industries with no template yet. Widen this line
+  // when their templates ship, not before (checklist in CLAUDE.md).
+  heroLede:         "web studio makes beautiful ready-made templates for spas and massage studios in vietnam.",
   heroCtaPrimary:   "browse templates",
 };
 
@@ -43,10 +46,13 @@ export const DEFAULT_TESTI_HEADINGS = {
   testiHeading: "don't just take our word for it.",
 };
 
+// All three shops are spas: every template shipped so far is a spa, so
+// testimonials from a nail salon and a cafe claimed delivered work in
+// industries we cannot serve yet. Names and quotes are fictional (see README).
 export const FALLBACK_TESTIMONIALS: TestimonialItem[] = [
-  { _key: "t1", clientName: "Ms. Huong", shopName: "Lily Nail Studio", content: "The best-looking nail salon I've ever been to. Once the site launched, clients started booking themselves — no more back-and-forth in the inbox. Saves me an hour a day.", rating: 5, date: "June 2026" },
-  { _key: "t2", clientName: "Mr. Nam",   shopName: "Zen Spa",           content: "A calming space, and the site nails the vibe. It makes my spa look so much more professional. New clients have been booking a lot more since we launched.", rating: 5, date: "May 2026" },
-  { _key: "t3", clientName: "Ms. Lan",   shopName: "Moonlight Cafe",    content: "Way more customers reserving tables online now. The site was ready in 5 days, right on schedule, no extra fees. They're great to work with — I've already referred several friends.", rating: 5, date: "April 2026" },
+  { _key: "t1", clientName: "Ms. Huong", shopName: "Lily Day Spa",   content: "Our old Facebook page never showed prices, so every message started from scratch. Now clients read the menu and book themselves — saves me an hour a day.", rating: 5, date: "June 2026" },
+  { _key: "t2", clientName: "Mr. Nam",   shopName: "Zen Spa",         content: "A calming space, and the site captures it. My spa looks far more professional now, and new clients have been booking a lot more since we launched.", rating: 5, date: "May 2026" },
+  { _key: "t3", clientName: "Ms. Lan",   shopName: "Moonlight Spa",   content: "Ready in 5 days, right on schedule, no extra fees. Appointments come in online now instead of over the phone. I've already referred several friends.", rating: 5, date: "April 2026" },
 ];
 
 // ── Pricing ──────────────────────────────────────────────────────────────────
