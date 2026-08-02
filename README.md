@@ -27,9 +27,13 @@ Each template locks in its own archetype — typography system, color world, sig
 | `thai-spa` | Thai massage | Classic symmetric formality — deep red and turmeric gold |
 | `herbal-grove-spa` | Herbal spa | Vietnamese folk craft — handmade paper texture, herbal SVG illustrations |
 
-| [Mist Spring Spa](https://web-studio-chi.vercel.app/templates/mist-spring-spa) | [Template catalog](https://web-studio-chi.vercel.app/templates) |
+| [Mist Spring Spa](https://web-studio-chi.vercel.app/templates/mist-spring-spa) | [Thai Spa](https://web-studio-chi.vercel.app/templates/thai-spa) |
 |---|---|
-| ![Mist Spring Spa](docs/screenshots/mist-spring-spa.webp) | ![Template catalog](docs/screenshots/catalog.webp) |
+| ![Mist Spring Spa](docs/screenshots/mist-spring-spa.webp) | ![Thai Spa](docs/screenshots/thai-spa.webp) |
+| [Herbal Grove Spa](https://web-studio-chi.vercel.app/templates/herbal-grove-spa) | [Template catalog](https://web-studio-chi.vercel.app/templates) |
+| ![Herbal Grove Spa](docs/screenshots/herbal-grove-spa.webp) | ![Template catalog](docs/screenshots/catalog.webp) |
+
+The dark bar along the bottom of each shot is the studio's preview chrome, not part of the delivered template.
 
 ## Architecture highlights
 

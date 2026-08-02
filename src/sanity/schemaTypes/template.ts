@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity'
 import { sectionTypes } from './sections'
-import { INDUSTRY_OPTIONS } from '@/types'
+import { INDUSTRY_SANITY_LIST, INDUSTRY_TITLE, type Industry } from '@/types'
 import { TEMPLATE_MANIFEST } from '@/lib/templates'
 import { AutoSeedSectionsInput } from '@/sanity/components/AutoSeedSectionsInput'
 
@@ -39,7 +39,7 @@ export const templateSchema = defineType({
       title: 'Industry',
       type: 'string',
       group: 'info',
-      options: { list: [...INDUSTRY_OPTIONS] },
+      options: { list: INDUSTRY_SANITY_LIST },
       validation: (Rule) => Rule.required(),
     }),
     defineField({ name: 'price', title: 'Price (USD)', type: 'number', group: 'info', validation: (Rule) => Rule.required().min(0) }),
@@ -70,8 +70,7 @@ export const templateSchema = defineType({
       media: 'thumbnail',
     },
     prepare({ title, subtitle, media }) {
-      const labels = Object.fromEntries(INDUSTRY_OPTIONS.map((o) => [o.value, o.title]))
-      return { title, subtitle: labels[subtitle] ?? subtitle, media }
+      return { title, subtitle: INDUSTRY_TITLE[subtitle as Industry] ?? subtitle, media }
     },
   },
 })
