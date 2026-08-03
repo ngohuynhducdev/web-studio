@@ -81,6 +81,42 @@ test.describe("contact form", () => {
   });
 });
 
+// Reveal wrappers server-render with opacity: 0 and only become visible once
+// motion hydrates, so a JS failure blanks the page while every JS-on check
+// still passes. Nothing here is visible to the rest of the suite.
+test.describe("renders without JavaScript", () => {
+  test.use({ javaScriptEnabled: false });
+
+  // toBeVisible() is not enough here: Playwright treats opacity: 0 as visible,
+  // so it passes against the very bug this guards. Read the computed opacity.
+  async function revealOpacities(page: import("@playwright/test").Page) {
+    return page
+      .locator(".reveal-root")
+      .evaluateAll((nodes) => nodes.map((n) => getComputedStyle(n).opacity));
+  }
+
+  test("contact page still shows its content and fallback channels", async ({ page }) => {
+    await page.goto("/contact");
+
+    const opacities = await revealOpacities(page);
+    expect(opacities.length).toBeGreaterThan(0);
+    expect(opacities.filter((o) => o !== "1")).toEqual([]);
+
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    // The two ways to reach the studio when the form cannot submit.
+    await expect(page.locator('a[href^="tel:"]').first()).toBeVisible();
+    await expect(page.locator('a[href*="zalo"]').first()).toBeVisible();
+  });
+
+  test("homepage still shows its hero", async ({ page }) => {
+    await page.goto("/");
+
+    const opacities = await revealOpacities(page);
+    expect(opacities.length).toBeGreaterThan(0);
+    expect(opacities.filter((o) => o !== "1")).toEqual([]);
+  });
+});
+
 test.describe("protected and generated routes", () => {
   test("admin dashboard requires auth", async ({ request }) => {
     const response = await request.get("/admin/orders");
