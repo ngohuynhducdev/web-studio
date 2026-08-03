@@ -26,6 +26,7 @@ spas only:
 | `app/layout.tsx` | `metadata.description`, `jsonLd.description` |
 | `app/(site)/page.tsx` | `title.absolute`, `description` |
 | `app/(site)/contact/page.tsx` | `description` |
+| `components/sections/ContactForm.tsx` | message-field placeholder (an example order) |
 | `app/opengraph-image.tsx` | eyebrow line |
 | `app/(site)/templates/opengraph-image.tsx` | eyebrow line |
 | `README.md` | intro paragraph |
