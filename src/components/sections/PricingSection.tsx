@@ -140,9 +140,9 @@ function RegularCard({ plan }: { plan: PricingPlan }) {
       </ul>
 
       {/* CTA */}
-      <a href="/contact" className="btn btn-outline btn-full">
+      <Link href="/contact" className="btn btn-outline btn-full">
         {plan.cta}
-      </a>
+      </Link>
 
       {/* Footnote */}
       <p className={styles.priceFoot}>{plan.footnote}</p>
@@ -181,9 +181,9 @@ function FeaturedCard({ plan }: { plan: PricingPlan }) {
       </ul>
 
       {/* CTA */}
-      <a href="/contact" className="btn btn-accent btn-full">
+      <Link href="/contact" className="btn btn-accent btn-full">
         {plan.cta}
-      </a>
+      </Link>
 
       {/* Footnote */}
       <p className={styles.priceFoot}>{plan.footnote}</p>
