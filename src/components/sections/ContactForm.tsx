@@ -229,7 +229,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
           id="message"
           name="message"
           rows={4}
-          placeholder="Nail salon in District 7, need online booking, about 200 regular customers a month..."
+          placeholder="Foot spa in District 7, need online booking, about 200 regular guests a month..."
           className={styles.contactTextarea}
         />
       </div>
