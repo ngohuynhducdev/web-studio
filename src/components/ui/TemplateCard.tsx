@@ -21,12 +21,16 @@ export default function TemplateCard({ template, compact = false }: TemplateCard
     componentKey,
   } = template;
 
+  // Internal route, opened in a new tab on purpose: the demo is a fullscreen
+  // page with no site chrome, and the visitor is mid-browse in the catalog.
+  // No `rel` — `noreferrer` would drop the referrer on our own domain, and
+  // `noopener` is implied for target="_blank". See rule 9 in CLAUDE.md.
   const href = `/templates/${slug}`;
 
   return (
     <article className={styles.templateCard}>
       {/* Image area — opens in new tab */}
-      <a href={href} target="_blank" rel="noopener noreferrer" className={styles.templateCardImage} tabIndex={-1} aria-hidden="true">
+      <a href={href} target="_blank" className={styles.templateCardImage} tabIndex={-1} aria-hidden="true">
         {thumbnailUrl ? (
           <Image
             src={thumbnailUrl}
@@ -52,7 +56,7 @@ export default function TemplateCard({ template, compact = false }: TemplateCard
       {/* Content */}
       <div className={styles.templateCardBody}>
         <div className={styles.templateCardInfo}>
-          <a href={href} target="_blank" rel="noopener noreferrer" className={styles.templateCardTitleLink}>
+          <a href={href} target="_blank" className={styles.templateCardTitleLink}>
             <h2 className={styles.templateCardTitle}>{title}</h2>
           </a>
           <p className={styles.templateCardDesc}>{description}</p>
@@ -65,7 +69,7 @@ export default function TemplateCard({ template, compact = false }: TemplateCard
         </div>
 
         <div className={styles.templateCardActions}>
-          <a href={href} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+          <a href={href} target="_blank" className="btn btn-ghost">
             View template
           </a>
           {!compact && componentKey && (

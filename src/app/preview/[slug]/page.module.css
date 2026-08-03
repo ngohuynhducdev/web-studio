@@ -88,3 +88,16 @@
   color: var(--fg-3);
   margin: 0;
 }
+
+/* ─ Preview banner offset ─ */
+/* Templates pin their own header to the top of the viewport. While the preview
+   banner is shown it occupies the first 40px, so the header has to sit below
+   it. Scoped to this wrapper — the rule used to be a bare <style> tag in the
+   page, which applied to every <header> in the document.
+
+   `!important` stays: each template styles its own header and is free to
+   change how, so this must win without knowing which rule it is competing
+   with. */
+.bannerOffset :global(header) {
+  top: 40px !important;
+}
