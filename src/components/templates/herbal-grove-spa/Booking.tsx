@@ -5,7 +5,9 @@ import styles from './HerbalGroveSpa.module.css';
 import type { BookingSection } from '@/types';
 import { ClockIcon, ZaloIcon, PhoneIcon, ArrowRightIcon, BotanicalSprigIcon } from './icons';
 
-const EMAIL = 'bachthao.spa@gmail.com';
+// Fallback only — s.email wins. This was the sole source, so a client who set
+// their address in the CMS got it here while the mailto: stayed ours.
+const EMAIL = 'hello@herbalgrove.vn';
 
 const PERKS = [
   'Reserve your seat ahead — skip the wait',
@@ -13,8 +15,10 @@ const PERKS = [
   "We'll help you pick the right treatment for you",
 ];
 
-export default function Booking({ s }: { s: BookingSection }) {
+export default function Booking({ s, businessName }: { s: BookingSection; businessName: string }) {
   const [sectionRef, inView] = useInView<HTMLElement>();
+
+  const email = s.email ?? EMAIL;
 
   const mapsUrl = s.address
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.address)}`
@@ -76,7 +80,7 @@ export default function Booking({ s }: { s: BookingSection }) {
               <h3 className={`${styles.serif} m-0 text-[28px] text-[var(--bt-light)]`}>Contact</h3>
 
               <div className="text-[14px] leading-[1.7] text-[var(--bt-light)]/80">
-                <div className="mb-1 text-[15px] font-semibold text-[var(--bt-light)]">Herbal Grove Spa</div>
+                <div className="mb-1 text-[15px] font-semibold text-[var(--bt-light)]">{businessName}</div>
                 {s.address}
               </div>
 
@@ -97,8 +101,8 @@ export default function Booking({ s }: { s: BookingSection }) {
                     {s.phone}
                   </a>
                 )}
-                <a href={`mailto:${EMAIL}`} className="text-[14px] text-[var(--bt-light)]/80 underline decoration-[rgba(245,239,228,0.3)] underline-offset-4 transition-colors hover:text-[var(--bt-amber-light)]">
-                  {EMAIL}
+                <a href={`mailto:${email}`} className="text-[14px] text-[var(--bt-light)]/80 underline decoration-[rgba(245,239,228,0.3)] underline-offset-4 transition-colors hover:text-[var(--bt-amber-light)]">
+                  {email}
                 </a>
               </div>
 

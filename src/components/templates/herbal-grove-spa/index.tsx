@@ -74,7 +74,7 @@ export default function HerbalGroveSpaTemplate({
       </noscript>
       <Header displayName={businessName} />
       <main>
-        {shown(hero)     && <Hero     s={hero} businessName={businessName} />}
+        {shown(hero)     && <Hero     s={hero} businessName={businessName} booking={booking} />}
         <TrustBar />
         {shown(services) && <Services s={services} />}
         <OfferStrip />
@@ -82,9 +82,9 @@ export default function HerbalGroveSpaTemplate({
         {shown(about)    && <About    s={about} />}
         {shown(gallery)  && <Gallery  s={gallery} />}
         {shown(reviews)  && <Reviews  s={reviews} />}
-        {shown(booking)  && <Booking  s={booking} />}
+        {shown(booking)  && <Booking  s={booking} businessName={businessName} />}
       </main>
-      <Footer displayName={businessName} zaloUrl={booking?.zaloUrl} />
+      <Footer displayName={businessName} booking={booking} />
       <FloatingActions zaloUrl={booking?.zaloUrl} />
     </div>
   );

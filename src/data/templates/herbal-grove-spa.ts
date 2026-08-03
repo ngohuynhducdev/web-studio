@@ -165,6 +165,7 @@ export const DEFAULT_SECTIONS: PageSection[] = [
       "Message us on Zalo ahead of time to hold your seat — we'll have fresh herbs and a private room ready for you.",
     zaloUrl: "https://zalo.me/0901234567",
     phone: "0901 234 567",
+    email: "hello@herbalgrove.vn",
     address: "128 Cao Thang, District 3, HCMC",
     hours: [
       { _key: "h1", day: "Mon – Fri", time: "10:00 – 22:00" },
