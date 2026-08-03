@@ -38,13 +38,19 @@ const client = createClient({
 });
 
 async function main() {
-  const templates = await client.fetch<Array<{ _id: string; title?: string; price?: number }>>(
+  const templates = await client.fetch<Array<{ _id: string; title?: string; price?: number | null }>>(
     `*[_type == "template"]{_id, title, price}`
   );
 
   console.log(`\n${APPLY ? "✍️   APPLYING" : "👀  DRY RUN"} — dataset ${client.config().dataset}\n`);
 
-  const withPrice = templates.filter((t) => t.price !== undefined);
+  // `!= null`, not `!== undefined`: a projection asks for the field by name, so
+  // Sanity answers with null once it is unset rather than leaving it off the
+  // object. Comparing against undefined made an already-migrated dataset look
+  // like it still had three prices to clear — the run was a harmless no-op, but
+  // it reported work that was already done, which is the one thing these
+  // scripts promise not to do.
+  const withPrice = templates.filter((t) => t.price != null);
 
   console.log("unset — per-template price, superseded by the plan price:");
   for (const t of withPrice) {
