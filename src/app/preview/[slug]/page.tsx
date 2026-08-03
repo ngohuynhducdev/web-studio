@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { headers } from "next/headers";
-import Script from "next/script";
 import type { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 import { siteBySlugQuery } from "@/lib/queries";
@@ -10,8 +9,6 @@ import { STUDIO_ZALO_URL, DEFAULT_FOOTER } from "@/data/layout";
 import styles from "./page.module.css";
 
 export const dynamic = "force-dynamic";
-
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 interface PreviewOrder {
   _id: string;
@@ -113,20 +110,14 @@ export default async function PreviewPage({ params }: Props) {
         </>
       )}
 
-      {GA_ID && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="ga-init" strategy="afterInteractive">{`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}');
-          `}</Script>
-        </>
-      )}
+      {/* No analytics snippet here: the root layout already mounts
+          <GoogleAnalytics> on every route, this one included. The copy that
+          used to live here loaded gtag a second time and called gtag('config')
+          without `send_page_view: false` or the consent defaults, so the
+          moment NEXT_PUBLIC_GA_ID is set it would re-enable the automatic
+          pageview the root setup deliberately turns off — on the client's own
+          delivered domain, where the cookie banner's answer is the one thing
+          that has to be respected. */}
       <div data-template-scope>
         <TemplateComponent
           businessName={order.businessName}
