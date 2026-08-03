@@ -1,6 +1,7 @@
 import { defineField, defineType } from 'sanity'
 import { sectionTypes } from './sections'
 import { INDUSTRY_SANITY_LIST } from '@/types'
+import { SERVICE_PLAN_OPTIONS } from '@/lib/pricing'
 import { AutoSeedSiteInput } from '@/sanity/components/AutoSeedSiteInput'
 import { ChecklistWithProgress } from '@/sanity/components/ChecklistWithProgress'
 import { RenewalDateInput } from '@/sanity/components/RenewalDateInput'
@@ -163,19 +164,18 @@ export const siteSchema = defineType({
       title: 'Service plan',
       type: 'string',
       group: 'workflow',
-      options: {
-        list: [
-          { title: 'Basic — 399k/month', value: 'basic' },
-          { title: 'Premium — 699k/month', value: 'premium' },
-        ],
-      },
+      // Derived from the plans the homepage sells, so the two cannot describe
+      // different products.
+      options: { list: SERVICE_PLAN_OPTIONS },
     }),
+    // Was "Setup fee collected (VND)", described in terms of a Basic/Premium
+    // split that the public pricing has never had. USD like everything else.
     defineField({
       name: 'setupFee',
-      title: 'Setup fee collected (VND)',
+      title: 'Setup fee collected (USD)',
       type: 'number',
       group: 'workflow',
-      description: 'Basic plan: 500k. Premium plan: 500k + actual domain cost.',
+      description: 'One-off charge, on top of the monthly plan.',
     }),
     defineField({
       name: 'intakeReceived',
