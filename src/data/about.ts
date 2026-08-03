@@ -3,7 +3,7 @@
 export const DEFAULT_ABOUT_HERO = {
   heroTitle:     "a small studio —",
   heroTitleItal: "not an agency.",
-  heroSub:       "Web Studio builds websites for nail salons, spas, cafes, and gyms — places where a decent website can change a month's revenue, but hiring an agency is too expensive and DIY feels impossible to start.",
+  heroSub:       "Web Studio builds websites for spas and massage studios — places where a decent website can change a month's revenue, but hiring an agency is too expensive and DIY feels impossible to start.",
 };
 
 export const DEFAULT_STORY = {
@@ -13,7 +13,7 @@ export const DEFAULT_STORY = {
 };
 
 export const DEFAULT_STORY_PARAGRAPHS = [
-  "I have a relative who runs a nail salon. Small shop, loyal regulars — but whenever a new client looked them up, all they found was a bland Facebook page. No hours, no price list, no way to book online.",
+  "I have a relative who runs a neighbourhood spa. Four rooms, loyal regulars — but whenever a new client looked them up, all they found was a bland Facebook page. No hours, no price list, no way to book online.",
   "Hiring an agency quoted $1,000–$2,000, plus three meetings and a thick contract. For a small business, that's a month's rent.",
   "Web Studio exists to solve that. Ready-made designs, fast turnaround, fair prices — but still built with care, never rushed.",
 ];

@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity'
 import { sectionTypes } from './sections'
-import { INDUSTRY_OPTIONS } from '@/types'
+import { INDUSTRY_SANITY_LIST } from '@/types'
 import { AutoSeedSiteInput } from '@/sanity/components/AutoSeedSiteInput'
 import { ChecklistWithProgress } from '@/sanity/components/ChecklistWithProgress'
 import { RenewalDateInput } from '@/sanity/components/RenewalDateInput'
@@ -49,7 +49,7 @@ export const siteSchema = defineType({
       title: 'Business type',
       type: 'string',
       group: 'info',
-      options: { list: [...INDUSTRY_OPTIONS] },
+      options: { list: INDUSTRY_SANITY_LIST },
     }),
     defineField({
       name: 'chosenTemplate',

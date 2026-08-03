@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Site, OrderStatus } from '@/types'
+import { Site, OrderStatus, Industry, INDUSTRY_LABEL } from '@/types'
 
 const STATUS_CONFIG: Record<OrderStatus, { label: string; color: string }> = {
   new:         { label: '🆕 New',           color: 'bg-blue-100 text-blue-800' },
@@ -11,11 +11,8 @@ const STATUS_CONFIG: Record<OrderStatus, { label: string; color: string }> = {
   cancelled:   { label: '❌ Cancelled',    color: 'bg-red-100 text-red-800' },
 }
 
-const BUSINESS_TYPE_LABEL: Record<string, string> = {
-  nail: 'Nail Salon', spa: 'Spa & Massage', cafe: 'Cafe & Restaurant',
-  gym: 'Gym', bakery: 'Bakery', barber: 'Barber / Salon',
-  studio: 'Studio', other: 'Other',
-}
+// Labels come from the shared list so the admin table names a business type
+// exactly as the customer saw it in the order form. These two had drifted.
 
 const ALL_STATUSES = ['all', ...Object.keys(STATUS_CONFIG)] as const
 
@@ -233,7 +230,9 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
                       </a>
                     </td>
                     <td className="px-4 py-3 text-[var(--color-brand-ink)]/70">
-                      {o.businessType ? BUSINESS_TYPE_LABEL[o.businessType] ?? o.businessType : '—'}
+                      {/* Falls back to the raw value: an order stored before an
+                          industry was renamed still shows something readable. */}
+                      {o.businessType ? INDUSTRY_LABEL[o.businessType as Industry] ?? o.businessType : '—'}
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2 flex-wrap">

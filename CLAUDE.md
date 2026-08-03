@@ -2,9 +2,38 @@
 
 ## Overview
 
-Web design studio. Template-based
-landing pages for small businesses (nail, spa,
-cafe, gym). Client chooses template → we customize.
+Web design studio. Template-based landing pages for
+small businesses in Vietnam (cafe, barbershop, nail,
+gym...). Client chooses template → we customize.
+
+**Spa first.** The catalog is spa-only today and the
+roadmap is wider — see PRODUCT.md. Public copy describes
+the catalog as it is now, so no page, metadata field or
+OG image may name an industry we have no template for.
+Naming a new industry is part of shipping its template.
+
+### Adding a template for a new industry
+
+`/templates` derives its own copy from the catalog and
+needs nothing. These strings are hardcoded and must be
+updated in the same PR, or the site keeps advertising
+spas only:
+
+| File | What |
+|---|---|
+| `data/homepage.ts` | `heroLede`, `FALLBACK_TESTIMONIALS` shop names |
+| `data/about.ts` | `heroSub`, `storyParagraphs[0]` |
+| `app/layout.tsx` | `metadata.description`, `jsonLd.description` |
+| `app/(site)/page.tsx` | `title.absolute`, `description` |
+| `app/(site)/contact/page.tsx` | `description` |
+| `app/opengraph-image.tsx` | eyebrow line |
+| `app/(site)/templates/opengraph-image.tsx` | eyebrow line |
+| `README.md` | intro paragraph |
+
+Sanity holds its own copy of the editable ones and wins
+at render time — a code-only change does nothing on the
+live site. Ship a migration under `scripts/migrations/`
+alongside, as `2026-08-03-spa-only-copy.ts` does.
 
 ## Tech Stack
 
@@ -107,12 +136,14 @@ components/
 │   └── ContactForm.tsx     — receives defaultTemplate prop (from the ?template= URL param)
 ├── templates/              — Each template is folder-based
 │   ├── thai-spa/           — ✅ CMS-driven, folder-based
-│   │   ├── index.tsx + ThaiSpa.module.css + navLinks.ts
-│   │   ├── Header / Hero / LovingTouch / Benefits / HarmonyIntro /
+│   │   ├── index.tsx + ThaiSpa.module.css + navLinks.ts + DESIGN.md
+│   │   ├── Header / Hero / LovingTouch / Benefits / Welcome / HarmonyIntro /
 │   │   │   AfterMassage / Founder / Testimonials / Pricing / Offer / Footer
 │   │   └── icons.tsx
 │   ├── herbal-grove-spa/          — ✅ CMS-driven, folder-based (Herbal Grove Spa)
 │   ├── mist-spring-spa/           — ✅ CMS-driven, folder-based (Mist Spring Spa — bright spa, Lumera-style)
+│   │   (each template folder carries its own DESIGN.md — the visual contract for
+│   │    that template only, NOT the site design system)
 │   └── BannerCarousel.tsx + BannerCarousel.module.css  — shared across templates
 ├── preview/                — Site chrome layered over the template page (NOT the template delivered to the client)
 │   ├── TemplatePreviewBar.tsx + .module.css
@@ -144,8 +175,8 @@ into a shared "house style" (serif + italicized accent-colored words + hairlines
 | Template | Archetype | Status |
 |---|---|---|
 | mist-spring-spa | Elegant bright spa (based on Lumera) → now a **mini-website**: hero **carousel** (swiper, CMS slides) + layered-image intro + **Services = 3 signature cards** (price + steps shown upfront) + **Pricing** (dedicated `menuSection`, menu-style dotted leader) + **Gallery** + 5-star Reviews + **Booking** (dark CTA panel: Zalo + call + 3 perks) + 4-column footer (hours, address links to Maps). Booking is Zalo-only by design. Deliberately NO "team"/"stats" section (Vietnamese spas rarely show faces; fake numbers feel off for a small shop) | done |
-| thai-spa | Formal symmetric classic — deep red + turmeric gold, Thai pattern border | not started |
-| herbal-grove-spa | Vietnamese folk/handcrafted — traditional handmade paper texture, herbal-leaf SVG illustrations, old-book type | not started |
+| thai-spa | Formal symmetric classic — deep temple red + turmeric gold, gold fret-pattern border. Palette locked in `ThaiSpa.module.css` (`--ts-wine`, `--ts-gold`, `--ts-ivory`) | done |
+| herbal-grove-spa | Vietnamese folk/handcrafted — handmade kraft-paper grain, herbal-leaf SVG illustrations, forest green + muted gold. Palette locked in `HerbalGroveSpa.module.css` (`--bt-*`) | done |
 
 Code-only "signature" sections (mist-spring-spa's layered-image intro + dark Booking panel)
 belong to identity — clients do NOT edit these via CMS, by design. Each template uses

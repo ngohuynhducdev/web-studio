@@ -1,6 +1,6 @@
 # Web Studio — a mini website platform for Vietnamese small businesses
 
-**Web Studio** is a template-based landing page platform for small Vietnamese businesses — nail salons, spas, cafes, bakeries. A client picks a template, the studio customizes the content through a CMS, and the client's site is served on their own domain — all from a single Next.js codebase.
+**Web Studio** is a template-based landing page platform for small Vietnamese businesses. A client picks a template, the studio customizes the content through a CMS, and the client's site is served on their own domain — all from a single Next.js codebase. The catalog is spa-only for now — cafes, barbershops and other small shops are next — and the site's copy deliberately names only the industries that have a template today.
 
 This repository is a **portfolio project**: it contains the full marketing site, three production-quality landing page templates, an embedded CMS, and the order/delivery pipeline that would run the business end-to-end. All business data is fictional; photography is from Unsplash.
 
@@ -27,9 +27,13 @@ Each template locks in its own archetype — typography system, color world, sig
 | `thai-spa` | Thai massage | Classic symmetric formality — deep red and turmeric gold |
 | `herbal-grove-spa` | Herbal spa | Vietnamese folk craft — handmade paper texture, herbal SVG illustrations |
 
-| [Mist Spring Spa](https://web-studio-chi.vercel.app/templates/mist-spring-spa) | [Template catalog](https://web-studio-chi.vercel.app/templates) |
+| [Mist Spring Spa](https://web-studio-chi.vercel.app/templates/mist-spring-spa) | [Thai Spa](https://web-studio-chi.vercel.app/templates/thai-spa) |
 |---|---|
-| ![Mist Spring Spa](docs/screenshots/mist-spring-spa.webp) | ![Template catalog](docs/screenshots/catalog.webp) |
+| ![Mist Spring Spa](docs/screenshots/mist-spring-spa.webp) | ![Thai Spa](docs/screenshots/thai-spa.webp) |
+| [Herbal Grove Spa](https://web-studio-chi.vercel.app/templates/herbal-grove-spa) | [Template catalog](https://web-studio-chi.vercel.app/templates) |
+| ![Herbal Grove Spa](docs/screenshots/herbal-grove-spa.webp) | ![Template catalog](docs/screenshots/catalog.webp) |
+
+The dark bar along the bottom of each shot is the studio's preview chrome, not part of the delivered template.
 
 ## Architecture highlights
 

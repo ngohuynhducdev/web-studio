@@ -35,8 +35,12 @@ export const metadata: Metadata = {
     default: "Web Studio — Beautiful websites for small businesses",
     template: "%s | Web Studio",
   },
+  // Names the catalog, not the roadmap: this previously advertised nail salons,
+  // cafes and gyms, none of which have a template yet. /templates derives its
+  // list from the catalog automatically; site-wide copy is hardcoded, so it has
+  // to be widened by hand when a new industry ships (checklist in CLAUDE.md).
   description:
-    "Landing pages for nail salons, spas, cafes, gyms. Pick a template — customize — get your site in 5 days. Starting at $19/month.",
+    "Landing pages for spas and massage studios in Vietnam. Pick a template — customize — get your site in 5 days. Starting at $19/month.",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -54,7 +58,7 @@ const jsonLd = {
   "@type": "ProfessionalService",
   "name": "Web Studio",
   "url": SITE_URL,
-  "description": "Professional website design for nail salons, spas, cafes, gyms. Pick a ready-made template, get your site in 5 days.",
+  "description": "Professional website design for spas and massage studios in Vietnam. Pick a ready-made template, get your site in 5 days.",
   "telephone": "+84901234567",
   "email": "hello@webstudio.com",
   "priceRange": "$$",

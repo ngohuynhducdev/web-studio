@@ -1,17 +1,43 @@
 // Single source of truth for industries — Sanity schemas derive their option
 // lists from this, and the Industry union is derived from the values.
+//
+// Two names per industry, because the same industry is read in two situations:
+//   title — compact, for badges, filter pills and the Studio dropdown, where
+//           the surrounding UI already says what the word means.
+//   label — for the order form and the admin table, where a customer is
+//           choosing their own business type and the extra words help them
+//           land on the right one.
+// Both live here so they cannot drift: the form, the card badge and the admin
+// table each used to carry their own list, and all three had already disagreed
+// ("Cafe / Bubble tea" vs "Cafe & Restaurant" vs "Cafe").
 export const INDUSTRY_OPTIONS = [
-  { title: "Nail", value: "nail" },
-  { title: "Spa", value: "spa" },
-  { title: "Cafe", value: "cafe" },
-  { title: "Gym", value: "gym" },
-  { title: "Bakery", value: "bakery" },
-  { title: "Barber", value: "barber" },
-  { title: "Studio", value: "studio" },
-  { title: "Other", value: "other" },
+  { title: "Nail", value: "nail", label: "Nail salon" },
+  { title: "Spa", value: "spa", label: "Spa / Massage" },
+  { title: "Cafe", value: "cafe", label: "Cafe / Bubble tea" },
+  { title: "Gym", value: "gym", label: "Gym / Yoga / Fitness" },
+  { title: "Bakery", value: "bakery", label: "Bakery" },
+  { title: "Barber", value: "barber", label: "Barber / Hair salon" },
+  { title: "Studio", value: "studio", label: "Studio" },
+  { title: "Other", value: "other", label: "Other" },
 ] as const;
 
 export type Industry = (typeof INDUSTRY_OPTIONS)[number]["value"];
+
+/** Compact name, keyed by value — for badges and pills. */
+export const INDUSTRY_TITLE = Object.fromEntries(
+  INDUSTRY_OPTIONS.map((o) => [o.value, o.title])
+) as Record<Industry, string>;
+
+/** Descriptive name, keyed by value — for the order form and admin table. */
+export const INDUSTRY_LABEL = Object.fromEntries(
+  INDUSTRY_OPTIONS.map((o) => [o.value, o.label])
+) as Record<Industry, string>;
+
+/** Sanity's option list wants exactly {title, value} — extra keys are not its contract. */
+export const INDUSTRY_SANITY_LIST = INDUSTRY_OPTIONS.map((o) => ({
+  title: o.title,
+  value: o.value,
+}));
 
 export interface Template {
   _id: string;

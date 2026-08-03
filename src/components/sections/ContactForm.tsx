@@ -3,21 +3,18 @@
 import { useState } from "react";
 import { STUDIO_ZALO_URL } from "@/data/layout";
 import { TEMPLATE_MANIFEST } from "@/lib/templates";
+import { INDUSTRY_OPTIONS } from "@/types";
 import styles from "./ContactForm.module.css";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 type FieldErrors = Partial<Record<"name" | "phone" | "businessName" | "industry", string>>;
 
-const INDUSTRY_OPTIONS = [
-  { value: "",        label: "— Select business type —" },
-  { value: "nail",    label: "Nail salon" },
-  { value: "spa",     label: "Spa / Massage" },
-  { value: "cafe",    label: "Cafe / Bubble tea" },
-  { value: "gym",     label: "Gym / Yoga / Fitness" },
-  { value: "bakery",  label: "Bakery" },
-  { value: "barber",  label: "Barber / Hair salon" },
-  { value: "studio",  label: "Studio" },
-  { value: "other",   label: "Other" },
+// Derived from the shared list, like TEMPLATE_OPTIONS below it. This used to
+// be a hand-written copy and had already drifted from the labels the admin
+// table shows for the same values.
+const BUSINESS_TYPE_OPTIONS = [
+  { value: "", label: "— Select business type —" },
+  ...INDUSTRY_OPTIONS.map((o) => ({ value: o.value as string, label: o.label as string })),
 ];
 
 const TEMPLATE_OPTIONS = [
@@ -201,7 +198,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
             aria-describedby={fieldErrors.industry ? "industry-error" : undefined}
             onChange={() => clearFieldError("industry")}
           >
-            {INDUSTRY_OPTIONS.map((o) => (
+            {BUSINESS_TYPE_OPTIONS.map((o) => (
               <option key={o.value} value={o.value}>{o.label}</option>
             ))}
           </select>

@@ -64,7 +64,7 @@ export default function Image() {
               color: "#D97757",
             }}
           >
-            NAIL · SPA · CAFE · GYM
+            SPA · MASSAGE · WELLNESS
           </span>
         </div>
 

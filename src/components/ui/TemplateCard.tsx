@@ -1,17 +1,7 @@
 import Image from "next/image";
-import type { Template, Industry } from "@/types";
+import type { Template } from "@/types";
+import { INDUSTRY_TITLE } from "@/types";
 import styles from "./TemplateCard.module.css";
-
-const industryLabel: Record<Industry, string> = {
-  nail: "Nail",
-  spa: "Spa",
-  cafe: "Cafe",
-  gym: "Gym",
-  bakery: "Bakery",
-  barber: "Barber",
-  studio: "Studio",
-  other: "Other",
-};
 
 function formatPrice(price: number) {
   return `$${new Intl.NumberFormat("en-US").format(price)}`;
@@ -58,7 +48,7 @@ export default function TemplateCard({ template, compact = false }: TemplateCard
         )}
         {!compact && (
           <span className={styles.templateCardBadgeIndustry}>
-            {industryLabel[industry]}
+            {INDUSTRY_TITLE[industry]}
           </span>
         )}
       </a>
