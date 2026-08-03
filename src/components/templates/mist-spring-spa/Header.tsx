@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import styles from './MistSpringSpa.module.css';
-import { NAV_LINKS, BOOKING_LINK, SOCIAL_LINKS, CONTACT_EMAIL } from './navLinks';
+import { NAV_LINKS, BOOKING_LINK, ACTIVE_SOCIAL_LINKS, CONTACT_EMAIL } from './navLinks';
 import { PhoneIcon, MailIcon, ClockIcon } from './icons';
 import type { BookingSection } from '@/types';
 
@@ -68,11 +68,11 @@ export default function Header({ businessName, s }: Props) {
               </a>
             )}
             <a
-              href={`mailto:${CONTACT_EMAIL}`}
+              href={`mailto:${s?.email ?? CONTACT_EMAIL}`}
               className="hidden md:flex items-center gap-2 no-underline transition-colors duration-200 hover:text-[var(--sm-light)]"
             >
               <span className="text-[var(--sm-accent)]"><MailIcon /></span>
-              <span className="whitespace-nowrap">{CONTACT_EMAIL}</span>
+              <span className="whitespace-nowrap">{s?.email ?? CONTACT_EMAIL}</span>
             </a>
             {(s?.hours?.length ?? 0) > 0 && (
               <span className="hidden xl:flex items-center gap-2">
@@ -86,7 +86,7 @@ export default function Header({ businessName, s }: Props) {
 
           {/* Social */}
           <div className="flex items-center gap-4 shrink-0">
-            {SOCIAL_LINKS.map((soc) => (
+            {ACTIVE_SOCIAL_LINKS.map((soc) => (
               <a
                 key={soc.label}
                 href={soc.href}

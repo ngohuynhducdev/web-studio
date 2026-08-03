@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { NAV_LINKS, BOOKING_LINK, SOCIAL_LINKS } from './navLinks';
+import { NAV_LINKS, BOOKING_LINK, ACTIVE_SOCIAL_LINKS } from './navLinks';
 import { PhoneIcon, MapPinIcon, ClockIcon, ChatIcon } from './icons';
 import type { BookingSection } from '@/types';
 
@@ -21,7 +21,7 @@ export default function Footer({ businessName, s }: { businessName: string; s?: 
             modern space. Relax, restore, and find your balance again.
           </p>
           <div className="flex gap-3 mt-6">
-            {SOCIAL_LINKS.map((soc) => (
+            {ACTIVE_SOCIAL_LINKS.map((soc) => (
               <a
                 key={soc.label}
                 href={soc.href}
