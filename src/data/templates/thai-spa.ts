@@ -104,10 +104,14 @@ export const DEFAULT_SECTIONS: PageSection[] = [
       "Welcomes clients of every age and background",
       "Gently activates the body's natural self-healing process",
     ],
+    // The phone icon is the one social button that can do its job without an
+    // account to point at, so it dials. Facebook and Instagram stay "#" — the
+    // component renders those without target/rel until a client supplies a real
+    // profile, which is the honest placeholder.
     socials: [
       { _key: "fb", platform: "facebook",  url: "#" },
       { _key: "ig", platform: "instagram", url: "#" },
-      { _key: "ph", platform: "phone",     url: "#" },
+      { _key: "ph", platform: "phone",     url: "tel:0901234567" },
     ],
   },
   {

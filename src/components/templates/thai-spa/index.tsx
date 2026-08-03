@@ -76,7 +76,7 @@ export default function ThaiSpaTemplate({ sections, brandColor, businessName = '
         {shown(founder)      && <Founder      data={founder} />}
         {shown(reviews)      && <Testimonials data={reviews} />}
         {shown(pricing)      && <Pricing      data={pricing} />}
-        {shown(offer)        && <Offer        data={offer} />}
+        {shown(offer)        && <Offer        data={offer} zaloUrl={booking?.zaloUrl} />}
       </main>
       <Footer data={booking} businessName={businessName} />
     </div>

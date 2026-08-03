@@ -2,14 +2,26 @@ import Image from 'next/image';
 import type { BookingSection } from '@/types';
 import styles from './ThaiSpa.module.css';
 import { NAV_LINKS } from './navLinks';
-import { FretBorder } from './icons';
+import { FretBorder, ZaloIcon } from './icons';
 
 interface Props { data?: BookingSection; businessName?: string }
+
+// Shared by the three contact lines so they read as one block, not three
+// differently-styled links.
+const contactLink =
+  'text-[14px] text-[rgba(255,248,241,0.95)] no-underline hover:text-[var(--ts-gold-soft)] transition-colors duration-150';
 
 export default function Footer({ data, businessName = 'LOTUS THAI' }: Props = {}) {
   const address  = data?.address ?? '88 Le Loi, District 1\nHo Chi Minh City';
   const phone    = data?.phone   ?? '0901 234 567';
   const email    = data?.email   ?? 'hello@lotusthai.vn';
+  const zaloUrl  = data?.zaloUrl;
+  // A footer address a guest cannot open in Maps, and a number they cannot tap,
+  // are the two things a spa footer exists for. Same treatment as the other two
+  // templates.
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    address.replace(/\n/g, ', ')
+  )}`;
 
   return (
     <footer className="relative isolate min-h-[320px] py-16 overflow-hidden" id="contact">
@@ -26,14 +38,34 @@ export default function Footer({ data, businessName = 'LOTUS THAI' }: Props = {}
       <div className="max-w-container mx-auto px-[26px] grid grid-cols-1 md:grid-cols-3 items-start gap-12 relative z-[1]">
         <div>
           <div className="text-[11px] tracking-[0.18em] uppercase text-[rgba(255,248,241,0.55)] mb-2">Address</div>
-          <p className="text-[14px] text-[rgba(255,248,241,0.95)] m-0 leading-[1.6]">
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${contactLink} block leading-[1.6]`}
+          >
             {address.split('\n').map((line, i, arr) => (
               <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
             ))}
-          </p>
+          </a>
           <div className="text-[11px] tracking-[0.18em] uppercase text-[rgba(255,248,241,0.55)] mt-5 mb-2">Contact</div>
-          <p className="text-[14px] text-[rgba(255,248,241,0.95)] m-0">{phone}</p>
-          <p className="text-[14px] text-[rgba(255,248,241,0.95)] m-0">{email}</p>
+          <p className="m-0">
+            <a href={`tel:${phone.replace(/\s/g, '')}`} className={contactLink}>{phone}</a>
+          </p>
+          <p className="m-0">
+            <a href={`mailto:${email}`} className={contactLink}>{email}</a>
+          </p>
+          {zaloUrl && (
+            <a
+              href={zaloUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.btn} mt-5`}
+            >
+              <span className={styles.btnDot}><ZaloIcon /></span>
+              Message on Zalo
+            </a>
+          )}
         </div>
         <div className="text-center">
           <div className={styles.footerLogo}>{businessName}</div>

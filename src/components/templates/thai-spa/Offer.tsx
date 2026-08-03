@@ -8,9 +8,9 @@ import styles from './ThaiSpa.module.css';
 
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1577117633143-a2437fb9bdda?w=900&q=85&fit=crop&auto=format';
 
-interface Props { data?: CalloutSection }
+interface Props { data?: CalloutSection; zaloUrl?: string }
 
-export default function Offer({ data }: Props = {}) {
+export default function Offer({ data, zaloUrl }: Props = {}) {
   const headingMain   = data?.headingMain   ?? '10% Off Your';
   const headingItalic = data?.headingItalic ?? 'First Visit';
   const body          = data?.body          ?? "Fill in your details and we'll contact you within 30 minutes.";
@@ -57,8 +57,13 @@ export default function Offer({ data }: Props = {}) {
               <p className={styles.offerSuccess}>{successMsg}</p>
             ) : (
               <form onSubmit={handleSubmit} className="grid gap-3 max-w-[420px]">
-                <input type="text" name="name" placeholder="Full name*" required className={styles.offerInput} />
-                <input type="tel" name="phone" placeholder="Phone number*" required className={styles.offerInput} />
+                {/* Labels are visually hidden rather than absent: a placeholder
+                    disappears the moment someone types, so it cannot be the
+                    only name a field has. */}
+                <label htmlFor="offer-name" className="sr-only">Full name</label>
+                <input id="offer-name" type="text" name="name" placeholder="Full name*" required className={styles.offerInput} />
+                <label htmlFor="offer-phone" className="sr-only">Phone number</label>
+                <input id="offer-phone" type="tel" name="phone" placeholder="Phone number*" required className={styles.offerInput} />
                 <div>
                   <button type="submit" className={styles.btn} disabled={status === 'submitting'}>
                     <span className={styles.btnDot}><ArrowIcon /></span>
@@ -66,8 +71,24 @@ export default function Offer({ data }: Props = {}) {
                   </button>
                 </div>
                 {status === 'error' && (
+                  // The message used to name Zalo without linking to it, on a
+                  // page that had no Zalo link anywhere — the one moment the
+                  // form fails is the worst moment to make someone go looking.
                   <p className="text-[14px] text-[var(--ts-bark)] m-0" role="alert">
-                    Something went wrong. Please message us on Zalo for the fastest help.
+                    Something went wrong.{' '}
+                    {zaloUrl ? (
+                      <a
+                        href={zaloUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[var(--ts-wine)] underline underline-offset-2"
+                      >
+                        Message us on Zalo
+                      </a>
+                    ) : (
+                      'Please call us'
+                    )}{' '}
+                    for the fastest help.
                   </p>
                 )}
               </form>
