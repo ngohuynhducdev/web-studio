@@ -1,5 +1,4 @@
 import type { Template, Step, TestimonialItem, PricingFeature, PricingPlan } from "@/types";
-import { STUDIO_ZALO_URL } from "@/data/layout";
 
 export type { Step, TestimonialItem, PricingFeature, PricingPlan };
 
@@ -115,13 +114,13 @@ export const DEFAULT_PRICING_PLANS: PricingPlan[] = [
 
 // ── CTA ──────────────────────────────────────────────────────────────────────
 
+// Copy only. The Zalo link, phone and hours this section shows come from
+// DEFAULT_FOOTER / the siteFooter document — they were duplicated here, and the
+// phone number was written out a second time rather than referenced.
 export const DEFAULT_CTA = {
   ctaHeading:     "your business deserves",
   ctaHeadingItal: "a website done right.",
   ctaBody:        "not sure what you need? just reach out — we'll walk you through it for free.",
-  ctaZaloUrl:     STUDIO_ZALO_URL,
-  ctaPhone:       "0901 234 567",
-  ctaHours:       "Mon – Sat, 9am–6pm",
 };
 
 // ── HomeTemplateGrid (fallback when CMS is empty) ────────────────────────────
