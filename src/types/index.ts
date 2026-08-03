@@ -325,7 +325,8 @@ export interface Site {
   domainStatus?: "none" | "setting_up" | "live";
   dnsNote?: string;
   isActive?: boolean;
-  servicePlan?: 'basic' | 'premium';
+  /** Keys of DEFAULT_PRICING_PLANS — see SERVICE_PLAN_OPTIONS in lib/pricing. */
+  servicePlan?: 'basic' | 'standard' | 'pro';
   setupFee?: number;
   renewalDate?: string;
   intakeReceived?: string[];

@@ -24,3 +24,22 @@ export function formatPrice(price: number): string {
 export function fromEntryPrice(): string {
   return `from ${formatPrice(entryPlanPrice())}`;
 }
+
+/**
+ * The plan dropdown on a client order, built from the same list the homepage
+ * sells. The Sanity schema used to hardcode its own two: "Basic — 399k/month"
+ * and "Premium — 699k/month" — a second currency and a plan tier that has not
+ * existed on the public site.
+ */
+export const SERVICE_PLAN_OPTIONS = DEFAULT_PRICING_PLANS.map((p) => ({
+  title: `${p.name[0].toUpperCase()}${p.name.slice(1)} — ${formatPrice(p.price)}/month`,
+  value: p._key,
+}));
+
+/** Labels keyed by value, for rendering a stored plan. */
+export const SERVICE_PLAN_LABEL: Record<string, string> = Object.fromEntries(
+  DEFAULT_PRICING_PLANS.map((p) => [
+    p._key,
+    `${p.name[0].toUpperCase()}${p.name.slice(1)} · ${formatPrice(p.price)}/mo`,
+  ])
+);

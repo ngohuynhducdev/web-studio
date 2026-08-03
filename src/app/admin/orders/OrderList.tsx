@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Site, OrderStatus, Industry, INDUSTRY_LABEL } from '@/types'
+import { SERVICE_PLAN_LABEL } from '@/lib/pricing'
 
 const STATUS_CONFIG: Record<OrderStatus, { label: string; color: string }> = {
   new:         { label: '🆕 New',           color: 'bg-blue-100 text-blue-800' },
@@ -10,9 +11,6 @@ const STATUS_CONFIG: Record<OrderStatus, { label: string; color: string }> = {
   delivered:   { label: '🎉 Delivered',    color: 'bg-green-100 text-green-800' },
   cancelled:   { label: '❌ Cancelled',    color: 'bg-red-100 text-red-800' },
 }
-
-// Labels come from the shared list so the admin table names a business type
-// exactly as the customer saw it in the order form. These two had drifted.
 
 const ALL_STATUSES = ['all', ...Object.keys(STATUS_CONFIG)] as const
 
@@ -193,7 +191,7 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
           <table className="w-full text-sm">
             <thead className="bg-[var(--color-brand-beige)]/50">
               <tr>
-                {['Business', 'Client', 'Phone', 'Type', 'Template', 'Status', 'Progress', 'Preview'].map((h) => (
+                {['Business', 'Client', 'Phone', 'Type', 'Template', 'Status', 'Plan', 'Progress', 'Preview'].map((h) => (
                   <th key={h} className="text-left px-4 py-3 font-medium text-[var(--color-brand-ink)]/60 whitespace-nowrap">{h}</th>
                 ))}
                 {(['orderDate', 'deliveryDate'] as const).map((field) => (
@@ -246,6 +244,11 @@ export default function OrderList({ orders }: { orders: (Site & { previewSlug?: 
                       <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${status.color}`}>
                         {status.label}
                       </span>
+                    </td>
+                    {/* servicePlan was stored, queried, and shown nowhere. It
+                        is what the client is billed — worth a column. */}
+                    <td className="px-4 py-3 text-[var(--color-brand-ink)]/70 whitespace-nowrap">
+                      {o.servicePlan ? SERVICE_PLAN_LABEL[o.servicePlan] ?? o.servicePlan : '—'}
                     </td>
                     <td className="px-4 py-3">
                       <ProgressCell o={o} />

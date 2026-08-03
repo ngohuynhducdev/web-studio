@@ -108,7 +108,7 @@ const DEMO_SITES = [
     seoDescription: "Massage and body care in a quiet space. Book on Zalo.",
     isActive: true,
     renewalDate: RENEWAL,
-    servicePlan: "premium",
+    servicePlan: "standard",
     intakeReceived: ["logo", "photos", "services", "contact", "hours", "about", "reviews"],
     qaChecks: ["content", "images", "contact", "form", "mobile"],
     notes: "Demo order (fictional) — seeded by scripts/seed-demo-sites.ts.",
