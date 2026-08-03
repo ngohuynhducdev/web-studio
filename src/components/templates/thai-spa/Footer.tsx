@@ -83,6 +83,15 @@ export default function Footer({ data, businessName = 'LOTUS THAI' }: Props = {}
           ))}
         </nav>
       </div>
+
+      {/* Bottom row — thai-spa was the only template with no copyright or
+          studio credit at all. */}
+      <div className="max-w-container mx-auto px-[26px] relative z-[1] mt-12 pt-6 border-t border-[rgba(255,248,241,0.14)]">
+        <p className="text-[12px] text-[rgba(255,248,241,0.65)] m-0 text-center">
+          © {new Date().getFullYear()} {businessName} · Designed by{' '}
+          <span className="text-[rgba(255,248,241,0.8)]">Web Studio</span>
+        </p>
+      </div>
     </footer>
   );
 }
