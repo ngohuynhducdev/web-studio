@@ -1,19 +1,39 @@
 import Image from 'next/image';
 import styles from './HerbalGroveSpa.module.css';
-import type { HeroSection } from '@/types';
+import type { HeroSection, BookingSection } from '@/types';
 import { ChevronLeftIcon, ChevronRightIcon, SparkleIcon } from './icons';
 
 const HERO_IMAGE =
   'https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1920&q=85&fit=crop&auto=format';
 
-// Hero info bar — kept in code (identity, not CMS).
-const INFO = [
-  { label: 'Location', lines: ['128 Cao Thang, District 3', 'Ho Chi Minh City'] },
-  { label: 'Opening Hours', lines: ['Mon–Fri · 10:00 – 22:00', 'Sat–Sun · 09:00 – 22:30'] },
-  { label: 'Contact', lines: ['0901 234 567', 'bachthao.spa@gmail.com'] },
-];
+// The bar's shape is identity — three columns, these three labels. Its
+// contents are not: address, hours and contact belong to whoever the site is
+// for. They were hardcoded, so a delivered site advertised the demo studio's
+// address in its hero. These are fallbacks now; bookingSection wins.
+const FALLBACK_ADDRESS = '128 Cao Thang, District 3, HCMC';
+const FALLBACK_HOURS = ['Mon–Fri · 10:00 – 22:00', 'Sat–Sun · 09:00 – 22:30'];
+const FALLBACK_PHONE = '0901 234 567';
+const FALLBACK_EMAIL = 'hello@herbalgrove.vn';
 
-export default function Hero({ s, businessName }: { s: HeroSection; businessName: string }) {
+export default function Hero({
+  s,
+  businessName,
+  booking,
+}: {
+  s: HeroSection;
+  businessName: string;
+  booking?: BookingSection;
+}) {
+  const hours = booking?.hours?.length
+    ? booking.hours.map((h) => `${h.day} · ${h.time}`)
+    : FALLBACK_HOURS;
+
+  const INFO = [
+    { label: 'Location', lines: (booking?.address ?? FALLBACK_ADDRESS).split(/,\s*(?=[^,]*$)/) },
+    { label: 'Opening Hours', lines: hours },
+    { label: 'Contact', lines: [booking?.phone ?? FALLBACK_PHONE, booking?.email ?? FALLBACK_EMAIL] },
+  ];
+
   return (
     <section
       id="top"

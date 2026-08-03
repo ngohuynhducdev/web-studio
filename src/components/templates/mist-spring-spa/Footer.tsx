@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { NAV_LINKS, BOOKING_LINK, SOCIAL_LINKS } from './navLinks';
+import { NAV_LINKS, BOOKING_LINK, ACTIVE_SOCIAL_LINKS } from './navLinks';
 import { PhoneIcon, MapPinIcon, ClockIcon, ChatIcon } from './icons';
 import type { BookingSection } from '@/types';
 
@@ -21,7 +20,7 @@ export default function Footer({ businessName, s }: { businessName: string; s?: 
             modern space. Relax, restore, and find your balance again.
           </p>
           <div className="flex gap-3 mt-6">
-            {SOCIAL_LINKS.map((soc) => (
+            {ACTIVE_SOCIAL_LINKS.map((soc) => (
               <a
                 key={soc.label}
                 href={soc.href}
@@ -98,8 +97,11 @@ export default function Footer({ businessName, s }: { businessName: string; s?: 
 
       <div className="border-t border-[rgba(244,237,226,0.1)]">
         <div className="max-w-[78rem] mx-auto px-6 md:px-10 py-6 text-center text-[0.74rem] text-[var(--sm-light)]/60">
-          © {new Date().getFullYear()} {businessName} Spa & Wellness · Website by{' '}
-          <Link href="/" className="text-[var(--sm-light)]/70 underline">web studio</Link>
+          {/* Plain text, not a link: this renders on the client's own domain,
+              where "/" is their homepage, so the credit used to point back at
+              the site it sits on. Same wording as the other two templates. */}
+          © {new Date().getFullYear()} {businessName} Spa & Wellness · Designed by{' '}
+          <span className="text-[var(--sm-light)]/70">Web Studio</span>
         </div>
       </div>
     </footer>

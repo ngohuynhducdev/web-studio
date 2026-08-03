@@ -134,6 +134,7 @@ export const DEFAULT_SECTIONS: PageSection[] = [
     subtitle: "Message us on Zalo to hold your spot — for evenings and weekends, booking a day ahead is recommended. No deposit required.",
     zaloUrl: "https://zalo.me/0902000000",
     phone: "0902 000 000",
+    email: "hello@mistspring.vn",
     address: "215B Nguyen Van Huong, Thao Dien, Thu Duc, HCMC",
     hours: [
       { _key: "h1", day: "Mon – Fri", time: "10:00 – 23:00" },
