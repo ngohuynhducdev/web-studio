@@ -35,6 +35,20 @@ Each template locks in its own archetype — typography system, color world, sig
 
 The dark bar along the bottom of each shot is the studio's preview chrome, not part of the delivered template.
 
+## The pipeline behind the templates
+
+The templates are the storefront; the rest of the project is the machinery that turns an order into a running site. Both ends of it are browsable.
+
+**A delivered client site** — [`/preview/sen-vang-spa`](https://web-studio-chi.vercel.app/preview/sen-vang-spa). One `site` document: its own business name, its own brand colour threaded through the template's accent token, its own copy and contact details. The same Mist Spring Spa template as the catalog demo, rendered for a different business. The banner across the top is the pre-launch state; on the client's own domain `proxy.ts` sets a header that hides it.
+
+**The order dashboard** — `/admin/orders`, behind HTTP Basic Auth, so the screenshot stands in for it. Orders arrive from the contact form, carry an intake and QA checklist, and link to their own preview.
+
+| Client site | Order dashboard |
+|---|---|
+| ![A delivered client site](docs/screenshots/client-site.webp) | ![The order dashboard](docs/screenshots/admin-orders.webp) |
+
+The three orders behind these are fictional, created by `scripts/seed-demo-sites.ts` — one delivered, one mid-build, one still unassigned, so the dashboard shows the states it is built for.
+
 ## Architecture highlights
 
 **Content falls back in three tiers.** Every template renders from `site.sections` (a client's customized content) → `template.sections` (the demo content edited in the CMS) → `DEFAULT_SECTIONS` (typed defaults in code, under `src/data/templates/`). The practical consequence: the entire site runs on a **completely empty Sanity dataset** — the CMS only ever overrides.
