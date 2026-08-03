@@ -4,6 +4,7 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import CookieBanner from "@/components/ui/CookieBanner";
 import StagingBanner from "@/components/ui/StagingBanner";
 import MotionProvider from "@/components/ui/motion/MotionProvider";
+import { REVEAL_CLASS } from "@/components/ui/motion/revealClass";
 import { IS_PRODUCTION } from "@/lib/env";
 import "./globals.css";
 
@@ -86,6 +87,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body>
+        {/* Reveal wrappers server-render with `opacity: 0` and only become
+            visible once motion hydrates. Without JS that leaves every page
+            blank — including /contact, where it hides the phone number and
+            Zalo link a visitor would fall back to. `!important` is required:
+            the hidden state is an inline style. */}
+        <noscript>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `.${REVEAL_CLASS}{opacity:1!important;transform:none!important}`,
+            }}
+          />
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -3,12 +3,14 @@
 import { m } from "motion/react";
 import type { Variants } from "motion/react";
 import type { ReactNode } from "react";
+import { withReveal } from "./revealClass";
 
 // Gentle easeOut — slow finish, no abrupt stop. Shared by every reveal so the
 // whole page moves with one consistent feel.
 const EASE = [0.22, 1, 0.36, 1] as const;
 const DURATION = 0.6;
 const DISTANCE = 18; // px the content rises while fading in
+
 
 /**
  * Single-element reveal: fades + lifts its children into view once.
@@ -44,7 +46,7 @@ export default function Reveal({
 
   return (
     <m.div
-      className={className}
+      className={withReveal(className)}
       initial={{ opacity: 0, y: DISTANCE }}
       {...(immediate
         ? { animate: target }
@@ -90,6 +92,8 @@ export function RevealStagger({
       className={className}
       variants={groupVariants}
       initial="hidden"
+      /* No REVEAL_CLASS here: the group itself carries no hidden style, only
+         its items do. */
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
     >
@@ -111,7 +115,7 @@ export function RevealItem({
   className?: string;
 }) {
   return (
-    <m.div className={className} variants={itemVariants}>
+    <m.div className={withReveal(className)} variants={itemVariants}>
       {children}
     </m.div>
   );
