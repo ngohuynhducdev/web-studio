@@ -16,7 +16,9 @@ export const contactPageSchema = defineType({
       title: "Heading",
       type: "string",
       group: "hero",
-      initialValue: "tell us about your business.",
+      description:
+        "No full stop at the end — the page adds a terracotta dot after it.",
+      initialValue: "tell us about your business",
     }),
     defineField({
       name: "heroSub",

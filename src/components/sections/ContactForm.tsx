@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { STUDIO_ZALO_URL } from "@/data/layout";
 import { TEMPLATE_MANIFEST } from "@/lib/templates";
 import { INDUSTRY_OPTIONS } from "@/types";
@@ -28,6 +28,15 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
   const [errorMsg, setErrorMsg] = useState("");
   const [previewSlug, setPreviewSlug] = useState("");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const successTitleRef = useRef<HTMLHeadingElement>(null);
+
+  // Submitting swaps the whole form out for the success panel, so the focused
+  // submit button unmounts and focus falls back to <body> — a keyboard or
+  // screen-reader user gets no signal that anything happened. Move focus to the
+  // success heading instead; it carries the confirmation.
+  useEffect(() => {
+    if (state === "success") successTitleRef.current?.focus();
+  }, [state]);
 
   function validatePhone(value: string): string {
     const cleaned = value.replace(/\s+/g, "");
@@ -91,7 +100,9 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
     return (
       <div className={styles.contactSuccess}>
         <div className={styles.contactSuccessIcon} aria-hidden="true">✓</div>
-        <h3 className={styles.contactSuccessTitle}>Sent successfully!</h3>
+        <h3 className={styles.contactSuccessTitle} ref={successTitleRef} tabIndex={-1}>
+          Sent successfully!
+        </h3>
         <p className={styles.contactSuccessBody}>
           We&apos;ve received your request. We&apos;ll message you on Zalo or call within{" "}
           <strong>1–2 hours</strong> (business hours).
@@ -129,6 +140,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
             aria-required="true"
             placeholder="Jane Doe"
             className={`${styles.contactInput}${fieldErrors.name ? ` ${styles.contactInputError}` : ""}`}
+            aria-invalid={fieldErrors.name ? true : undefined}
             aria-describedby={fieldErrors.name ? "name-error" : undefined}
             onChange={() => clearFieldError("name")}
           />
@@ -151,6 +163,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
             aria-required="true"
             placeholder="0909 123 456"
             className={`${styles.contactInput}${fieldErrors.phone ? ` ${styles.contactInputError}` : ""}`}
+            aria-invalid={fieldErrors.phone ? true : undefined}
             aria-describedby={fieldErrors.phone ? "phone-error" : undefined}
             onChange={() => clearFieldError("phone")}
           />
@@ -172,8 +185,9 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
           type="text"
           required
           aria-required="true"
-          placeholder="Hoa Mai Nails, Lotus Spa..."
+          placeholder="Lotus Spa, Herbal Grove..."
           className={`${styles.contactInput}${fieldErrors.businessName ? ` ${styles.contactInputError}` : ""}`}
+          aria-invalid={fieldErrors.businessName ? true : undefined}
           aria-describedby={fieldErrors.businessName ? "businessName-error" : undefined}
           onChange={() => clearFieldError("businessName")}
         />
@@ -195,6 +209,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
             required
             aria-required="true"
             className={`${styles.contactSelect}${fieldErrors.industry ? ` ${styles.contactInputError}` : ""}`}
+            aria-invalid={fieldErrors.industry ? true : undefined}
             aria-describedby={fieldErrors.industry ? "industry-error" : undefined}
             onChange={() => clearFieldError("industry")}
           >
