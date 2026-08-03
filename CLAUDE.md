@@ -314,7 +314,11 @@ Credentials: `.env.local` (see `.env.example` for the full list of env vars — 
 6. English text in UI
 7. Mobile-first responsive — base styles = mobile, `@media (min-width: X)` for desktop. Do not use `max-width` queries
 8. Component styles in co-located `.module.css` — not in `globals.css`
-9. External links: `target="_blank"` + `rel="noopener noreferrer"` only when the URL is actually external (not a `#anchor` or a `'#'` fallback)
+9. External links: `target="_blank"` + `rel="noopener noreferrer"` only when the URL is actually external (not a `#anchor` or a `'#'` fallback).
+   One exception: `TemplateCard` opens `/templates/:slug` in a new tab, because the demo is
+   a fullscreen page and the visitor is mid-browse in the catalog. Internal new-tab links
+   take **no** `rel` — `noreferrer` would drop the referrer on our own domain, and
+   `noopener` is implied for `target="_blank"`. Use `<Link>` for every other internal route.
 
 ## Communication Rules
 

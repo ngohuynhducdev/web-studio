@@ -7,8 +7,9 @@ import styles from "./HeroSection.module.css";
 
 export default function HeroSection({ cms }: { cms?: HeroCms }) {
   // Full-bleed photo hero: the image is the design; type + one CTA over it.
-  // The CMS still stores eyebrow/meta/secondary-CTA fields; this section
-  // simply doesn't render them.
+  // The eyebrow, badge, secondary CTA and highlight list this section never
+  // rendered are gone from the homepage schema too — do not re-add a field
+  // there without rendering it here.
   const d = {
     heading:     cms?.heroHeading      ?? DEFAULT_HERO.heroHeading,
     headingItal: cms?.heroHeadingItal  ?? DEFAULT_HERO.heroHeadingItal,

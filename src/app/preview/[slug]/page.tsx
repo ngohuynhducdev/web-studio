@@ -104,9 +104,6 @@ export default async function PreviewPage({ params }: Props) {
             <span>This is a preview — not the live site yet</span>
             <span className={styles.previewBannerChip}>{order.businessName}</span>
           </div>
-
-          {/* Push template's fixed header below the preview banner */}
-          <style>{`header { top: 40px !important; }`}</style>
         </>
       )}
 
@@ -118,7 +115,10 @@ export default async function PreviewPage({ params }: Props) {
           pageview the root setup deliberately turns off — on the client's own
           delivered domain, where the cookie banner's answer is the one thing
           that has to be respected. */}
-      <div data-template-scope>
+
+      {/* The banner covers the first 40px, so the template's own header moves
+          down while it is shown. The class scopes that to this subtree. */}
+      <div data-template-scope className={isLiveDomain ? undefined : styles.bannerOffset}>
         <TemplateComponent
           businessName={order.businessName}
           brandColor={order.brandColor}
