@@ -68,6 +68,16 @@ test.describe("contact form", () => {
     await expect(page.getByText("Please enter your name")).toBeVisible();
     await expect(page.getByText("Please enter a phone number")).toBeVisible();
     await expect(page).toHaveURL(/\/contact/);
+
+    // The message alone is not enough — the field itself has to report as
+    // invalid, or a screen reader tabbing back through the form finds nothing
+    // wrong with it.
+    await expect(page.getByLabel(/full name/i)).toHaveAttribute("aria-invalid", "true");
+    await expect(page.getByLabel(/phone/i)).toHaveAttribute("aria-invalid", "true");
+
+    // Clears as soon as the field is edited.
+    await page.getByLabel(/full name/i).fill("Jane Doe");
+    await expect(page.getByLabel(/full name/i)).not.toHaveAttribute("aria-invalid", "true");
   });
 
   test("rejects an invalid phone number", async ({ page }) => {
