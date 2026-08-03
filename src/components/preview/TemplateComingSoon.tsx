@@ -3,6 +3,8 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { STUDIO_ZALO_URL } from "@/data/layout";
+import { INDUSTRY_LABEL, type Industry } from "@/types";
+import { fromEntryPrice } from "@/lib/pricing";
 import styles from "./TemplateComingSoon.module.css";
 
 interface TemplateComingSoonProps {
@@ -10,23 +12,7 @@ interface TemplateComingSoonProps {
   title: string;
   industry: string;
   description: string;
-  price: number;
   thumbnailUrl?: string;
-}
-
-const industryLabel: Record<string, string> = {
-  nail: "Nail salon",
-  spa: "Spa / Massage",
-  cafe: "Cafe",
-  gym: "Gym / Fitness",
-  barber: "Barber",
-  bakery: "Bakery",
-  studio: "Studio",
-  other: "Other",
-};
-
-function formatPrice(price: number) {
-  return `$${new Intl.NumberFormat("en-US").format(price)}`;
 }
 
 export default function TemplateComingSoon({
@@ -34,7 +20,6 @@ export default function TemplateComingSoon({
   title,
   industry,
   description,
-  price,
   thumbnailUrl,
 }: TemplateComingSoonProps) {
   const zaloMsg = encodeURIComponent(
@@ -84,7 +69,7 @@ export default function TemplateComingSoon({
           {/* Right — info */}
           <div className={styles.tcsInfo}>
             <div className={styles.tcsBadges}>
-              <span className={styles.tcsBadgeIndustry}>{industryLabel[industry] ?? industry}</span>
+              <span className={styles.tcsBadgeIndustry}>{INDUSTRY_LABEL[industry as Industry] ?? industry}</span>
               <span className={styles.tcsBadgeSoon}>In progress</span>
             </div>
 
@@ -92,7 +77,8 @@ export default function TemplateComingSoon({
             <p className={styles.tcsDesc}>{description}</p>
 
             <div className={styles.tcsPriceRow}>
-              <span className={styles.tcsPrice}>{formatPrice(price)}</span>
+              {/* The entry plan, not a per-template price — see lib/pricing.ts. */}
+              <span className={styles.tcsPrice}>{fromEntryPrice()}</span>
               <span className={styles.tcsPriceUnit}>/mo</span>
             </div>
 

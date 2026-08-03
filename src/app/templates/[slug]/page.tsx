@@ -11,7 +11,7 @@ import TemplatePreviewBar from "@/components/preview/TemplatePreviewBar";
 // Manifest entry lookup — every coded template should be browsable at
 // /templates/:slug even before a Sanity document is created. The Sanity doc
 // only becomes required when the template needs to appear in the public
-// catalog (industry filter, price, thumbnail).
+// catalog (industry filter, thumbnail).
 function manifestEntry(slug: string) {
   return TEMPLATE_MANIFEST.find((t) => t.slug === slug);
 }
@@ -107,7 +107,7 @@ export default async function TemplateDetailPage({
       slug={slug}
       title={template.title}
       industry={template.industry}
-      price={template.price}
+
       description={template.description}
       thumbnailUrl={template.thumbnailUrl}
     />

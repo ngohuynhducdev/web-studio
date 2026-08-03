@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { STUDIO_ZALO_URL } from "@/data/layout";
 import { TEMPLATE_MANIFEST } from "@/lib/templates";
 import { INDUSTRY_OPTIONS } from "@/types";
+import { isValidPhone, PHONE_ERROR } from "@/lib/phone";
 import styles from "./ContactForm.module.css";
 
 type FormState = "idle" | "submitting" | "success" | "error";
@@ -39,9 +40,9 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
   }, [state]);
 
   function validatePhone(value: string): string {
-    const cleaned = value.replace(/\s+/g, "");
-    if (!cleaned) return "Please enter a phone number";
-    if (!/^0[0-9]{9}$/.test(cleaned)) return "Invalid number — needs 10 digits, starting with 0";
+    if (!value.trim()) return "Please enter a phone number";
+    // Same rule the API applies — see src/lib/phone.ts.
+    if (!isValidPhone(value)) return PHONE_ERROR;
     return "";
   }
 

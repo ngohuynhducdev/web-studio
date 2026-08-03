@@ -89,6 +89,20 @@ test.describe("contact form", () => {
 
     await expect(page.getByText(/invalid number/i)).toBeVisible();
   });
+
+  // The client used to demand exactly 10 digits starting with 0 while the API
+  // accepted a country code, so this number was refused in the browser only.
+  // Only the phone is filled: the other required fields keep the submit from
+  // going through, so no order is created.
+  test("accepts a number written with the +84 country code", async ({ page }) => {
+    await page.goto("/contact");
+
+    await page.getByLabel(/phone/i).fill("+84 909 123 456");
+    await page.getByRole("button", { name: /send request/i }).click();
+
+    await expect(page.getByText("Please enter your name")).toBeVisible();
+    await expect(page.getByText(/invalid number/i)).toHaveCount(0);
+  });
 });
 
 // Reveal wrappers server-render with opacity: 0 and only become visible once
