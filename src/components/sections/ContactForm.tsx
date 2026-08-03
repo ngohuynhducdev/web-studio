@@ -278,7 +278,7 @@ export default function ContactForm({ defaultTemplate, zaloUrl }: { defaultTempl
           )}
         </button>
         <p className={styles.contactPrivacy}>
-          Your information is only used to follow up — never shared externally.
+          Your details are used to follow up on this request, nothing else.
         </p>
       </div>
     </form>

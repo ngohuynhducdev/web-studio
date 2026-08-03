@@ -123,6 +123,8 @@ src/
 
 The order form's rate limit (3/IP/hour) is an in-memory counter, so it is scoped to a single serverless instance and resets on cold starts. It stops accidental double-submits and casual bursts, not a determined attacker. Making it real means a shared store keyed by IP — the swap is confined to `isRateLimited` in `src/app/api/create-order/route.ts`.
 
+`robots.txt` and `sitemap.xml` are built from a single `NEXT_PUBLIC_SITE_URL`, so a client site served on its own domain answers with the studio's sitemap rather than its own. Harmless while the domain map is empty; the fix is to derive the origin from the request host in `robots.ts` and `sitemap.ts`, the same way `proxy.ts` already reads it.
+
 ---
 
 Built by [Duc Ngo](https://github.com/ngohuynhducdev). UI copy is in English; the product's audience is Vietnamese small business owners.

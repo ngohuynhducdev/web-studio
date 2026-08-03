@@ -24,6 +24,24 @@ function Chevron({ dir }: { dir: 'left' | 'right' }) {
   );
 }
 
+/**
+ * The hero is a carousel, and every slide carried an <h1> — three of them on a
+ * page that should have one. The first slide keeps it; the rest are the same
+ * banner rotating, so they render as <p> with identical styling.
+ */
+function Heading({
+  i,
+  className,
+  children,
+}: {
+  i: number;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  const Tag = i === 0 ? 'h1' : 'p';
+  return <Tag className={className}>{children}</Tag>;
+}
+
 export default function Hero({ s, businessName }: Props) {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
@@ -83,7 +101,10 @@ export default function Hero({ s, businessName }: Props) {
                 <div className={styles.heroInner}>
                   <div className={styles.heroCopy}>
                     <p className={styles.heroLede}>{sl.eyebrow}</p>
-                    <h1 className={styles.heroH1}>
+                    {/* One h1 per document: the carousel repeats the hero for
+                        every slide, so slides after the first are the same
+                        landmark shown again, not new top-level headings. */}
+                    <Heading i={i} className={styles.heroH1}>
                       {(sl.main ?? '').split('\n').map((line, j) => (
                         <span key={j} className="block" style={{ animationDelay: `${0.35 + j * 0.15}s` }}>{line}</span>
                       ))}
@@ -92,7 +113,7 @@ export default function Hero({ s, businessName }: Props) {
                           {sl.italic}
                         </em>
                       )}
-                    </h1>
+                    </Heading>
                     {sl.sub && <p className={styles.heroText}>{sl.sub}</p>}
                     <div className={styles.heroBtns}>
                       <a href="#booking" className={styles.heroPrimary}>
