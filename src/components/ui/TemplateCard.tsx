@@ -1,11 +1,8 @@
 import Image from "next/image";
 import type { Template } from "@/types";
 import { INDUSTRY_TITLE } from "@/types";
+import { fromEntryPrice } from "@/lib/pricing";
 import styles from "./TemplateCard.module.css";
-
-function formatPrice(price: number) {
-  return `$${new Intl.NumberFormat("en-US").format(price)}`;
-}
 
 interface TemplateCardProps {
   template: Template;
@@ -19,7 +16,6 @@ export default function TemplateCard({ template, compact = false }: TemplateCard
     slug,
     description,
     industry,
-    price,
     thumbnailUrl,
     isFeatured,
     componentKey,
@@ -63,7 +59,8 @@ export default function TemplateCard({ template, compact = false }: TemplateCard
         </div>
 
         <div className={styles.templateCardFooter}>
-          <span className={styles.templateCardPrice}>{formatPrice(price)}</span>
+          {/* The entry plan, not a per-template price — see lib/pricing.ts. */}
+          <span className={styles.templateCardPrice}>{fromEntryPrice()}</span>
           <span className={styles.templateCardPriceUnit}>/mo</span>
         </div>
 

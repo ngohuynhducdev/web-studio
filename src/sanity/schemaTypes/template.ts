@@ -42,7 +42,8 @@ export const templateSchema = defineType({
       options: { list: INDUSTRY_SANITY_LIST },
       validation: (Rule) => Rule.required(),
     }),
-    defineField({ name: 'price', title: 'Price (USD)', type: 'number', group: 'info', validation: (Rule) => Rule.required().min(0) }),
+    // No per-template price: a template is a design, and what a client pays for
+    // is a monthly plan. Cards quote the entry plan instead — see lib/pricing.ts.
     // No demoUrl or features fields: TemplateCard builds its link from the slug
     // and renders title, description, price, industry and the featured flag.
     // Both were editable here and shown nowhere — do not re-add without a

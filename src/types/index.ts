@@ -46,7 +46,6 @@ export interface Template {
   componentKey?: string;
   description: string;
   industry: Industry;
-  price: number;
   thumbnailUrl: string;
   isFeatured: boolean;
   isActive: boolean;

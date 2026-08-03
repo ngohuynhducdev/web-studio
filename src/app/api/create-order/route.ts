@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { writeClient } from "@/sanity/lib/writeClient";
 import { sendNewOrderNotification } from "@/lib/email";
+import { isValidPhone } from "@/lib/phone";
 
 // In-memory rate limiter: 3 requests per IP per hour.
 //
@@ -76,7 +77,9 @@ export async function POST(req: NextRequest) {
     ) {
       return NextResponse.json({ error: "Data exceeds the maximum allowed length." }, { status: 400 });
     }
-    if (!/^[0-9+\-\s().]{8,20}$/.test(phone)) {
+    // Same rule the order form applies — see src/lib/phone.ts. The length cap
+    // above still runs first, so this never sees an unbounded string.
+    if (!isValidPhone(phone)) {
       return NextResponse.json({ error: "Invalid phone number." }, { status: 400 });
     }
 
