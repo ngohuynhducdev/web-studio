@@ -43,7 +43,7 @@ export const DEFAULT_FOOTER = {
   ],
   email:        "hello@webstudio.com",
   phone:        "0901 234 567",
-  zaloUrl:      "https://zalo.me/0901234567",
+  zaloUrl:      STUDIO_ZALO_URL,
   hours:        "Mon – Sat, 9am–6pm",
   facebookUrl:  "https://facebook.com/webstudio",
   instagramUrl: "https://instagram.com/webstudio",

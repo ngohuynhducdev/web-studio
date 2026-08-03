@@ -1,19 +1,28 @@
 import { client } from "@/sanity/lib/client";
-import { ctaSectionQuery } from "@/lib/queries";
+import { ctaSectionQuery, siteFooterQuery } from "@/lib/queries";
 import { DEFAULT_CTA } from "@/data/homepage";
-import type { CtaCms } from "@/types/cms";
+import { DEFAULT_FOOTER } from "@/data/layout";
+import type { CtaCms, SiteFooterCms } from "@/types/cms";
 import Reveal from "@/components/ui/motion/Reveal";
 import styles from "./CTASection.module.css";
 
 export default async function CTASection() {
-  const cms = await client.fetch<CtaCms>(ctaSectionQuery, {}, { next: { revalidate: 60 } });
+  const [cms, footer] = await Promise.all([
+    client.fetch<CtaCms>(ctaSectionQuery, {}, { next: { revalidate: 60 } }),
+    client.fetch<SiteFooterCms>(siteFooterQuery, {}, { next: { revalidate: 60 } }),
+  ]);
 
   const heading    = cms?.ctaHeading     ?? DEFAULT_CTA.ctaHeading;
   const headingItal= cms?.ctaHeadingItal ?? DEFAULT_CTA.ctaHeadingItal;
   const body       = cms?.ctaBody        ?? DEFAULT_CTA.ctaBody;
-  const zaloUrl    = cms?.ctaZaloUrl     ?? DEFAULT_CTA.ctaZaloUrl;
-  const phone      = cms?.ctaPhone       ?? DEFAULT_CTA.ctaPhone;
-  const hours      = cms?.ctaHours       ?? DEFAULT_CTA.ctaHours;
+
+  // Contact details come from siteFooter, the same source /contact and the
+  // footer read. This section used to carry its own ctaPhone/ctaZaloUrl/
+  // ctaHours fields holding a second copy of the same three values — fine
+  // while they matched, a silent split the first time only one got updated.
+  const zaloUrl    = footer?.zaloUrl ?? DEFAULT_FOOTER.zaloUrl;
+  const phone      = footer?.phone   ?? DEFAULT_FOOTER.phone;
+  const hours      = footer?.hours   ?? DEFAULT_FOOTER.hours;
 
   return (
     <section className={styles.ctaMocha} id="contact">

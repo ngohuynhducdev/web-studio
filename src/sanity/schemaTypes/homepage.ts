@@ -107,9 +107,9 @@ export const homepageSchema = defineType({
     defineField({ name: 'ctaHeading',     title: 'Heading',           type: 'string', group: 'cta' }),
     defineField({ name: 'ctaHeadingItal', title: 'Heading (italic)', type: 'string', group: 'cta' }),
     defineField({ name: 'ctaBody',        title: 'Description',             type: 'text', rows: 2, group: 'cta' }),
-    defineField({ name: 'ctaZaloUrl',     title: 'Zalo link',         type: 'string', group: 'cta' }),
-    defineField({ name: 'ctaPhone',       title: 'Phone number',     type: 'string', group: 'cta' }),
-    defineField({ name: 'ctaHours',       title: 'Support hours',       type: 'string', group: 'cta' }),
+    // Zalo link, phone and hours are edited on Site Footer and read from there
+    // by this section, /contact and the footer alike. Duplicating them here
+    // gave an editor two places to change one number.
   ],
   preview: { prepare: () => ({ title: '🏠 Homepage' }) },
 })

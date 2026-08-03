@@ -22,13 +22,12 @@ export interface PricingCms {
   pricingPlans?: PricingPlan[];
 }
 
+// No phone/zalo/hours here: those live on siteFooter, which is the one place
+// contact details are edited. See the note in CTASection.
 export interface CtaCms {
   ctaHeading?: string;
   ctaHeadingItal?: string;
   ctaBody?: string;
-  ctaZaloUrl?: string;
-  ctaPhone?: string;
-  ctaHours?: string;
 }
 
 // ── Page CMS props ────────────────────────────────────────────────────────────

@@ -78,10 +78,12 @@ export default function PricingSection({ cms }: { cms?: PricingCms }) {
           ))}
         </RevealStagger>
 
-        {/* Footer link */}
+        {/* Footer link. Not "see full pricing" any more: the three cards above
+            are the full price list, and /contact is an order form with no
+            pricing on it — the label promised a page that does not exist. */}
         <div className={styles.pricingFoot}>
           <Link href="/contact" className="btn-link">
-            see full pricing
+            not sure which plan? ask us
             <svg
               width={14}
               height={14}
@@ -138,9 +140,9 @@ function RegularCard({ plan }: { plan: PricingPlan }) {
       </ul>
 
       {/* CTA */}
-      <a href="/contact" className="btn btn-outline btn-full">
+      <Link href="/contact" className="btn btn-outline btn-full">
         {plan.cta}
-      </a>
+      </Link>
 
       {/* Footnote */}
       <p className={styles.priceFoot}>{plan.footnote}</p>
@@ -179,9 +181,9 @@ function FeaturedCard({ plan }: { plan: PricingPlan }) {
       </ul>
 
       {/* CTA */}
-      <a href="/contact" className="btn btn-accent btn-full">
+      <Link href="/contact" className="btn btn-accent btn-full">
         {plan.cta}
-      </a>
+      </Link>
 
       {/* Footnote */}
       <p className={styles.priceFoot}>{plan.footnote}</p>

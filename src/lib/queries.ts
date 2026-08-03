@@ -62,7 +62,7 @@ export const zaloUrlQuery = groq`
 
 export const ctaSectionQuery = groq`
   *[_type == "homepage" && _id == "homepage"][0] {
-    ctaHeading, ctaHeadingItal, ctaBody, ctaZaloUrl, ctaPhone, ctaHours
+    ctaHeading, ctaHeadingItal, ctaBody
   }
 `;
 
