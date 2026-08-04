@@ -2,11 +2,14 @@ import Image from 'next/image';
 import type { FeaturesSection } from '@/types';
 import styles from './ThaiSpa.module.css';
 
+// Entries 3 and 4 replace photos this grid shared with LovingTouch and the
+// Footer — the same image twice on one page, once as a full-bleed band and
+// once as a thumbnail. Every image in this template is now used exactly once.
 const VISUALS = [
   { img: 'https://images.unsplash.com/photo-1709755491926-f7aa83748967?w=900&q=85&fit=crop&auto=format', pos: 'center 40%' },
   { img: 'https://images.unsplash.com/photo-1611073615848-d6ff6215931f?w=900&q=85&fit=crop&auto=format', pos: '40% 60%' },
-  { img: 'https://images.unsplash.com/photo-1570174006382-148305ce4972?w=900&q=85&fit=crop&auto=format', pos: '70% center' },
-  { img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=900&q=85&fit=crop&auto=format',   pos: '55% 45%' },
+  { img: 'https://images.unsplash.com/photo-1775133262667-316bd4d9e5b5?w=900&q=85&fit=crop&auto=format', pos: 'center' },
+  { img: 'https://images.unsplash.com/photo-1608571424634-58ae03e6edcf?w=900&q=85&fit=crop&auto=format', pos: 'center 45%' },
   { img: 'https://images.unsplash.com/photo-1616325629936-99a9013c29c6?w=900&q=85&fit=crop&auto=format', pos: 'center 30%' },
 ];
 
