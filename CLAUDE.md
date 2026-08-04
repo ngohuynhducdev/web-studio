@@ -139,7 +139,7 @@ components/
 │   ├── thai-spa/           — ✅ CMS-driven, folder-based
 │   │   ├── index.tsx + ThaiSpa.module.css + navLinks.ts + DESIGN.md
 │   │   ├── Header / Hero / LovingTouch / Benefits / Welcome / HarmonyIntro /
-│   │   │   AfterMassage / Founder / Testimonials / Pricing / Offer / Footer
+│   │   │   AfterMassage / Testimonials / Pricing / Offer / Footer
 │   │   └── icons.tsx
 │   ├── herbal-grove-spa/          — ✅ CMS-driven, folder-based (Herbal Grove Spa)
 │   ├── mist-spring-spa/           — ✅ CMS-driven, folder-based (Mist Spring Spa — bright spa, Lumera-style)

@@ -82,7 +82,7 @@ Loaded via `next/font` in `index.tsx`, exposed as variables.
 - Headings are display **500**, never 700 — weight comes from size and spacing, not boldness.
 - Emphasis = one `<em>` word, **italic only, same color**. Every title in this template is built as
   `{headingMain} <em>{headingItalic}</em>`.
-- Titles centre by default. Only Harmony, Founder and Offer break that, because each is a
+- Titles centre by default. Only Harmony and Offer break that, because each is a
   two-column split where centring would leave the text stranded.
 
 ## 4. Component Stylings
@@ -97,7 +97,6 @@ Loaded via `next/font` in `index.tsx`, exposed as variables.
 | **Benefits** | Sand background. `auto-fit` card grid (min 180px), ivory cards, square image on top, small display title + 12px body. Images fall back to a fixed 5-image Unsplash set when the CMS supplies none |
 | **Welcome** (`#welcome-ritual`) | The one section on `--ts-ivory-soft`. Ritual steps with gold `.stepNum` numerals |
 | **HarmonyIntro / AfterMassage** | Sand, `pb-24` only — they read as continuations of the section above rather than new bands |
-| **Founder** (`#therapist`) | Ivory, two-column portrait + copy |
 | **Testimonials** (`#reviews`) | Ivory, quote cards |
 | **Pricing** (`#pricing`) | Sand. The featured tier gets `.pricingFeatured` (gold border) plus `.pricingBadge` — a gold pill notched into the top edge, espresso text |
 | **Offer** (`#offer`) | Ivory. Pill-shaped inputs (`.offerInput`, 52px, ivory-soft fill, border darkens to espresso on focus) beside `.offerImage` — an **arch/dome blob** (`border-radius: 50% 50% 24px 24px / 60% 60% 24px 24px`) with a gold border |
@@ -108,7 +107,7 @@ Loaded via `next/font` in `index.tsx`, exposed as variables.
 - Container: `max-w-container` with `26px` horizontal padding — the 26px is used consistently and is
   narrower than the site's own gutter.
 - Symmetry first: header split-nav, centred hero, centred section titles. When a section must be
-  asymmetric (Harmony, Founder, Offer) it becomes a clean two-column split, never an offset collage.
+  asymmetric (Harmony, Offer) it becomes a clean two-column split, never an offset collage.
 - Section rhythm is **ivory → sand → ivory**, with `--ts-ivory-soft` reserved for Welcome.
 - Vertical rhythm: `py-24` for a full band, `pb-24` for a section that continues the one above it.
 - Main breakpoint `768px`; the nav has its own at `900px`, chosen because six links plus a
