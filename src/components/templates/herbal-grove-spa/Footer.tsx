@@ -3,7 +3,7 @@ import { NAV_LINKS } from './navLinks';
 import type { BookingSection } from '@/types';
 // FacebookIcon and InstagramIcon stay exported from ./icons for the day a
 // client has real profiles to link — the footer no longer renders dead ones.
-import { ZaloIcon, PhoneIcon, MapPinIcon, MailIcon, LeafIcon, BotanicalSprigIcon, LeafBorder } from './icons';
+import { ZaloIcon, PhoneIcon, MapPinIcon, MailIcon, LeafIcon, BotanicalSprigIcon } from './icons';
 
 const SERVICES = [
   'Herbal Foot Soak',
@@ -64,7 +64,6 @@ export default function Footer({
 
   return (
     <footer className="relative overflow-hidden bg-[var(--bt-dark)] pt-14 md:pt-16">
-      <LeafBorder id="footer" className="absolute inset-x-0 top-0 opacity-70" color="var(--bt-amber-light)" />
       {/* Faint botanical backdrop */}
       <BotanicalSprigIcon
         aria-hidden="true"
