@@ -4,89 +4,99 @@ import styles from './ThaiSpa.module.css';
 
 interface Props { data?: StepsSection }
 
+// One visual per step, cycled like Benefits does when the CMS supplies a
+// different number of steps. `position` is tuned per photo so the subject
+// survives the 4:3 crop.
+const VISUALS = [
+  {
+    img: 'https://images.unsplash.com/photo-1709755491926-f7aa83748967?w=900&q=85&fit=crop&auto=format',
+    position: 'center 35%',
+    alt: 'A therapist working along a guest’s back during a treatment',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1611073615848-d6ff6215931f?w=900&q=85&fit=crop&auto=format',
+    position: 'center',
+    alt: 'A guided stretch on a floor mat, in the traditional Thai style',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1611920630912-43e092ae5c17?w=900&q=85&fit=crop&auto=format',
+    position: '40% 50%',
+    alt: 'The quiet waiting area, with wooden chairs and warm light',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1706973944787-cff186431795?w=900&q=85&fit=crop&auto=format',
+    position: '60% 50%',
+    alt: 'A treatment room opening onto the garden',
+  },
+];
+
 export default function AfterMassage({ data }: Props = {}) {
   const heading = data?.headingMain ?? 'After Your Treatment';
   const steps   = data?.steps ?? [];
 
+  if (steps.length === 0) return null;
+
   return (
+    // pb-24 rather than py-24: this continues the sand band that starts at
+    // HarmonyIntro instead of opening a new one.
     <section className="bg-[var(--ts-sand)] pb-24">
       <div className="max-w-container mx-auto px-[26px]">
         <h2 className={styles.sectionTitle}>{heading}</h2>
-        <div className="grid gap-[14px] grid-cols-2 auto-rows-[140px] md:grid-cols-3 md:auto-rows-[180px]">
 
-          {/* Tall photo with bottom caption (step 0) */}
-          <div className="row-span-2 rounded-[20px] overflow-hidden relative">
-            <Image
-              src="https://images.unsplash.com/photo-1709755491926-f7aa83748967?w=800&q=85&fit=crop&auto=format"
-              alt=""
-              fill
-              className="object-cover object-[center_35%]"
-              sizes="(min-width: 1024px) 280px, 50vw"
-            />
-            <div className="absolute left-[14px] right-[14px] bottom-[14px] z-[1]">
-              <div className="rounded-[14px] p-[12px_14px] bg-[var(--ts-ivory)]">
-                <div className={`${styles.stepNum} text-[22px] leading-none`}>{steps[0]?.num}</div>
-                <p className="text-[12px] leading-[1.4] text-[var(--ts-bark)] m-0 mt-1">{steps[0]?.title}</p>
-              </div>
-            </div>
-          </div>
+        {/* An ordered list because the steps are numbered. Four equal cards on
+            a 2×2 grid — the previous bento mixed photo tiles with half-empty
+            ivory ones, left a third of its last row blank, and read as the
+            offset collage this template's DESIGN.md rules out. */}
+        {/* Narrower than the section container: at full width a half-width
+            card runs past 600px and the pair of rows towers over everything
+            around it. Centring the narrower grid also suits a template built
+            on a centre line. */}
+        <ol className="m-0 mx-auto grid max-w-[62rem] list-none grid-cols-1 gap-5 p-0 md:grid-cols-2 md:gap-6">
+          {steps.map((step, i) => {
+            const visual = VISUALS[i % VISUALS.length];
+            return (
+              <li
+                key={step._key}
+                className="flex flex-col overflow-hidden rounded-[20px] bg-[var(--ts-ivory)] shadow-[var(--ts-shadow-1)]"
+              >
+                {/* 16:10 rather than 4:3 — these are landscape interiors, and
+                    the taller crop made each row about 460px of photo. */}
+                <div className="relative aspect-[16/10]">
+                  <Image
+                    // A client's own photo wins, the way Benefits already
+                    // works. The stock alt no longer describes it once that
+                    // happens, so fall back to the step's own words.
+                    src={step.imageUrl ?? visual.img}
+                    alt={step.imageUrl ? (step.title ?? '') : visual.alt}
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: visual.position }}
+                    sizes="(min-width: 768px) 31rem, 100vw"
+                  />
+                </div>
 
-          {/* Ivory tile (step 1) */}
-          <div className="bg-[var(--ts-ivory)] rounded-[20px] p-5 flex items-start">
-            <div>
-              <div className={`${styles.stepNum} text-[22px] leading-none`}>{steps[1]?.num}</div>
-              <p className="text-[12px] leading-[1.4] text-[var(--ts-bark)] m-0 mt-1">{steps[1]?.title}</p>
-            </div>
-          </div>
-
-          {/* Photo row 1 col 3 */}
-          <div className="rounded-[20px] overflow-hidden relative">
-            <Image
-              src="https://images.unsplash.com/photo-1611073615848-d6ff6215931f?w=1000&q=85&fit=crop&auto=format"
-              alt=""
-              fill
-              className="object-cover object-center"
-              sizes="(min-width: 1024px) 280px, 50vw"
-            />
-          </div>
-
-          {/* Photo with top caption (step 2) */}
-          <div className="rounded-[20px] overflow-hidden relative">
-            <Image
-              src="https://images.unsplash.com/photo-1611920630912-43e092ae5c17?w=1000&q=85&fit=crop&auto=format"
-              alt=""
-              fill
-              className="object-cover object-[40%_50%]"
-              sizes="(min-width: 1024px) 280px, 50vw"
-            />
-            <div className="absolute left-[14px] right-[14px] top-[14px] z-[1]">
-              <div className="rounded-[14px] p-[12px_14px] bg-[var(--ts-ivory)]">
-                <div className={`${styles.stepNum} text-[22px] leading-none`}>{steps[2]?.num}</div>
-                <p className="text-[12px] leading-[1.4] text-[var(--ts-bark)] m-0 mt-1">{steps[2]?.title}</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Ivory tile (step 3) */}
-          <div className="bg-[var(--ts-ivory)] rounded-[20px] p-5 flex items-start">
-            <div>
-              <div className={`${styles.stepNum} text-[22px] leading-none`}>{steps[3]?.num}</div>
-              <p className="text-[12px] leading-[1.4] text-[var(--ts-bark)] m-0 mt-1">{steps[3]?.title}</p>
-            </div>
-          </div>
-
-          {/* Photo row 2 col 3 */}
-          <div className="rounded-[20px] overflow-hidden relative">
-            <Image
-              src="https://images.unsplash.com/photo-1706973944787-cff186431795?w=1000&q=85&fit=crop&auto=format"
-              alt=""
-              fill
-              className="object-cover object-[60%_50%]"
-              sizes="(min-width: 1024px) 280px, 50vw"
-            />
-          </div>
-
-        </div>
+                {/* Copy sits on ivory, never over the photo: contrast no longer
+                    depends on what the image happens to look like, and there is
+                    no floating caption card to overflow its tile. */}
+                <div className="p-6 md:p-7">
+                  <div className={`${styles.stepNum} text-[26px] leading-none`}>
+                    {step.num ?? String(i + 1).padStart(2, '0')}
+                  </div>
+                  <p className="m-0 mt-2 text-[15px] leading-[1.55] text-[var(--ts-bark)]">
+                    {step.title}
+                  </p>
+                  {/* Optional in the schema and unused by this template's
+                      defaults — rendered so a client who writes one gets it. */}
+                  {step.desc && (
+                    <p className="m-0 mt-2 text-[13px] leading-[1.6] text-[var(--ts-clay)]">
+                      {step.desc}
+                    </p>
+                  )}
+                </div>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );
