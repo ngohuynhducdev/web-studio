@@ -6,17 +6,21 @@ interface Props { data?: StepsSection }
 
 // One visual per step, cycled like Benefits does when the CMS supplies a
 // different number of steps. `position` is tuned per photo so the subject
-// survives the 4:3 crop.
+// survives the 16:10 crop.
+//
+// The first two replace photos this section shared with Benefits on the same
+// page — and the first of those was dominated by a large green painting, the
+// one thing on screen that had nothing to do with the ivory/sand/wine palette.
 const VISUALS = [
   {
-    img: 'https://images.unsplash.com/photo-1709755491926-f7aa83748967?w=900&q=85&fit=crop&auto=format',
-    position: 'center 35%',
-    alt: 'A therapist working along a guest’s back during a treatment',
+    img: 'https://images.unsplash.com/photo-1639162906614-0603b0ae95fd?w=900&q=85&fit=crop&auto=format',
+    position: 'center 38%',
+    alt: 'A therapist working along a guest’s shoulders and back',
   },
   {
-    img: 'https://images.unsplash.com/photo-1611073615848-d6ff6215931f?w=900&q=85&fit=crop&auto=format',
+    img: 'https://images.unsplash.com/photo-1731597076108-f3bbe268162f?w=900&q=85&fit=crop&auto=format',
     position: 'center',
-    alt: 'A guided stretch on a floor mat, in the traditional Thai style',
+    alt: 'A treatment table set with warm oils and a copper vessel',
   },
   {
     img: 'https://images.unsplash.com/photo-1611920630912-43e092ae5c17?w=900&q=85&fit=crop&auto=format',
