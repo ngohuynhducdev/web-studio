@@ -10,7 +10,7 @@ This repository is a **portfolio project**: it contains the full marketing site,
 
 ## What's inside
 
-- **Marketing site** — homepage, template catalog with industry filter, about, contact
+- **Marketing site** — homepage, template catalog, about, contact. The catalog carries an industry filter that hides itself while every template is a spa, rather than offering one pill that returns the whole list
 - **3 landing page templates**, each with its own deliberate art direction (see below)
 - **Embedded Sanity Studio** at `/studio` for editing every page and template
 - **Order pipeline** — contact form → rate-limited API → Sanity order document → email notification (Resend) → admin dashboard behind HTTP Basic Auth
@@ -91,8 +91,10 @@ The dataset can stay empty — every page and template renders from the typed de
 
 ```bash
 pnpm dev        # http://localhost:3000  (/studio for the CMS)
-pnpm test       # unit tests (Vitest)
+pnpm lint
 pnpm typecheck
+pnpm test       # unit tests (Vitest)
+pnpm test:e2e   # Playwright, starts its own server on :3100
 pnpm build
 ```
 
