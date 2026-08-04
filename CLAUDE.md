@@ -176,7 +176,7 @@ into a shared "house style" (serif + italicized accent-colored words + hairlines
 | Template | Archetype | Status |
 |---|---|---|
 | mist-spring-spa | Elegant bright spa (based on Lumera) → now a **mini-website**: hero **carousel** (swiper, CMS slides) + layered-image intro + **Services = 3 signature cards** (price + steps shown upfront) + **Pricing** (dedicated `menuSection`, menu-style dotted leader) + **Gallery** + 5-star Reviews + **Booking** (dark CTA panel: Zalo + call + 3 perks) + 4-column footer (hours, address links to Maps). Booking is Zalo-only by design. Deliberately NO "team"/"stats" section (Vietnamese spas rarely show faces; fake numbers feel off for a small shop) | done |
-| thai-spa | Formal symmetric classic — deep temple red + turmeric gold, gold fret-pattern border. Palette locked in `ThaiSpa.module.css` (`--ts-wine`, `--ts-gold`, `--ts-ivory`) | done |
+| thai-spa | Formal symmetric classic — deep temple red + turmeric gold. Palette locked in `ThaiSpa.module.css` (`--ts-wine`, `--ts-gold`, `--ts-ivory`) | done |
 | herbal-grove-spa | Vietnamese folk/handcrafted — handmade kraft-paper grain, herbal-leaf SVG illustrations, forest green + muted gold. Palette locked in `HerbalGroveSpa.module.css` (`--bt-*`) | done |
 
 Code-only "signature" sections (mist-spring-spa's layered-image intro + dark Booking panel)
