@@ -70,11 +70,9 @@ const jsonLd = {
     "opens": "09:00",
     "closes": "18:00",
   },
-  "sameAs": [
-    "https://facebook.com/webstudio",
-    "https://instagram.com/webstudio",
-    "https://tiktok.com/@webstudio",
-  ],
+  // No sameAs: it asserts to search engines that these profiles are ours, and
+  // facebook.com/webstudio and friends are placeholders that 404. Add it back
+  // with real accounts — an empty claim is worse than no claim.
 };
 
 export default function RootLayout({

@@ -20,15 +20,21 @@ export default async function Footer() {
   const phone       = cms?.phone        ?? "0901 234 567";
   const zaloUrl     = cms?.zaloUrl      ?? "https://zalo.me/0901234567";
   const hours       = cms?.hours        ?? "Mon – Sat, 9am–6pm";
-  const facebookUrl = cms?.facebookUrl  ?? "https://facebook.com/webstudio";
-  const instagramUrl= cms?.instagramUrl ?? "https://instagram.com/webstudio";
-  const tiktokUrl   = cms?.tiktokUrl    ?? "https://tiktok.com/@webstudio";
+  // The studio has no accounts yet. These used to default to
+  // facebook.com/webstudio and friends — URLs that resolve to a 404 on a real
+  // platform, which is worse than an obvious placeholder. "#" until there is
+  // something to link to; the CMS still overrides each one.
+  const facebookUrl = cms?.facebookUrl  ?? "#";
+  const instagramUrl= cms?.instagramUrl ?? "#";
+  const tiktokUrl   = cms?.tiktokUrl    ?? "#";
   const copyright   = cms?.copyright    ?? `© ${new Date().getFullYear()} Web Studio · handmade in Saigon`;
 
   const socialLinks = [
     { href: facebookUrl,  label: "Facebook",  Icon: FacebookIcon },
     { href: instagramUrl, label: "Instagram", Icon: InstagramIcon },
-    { href: zaloUrl,      label: "Zalo",      Icon: ZaloIcon },
+    // Placeholder like the rest of the row. The Zalo that has to work is in the
+    // Contact column beside it and in the floating bubble, both on zaloUrl.
+    { href: "#",          label: "Zalo",      Icon: ZaloIcon },
     { href: tiktokUrl,    label: "TikTok",    Icon: TikTokIcon },
   ];
 
@@ -79,18 +85,28 @@ export default async function Footer() {
           <div>
             <h3 className={styles.footerColTitle}>Social</h3>
             <nav aria-label="Social media" className={styles.footerSocial}>
-              {socialLinks.map(({ href, label, Icon }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                  <Icon />
-                </a>
-              ))}
+              {socialLinks.map(({ href, label, Icon }) => {
+                // A "#" placeholder must not open a blank tab — same guard the
+                // Contact column above already uses.
+                const external = href.startsWith("http");
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    aria-label={label}
+                  >
+                    <Icon />
+                  </a>
+                );
+              })}
             </nav>
           </div>
         </div>
 
         <div className={styles.footerBottom}>
           <span>{copyright}</span>
-          <span>Made with 🌱 in Vietnam</span>
         </div>
       </div>
     </footer>

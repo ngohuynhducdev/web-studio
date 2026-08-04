@@ -45,8 +45,10 @@ export const DEFAULT_FOOTER = {
   phone:        "0901 234 567",
   zaloUrl:      STUDIO_ZALO_URL,
   hours:        "Mon – Sat, 9am–6pm",
-  facebookUrl:  "https://facebook.com/webstudio",
-  instagramUrl: "https://instagram.com/webstudio",
-  tiktokUrl:    "https://tiktok.com/@webstudio",
+  // Placeholders, not fake profiles: the previous values pointed at
+  // facebook.com/webstudio and friends, which 404 on the real platforms.
+  facebookUrl:  "#",
+  instagramUrl: "#",
+  tiktokUrl:    "#",
   copyright:    `© ${new Date().getFullYear()} Web Studio`,
 };
