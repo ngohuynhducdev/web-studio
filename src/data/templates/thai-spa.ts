@@ -93,28 +93,6 @@ export const DEFAULT_SECTIONS: PageSection[] = [
     ],
   },
   {
-    _type: "founderSection", _key: "founder",
-    eyebrow: "Lead Therapist",
-    name: "Linh Phuong",
-    credentials: [
-      "Internationally certified Thai massage therapist",
-      "Over 10 years of experience in body therapy",
-      "Trained in Bangkok — The Traditional Thai Massage School",
-      "Combines traditional medicine with modern therapeutic techniques",
-      "Welcomes clients of every age and background",
-      "Gently activates the body's natural self-healing process",
-    ],
-    // The phone icon is the one social button that can do its job without an
-    // account to point at, so it dials. Facebook and Instagram stay "#" — the
-    // component renders those without target/rel until a client supplies a real
-    // profile, which is the honest placeholder.
-    socials: [
-      { _key: "fb", platform: "facebook",  url: "#" },
-      { _key: "ig", platform: "instagram", url: "#" },
-      { _key: "ph", platform: "phone",     url: "tel:0901234567" },
-    ],
-  },
-  {
     _type: "reviewsSection", _key: "reviews",
     headingMain: "What Our Guests Say",
     reviews: [

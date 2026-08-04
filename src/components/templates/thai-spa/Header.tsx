@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { MenuIcon, CloseIcon, FretBorder } from './icons';
+import { MenuIcon, CloseIcon } from './icons';
 import styles from './ThaiSpa.module.css';
 import { NAV_LINKS } from './navLinks';
 
@@ -16,7 +16,6 @@ export default function Header({ businessName = 'LOTUS THAI' }: Props = {}) {
   return (
     <>
       <header className="sticky top-0 z-50 bg-[var(--ts-ivory)] border-b border-[var(--ts-border)]">
-        <FretBorder id="header" />
         <div className="max-w-container mx-auto px-[26px] py-[18px] grid grid-cols-[1fr_auto_1fr] items-center gap-6">
           <nav className="hidden min-[900px]:flex items-center gap-7 justify-self-start" aria-label="Main menu">
             {leftLinks.map((l) => (

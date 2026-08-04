@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import styles from './HerbalGroveSpa.module.css';
 import { NAV_LINKS } from './navLinks';
-import { LeafIcon, LeafBorder } from './icons';
+import { LeafIcon } from './icons';
 
 export default function Header({ displayName }: { displayName: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,13 +30,6 @@ export default function Header({ displayName }: { displayName: string }) {
           : 'border-b border-transparent bg-transparent'
       }`}
     >
-      {/* Top accent — signature leaf-and-vine border */}
-      <LeafBorder
-        id="header"
-        className="absolute inset-x-0 top-0 opacity-70"
-        color={onDark ? 'var(--bt-light)' : 'var(--bt-amber)'}
-      />
-
       <div className="mx-auto flex h-[80px] max-w-container items-center justify-between gap-6 px-5 md:px-10">
 
         {/* Brand — two lines */}

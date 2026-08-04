@@ -91,7 +91,7 @@ Loaded via `next/font` in `index.tsx`, exposed as variables. Both load the `viet
 | Component | Main style |
 |---|---|
 | **Paper grain** (`.page::after`) | `position: fixed`, `feTurbulence` fractal noise pushed through a **sepia color matrix**, `opacity: 0.1`, `mix-blend-mode: multiply`, 180px tile. Fixed, not absolute, so the texture stays put while content scrolls |
-| **Header** | `fixed`, transparent over the hero and switching to a solid cream bar on scroll (`onDark` flips every text color). `LeafBorder` ornament along the top at 70% opacity. Wordmark = `LeafIcon` + serif name + `.bookLabel` tagline stacked. Inline nav from `lg`; hamburger animates into an X |
+| **Header** | `fixed`, transparent over the hero and switching to a solid cream bar on scroll (`onDark` flips every text color). Wordmark = `LeafIcon` + serif name + `.bookLabel` tagline stacked. Inline nav from `lg`; hamburger animates into an X |
 | **Hero** | Full-bleed photo under `.heroScrim` — a **four-stop warm-brown gradient** (dark top, light middle, dark bottom) that keeps the photo readable rather than flattening it. Huge cream serif title, staggered entrance (`.heroAnim` + `.hd2/.hd3/.hd4`). `.heroInfoBar` at the base: 3 cells (label + value) with hairline dividers. Side arrows appear only `≥1024px` |
 | **TrustBar** | 1 → 4 column grid at `900px`, bronze icon + `.trustLabel` |
 | **Services** (`.velRow`) | Full-width **rows**, not cards: thumbnail (zooms 1.08 on hover) + serif name (turns bronze on hover) + description + `.velPill2` meta pill with the price in ink. `.velOval` / `.velCircle` are the round meta chips |
@@ -131,7 +131,6 @@ Depth comes from **texture and arcs**, not shadow stacks:
 
 **Signature (code-only, part of the identity — clients CANNOT edit via CMS):**
 - **Paper grain overlay** (`.page::after`).
-- **`LeafBorder`** (`icons.tsx`) — repeating botanical strip, takes a unique `id` per usage.
 - **`.archedPhoto`** and the **`.studioSeal`** medallion.
 - **`.offerFrame` + `.offerCircle`** and the **`.marquee`**.
 - **`.floatZaloRing`** three-pulse attention ring.
@@ -146,7 +145,6 @@ Depth comes from **texture and arcs**, not shadow stacks:
 - Use `--bt-amber-light` for accents on dark green.
 - Add every new animation to the `prefers-reduced-motion` block, and keep the `<noscript>` fallback
   covering any new reveal class.
-- Give each `LeafBorder` usage a unique `id` — duplicate SVG pattern ids collide.
 
 **DON'T**
 - ❌ Make a gold button. `.btnSolidDark` exists so the primary CTA is green.
@@ -181,7 +179,7 @@ When asking an AI to build/change UI for Herbal Grove Spa, paste this summary:
 > **italic serif** treatment that replaces tracked-sans micro-labels. **Headings are a single ink
 > color** — no gold word inside a heading. **Primary CTAs are forest green, never gold**
 > (`.btnSolidDark`); bronze is for marks and hovers, and on green it becomes `--bt-amber-light`.
-> Signature pieces: `LeafBorder` botanical strip, `.archedPhoto` cathedral arch
+> Signature pieces: `.archedPhoto` cathedral arch
 > (`9999px 9999px 28px 28px`), the cream `.studioSeal` wax medallion, the dashed `.offerFrame` with a
 > cream circle badge, the 22s `.marquee`, and the Zalo ring that pulses 3 times then stops. The layout
 > skeleton follows Velura; the material treatment is what keeps it from reading as another luxury-spa

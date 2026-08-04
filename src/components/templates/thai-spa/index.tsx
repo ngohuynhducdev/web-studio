@@ -2,7 +2,7 @@ import { Playfair_Display, Source_Sans_3 } from 'next/font/google';
 import type { TemplateProps } from '@/lib/templateRegistry';
 import type {
   HeroSection, AboutSection, FeaturesSection, StepsSection,
-  FounderSection, ReviewsSection, PricingSection, CalloutSection, BookingSection,
+  ReviewsSection, PricingSection, CalloutSection, BookingSection,
   BannerCarouselSection,
 } from '@/types';
 import BannerCarousel from '@/components/templates/BannerCarousel';
@@ -16,7 +16,6 @@ import Benefits from './Benefits';
 import Welcome from './Welcome';
 import HarmonyIntro from './HarmonyIntro';
 import AfterMassage from './AfterMassage';
-import Founder from './Founder';
 import Testimonials from './Testimonials';
 import Pricing from './Pricing';
 import Offer from './Offer';
@@ -49,7 +48,6 @@ export default function ThaiSpaTemplate({ sections, brandColor, businessName = '
   const welcome     = pick<StepsSection>(data, 'welcome-ritual');
   const harmony     = pick<AboutSection>(data, 'harmony');
   const afterMassage = pick<StepsSection>(data, 'after-massage');
-  const founder     = pick<FounderSection>(data, 'founder');
   const reviews     = pick<ReviewsSection>(data, 'reviews');
   const pricing     = pick<PricingSection>(data, 'pricing');
   const offer       = pick<CalloutSection>(data, 'offer');
@@ -73,7 +71,6 @@ export default function ThaiSpaTemplate({ sections, brandColor, businessName = '
         {shown(welcome)      && <Welcome      data={welcome!} />}
         {shown(harmony)      && <HarmonyIntro data={harmony} />}
         {shown(afterMassage) && <AfterMassage data={afterMassage} />}
-        {shown(founder)      && <Founder      data={founder} />}
         {shown(reviews)      && <Testimonials data={reviews} />}
         {shown(pricing)      && <Pricing      data={pricing} />}
         {shown(offer)        && <Offer        data={offer} zaloUrl={booking?.zaloUrl} />}
