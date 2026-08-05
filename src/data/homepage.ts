@@ -125,6 +125,10 @@ export const DEFAULT_CTA = {
 
 // ── HomeTemplateGrid (fallback when CMS is empty) ────────────────────────────
 
+// Each thumbnail is a photo from that template's own image set, requested at
+// an explicit 4:3 (`w`+`h`) to match the card's box. The previous set was two
+// 2:3 portrait files from /public — a 4:3 box threw away half of each one and
+// cut the massage table and the doorway through the middle.
 export const FALLBACK_TEMPLATES: Template[] = [
   {
     _id: "1",
@@ -133,7 +137,8 @@ export const FALLBACK_TEMPLATES: Template[] = [
     componentKey: "mist-spring-spa",
     description: "Upscale spa & wellness — hero carousel, menu-style pricing, and a dark booking panel with Zalo at the center.",
     industry: "spa",
-    thumbnailUrl: "/images/spa-flowers.jpg",
+    // The template's own hero slide 1.
+    thumbnailUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&h=900&fit=crop&crop=entropy&auto=format&q=85",
     isFeatured: true,
     isActive: true,
   },
@@ -144,7 +149,8 @@ export const FALLBACK_TEMPLATES: Template[] = [
     componentKey: "thai-spa",
     description: "Classic Thai massage spa with formal symmetry — deep red and turmeric gold, treatment price list, offers via Zalo.",
     industry: "spa",
-    thumbnailUrl: "/images/spa-massage.jpg",
+    // The photo from its signature LovingTouch band.
+    thumbnailUrl: "https://images.unsplash.com/photo-1570174006382-148305ce4972?w=1200&h=900&fit=crop&crop=entropy&auto=format&q=85",
     isFeatured: false,
     isActive: true,
   },
@@ -155,7 +161,8 @@ export const FALLBACK_TEMPLATES: Template[] = [
     componentKey: "herbal-grove-spa",
     description: "Vietnamese folk herbal spa — handmade paper texture, herbal leaf illustrations, and remedy storytelling.",
     industry: "spa",
-    thumbnailUrl: "/images/atmosphere-02.jpg",
+    // Herbal tea on wood, from its own services/gallery set.
+    thumbnailUrl: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=1200&h=900&fit=crop&crop=entropy&auto=format&q=85",
     isFeatured: false,
     isActive: true,
   },

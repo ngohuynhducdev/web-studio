@@ -191,6 +191,7 @@ lib/
 ├── templates.ts          — TEMPLATE_MANIFEST (slug + label + tagline) + TemplateSlug type (single source of truth)
 ├── templateRegistry.ts   — TEMPLATE_COMPONENTS + DEFAULT_SECTIONS_MAP
 ├── sections.ts           — pickType / pick / shown — shared section picker helper for all templates
+├── sanityImage.ts        — builds a CDN URL honouring the Studio's hotspot/crop (`asset->url` alone drops both)
 ├── adminAuth.ts          — Basic Auth helpers (constant-time, used in proxy + API route)
 ├── email.ts              — sends order email via Resend
 ├── env.ts                — IS_PRODUCTION / DEPLOY_ENV (based on VERCEL_ENV)
