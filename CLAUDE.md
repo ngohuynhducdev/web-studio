@@ -138,7 +138,7 @@ components/
 ├── templates/              — Each template is folder-based
 │   ├── thai-spa/           — ✅ CMS-driven, folder-based
 │   │   ├── index.tsx + ThaiSpa.module.css + navLinks.ts + DESIGN.md
-│   │   ├── Header / Hero / LovingTouch / Benefits / Welcome / HarmonyIntro /
+│   │   ├── Header / Hero / LovingTouch / Benefits / Welcome /
 │   │   │   AfterMassage / Testimonials / Pricing / Offer / Footer
 │   │   └── icons.tsx
 │   ├── herbal-grove-spa/          — ✅ CMS-driven, folder-based (Herbal Grove Spa)
@@ -159,7 +159,7 @@ components/
 via the `sections` prop and fall back to `DEFAULT_SECTIONS` in code.
 `DEFAULT_SECTIONS_MAP` has all 3 entries. All are folder-based with `index.tsx` as the entry point.
 - The section picker helper (`pickType`/`pick`/`shown`) lives in `lib/sections.ts` — do NOT copy it into each template
-- Use `pick` by `_key` when a template has multiple sections of the same `_type`: thai-spa (2 `aboutSection`), herbal-grove-spa (2 `servicesSection`)
+- Use `pick` by `_key` when a template has multiple sections of the same `_type`: thai-spa (2 `stepsSection`), herbal-grove-spa (2 `servicesSection`)
 - Use `pickType` by `_type` when the section type is unique: mist-spring-spa
 - Templates with multiple nav links: extract them into `navLinks.ts` in the same folder — single source of truth for both Header and Footer (applies to all 3 templates)
 

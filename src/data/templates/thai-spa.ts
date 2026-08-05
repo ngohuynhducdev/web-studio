@@ -63,14 +63,6 @@ export const DEFAULT_SECTIONS: PageSection[] = [
     ],
   },
   {
-    _type: "aboutSection", _key: "harmony",
-    headingMain: "Where Stress Dissolves\nAnd",
-    headingItalic: "Harmony Begins",
-    paragraphs: [
-      "Experience the healing power of Thai massage — a blend of tradition and the art of care, designed to release tension, improve circulation, and restore inner peace.",
-    ],
-  },
-  {
     _type: "stepsSection", _key: "welcome-ritual",
     eyebrow: "Welcome Ritual",
     headingMain: "The Moment You",

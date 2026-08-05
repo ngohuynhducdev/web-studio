@@ -20,7 +20,6 @@ import Hero from "./Hero";
 import LovingTouch from "./LovingTouch";
 import Benefits from "./Benefits";
 import Welcome from "./Welcome";
-import HarmonyIntro from "./HarmonyIntro";
 import AfterMassage from "./AfterMassage";
 import Testimonials from "./Testimonials";
 import Pricing from "./Pricing";
@@ -43,7 +42,7 @@ const sourceSans = Source_Sans_3({
 });
 
 // Order & layout are fixed in code. CMS only edits content + toggles visibility (enabled).
-// Sections are picked by `_key` (not by type lookup, since there are 2 aboutSection blocks).
+// Sections are picked by `_key` (not by type lookup, since there are 2 stepsSection blocks).
 export default function ThaiSpaTemplate({
   sections,
   brandColor,
@@ -56,7 +55,6 @@ export default function ThaiSpaTemplate({
   const lovingTouch = pick<AboutSection>(data, "loving-touch");
   const benefits = pick<FeaturesSection>(data, "benefits");
   const welcome = pick<StepsSection>(data, "welcome-ritual");
-  const harmony = pick<AboutSection>(data, "harmony");
   const afterMassage = pick<StepsSection>(data, "after-massage");
   const reviews = pick<ReviewsSection>(data, "reviews");
   const pricing = pick<PricingSection>(data, "pricing");
@@ -87,7 +85,6 @@ export default function ThaiSpaTemplate({
         {shown(lovingTouch) && <LovingTouch data={lovingTouch} />}
         {shown(benefits) && <Benefits data={benefits} />}
         {shown(welcome) && <Welcome data={welcome!} />}
-        {shown(harmony) && <HarmonyIntro data={harmony} />}
         {shown(afterMassage) && <AfterMassage data={afterMassage} />}
         {shown(reviews) && <Testimonials data={reviews} />}
         {shown(pricing) && <Pricing data={pricing} />}

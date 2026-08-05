@@ -87,16 +87,6 @@
   color: var(--ts-gold-text);
 }
 
-/* Thin gold rule — small formal divider between two stacked blocks */
-.goldRule {
-  height: 1px;
-  width: 64px;
-  background: var(--ts-gold);
-  border: 0;
-  margin: 0 0 20px;
-}
-.goldRule.center { margin: 0 auto 20px; }
-
 .sectionTitle {
   font-family: var(--ts-font-display, "Playfair Display", serif);
   font-weight: 500;
@@ -131,18 +121,6 @@
   color: var(--ts-gold-text);
   margin-bottom: 18px;
 }
-
-.harmonyTitle {
-  font-family: var(--ts-font-display, "Playfair Display", serif);
-  font-weight: 500;
-  font-size: clamp(28px, 3.2vw, 44px);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  color: var(--ts-espresso);
-  margin: 0 0 24px;
-  text-wrap: balance;
-}
-.harmonyTitle em { font-style: italic; }
 
 .offerTitle {
   font-family: var(--ts-font-display, "Playfair Display", serif);
