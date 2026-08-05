@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import type { HeroSection } from '@/types';
 import { ArrowIcon } from './icons';
 import styles from './ThaiSpa.module.css';
@@ -25,20 +24,6 @@ export default function Hero({ data }: Props = {}) {
         </a>
       </div>
 
-      <div className="max-w-[880px] mx-auto px-[26px] mt-14 md:mt-16">
-        <div className={styles.heroFrame}>
-          <div className="aspect-[16/9] rounded-[6px] overflow-hidden relative bg-[var(--ts-espresso)]">
-            <Image
-              src="https://images.unsplash.com/photo-1737352777897-e22953991a32?w=1600&q=85&fit=crop&auto=format"
-              alt="Relaxation space"
-              fill
-              className="object-cover object-[60%_center]"
-              priority
-              sizes="(min-width: 880px) 880px, 100vw"
-            />
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

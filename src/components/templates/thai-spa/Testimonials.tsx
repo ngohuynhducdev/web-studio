@@ -16,7 +16,10 @@ export default function Testimonials({ data }: Props = {}) {
   const reviews = data?.reviews ?? [];
 
   return (
-    <section className="bg-[var(--ts-ivory)] pb-24" id="reviews">
+    // pb-24 alone was left over from when the Founder section sat above and
+    // supplied the gap. That section is gone, so this one opens its own band
+    // and needs top padding of its own.
+    <section className="bg-[var(--ts-ivory)] pt-16 pb-24 md:pt-20" id="reviews">
       <div className="max-w-container mx-auto px-[26px]">
         <h2 className={styles.sectionTitle}>{heading}</h2>
         <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]">

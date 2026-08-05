@@ -132,17 +132,6 @@
   margin-bottom: 18px;
 }
 
-/* Ceremonial picture-frame border around the hero image — outer gold
-   line, small gap, inner gold line (a classic formal-frame device). */
-.heroFrame {
-  padding: 10px;
-  border: 1px solid var(--ts-gold);
-  border-radius: 10px;
-}
-.heroFrame > div {
-  border: 1px solid var(--ts-gold-soft);
-}
-
 .harmonyTitle {
   font-family: var(--ts-font-display, "Playfair Display", serif);
   font-weight: 500;
