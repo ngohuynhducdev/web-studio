@@ -72,7 +72,7 @@ Loaded via `next/font` in `index.tsx`, exposed as variables.
 |---|---|---|---|
 | Hero title (`.heroTitle`) | display 500 | `clamp(34px,4.2vw,58px)` | line-height 1.06, centred, `text-wrap: balance` |
 | Section title (`.sectionTitle`) | display 500 | `clamp(26px,2.6vw,38px)` | **centred**, 48px bottom margin |
-| Harmony / Offer titles | display 500 | `clamp(28px,3.2vw,44px)` / `clamp(26px,2.8vw,38px)` | left-aligned inside their split layouts |
+| Offer title (`.offerTitle`) | display 500 | `clamp(26px,2.8vw,38px)` | left-aligned inside its split layout |
 | Eyebrow (`.eyebrow`, `.heroEyebrow`) | body 500/600 | 11–12px | UPPERCASE, letter-spacing `0.16–0.18em`, `--ts-gold-text` |
 | Step numeral (`.stepNum`) | display 500 | — | gold numerals in Welcome and AfterMassage |
 | Logo (`.headerLogo` / `.footerLogo`) | display 500 | 14px / 26px | letter-spacing `0.22em` — wide tracking is part of the formality |
@@ -82,8 +82,8 @@ Loaded via `next/font` in `index.tsx`, exposed as variables.
 - Headings are display **500**, never 700 — weight comes from size and spacing, not boldness.
 - Emphasis = one `<em>` word, **italic only, same color**. Every title in this template is built as
   `{headingMain} <em>{headingItalic}</em>`.
-- Titles centre by default. Only Harmony and Offer break that, because each is a
-  two-column split where centring would leave the text stranded.
+- Titles centre by default. Only Offer breaks that, because it is a two-column
+  split where centring would leave the text stranded.
 
 ## 4. Component Stylings
 
@@ -96,7 +96,7 @@ Loaded via `next/font` in `index.tsx`, exposed as variables.
 | **LovingTouch** (`#services`) | Full-bleed image band. Mobile: 360px tall, square, gold rule top and bottom, dark card pinned to the bottom. Desktop (`≥768px`): 460px, 36px radius, full gold border, card floats right and vertically centred over a right-side scrim |
 | **Benefits** | Sand background. `auto-fit` card grid (min 180px), ivory cards, square image on top, small display title + 12px body. Images fall back to a fixed 5-image Unsplash set when the CMS supplies none |
 | **Welcome** (`#welcome-ritual`) | The one section on `--ts-ivory-soft`. Ritual steps with gold `.stepNum` numerals |
-| **HarmonyIntro / AfterMassage** | Sand, `pb-24` only — they read as continuations of the section above rather than new bands |
+| **AfterMassage** | Sand, `py-24` full band. Centred title over a 2×2 grid of ivory cards (16:10 photo on top, copy below), narrower than the section container |
 | **Testimonials** (`#reviews`) | Ivory, quote cards |
 | **Pricing** (`#pricing`) | Sand. The featured tier gets `.pricingFeatured` (gold border) plus `.pricingBadge` — a gold pill notched into the top edge, espresso text |
 | **Offer** (`#offer`) | Ivory. Pill-shaped inputs (`.offerInput`, 52px, ivory-soft fill, border darkens to espresso on focus) beside `.offerImage` — an **arch/dome blob** (`border-radius: 50% 50% 24px 24px / 60% 60% 24px 24px`) with a gold border |
@@ -107,7 +107,7 @@ Loaded via `next/font` in `index.tsx`, exposed as variables.
 - Container: `max-w-container` with `26px` horizontal padding — the 26px is used consistently and is
   narrower than the site's own gutter.
 - Symmetry first: header split-nav, centred hero, centred section titles. When a section must be
-  asymmetric (Harmony, Offer) it becomes a clean two-column split, never an offset collage.
+  asymmetric (Offer) it becomes a clean two-column split, never an offset collage.
 - Section rhythm is **ivory → sand → ivory**, with `--ts-ivory-soft` reserved for Welcome.
 - Vertical rhythm: `py-24` for a full band, `pb-24` for a section that continues the one above it.
 - Main breakpoint `768px`; the nav has its own at `900px`, chosen because six links plus a
