@@ -15,9 +15,9 @@
 
 Where Mist Spring Spa is asymmetric and photographic, Thai Spa is **built on a centre line**. The
 header splits its nav in half around a centred wordmark, the hero is centred, every section title is
-centred. Ornament is deliberate and repeated: a gold diamond-chain strip runs across the top of the
-header and the footer, and the hero image sits inside a double gold picture frame. The page reads as
-ceremonial and composed rather than casual.
+centred. Ornament is sparing and structural — gold hairlines, the framed LovingTouch band, the
+arch-cropped Offer image — rather than applied trim. The page reads as ceremonial and composed
+rather than casual.
 
 - Mood: formal, warm, ceremonial, traditional.
 - Lighting: bright and even — ivory and sand throughout, no dark page. Dark appears only in the
@@ -42,7 +42,7 @@ All defined inside `.page { ... }` in `ThaiSpa.module.css`. Token prefix `--ts-`
 | `--ts-wine` | `#7A1F1F` | Deep temple red — primary CTA, link hover. **Client-overridable via `brandColor`** |
 | `--ts-wine-hover` | `#5C1717` | CTA hover (also overridden by `brandColor`) |
 | `--ts-gold` | `#C9982F` | Turmeric gold — frames, hairlines, featured badge |
-| `--ts-gold-soft` | `#E4C878` | Inner line of the double hero frame |
+| `--ts-gold-soft` | `#E4C878` | Lighter gold — link hover on the dark footer |
 | `--ts-gold-text` | `#7D5C18` | Gold **as text** — eyebrows, step numerals. Darkened so it clears AA on ivory-soft |
 | `--ts-espresso` | `#1D110C` | Primary text |
 | `--ts-bark` | `#5C453A` | Body copy, secondary text |
@@ -91,7 +91,7 @@ Loaded via `next/font` in `index.tsx`, exposed as variables.
 |---|---|
 | **Header** | `sticky top-0`, ivory. Grid `1fr auto 1fr`: nav links **split in half** left and right of the centred wordmark — the template's structural signature. Inline nav from `900px`; below that a round wine hamburger button |
 | **Mobile sheet** | Full-width panel dropping from the top (`.mobileSheet`, 24px radius, `--ts-shadow-3`) over a dark backdrop. Links are display-font 22px, hairline-separated. Wrapper uses `inert` when closed |
-| **Hero** (`#experience`) | Centred column, max 720px: gold eyebrow → display title with italic half → 440px sub → wine pill CTA. Below it the image sits in `.heroFrame` — a **double gold picture frame** (outer `--ts-gold` border, 10px gap, inner `--ts-gold-soft` border), 16:9 |
+| **Hero** (`#experience`) | Centred column, max 720px: gold eyebrow → display title with italic half → 440px sub → wine pill CTA. |
 | **Button** (`.btn`) | Wine pill with an **ivory circle at the left end** holding the arrow, asymmetric padding (`10px 22px 10px 10px`). Distinctive; do not replace with a plain pill |
 | **LovingTouch** (`#services`) | Full-bleed image band. Mobile: 360px tall, square, gold rule top and bottom, dark card pinned to the bottom. Desktop (`≥768px`): 460px, 36px radius, full gold border, card floats right and vertically centred over a right-side scrim |
 | **Benefits** | Sand background. `auto-fit` card grid (min 180px), ivory cards, square image on top, small display title + 12px body. Images fall back to a fixed 5-image Unsplash set when the CMS supplies none |
@@ -118,7 +118,7 @@ Loaded via `next/font` in `index.tsx`, exposed as variables.
 
 Depth is **linear**, not atmospheric — frames and rules rather than glow:
 
-- **Gold hairlines**: the double hero frame, the LovingTouch border, the blob border.
+- **Gold hairlines**: the LovingTouch border, the blob border.
 - **Warm shadows** (`--ts-shadow-1/2/3`) tinted `rgba(35,6,11,...)`, used sparingly: flat cards, a
   lifted image band, and the mobile sheet.
 - **One scrim only** — LovingTouch's `linear-gradient(90deg, transparent 40%, rgba(20,8,8,0.55) 70%)`,
@@ -126,7 +126,6 @@ Depth is **linear**, not atmospheric — frames and rules rather than glow:
 - No grain, no vignette, no glassmorphism.
 
 **Signature (code-only, part of the identity — clients CANNOT edit via CMS):**
-- **`.heroFrame`** — the double gold picture frame.
 - **`.offerImage`** — the arch/dome blob radius.
 - **`.btn`** — the wine pill with the inset ivory arrow circle.
 
@@ -165,8 +164,7 @@ When asking an AI to build/change UI for Thai Spa, paste this summary:
 > **every CTA**, turmeric gold `#C9982F` for **every ornament** — never swap those two roles.
 > Display = Playfair Display 500 (italic for the emphasized half of each title), body = Source Sans 3;
 > both load the Vietnamese subset. Structure is symmetric: header splits its nav left/right around a
-> centred wide-tracked wordmark, hero is centred, section titles are centred. Signature ornament: the **double
-> gold picture frame** around the hero image, the arch/dome blob crop on the Offer image, and the
+> centred wide-tracked wordmark, hero is centred, section titles are centred. Signature ornament: the arch/dome blob crop on the Offer image, and the
 > wine pill button with an inset ivory arrow circle. Motion is minimal — no parallax, no autoplay, no
 > scroll-spy. Gold as type must use `--ts-gold-text #7D5C18` and nav/placeholder text `--ts-clay
 > #7D6653` (both tuned for AA). `brandColor` overrides `--ts-wine` only. NO `--color-brand-*`, NO

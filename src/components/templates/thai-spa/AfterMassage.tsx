@@ -41,9 +41,9 @@ export default function AfterMassage({ data }: Props = {}) {
   if (steps.length === 0) return null;
 
   return (
-    // pb-24 rather than py-24: this continues the sand band that starts at
-    // HarmonyIntro instead of opening a new one.
-    <section className="bg-[var(--ts-sand)] pb-24">
+    // Still one sand band with HarmonyIntro above, but the heading needs air
+    // above it — pb-24 alone ran the title straight into the section before.
+    <section className="bg-[var(--ts-sand)] pt-16 pb-24 md:pt-20">
       <div className="max-w-container mx-auto px-[26px]">
         <h2 className={styles.sectionTitle}>{heading}</h2>
 
