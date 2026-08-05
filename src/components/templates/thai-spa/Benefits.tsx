@@ -2,11 +2,15 @@ import Image from 'next/image';
 import type { FeaturesSection } from '@/types';
 import styles from './ThaiSpa.module.css';
 
-// Entries 3 and 4 replace photos this grid shared with LovingTouch and the
+// Entries 3 and 4 replaced photos this grid shared with LovingTouch and the
 // Footer — the same image twice on one page, once as a full-bleed band and
-// once as a thumbnail. Every image in this template is now used exactly once.
+// once as a thumbnail. Every image in this template is used exactly once.
+//
+// Entry 1 replaced a shot dominated by a large green painting, the one thing
+// on the page unrelated to the ivory, sand and wine palette. Its carved
+// lattice screens also rhyme with the LovingTouch band.
 const VISUALS = [
-  { img: 'https://images.unsplash.com/photo-1709755491926-f7aa83748967?w=900&q=85&fit=crop&auto=format', pos: 'center 40%' },
+  { img: 'https://images.unsplash.com/photo-1605972082877-46c5f53df51d?w=900&q=85&fit=crop&auto=format', pos: 'center' },
   { img: 'https://images.unsplash.com/photo-1611073615848-d6ff6215931f?w=900&q=85&fit=crop&auto=format', pos: '40% 60%' },
   { img: 'https://images.unsplash.com/photo-1775133262667-316bd4d9e5b5?w=900&q=85&fit=crop&auto=format', pos: 'center' },
   { img: 'https://images.unsplash.com/photo-1608571424634-58ae03e6edcf?w=900&q=85&fit=crop&auto=format', pos: 'center 45%' },
