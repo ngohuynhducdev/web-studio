@@ -23,7 +23,7 @@ Each template locks in its own archetype — typography system, color world, sig
 
 | Template | Business | Art direction |
 |---|---|---|
-| `mist-spring-spa` | Premium day spa | Elegant western spa — copper/cream, layered-image intro, menu-style price list, dark booking panel |
+| `mist-spring-spa` | Premium day spa | Elegant bright spa — warm cream and gold, hero carousel, layered-image intro, menu-style price list, dark booking panel |
 | `thai-spa` | Thai massage | Classic symmetric formality — deep red and turmeric gold |
 | `herbal-grove-spa` | Herbal spa | Vietnamese folk craft — handmade paper texture, herbal SVG illustrations |
 
@@ -51,7 +51,7 @@ The three orders behind these are fictional, created by `scripts/seed-demo-sites
 
 ## Architecture highlights
 
-**Content falls back in three tiers.** Every template renders from `site.sections` (a client's customized content) → `template.sections` (the demo content edited in the CMS) → `DEFAULT_SECTIONS` (typed defaults in code, under `src/data/templates/`). The practical consequence: the entire site runs on a **completely empty Sanity dataset** — the CMS only ever overrides.
+**The CMS only ever overrides.** Each page hands its template exactly one array — `template.sections` for a catalog demo, `site.sections` for a client site — and the template falls straight back to `DEFAULT_SECTIONS`, typed defaults in code under `src/data/templates/`. The template→site hop happens once, at write time: choosing a template on an order auto-seeds its sections. Keeping it out of the render path is what makes the rule simple — the entire site runs on a **completely empty Sanity dataset**.
 
 **Section types are semantic contracts, not layouts.** The same `servicesSection` data renders completely differently in each template; identity lives in components and CSS, data is shared. Adding a content type extends one shared library instead of forking schemas per template.
 
