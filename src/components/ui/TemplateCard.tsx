@@ -2,7 +2,12 @@ import Image from "next/image";
 import type { Template } from "@/types";
 import { INDUSTRY_TITLE } from "@/types";
 import { fromEntryPrice } from "@/lib/pricing";
+import { sanityImageUrl } from "@/lib/sanityImage";
 import styles from "./TemplateCard.module.css";
+
+// 4:3 to match .templateCardImage, at ~2× the widest the card ever gets, so
+// the CDN does the cropping and `object-fit: cover` has nothing left to cut.
+const THUMB = { width: 800, height: 600 };
 
 interface TemplateCardProps {
   template: Template;
@@ -17,9 +22,14 @@ export default function TemplateCard({ template, compact = false }: TemplateCard
     description,
     industry,
     thumbnailUrl,
+    thumbnail,
     isFeatured,
     componentKey,
   } = template;
+
+  // A CMS image wins, cropped to the editor's hotspot. The fallback catalog
+  // ships plain URLs, which have no hotspot to honour.
+  const imgSrc = sanityImageUrl(thumbnail, THUMB) ?? thumbnailUrl;
 
   // Internal route, opened in a new tab on purpose: the demo is a fullscreen
   // page with no site chrome, and the visitor is mid-browse in the catalog.
@@ -31,9 +41,9 @@ export default function TemplateCard({ template, compact = false }: TemplateCard
     <article className={styles.templateCard}>
       {/* Image area — opens in new tab */}
       <a href={href} target="_blank" className={styles.templateCardImage} tabIndex={-1} aria-hidden="true">
-        {thumbnailUrl ? (
+        {imgSrc ? (
           <Image
-            src={thumbnailUrl}
+            src={imgSrc}
             alt={`${title} template`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

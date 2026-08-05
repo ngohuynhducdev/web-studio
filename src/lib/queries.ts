@@ -29,6 +29,15 @@ const templateFields = groq`
   description,
   industry,
   "thumbnailUrl": thumbnail.asset->url,
+  // hotspot/crop/dimensions travel alongside the URL so the card can honour
+  // the frame the editor set in the Studio — the raw asset URL carries none
+  // of it. See lib/sanityImage.ts.
+  thumbnail {
+    "url": asset->url,
+    hotspot,
+    crop,
+    "dimensions": asset->metadata.dimensions
+  },
   isFeatured,
   isActive
 `;

@@ -39,6 +39,17 @@ export const INDUSTRY_SANITY_LIST = INDUSTRY_OPTIONS.map((o) => ({
   value: o.value,
 }));
 
+/**
+ * An image field projected with the parts that decide how it may be cropped.
+ * `url` alone loses the hotspot/crop the editor set — see lib/sanityImage.ts.
+ */
+export interface SanityImageRef {
+  url?: string;
+  hotspot?: { x: number; y: number };
+  crop?: { top: number; bottom: number; left: number; right: number };
+  dimensions?: { width: number; height: number };
+}
+
 export interface Template {
   _id: string;
   title: string;
@@ -46,7 +57,10 @@ export interface Template {
   componentKey?: string;
   description: string;
   industry: Industry;
+  /** Plain URL — what the in-code fallback catalog carries. */
   thumbnailUrl: string;
+  /** Present on CMS templates only; preferred over thumbnailUrl when it is. */
+  thumbnail?: SanityImageRef | null;
   isFeatured: boolean;
   isActive: boolean;
   sections?: PageSection[];
