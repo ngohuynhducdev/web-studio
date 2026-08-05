@@ -15,7 +15,10 @@
 }
 .templateCardImage {
   position: relative;
-  aspect-ratio: 4/3;
+  /* 16:9 because the thumbnails are screenshots of the templates, and those
+     arrive 16:9. A 4:3 box centre-cropped a quarter of the width off every
+     one of them — the layout's own edges were the part being thrown away. */
+  aspect-ratio: 16/9;
   background: var(--color-brand-beige);
   overflow: hidden;
 }

@@ -5,9 +5,9 @@ import { fromEntryPrice } from "@/lib/pricing";
 import { sanityImageUrl } from "@/lib/sanityImage";
 import styles from "./TemplateCard.module.css";
 
-// 4:3 to match .templateCardImage, at ~2× the widest the card ever gets, so
+// 16:9 to match .templateCardImage, at ~2× the widest the card ever gets, so
 // the CDN does the cropping and `object-fit: cover` has nothing left to cut.
-const THUMB = { width: 800, height: 600 };
+const THUMB = { width: 800, height: 450 };
 
 interface TemplateCardProps {
   template: Template;
