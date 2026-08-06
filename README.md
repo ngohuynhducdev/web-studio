@@ -16,6 +16,7 @@ This repository is a **portfolio project**: it contains the full marketing site,
 - **Order pipeline** — contact form → rate-limited API → Sanity order document → email notification (Resend) → admin dashboard behind HTTP Basic Auth
 - **Multi-tenant domain routing** — a customer's own domain is mapped through Vercel Edge Config and rewritten to their site in `proxy.ts`
 - **SEO** — dynamic sitemap, robots, JSON-LD, per-page Open Graph images generated at the edge
+- **Analytics that asks first** — GA4 mounts only when `NEXT_PUBLIC_GA_ID` is set, boots with Consent Mode denied and automatic pageviews off, and starts measuring only once the cookie banner is answered
 
 ## Templates
 
@@ -57,7 +58,7 @@ The three orders behind these are fictional, created by `scripts/seed-demo-sites
 
 **The Studio seeds itself.** Custom Sanity inputs (`AutoSeedSectionsInput`, `AutoSeedSiteInput`) auto-fill a template's sections when an editor picks its component, and copy a template's content into a new client order — no manual JSON wrangling.
 
-**One manifest drives everything.** `src/lib/templates.ts` is the single source of truth for the template list; the catalog, the contact form dropdown, static params, sitemap and the Studio dropdown all derive from it. Adding a template is one manifest line plus one registry entry.
+**One manifest names the templates.** `src/lib/templates.ts` is the single source of truth for which templates exist: the contact form dropdown, `generateStaticParams`, the sitemap, the per-template OG card and the Studio's component dropdown all derive from it, and a `satisfies` clause on both the component registry and the defaults map turns a template with no component — or no `DEFAULT_SECTIONS` — into a build error. The public catalog is the one thing that does not read the manifest: it comes from Sanity, falling back to `FALLBACK_TEMPLATES` in `src/data/homepage.ts` so an empty dataset still shows all three with their thumbnails and industry. Adding a template is a manifest line, a component, its defaults, and that catalog entry.
 
 **Client domains without redeploys.** `proxy.ts` looks up incoming hostnames in a Vercel Edge Config map and rewrites to the client's `/preview/[slug]` — new customer domains go live by writing one key through `/api/sync-domain`.
 
@@ -69,9 +70,11 @@ The three orders behind these are fictional, created by `scripts/seed-demo-sites
 | Language | TypeScript |
 | Styling | Tailwind CSS v4 + co-located CSS Modules, no UI library |
 | CMS | Sanity (embedded Studio, `next-sanity`) |
+| Client-side | `motion` (scroll reveals), `swiper` (hero carousel) — the only two runtime UI deps |
 | Email | Resend |
+| Analytics | GA4 behind a consent banner |
 | Infra | Vercel (Edge Config for domain routing) |
-| Testing | Vitest (`tests/`), Playwright |
+| Testing | Vitest (`tests/lib`, `tests/api`), Playwright (`tests/e2e`), both run in GitHub Actions |
 
 ## Getting started
 
@@ -98,6 +101,15 @@ pnpm test:e2e   # Playwright, starts its own server on :3100
 pnpm build
 ```
 
+Optional, and all of these need `SANITY_API_WRITE_TOKEN` except the last:
+
+```bash
+pnpm seed                                    # singleton documents (homepage, about, contact, header, footer)
+pnpm tsx scripts/seed-demo-sites.ts          # dry run — the three fictional orders behind the screenshots
+pnpm tsx scripts/seed-demo-sites.ts --apply  # write them
+pnpm audit:assets                            # read-only: which files in public/ nothing references
+```
+
 ## Project structure
 
 ```
@@ -116,7 +128,11 @@ src/
 ├── data/                  # DEFAULT_* content — single source of truth for fallbacks
 ├── lib/                   # template manifest/registry, GROQ queries, helpers
 ├── sanity/                # client, schemas, custom Studio inputs
+├── hooks/ types/          # useInView, domain + CMS prop types
 └── proxy.ts               # Basic Auth for /admin + customer-domain rewriting
+
+tests/                     # lib/ + api/ under Vitest, e2e/ under Playwright
+scripts/                   # CMS seeding, demo orders, asset audit, dated migrations
 ```
 
 ## Security posture and known limits
