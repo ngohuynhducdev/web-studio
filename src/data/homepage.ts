@@ -1,4 +1,5 @@
 import type { Template, Step, TestimonialItem, PricingFeature, PricingPlan } from "@/types";
+import type { TemplateSlug } from "@/lib/templates";
 
 export type { Step, TestimonialItem, PricingFeature, PricingPlan };
 
@@ -129,41 +130,60 @@ export const DEFAULT_CTA = {
 // an explicit 16:9 (`w`+`h`) to match the card's box. The previous set was two
 // 2:3 portrait files from /public — the box threw away half of each one and
 // cut the massage table and the doorway through the middle.
-export const FALLBACK_TEMPLATES: Template[] = [
-  {
-    _id: "1",
+
+/** What a fallback entry still has to say. The rest is derived from its key. */
+type FallbackEntry = Omit<Template, "_id" | "slug" | "componentKey" | "isActive">;
+
+// Keyed by slug and pinned to TEMPLATE_MANIFEST, so a template added to the
+// manifest without an entry here fails the build — the same guard the component
+// registry and DEFAULT_SECTIONS_MAP already carry.
+//
+// This is the one part of the catalog the manifest does NOT drive on its own:
+// /templates and the homepage grid read Sanity and fall back to this list, so a
+// missing entry used to be invisible rather than loud — the template stayed
+// browsable at /templates/:slug while never appearing in the catalog on an
+// empty dataset.
+//
+// Key order is the catalog's display order (featured first), which is why this
+// stays an object literal read in insertion order rather than being sorted or
+// rebuilt from the manifest, whose order is the order templates were written.
+const FALLBACK_CATALOG = {
+  "mist-spring-spa": {
     title: "Mist Spring Spa",
-    slug: "mist-spring-spa",
-    componentKey: "mist-spring-spa",
     description: "Upscale spa & wellness — hero carousel, menu-style pricing, and a dark booking panel with Zalo at the center.",
     industry: "spa",
     // The template's own hero slide 1.
     thumbnailUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&h=675&fit=crop&crop=entropy&auto=format&q=85",
     isFeatured: true,
-    isActive: true,
   },
-  {
-    _id: "2",
+  "thai-spa": {
     title: "Thai Spa",
-    slug: "thai-spa",
-    componentKey: "thai-spa",
     description: "Classic Thai massage spa with formal symmetry — deep red and turmeric gold, treatment price list, offers via Zalo.",
     industry: "spa",
     // The photo from its signature LovingTouch band.
     thumbnailUrl: "https://images.unsplash.com/photo-1570174006382-148305ce4972?w=1200&h=675&fit=crop&crop=entropy&auto=format&q=85",
     isFeatured: false,
-    isActive: true,
   },
-  {
-    _id: "3",
+  "herbal-grove-spa": {
     title: "Herbal Grove Spa",
-    slug: "herbal-grove-spa",
-    componentKey: "herbal-grove-spa",
     description: "Vietnamese folk herbal spa — handmade paper texture, herbal leaf illustrations, and remedy storytelling.",
     industry: "spa",
     // Herbal tea on wood, from its own services/gallery set.
     thumbnailUrl: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=1200&h=675&fit=crop&crop=entropy&auto=format&q=85",
     isFeatured: false,
-    isActive: true,
   },
-];
+} satisfies Record<TemplateSlug, FallbackEntry>;
+
+// The slug is the identity: it is the URL, the componentKey the registry looks
+// up, and a stabler React key than the "1" / "2" / "3" this list used to carry.
+// `isActive` is not a knob here — an inactive entry in the in-code catalog would
+// only be a template we should have deleted.
+export const FALLBACK_TEMPLATES: Template[] = Object.entries(FALLBACK_CATALOG).map(
+  ([slug, entry]) => ({
+    ...entry,
+    _id: slug,
+    slug,
+    componentKey: slug,
+    isActive: true,
+  })
+);
