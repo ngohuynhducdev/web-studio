@@ -42,7 +42,8 @@ alongside, as `2026-08-03-spa-only-copy.ts` does.
 - TypeScript
 - Tailwind CSS v4
 - next-sanity (Sanity CMS)
-- swiper (carousel), resend (order email)
+- swiper (carousel), motion (scroll reveals), resend (order email)
+- GA4 behind a consent banner (only when `NEXT_PUBLIC_GA_ID` is set)
 - Icons: custom SVG defined in each `icons.tsx` (no icon library)
 - Images: `next/image` + full URL (remotePatterns: cdn.sanity.io, images.unsplash.com)
 - pnpm (package manager)
@@ -80,7 +81,10 @@ Template-specific (loaded in each template component):
 
 ```
 app/
-├── layout.tsx              — Root: fonts, globals.css, metadata + OG defaults
+├── layout.tsx              — Root: fonts, globals.css, metadata + OG defaults, JSON-LD,
+│                             MotionProvider + the <noscript> rule that un-hides reveals,
+│                             StagingBanner, and GoogleAnalytics + CookieBanner (only when
+│                             NEXT_PUBLIC_GA_ID is set)
 ├── not-found.tsx           — Custom 404 (+ .module.css)
 ├── global-error.tsx        — Final error boundary, replaces the entire root layout (+ .module.css, self-contained style)
 ├── opengraph-image.tsx     — Default branded OG image (1200×630)
@@ -122,6 +126,8 @@ proxy.ts                    — (Next 16 convention, formerly middleware.ts) Bas
 
 ```
 components/
+├── GoogleAnalytics.tsx     — GA4 + Consent Mode: boots denied, `send_page_view: false`,
+│                             sends its own page_view per route. Exports ANALYTICS_CONSENT_KEY
 ├── layout/
 │   ├── Navbar.tsx + Navbar.module.css
 │   ├── Footer.tsx + Footer.module.css
@@ -153,6 +159,14 @@ components/
     ├── TemplateCard.tsx + TemplateCard.module.css
     ├── BackToTop.tsx
     ├── ZaloBubble.tsx
+    ├── CookieBanner.tsx + CookieBanner.module.css — writes the analytics consent answer,
+    │                          then flips gtag consent. Only mounted when GA is configured
+    ├── StagingBanner.tsx    — badge on every non-production deploy, renders null in prod
+    └── motion/              — scroll reveals (the `motion` package)
+        ├── MotionProvider.tsx — LazyMotion + reduced-motion context, wraps the whole tree
+        ├── Reveal.tsx         — Reveal (default) + RevealStagger / RevealItem for lists
+        └── revealClass.ts     — REVEAL_CLASS marker; the layout's <noscript> rule targets it
+                                 so a no-JS page is not left blank at opacity 0
 ```
 
 **Template architecture note:** all 3 templates are CMS-driven — they read content
@@ -195,10 +209,17 @@ lib/
 ├── adminAuth.ts          — Basic Auth helpers (constant-time, used in proxy + API route)
 ├── email.ts              — sends order email via Resend
 ├── env.ts                — IS_PRODUCTION / DEPLOY_ENV (based on VERCEL_ENV)
+├── phone.ts              — isValidPhone — ONE rule shared by ContactForm + /api/create-order
+├── pricing.ts            — entry-plan price derived from DEFAULT_PRICING_PLANS. A template has
+│                           no price of its own — what a client buys is a monthly plan
+├── numberWord.ts         — spells single-digit counts ("three templates", not "3 templates")
 └── og.tsx                — OG image render helper
 
 data/                     — Single source of truth for default/fallback content
-├── homepage.ts
+├── homepage.ts           — also FALLBACK_TEMPLATES: what the catalog (homepage grid +
+│                           /templates) shows when Sanity returns nothing. The catalog is the
+│                           one place that does NOT read TEMPLATE_MANIFEST — a new template
+│                           needs an entry here too, or it is invisible on an empty dataset
 ├── layout.ts             — DEFAULT_NAV, DEFAULT_HEADER, DEFAULT_FOOTER
 ├── contact.ts
 ├── about.ts
@@ -232,8 +253,29 @@ sanity/
     └── siteFooter.ts
 
 types/
-├── index.ts              — domain types + PageSection union
+├── index.ts              — domain types + PageSection union + INDUSTRY_OPTIONS
+│                           (industry names are derived from it, never restated)
 └── cms.ts                — CMS prop types for page/section components
+
+hooks/
+└── useInView.ts          — IntersectionObserver hook used by template scroll animations
+```
+
+Outside `src/` (repo root):
+
+```
+tests/                    — lib/ + api/ under Vitest (`pnpm test`),
+                            e2e/ under Playwright (`pnpm test:e2e`, own server on :3100)
+scripts/
+├── seed-cms.ts           — `pnpm seed` — singleton documents, idempotent
+├── seed-demo-sites.ts    — the 3 fictional orders behind /admin/orders + /preview/sen-vang-spa
+│                           (dry run by default, `--apply` to write)
+├── audit-assets.ts       — `pnpm audit:assets` — read-only: unreferenced files in public/
+├── compress-images.mjs / test-email.mjs
+└── migrations/           — dated one-off CMS migrations (see the copy rule in Overview)
+
+.github/workflows/ci.yml  — lint + typecheck + unit tests, and e2e in a second job.
+                            `next build` deliberately NOT run (Vercel builds every push)
 ```
 
 ## Design System (`globals.css`)
@@ -301,7 +343,18 @@ export const TEMPLATE_MANIFEST = [
 The template dropdown in `ContactForm.tsx` derives from the manifest (label + tagline) — adding a new template does NOT require editing the form.
 
 `templateRegistry.ts` maps `componentKey → React component` and `componentKey → DEFAULT_SECTIONS`.
-Adding a new template: add it to `TEMPLATE_MANIFEST` → add it to the registry.
+
+Adding a new template takes four edits — the first three fail the build if missed
+(`satisfies Record<TemplateSlug, ...>`), the fourth fails silently:
+1. `TEMPLATE_MANIFEST` in `lib/templates.ts`
+2. `TEMPLATE_COMPONENTS` in `lib/templateRegistry.ts`
+3. `data/templates/<slug>.ts` + its entry in `DEFAULT_SECTIONS_MAP`
+4. `FALLBACK_TEMPLATES` in `data/homepage.ts` — the catalog reads Sanity, not the
+   manifest, so without this the template is missing from `/templates` and the
+   homepage grid on an empty dataset
+
+(A new *industry* on top of that is a bigger job — see "Adding a template for a new
+industry" in Overview.)
 
 Credentials: `.env.local` (see `.env.example` for the full list of env vars — Sanity, Resend, GA4, `ADMIN_PASSWORD` for admin, and Edge Config for domain routing)
 
