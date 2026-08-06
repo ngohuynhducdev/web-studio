@@ -216,10 +216,11 @@ lib/
 └── og.tsx                — OG image render helper
 
 data/                     — Single source of truth for default/fallback content
-├── homepage.ts           — also FALLBACK_TEMPLATES: what the catalog (homepage grid +
-│                           /templates) shows when Sanity returns nothing. The catalog is the
-│                           one place that does NOT read TEMPLATE_MANIFEST — a new template
-│                           needs an entry here too, or it is invisible on an empty dataset
+├── homepage.ts           — also FALLBACK_CATALOG → FALLBACK_TEMPLATES: what the catalog
+│                           (homepage grid + /templates) shows when Sanity returns nothing.
+│                           The catalog is the one place that does NOT read TEMPLATE_MANIFEST,
+│                           so the record is pinned to it by `satisfies` — a template with no
+│                           entry here fails the build. Key order = display order
 ├── layout.ts             — DEFAULT_NAV, DEFAULT_HEADER, DEFAULT_FOOTER
 ├── contact.ts
 ├── about.ts
@@ -344,12 +345,13 @@ The template dropdown in `ContactForm.tsx` derives from the manifest (label + ta
 
 `templateRegistry.ts` maps `componentKey → React component` and `componentKey → DEFAULT_SECTIONS`.
 
-Adding a new template takes four edits — the first three fail the build if missed
-(`satisfies Record<TemplateSlug, ...>`), the fourth fails silently:
+Adding a new template takes four edits. Only the first is yours to remember — each
+of the other three is pinned by `satisfies Record<TemplateSlug, ...>`, so adding the
+manifest line and fixing the compile errors it raises is the whole procedure:
 1. `TEMPLATE_MANIFEST` in `lib/templates.ts`
 2. `TEMPLATE_COMPONENTS` in `lib/templateRegistry.ts`
 3. `data/templates/<slug>.ts` + its entry in `DEFAULT_SECTIONS_MAP`
-4. `FALLBACK_TEMPLATES` in `data/homepage.ts` — the catalog reads Sanity, not the
+4. `FALLBACK_CATALOG` in `data/homepage.ts` — the catalog reads Sanity, not the
    manifest, so without this the template is missing from `/templates` and the
    homepage grid on an empty dataset
 
